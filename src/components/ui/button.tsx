@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Cosmic variants for AstroSage store
-        cosmic: "bg-gradient-primary text-primary-foreground shadow-cosmic hover:shadow-glow transition-all duration-500 hover:scale-105",
-        mystical: "bg-gradient-mystical text-foreground border border-primary/30 hover:border-primary/60 shadow-mystical hover:shadow-glow transition-all duration-500",
-        celestial: "bg-card/20 text-foreground border border-accent/40 hover:bg-accent/20 hover:border-accent/80 backdrop-blur-sm transition-all duration-500 hover:shadow-glow",
-        hero: "bg-gradient-primary text-primary-foreground shadow-cosmic hover:shadow-glow px-8 py-6 text-lg font-semibold rounded-lg hover:scale-105 transition-all duration-500",
+        // Ecommerce-optimized variants
+        primary: "bg-gradient-primary text-primary-foreground shadow-primary hover:shadow-lg hover:scale-105 transition-all duration-300",
+        shop: "bg-card text-foreground border border-border hover:bg-secondary hover:border-primary/50 shadow-card hover:shadow-primary transition-all duration-300",
+        cta: "bg-primary text-primary-foreground px-8 py-3 text-base font-semibold shadow-primary hover:shadow-lg hover:scale-105 transition-all duration-300",
+        premium: "bg-gradient-premium text-foreground border border-accent/30 hover:border-accent/60 shadow-soft hover:shadow-card transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

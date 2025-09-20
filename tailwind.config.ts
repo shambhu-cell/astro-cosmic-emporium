@@ -64,15 +64,15 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        'gradient-cosmic': 'var(--gradient-cosmic)',
+        'gradient-hero': 'var(--gradient-hero)',
         'gradient-primary': 'var(--gradient-primary)',
-        'gradient-mystical': 'var(--gradient-mystical)',
-        'gradient-celestial': 'var(--gradient-celestial)',
+        'gradient-card': 'var(--gradient-card)',
+        'gradient-premium': 'var(--gradient-premium)',
       },
       boxShadow: {
-        'cosmic': 'var(--shadow-cosmic)',
-        'mystical': 'var(--shadow-mystical)',
-        'glow': 'var(--shadow-glow)',
+        'soft': 'var(--shadow-soft)',
+        'card': 'var(--shadow-card)',
+        'primary': 'var(--shadow-primary)',
       },
       keyframes: {
         "accordion-down": {
@@ -83,25 +83,25 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "cosmic-pulse": {
-          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
-          '50%': { opacity: '0.8', transform: 'scale(1.1)' },
+        "gentle-bounce": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
         },
-        "mystical-float": {
-          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-          '50%': { transform: 'translateY(-10px) rotate(2deg)' },
+        "soft-pulse": {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
         },
-        "celestial-glow": {
-          '0%, 100%': { boxShadow: 'var(--shadow-glow)' },
-          '50%': { boxShadow: '0 0 50px hsl(var(--accent) / 0.7)' },
+        "smooth-slide": {
+          '0%': { transform: 'translateX(-10px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "cosmic-pulse": "cosmic-pulse 4s ease-in-out infinite",
-        "mystical-float": "mystical-float 6s ease-in-out infinite",
-        "celestial-glow": "celestial-glow 3s ease-in-out infinite",
+        "gentle-bounce": "gentle-bounce 2s ease-in-out infinite",
+        "soft-pulse": "soft-pulse 3s ease-in-out infinite",
+        "smooth-slide": "smooth-slide 0.4s ease-out",
       },
     },
   },

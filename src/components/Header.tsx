@@ -1,44 +1,68 @@
-import { ShoppingCart, Search, User, Star } from "lucide-react";
+import { ShoppingCart, Search, User, Star, Menu, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import astrosageLogo from "@/assets/astrosage-logo.webp";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/95 shadow-soft">
+      <div className="container flex h-16 max-w-screen-2xl items-center justify-between px-4">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <div className="flex items-center space-x-2">
-            <Star className="h-8 w-8 text-primary animate-cosmic-pulse" />
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                AstroSage Store
-              </h1>
-              <p className="text-xs text-muted-foreground">Celestial Marketplace</p>
-            </div>
+        <div className="flex items-center space-x-3">
+          <img 
+            src={astrosageLogo} 
+            alt="AstroSage Logo" 
+            className="h-10 w-auto"
+          />
+          <div className="hidden sm:block">
+            <h1 className="text-xl font-bold text-primary">
+              AstroSage Store
+            </h1>
+            <p className="text-xs text-muted-foreground">Trusted Since 2001</p>
           </div>
         </div>
 
+        {/* Navigation - Hidden on mobile */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            Consultations
+          </a>
+          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            Gemstones
+          </a>
+          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            Reports
+          </a>
+          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            Yantras
+          </a>
+        </nav>
+
         {/* Search */}
-        <div className="flex-1 max-w-md mx-8">
+        <div className="flex-1 max-w-md mx-4 md:mx-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search cosmic treasures..."
-              className="pl-10 bg-muted/50 border-border/50 focus:border-primary/50"
+              placeholder="Search products..."
+              className="pl-10 bg-secondary/50 border-border focus:border-primary/50 focus:bg-background"
             />
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-            <User className="h-4 w-4" />
-            <span className="hidden sm:inline">Account</span>
+        <div className="flex items-center space-x-2">
+          <Button variant="ghost" size="sm" className="hidden sm:flex">
+            <Heart className="h-4 w-4" />
+            <span className="hidden lg:inline">Wishlist</span>
           </Button>
           
-          <Button variant="ghost" size="sm" className="relative">
+          <Button variant="ghost" size="sm">
+            <User className="h-4 w-4" />
+            <span className="hidden lg:inline">Account</span>
+          </Button>
+          
+          <Button variant="shop" size="sm" className="relative">
             <ShoppingCart className="h-4 w-4" />
             <Badge 
               variant="secondary" 
@@ -46,7 +70,12 @@ const Header = () => {
             >
               3
             </Badge>
-            <span className="hidden sm:inline ml-2">Cart</span>
+            <span className="hidden lg:inline ml-2">Cart</span>
+          </Button>
+
+          {/* Mobile menu */}
+          <Button variant="ghost" size="sm" className="md:hidden">
+            <Menu className="h-4 w-4" />
           </Button>
         </div>
       </div>

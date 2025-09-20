@@ -2,69 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AstroSage Ecommerce Design System - Celestial & Spiritual Theme */
+/* AstroSage Ecommerce Design System - Bright & Conversion-Friendly */
 
 @layer base {
   :root {
-    /* Base colors - Celestial dark theme with warm accents */
-    --background: 240 10% 3.9%;
-    --foreground: 45 100% 96%;
+    /* Base colors - Clean white background for trust & conversions */
+    --background: 0 0% 100%;
+    --foreground: 222 15% 15%;
 
-    /* Card colors - Deep cosmic background */
-    --card: 240 10% 7%;
-    --card-foreground: 45 100% 96%;
+    /* Card colors - Clean white with soft shadows */
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 15%;
 
-    --popover: 240 10% 7%;
-    --popover-foreground: 45 100% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 15%;
 
-    /* Primary - Rich saffron/orange (AstroSage brand) */
+    /* Primary - AstroSage orange (kept as brand accent) */
     --primary: 25 95% 55%;
-    --primary-foreground: 240 10% 3.9%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Deep cosmic purple */
-    --secondary: 250 50% 15%;
-    --secondary-foreground: 45 100% 96%;
+    /* Secondary - Soft warm background */
+    --secondary: 25 20% 96%;
+    --secondary-foreground: 222 15% 15%;
 
-    /* Muted - Subtle cosmic tones */
-    --muted: 240 10% 12%;
-    --muted-foreground: 45 20% 70%;
+    /* Muted - Light neutral backgrounds */
+    --muted: 25 10% 95%;
+    --muted-foreground: 222 15% 45%;
 
-    /* Accent - Golden mystical accent */
-    --accent: 45 93% 65%;
-    --accent-foreground: 240 10% 3.9%;
+    /* Accent - Golden highlights for trust & premium feel */
+    --accent: 45 90% 65%;
+    --accent-foreground: 222 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 100% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 15%;
-    --input: 240 10% 12%;
+    --border: 25 15% 90%;
+    --input: 25 15% 92%;
     --ring: 25 95% 55%;
 
     --radius: 0.5rem;
     
-    /* Spiritual gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--background)), hsl(250 50% 8%));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(45 93% 65%));
-    --gradient-mystical: linear-gradient(120deg, hsl(250 50% 15%), hsl(280 50% 20%));
-    --gradient-celestial: radial-gradient(circle at 30% 20%, hsl(var(--primary) / 0.3), transparent 60%),
-                         radial-gradient(circle at 70% 80%, hsl(var(--accent) / 0.2), transparent 60%);
+    /* Premium ecommerce gradients - soft and trustworthy */
+    --gradient-hero: linear-gradient(135deg, hsl(25 50% 98%), hsl(25 30% 95%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(25 85% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(25 20% 98%));
+    --gradient-premium: linear-gradient(120deg, hsl(45 90% 95%), hsl(25 30% 92%));
     
-    /* Mystical shadows */
-    --shadow-cosmic: 0 20px 60px -10px hsl(var(--primary) / 0.4);
-    --shadow-mystical: 0 10px 40px -5px hsl(250 50% 15% / 0.6);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.5);
+    /* Professional shadows for conversion */
+    --shadow-soft: 0 4px 20px -4px hsl(25 50% 80% / 0.25);
+    --shadow-card: 0 8px 30px -8px hsl(25 30% 70% / 0.15);
+    --shadow-primary: 0 8px 25px -5px hsl(var(--primary) / 0.3);
     
-    /* Animations */
-    --transition-mystical: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-celestial: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Smooth transitions for professional feel */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.2s ease-out;
 
-    --sidebar-background: 240 10% 5%;
-    --sidebar-foreground: 45 100% 96%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 15% 15%;
     --sidebar-primary: 25 95% 55%;
-    --sidebar-primary-foreground: 240 10% 3.9%;
-    --sidebar-accent: 240 10% 12%;
-    --sidebar-accent-foreground: 45 100% 96%;
-    --sidebar-border: 240 10% 15%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 10% 95%;
+    --sidebar-accent-foreground: 222 15% 15%;
+    --sidebar-border: 25 15% 90%;
     --sidebar-ring: 25 95% 55%;
   }
 }
@@ -76,35 +75,35 @@
 
   body {
     @apply bg-background text-foreground;
-    background: var(--gradient-cosmic);
+    background: hsl(var(--background));
     min-height: 100vh;
   }
 
-  /* Celestial animations */
-  @keyframes cosmic-pulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+  /* Professional ecommerce animations */
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
   }
 
-  @keyframes mystical-float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
 
-  @keyframes celestial-glow {
-    0%, 100% { box-shadow: var(--shadow-glow); }
-    50% { box-shadow: 0 0 50px hsl(var(--accent) / 0.7); }
+  @keyframes smooth-slide {
+    0% { transform: translateX(-10px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
   }
 
-  .cosmic-pulse {
-    animation: cosmic-pulse 4s ease-in-out infinite;
+  .gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
   }
 
-  .mystical-float {
-    animation: mystical-float 6s ease-in-out infinite;
+  .soft-pulse {
+    animation: soft-pulse 3s ease-in-out infinite;
   }
 
-  .celestial-glow {
-    animation: celestial-glow 3s ease-in-out infinite;
+  .smooth-slide {
+    animation: smooth-slide 0.4s ease-out;
   }
 }

@@ -46,15 +46,15 @@ const categories = [
 
 const CategorySection = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="py-16 px-4 bg-gradient-premium">
       <div className="container max-w-screen-xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-            Explore Our Mystical Collections
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Featured Collections
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover ancient wisdom through our carefully curated spiritual treasures and expert guidance
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Discover our most popular categories trusted by millions of customers
           </p>
         </div>
 
@@ -65,7 +65,7 @@ const CategorySection = () => {
             return (
               <Card
                 key={category.id}
-                className="group relative overflow-hidden border-border/50 bg-card/30 backdrop-blur-sm hover:shadow-mystical transition-all duration-500 hover:scale-105 cursor-pointer"
+                className="group relative overflow-hidden bg-white border border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
@@ -74,14 +74,14 @@ const CategorySection = () => {
                     alt={category.title}
                     className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-mystical/60" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                 </div>
 
                 <CardContent className="relative z-10 p-6 h-full flex flex-col">
                   {/* Icon */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300">
-                      <IconComponent className="h-6 w-6 text-primary group-hover:animate-pulse" />
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <IconComponent className="h-6 w-6 text-primary group-hover:animate-gentle-bounce" />
                     </div>
                   </div>
 
@@ -104,8 +104,8 @@ const CategorySection = () => {
                 </CardContent>
 
                 {/* Hover Glow Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-celestial" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
                 </div>
               </Card>
             );
@@ -113,8 +113,8 @@ const CategorySection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <Button variant="mystical" size="lg" className="px-8">
+        <div className="text-center mt-10">
+          <Button variant="premium" size="lg" className="px-8">
             View All Categories
             <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
