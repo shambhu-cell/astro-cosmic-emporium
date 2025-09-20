@@ -63,27 +63,45 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        'gradient-cosmic': 'var(--gradient-cosmic)',
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-mystical': 'var(--gradient-mystical)',
+        'gradient-celestial': 'var(--gradient-celestial)',
+      },
+      boxShadow: {
+        'cosmic': 'var(--shadow-cosmic)',
+        'mystical': 'var(--shadow-mystical)',
+        'glow': 'var(--shadow-glow)',
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "cosmic-pulse": {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.1)' },
+        },
+        "mystical-float": {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(2deg)' },
+        },
+        "celestial-glow": {
+          '0%, 100%': { boxShadow: 'var(--shadow-glow)' },
+          '50%': { boxShadow: '0 0 50px hsl(var(--accent) / 0.7)' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "cosmic-pulse": "cosmic-pulse 4s ease-in-out infinite",
+        "mystical-float": "mystical-float 6s ease-in-out infinite",
+        "celestial-glow": "celestial-glow 3s ease-in-out infinite",
       },
     },
   },
