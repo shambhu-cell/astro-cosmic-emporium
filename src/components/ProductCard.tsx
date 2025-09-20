@@ -2,6 +2,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   id: string;
@@ -17,6 +18,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({
+  id,
   name,
   price,
   originalPrice,
@@ -28,7 +30,8 @@ const ProductCard = ({
   isPopular = false,
 }: ProductCardProps) => {
   return (
-    <Card className="group relative overflow-hidden bg-white border border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02]">
+    <Link to={`/product/${id}`}>
+      <Card className="group relative overflow-hidden bg-white border border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02]">
       {/* Badges */}
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
         {isFeatured && (
@@ -49,6 +52,11 @@ const ProductCard = ({
           variant="ghost"
           size="icon"
           className="h-8 w-8 bg-white/90 hover:bg-white hover:text-primary shadow-soft"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Wishlist logic here
+          }}
         >
           <Heart className="h-4 w-4" />
         </Button>
@@ -56,6 +64,11 @@ const ProductCard = ({
           variant="ghost"
           size="icon"
           className="h-8 w-8 bg-white/90 hover:bg-white hover:text-primary shadow-soft"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Quick view logic here
+          }}
         >
           <Eye className="h-4 w-4" />
         </Button>
@@ -123,12 +136,18 @@ const ProductCard = ({
         <Button 
           variant="primary" 
           className="w-full"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Add to cart logic here
+          }}
         >
           <ShoppingCart className="h-4 w-4" />
           Add to Cart
         </Button>
       </CardFooter>
     </Card>
+    </Link>
   );
 };
 
