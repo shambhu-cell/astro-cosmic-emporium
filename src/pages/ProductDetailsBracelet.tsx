@@ -13,44 +13,49 @@ const ProductDetailsBracelet = () => {
 
   const product = {
     id: id || "1",
-    name: "7 Chakra Crystal Healing Bracelet",
-    price: 1299,
-    originalPrice: 2999,
+    name: "Natural Amethyst Crystal Bracelet",
+    price: 1499,
+    originalPrice: 3499,
     discount: 57,
-    rating: 4.8,
-    reviews: 12890,
-    sold: "25,000+",
+    rating: 4.9,
+    reviews: 18452,
+    sold: "32,000+",
     inStock: true,
     deliveryDate: "October 18",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     sizes: ["S (6.5in)", "M (7in)", "L (7.5in)", "XL (8in)"],
-    material: "Natural Gemstone Beads",
+    material: "AAA Grade Natural Amethyst",
     beadSize: "8mm Round Beads",
     benefits: [
-      { icon: Sparkles, title: "Energy Balance", desc: "Aligns all 7 chakras for harmony" },
-      { icon: Zap, title: "Stress Relief", desc: "Calms mind and reduces anxiety" },
-      { icon: Shield, title: "Protection", desc: "Shields from negative vibrations" },
-      { icon: Star, title: "Healing Power", desc: "Promotes physical & emotional wellness" },
+      { icon: Sparkles, title: "Spiritual Growth", desc: "Enhances intuition & third eye" },
+      { icon: Zap, title: "Stress Relief", desc: "Calms mind and promotes peace" },
+      { icon: Shield, title: "Protection", desc: "Shields from negative energy" },
+      { icon: Star, title: "Better Sleep", desc: "Reduces insomnia & nightmares" },
     ],
     keyPoints: [
-      "Natural crystals: Amethyst, Lapis, Aquamarine & more",
-      "Handcrafted with elastic cord",
-      "Activates & balances energy centers",
-      "Perfect for meditation & daily wear"
+      "AAA Grade natural amethyst crystals",
+      "Activates Crown & Third Eye Chakras",
+      "Powerful for meditation & spiritual work",
+      "Reduces stress, anxiety & promotes clarity"
     ],
-    chakras: [
-      { name: "Crown", stone: "Amethyst", color: "Purple" },
-      { name: "Third Eye", stone: "Lapis Lazuli", color: "Indigo" },
-      { name: "Throat", stone: "Aquamarine", color: "Blue" },
-      { name: "Heart", stone: "Green Aventurine", color: "Green" },
-      { name: "Solar Plexus", stone: "Citrine", color: "Yellow" },
-      { name: "Sacral", stone: "Carnelian", color: "Orange" },
-      { name: "Root", stone: "Red Jasper", color: "Red" },
+    properties: [
+      { name: "Chakra", value: "Crown & Third Eye", color: "Purple" },
+      { name: "Element", value: "Air & Water", color: "Blue" },
+      { name: "Planet", value: "Jupiter & Neptune", color: "Indigo" },
+      { name: "Zodiac", value: "Pisces, Aquarius", color: "Purple" },
+    ],
+    healingProperties: [
+      "Calms the mind and reduces stress",
+      "Enhances spiritual awareness & intuition",
+      "Promotes restful sleep & vivid dreams",
+      "Protects against psychic attacks",
+      "Aids in overcoming addictions",
+      "Balances emotional highs and lows"
     ],
     upsells: [
-      { name: "Chakra Cleansing Kit", desc: "Sage & cleansing guide", price: 599 },
-      { name: "Meditation Guide", desc: "Chakra activation ebook", price: 299 },
-      { name: "Crystal Pouch", desc: "Premium storage bag", price: 399 },
+      { name: "Amethyst Geode", desc: "Natural crystal cluster", price: 2499 },
+      { name: "Crystal Cleansing Kit", desc: "Sage & selenite plate", price: 599 },
+      { name: "Meditation Guide", desc: "Amethyst activation ebook", price: 299 },
     ]
   };
 
@@ -143,7 +148,7 @@ const ProductDetailsBracelet = () => {
             {/* Key Benefits Card */}
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
               <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-lg mb-3">Balance Your Energy, Transform Your Life</h3>
+                <h3 className="font-bold text-lg mb-3">The Power of Amethyst at Your Wrist</h3>
                 {product.keyPoints.map((point, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-accent shrink-0" />
@@ -219,19 +224,39 @@ const ProductDetailsBracelet = () => {
           </div>
         </div>
 
-        {/* Chakra Stones Grid */}
+        {/* Properties Grid */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-4">7 Powerful Chakra Stones</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Crystal Properties</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Each stone is carefully selected to activate and balance its corresponding energy center
+            Amethyst's powerful metaphysical attributes
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {product.chakras.map((chakra, idx) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {product.properties.map((prop, idx) => (
               <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: prop.color.toLowerCase() }}></div>
+                  <h3 className="font-bold text-sm mb-1">{prop.name}</h3>
+                  <p className="text-xs text-muted-foreground">{prop.value}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Healing Properties */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-center mb-4">Healing Properties</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Experience the transformative power of natural amethyst
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {product.healingProperties.map((property, idx) => (
+              <Card key={idx} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-4">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: chakra.color.toLowerCase() }}></div>
-                  <h3 className="font-bold text-sm mb-1">{chakra.name}</h3>
-                  <p className="text-xs text-muted-foreground">{chakra.stone}</p>
+                  <div className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                    <p className="text-sm">{property}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
