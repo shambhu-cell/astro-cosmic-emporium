@@ -25,17 +25,20 @@ const Header = () => {
 
         {/* Navigation - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-            Consultations
+          <a href="/" className="text-sm font-medium hover:text-primary transition-colors">
+            Home
           </a>
           <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
             Gemstones
           </a>
           <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-            Reports
+            Rudraksha
           </a>
           <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-            Yantras
+            Bracelets
+          </a>
+          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            Mala
           </a>
         </nav>
 
