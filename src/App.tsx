@@ -10,6 +10,10 @@ import ProductDetailsGemstone from "./pages/ProductDetailsGemstone";
 import ProductDetailsBracelet from "./pages/ProductDetailsBracelet";
 import ProductDetailsRudraksha from "./pages/ProductDetailsRudraksha";
 import ProductDetailsYantra from "./pages/ProductDetailsYantra";
+import Gemstones from "./pages/Gemstones";
+import Rudraksha from "./pages/Rudraksha";
+import Bracelets from "./pages/Bracelets";
+import Mala from "./pages/Mala";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -25,6 +29,10 @@ const App = () => (
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/gemstones" element={<Gemstones />} />
+          <Route path="/rudraksha" element={<Rudraksha />} />
+          <Route path="/bracelets" element={<Bracelets />} />
+          <Route path="/mala" element={<Mala />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/gemstone/:id" element={<ProductDetailsGemstone />} />
           <Route path="/bracelet/:id" element={<ProductDetailsBracelet />} />

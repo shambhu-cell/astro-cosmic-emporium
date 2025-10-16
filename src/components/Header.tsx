@@ -28,16 +28,16 @@ const Header = () => {
           <a href="/" className="text-sm font-medium hover:text-primary transition-colors">
             Home
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+          <a href="/gemstones" className="text-sm font-medium hover:text-primary transition-colors">
             Gemstones
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+          <a href="/rudraksha" className="text-sm font-medium hover:text-primary transition-colors">
             Rudraksha
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+          <a href="/bracelets" className="text-sm font-medium hover:text-primary transition-colors">
             Bracelets
           </a>
-          <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+          <a href="/mala" className="text-sm font-medium hover:text-primary transition-colors">
             Mala
           </a>
         </nav>
