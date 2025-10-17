@@ -40,6 +40,9 @@ const Header = () => {
           <a href="/mala" className="text-sm font-medium hover:text-primary transition-colors">
             Mala
           </a>
+          <a href="/yantra" className="text-sm font-medium hover:text-primary transition-colors">
+            Yantra
+          </a>
         </nav>
 
         {/* Search */}

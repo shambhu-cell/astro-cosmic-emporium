@@ -14,6 +14,11 @@ import Gemstones from "./pages/Gemstones";
 import Rudraksha from "./pages/Rudraksha";
 import Bracelets from "./pages/Bracelets";
 import Mala from "./pages/Mala";
+import Yantra from "./pages/Yantra";
+import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import RefundPolicy from "./pages/RefundPolicy";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -33,6 +38,11 @@ const App = () => (
           <Route path="/rudraksha" element={<Rudraksha />} />
           <Route path="/bracelets" element={<Bracelets />} />
           <Route path="/mala" element={<Mala />} />
+          <Route path="/yantra" element={<Yantra />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/gemstone/:id" element={<ProductDetailsGemstone />} />
           <Route path="/bracelet/:id" element={<ProductDetailsBracelet />} />

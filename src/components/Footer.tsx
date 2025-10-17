@@ -75,13 +75,12 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Gemstones</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Consultations</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Reports</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Yantras</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Rudraksha</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Puja Services</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Live Astrologers</a></li>
+                <li><a href="/gemstones" className="text-background/80 hover:text-primary transition-colors">Gemstones</a></li>
+                <li><a href="/rudraksha" className="text-background/80 hover:text-primary transition-colors">Rudraksha</a></li>
+                <li><a href="/bracelets" className="text-background/80 hover:text-primary transition-colors">Bracelets</a></li>
+                <li><a href="/mala" className="text-background/80 hover:text-primary transition-colors">Mala</a></li>
+                <li><a href="/yantra" className="text-background/80 hover:text-primary transition-colors">Yantras</a></li>
+                <li><a href="/" className="text-background/80 hover:text-primary transition-colors">Home</a></li>
               </ul>
             </div>
 
@@ -89,13 +88,10 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-6">Customer Service</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Contact Us</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Track Order</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Shipping Info</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Returns & Exchanges</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Size Guide</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">Care Instructions</a></li>
-                <li><a href="#" className="text-background/80 hover:text-primary transition-colors">FAQ</a></li>
+                <li><a href="/contact" className="text-background/80 hover:text-primary transition-colors">Contact Us</a></li>
+                <li><a href="/refund-policy" className="text-background/80 hover:text-primary transition-colors">Returns & Refunds</a></li>
+                <li><a href="/terms-of-service" className="text-background/80 hover:text-primary transition-colors">Terms of Service</a></li>
+                <li><a href="/privacy-policy" className="text-background/80 hover:text-primary transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
 
@@ -106,22 +102,22 @@ const Footer = () => {
                 <div className="flex items-start space-x-3">
                   <Phone className="h-5 w-5 text-primary mt-0.5" />
                   <div>
-                    <p className="text-background/80">+91-11-40541000</p>
-                    <p className="text-sm text-background/60">Mon-Sun: 9AM-9PM</p>
+                    <p className="text-background/80">+91-95602 67006</p>
+                    <p className="text-sm text-background/60">Mon-Sat: 9AM-6PM</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Mail className="h-5 w-5 text-primary mt-0.5" />
                   <div>
-                    <p className="text-background/80">support@astrosage.com</p>
+                    <p className="text-background/80">support@astrosage.shop</p>
                     <p className="text-sm text-background/60">24/7 Email Support</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-primary mt-0.5" />
                   <div>
-                    <p className="text-background/80">New Delhi, India</p>
-                    <p className="text-sm text-background/60">Corporate Office</p>
+                    <p className="text-background/80">A-139, Sector 63, Noida - 201307</p>
+                    <p className="text-sm text-background/60">Uttar Pradesh, India</p>
                   </div>
                 </div>
               </div>
@@ -170,10 +166,10 @@ const Footer = () => {
               © 2024 AstroSage.com. All rights reserved.
             </div>
             <div className="flex flex-wrap items-center space-x-6 text-sm">
-              <a href="#" className="text-background/60 hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="text-background/60 hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="text-background/60 hover:text-primary transition-colors">Refund Policy</a>
-              <a href="#" className="text-background/60 hover:text-primary transition-colors">Sitemap</a>
+              <a href="/privacy-policy" className="text-background/60 hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="text-background/60 hover:text-primary transition-colors">Terms of Service</a>
+              <a href="/refund-policy" className="text-background/60 hover:text-primary transition-colors">Refund Policy</a>
+              <a href="/contact" className="text-background/60 hover:text-primary transition-colors">Contact</a>
             </div>
           </div>
         </div>
