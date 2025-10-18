@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import TrustLogos from "@/components/TrustLogos";
 import ShopByPurpose from "@/components/ShopByPurpose";
 import TopSellingRudraksha from "@/components/TopSellingRudraksha";
+import TopSellingBracelets from "@/components/TopSellingBracelets";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
 
@@ -157,6 +158,7 @@ const Index = () => {
 
       <ShopByPurpose />
       <TopSellingRudraksha />
+      <TopSellingBracelets />
       <FAQ />
       <TrustLogos />
       <Newsletter />
