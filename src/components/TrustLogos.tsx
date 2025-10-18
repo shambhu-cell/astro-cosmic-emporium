@@ -1,32 +1,52 @@
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2 } from "lucide-react";
 
 const TrustLogos = () => {
   const logos = [
-    { name: "Times of India", text: "Featured in Times of India" },
-    { name: "India Today", text: "Recommended by India Today" },
-    { name: "Economic Times", text: "Trusted by Economic Times" },
-    { name: "Hindustan Times", text: "Featured in Hindustan Times" },
-    { name: "DNA India", text: "Verified by DNA India" },
+    { name: "Times of India", text: "Featured in TOI", color: "from-blue-500/20 to-blue-600/20" },
+    { name: "India Today", text: "Recommended", color: "from-red-500/20 to-red-600/20" },
+    { name: "Economic Times", text: "Business Coverage", color: "from-purple-500/20 to-purple-600/20" },
+    { name: "Hindustan Times", text: "Media Partner", color: "from-orange-500/20 to-orange-600/20" },
+    { name: "DNA India", text: "Verified Partner", color: "from-green-500/20 to-green-600/20" },
   ];
 
   return (
-    <section className="py-12 px-4 bg-gradient-card">
+    <section className="py-16 px-4 bg-gradient-to-b from-muted/30 to-background">
       <div className="container max-w-screen-xl mx-auto">
-        <div className="text-center mb-8">
-          <p className="text-muted-foreground font-medium">Trusted & Featured By Leading Media</p>
+        <div className="text-center mb-12">
+          <Badge variant="outline" className="mb-4 px-4 py-1">
+            As Seen On
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Trusted & Featured By
+          </h2>
+          <p className="text-lg text-muted-foreground">Leading Media Houses Across India</p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {logos.map((logo, index) => (
-            <Card key={index} className="p-4 text-center bg-white/80 hover:bg-white transition-colors">
-              <div className="h-12 flex items-center justify-center mb-2">
-                <div className="w-full h-8 bg-gradient-to-r from-primary/20 to-accent/20 rounded flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary">{logo.name}</span>
+            <Card 
+              key={index} 
+              className="group p-6 text-center bg-card hover:bg-accent/5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 hover:border-primary/20"
+            >
+              <div className="flex flex-col items-center gap-3">
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${logo.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+                  <CheckCircle2 className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-base mb-1 group-hover:text-primary transition-colors">{logo.name}</h3>
+                  <p className="text-xs text-muted-foreground">{logo.text}</p>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">{logo.text}</p>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Our commitment to authenticity and quality has earned recognition from India's most trusted media publications
+          </p>
         </div>
       </div>
     </section>
