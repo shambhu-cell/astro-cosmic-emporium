@@ -299,11 +299,6 @@ const Gemstones = () => {
                       Certified
                     </Badge>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                    <Badge variant="secondary" className="text-xs">
-                      For {gemstone.planet}
-                    </Badge>
-                  </div>
                 </div>
                 
                 {/* Content */}
