@@ -1,14 +1,43 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2 } from "lucide-react";
 
 const TrustLogos = () => {
   const logos = [
-    { name: "Times of India", text: "Featured", color: "from-blue-500/20 to-blue-600/20" },
-    { name: "India Today", text: "Featured", color: "from-red-500/20 to-red-600/20" },
-    { name: "Economic Times", text: "Featured", color: "from-purple-500/20 to-purple-600/20" },
-    { name: "Hindustan Times", text: "Featured", color: "from-orange-500/20 to-orange-600/20" },
-    { name: "DNA India", text: "Featured", color: "from-green-500/20 to-green-600/20" },
+    { 
+      name: "Times of India", 
+      shortName: "TOI",
+      text: "Featured", 
+      bgColor: "bg-[#003366]",
+      textColor: "text-white"
+    },
+    { 
+      name: "India Today", 
+      shortName: "India Today",
+      text: "Featured", 
+      bgColor: "bg-[#E4002B]",
+      textColor: "text-white"
+    },
+    { 
+      name: "Economic Times", 
+      shortName: "ET",
+      text: "Featured", 
+      bgColor: "bg-[#6B2C91]",
+      textColor: "text-white"
+    },
+    { 
+      name: "Hindustan Times", 
+      shortName: "HT",
+      text: "Featured", 
+      bgColor: "bg-[#FF6B35]",
+      textColor: "text-white"
+    },
+    { 
+      name: "DNA", 
+      shortName: "DNA",
+      text: "Featured", 
+      bgColor: "bg-[#00A651]",
+      textColor: "text-white"
+    },
   ];
 
   return (
@@ -30,13 +59,17 @@ const TrustLogos = () => {
               key={index} 
               className="group p-6 text-center bg-card hover:bg-accent/5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-2 hover:border-primary/20"
             >
-              <div className="flex flex-col items-center gap-3">
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${logo.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-                  <CheckCircle2 className="w-8 h-8 text-primary" />
+              <div className="flex flex-col items-center gap-4">
+                <div className={`w-full h-20 rounded-lg ${logo.bgColor} flex items-center justify-center px-4 transition-transform duration-300 group-hover:scale-105 shadow-md`}>
+                  <span className={`${logo.textColor} font-bold text-xl md:text-2xl tracking-tight`}>
+                    {logo.shortName}
+                  </span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-base mb-1 group-hover:text-primary transition-colors">{logo.name}</h3>
-                  <p className="text-xs text-muted-foreground">{logo.text}</p>
+                  <h3 className="font-bold text-sm mb-1 text-foreground">{logo.name}</h3>
+                  <Badge variant="outline" className="text-xs">
+                    {logo.text}
+                  </Badge>
                 </div>
               </div>
             </Card>
