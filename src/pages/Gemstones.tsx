@@ -288,7 +288,7 @@ const Gemstones = () => {
                   <img
                     src={gemstone.image}
                     alt={gemstone.name}
-                    className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <Badge className="absolute top-3 right-3 bg-red-500 text-white">
                     {Math.round(((gemstone.originalPrice - gemstone.price) / gemstone.originalPrice) * 100)}% OFF
