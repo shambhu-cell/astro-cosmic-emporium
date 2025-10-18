@@ -46,8 +46,8 @@ const Header = () => {
         </nav>
 
         {/* Search */}
-        <div className="flex-1 max-w-md mx-4 md:mx-8">
-          <div className="relative">
+        <div className="flex-1 max-w-sm mx-4">
+          <div className="relative hidden md:block">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search products..."
@@ -57,26 +57,24 @@ const Header = () => {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="sm">
-            <User className="h-4 w-4" />
-            <span className="hidden lg:inline">Account</span>
+        <div className="flex items-center space-x-1">
+          <Button variant="ghost" size="icon">
+            <User className="h-5 w-5" />
           </Button>
           
-          <Button variant="shop" size="sm" className="relative">
-            <ShoppingCart className="h-4 w-4" />
+          <Button variant="ghost" size="icon" className="relative">
+            <ShoppingCart className="h-5 w-5" />
             <Badge 
               variant="secondary" 
-              className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs bg-primary text-primary-foreground"
+              className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-primary text-primary-foreground"
             >
               3
             </Badge>
-            <span className="hidden lg:inline ml-2">Cart</span>
           </Button>
 
           {/* Mobile menu */}
-          <Button variant="ghost" size="sm" className="md:hidden">
-            <Menu className="h-4 w-4" />
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <Menu className="h-5 w-5" />
           </Button>
         </div>
       </div>
