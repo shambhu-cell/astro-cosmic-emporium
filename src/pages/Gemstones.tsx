@@ -366,6 +366,287 @@ const Gemstones = () => {
           ))}
         </div>
 
+        {/* Informational Tabs */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">Complete Gemstone Guide</h2>
+          
+          <Tabs defaultValue="about" className="w-full">
+            <TabsList className="w-full justify-start overflow-x-auto flex-wrap h-auto gap-2 bg-transparent p-0 mb-6">
+              <TabsTrigger value="about" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">About</TabsTrigger>
+              <TabsTrigger value="who-should-wear" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Who Should Wear?</TabsTrigger>
+              <TabsTrigger value="benefits" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Benefits</TabsTrigger>
+              <TabsTrigger value="quality-price" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Quality & Price</TabsTrigger>
+              <TabsTrigger value="jewellery" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Jewellery</TabsTrigger>
+              <TabsTrigger value="cleaning-care" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Cleaning & Care</TabsTrigger>
+              <TabsTrigger value="buyer-beware" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Buyer Beware</TabsTrigger>
+              <TabsTrigger value="faqs" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">FAQs</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="about" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>What are Natural Gemstones?</AccordionTrigger>
+                  <AccordionContent>
+                    Natural gemstones are minerals that form naturally in the Earth's crust over millions of years. They are valued for their beauty, rarity, and durability. Each gemstone has unique physical and metaphysical properties that make it special.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Importance in Vedic Astrology</AccordionTrigger>
+                  <AccordionContent>
+                    In Vedic astrology, gemstones are worn to strengthen weak planets in one's birth chart. Each gemstone is associated with a specific planet and can help balance planetary energies, bringing positive changes in various life areas.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Our Gemstone Authentication Process</AccordionTrigger>
+                  <AccordionContent>
+                    Every gemstone is sourced from trusted mines and undergoes rigorous quality checks. We provide lab certification from recognized gemological laboratories to ensure 100% authenticity. Our experts personally inspect each stone for clarity, color, cut, and carat weight.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="who-should-wear" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Consultation Recommended</AccordionTrigger>
+                  <AccordionContent>
+                    We strongly recommend consulting with a qualified Vedic astrologer before wearing any gemstone. The right gemstone should be selected based on your complete birth chart (Kundali), not just your sun sign or moon sign.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Birth Chart Analysis</AccordionTrigger>
+                  <AccordionContent>
+                    Your astrologer will analyze planetary positions, dashas (periods), and transits to determine which gemstone will benefit you most. Wearing the wrong gemstone can sometimes have adverse effects, making professional consultation essential.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Trial Period</AccordionTrigger>
+                  <AccordionContent>
+                    Many astrologers recommend a trial period before permanently wearing a gemstone. This helps observe how the stone affects your life and whether it brings positive changes.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="benefits" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Physical Benefits</AccordionTrigger>
+                  <AccordionContent>
+                    Gemstones are believed to emit vibrations that can positively affect the body's energy field. Different stones may help with specific health concerns, improve vitality, boost immunity, and promote overall well-being.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Mental & Emotional Benefits</AccordionTrigger>
+                  <AccordionContent>
+                    Wearing the right gemstone can help reduce stress and anxiety, improve focus and concentration, enhance emotional stability, boost confidence, and bring mental clarity. They can also help overcome fears and negative thought patterns.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Career & Financial Benefits</AccordionTrigger>
+                  <AccordionContent>
+                    Gemstones can attract prosperity and wealth, improve career opportunities, enhance business success, strengthen decision-making abilities, and help overcome professional obstacles.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Relationship Benefits</AccordionTrigger>
+                  <AccordionContent>
+                    The right gemstone can improve relationships, attract love and companionship, strengthen marriage bonds, enhance family harmony, and resolve conflicts in personal relationships.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="quality-price" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>The 4 C's of Gemstones</AccordionTrigger>
+                  <AccordionContent>
+                    Quality is determined by four main factors: Color (hue, tone, and saturation), Clarity (presence of inclusions), Cut (shape and proportion), and Carat Weight (size). We ensure all our gemstones meet high standards across these parameters.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Origin Matters</AccordionTrigger>
+                  <AccordionContent>
+                    The origin of a gemstone significantly affects its quality and price. Certain locations produce superior quality stones. For example, Burmese rubies, Ceylon sapphires, and Colombian emeralds are highly valued. All our products clearly state their origin.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Treatment & Enhancement</AccordionTrigger>
+                  <AccordionContent>
+                    We transparently disclose any treatments. Most gemstones undergo standard heating or oiling treatments which are industry-accepted. We never sell synthetic or lab-created stones as natural gemstones.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Pricing Transparency</AccordionTrigger>
+                  <AccordionContent>
+                    Our prices are competitive because we source directly from mines and cutters. We maintain transparency in pricing with detailed information about quality factors. Lab certificates accompany each stone to justify the pricing.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="jewellery" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Metal Selection</AccordionTrigger>
+                  <AccordionContent>
+                    The metal used for setting your gemstone is important in Vedic astrology. Different gemstones work best with specific metals. For example, Ruby is typically set in gold, Blue Sapphire in silver or white gold, and Emerald in gold or Panchdhatu (five-metal alloy).
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Ring Design & Settings</AccordionTrigger>
+                  <AccordionContent>
+                    For astrological benefits, the gemstone should touch your skin. We recommend open-back settings that allow the stone to make contact with your finger. The ring should be worn on the correct finger as advised by your astrologer.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Custom Jewellery Options</AccordionTrigger>
+                  <AccordionContent>
+                    We offer custom jewellery design services. You can choose your preferred design, metal purity (14K, 18K, 22K gold or pure silver), and ring size. Our craftsmen create beautiful pieces that are both astrologically effective and aesthetically pleasing.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Pendant & Other Designs</AccordionTrigger>
+                  <AccordionContent>
+                    Besides rings, gemstones can be set in pendants, bracelets, and other jewelry forms. Some people prefer pendants for certain gemstones. Consult with your astrologer about the most appropriate form for your specific gemstone.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="cleaning-care" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Daily Care Tips</AccordionTrigger>
+                  <AccordionContent>
+                    Remove your gemstone jewelry before bathing, swimming, or applying cosmetics. Avoid contact with harsh chemicals, perfumes, and cleaning agents. Store each piece separately in a soft cloth pouch to prevent scratches.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Cleaning Methods</AccordionTrigger>
+                  <AccordionContent>
+                    Clean your gemstones regularly with lukewarm water and mild soap. Use a soft brush to gently remove dirt from crevices. Rinse thoroughly and pat dry with a soft, lint-free cloth. Avoid ultrasonic cleaners unless specifically recommended for your stone type.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Energizing Your Gemstone</AccordionTrigger>
+                  <AccordionContent>
+                    In Vedic tradition, gemstones should be energized before wearing. This is typically done on an auspicious day and time determined by your astrologer. The stone may need re-energizing periodically, especially if you've experienced negative events while wearing it.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Professional Maintenance</AccordionTrigger>
+                  <AccordionContent>
+                    We recommend professional inspection and cleaning every 6-12 months. This ensures the setting is secure and the stone remains in optimal condition. We offer free inspection and cleaning services for all gemstones purchased from us.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="buyer-beware" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>Beware of Fake Gemstones</AccordionTrigger>
+                  <AccordionContent>
+                    The market is flooded with glass imitations, synthetic stones, and treated gemstones sold as natural. Always buy from reputable dealers who provide lab certification. Be suspicious of prices that seem too good to be true.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Importance of Certification</AccordionTrigger>
+                  <AccordionContent>
+                    Never buy expensive gemstones without proper certification from recognized labs. The certificate should detail the stone's authenticity, origin, treatments (if any), and specifications. Keep these certificates safe for future reference and resale value.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>Misleading Claims</AccordionTrigger>
+                  <AccordionContent>
+                    Be wary of sellers making unrealistic promises about gemstone effects. While gemstones can be beneficial, they work gradually and in conjunction with positive actions. No gemstone can guarantee instant results or replace medical treatment.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Return Policy Awareness</AccordionTrigger>
+                  <AccordionContent>
+                    Check the seller's return and exchange policy before purchasing. Reputable dealers offer reasonable return periods. We provide a 7-day return policy with full refund, ensuring you can buy with confidence.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-5">
+                  <AccordionTrigger>Verify Before Energizing</AccordionTrigger>
+                  <AccordionContent>
+                    Once a gemstone is energized or set in jewelry, it typically cannot be returned. Therefore, verify the authenticity and quality of your loose gemstone before getting it energized or mounted.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+
+            <TabsContent value="faqs" className="mt-6">
+              <Accordion type="single" collapsible className="bg-white rounded-lg p-4 shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>How do I choose the right gemstone?</AccordionTrigger>
+                  <AccordionContent>
+                    The right gemstone is selected based on your birth chart, current planetary positions, and specific life goals. We recommend consulting with our expert astrologers for personalized guidance.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Are all gemstones certified?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes, every gemstone comes with a lab certification from reputed gemological laboratories, ensuring 100% authenticity and quality.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>How long does delivery take?</AccordionTrigger>
+                  <AccordionContent>
+                    We deliver within 3-7 business days across India. International shipping is also available with tracking.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>Do you offer returns or exchanges?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes, we offer a 7-day return policy. If you're not satisfied with your purchase, you can return it for a full refund or exchange.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-5">
+                  <AccordionTrigger>How long should I wear a gemstone to see results?</AccordionTrigger>
+                  <AccordionContent>
+                    Gemstone effects typically begin within 30-45 days of wearing. However, significant results may take 3-6 months. Consistency is important - wear your gemstone regularly as advised by your astrologer.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-6">
+                  <AccordionTrigger>Can I wear multiple gemstones together?</AccordionTrigger>
+                  <AccordionContent>
+                    Some gemstones can be worn together while others should not be combined. This depends on planetary relationships. Always consult your astrologer before wearing multiple gemstones simultaneously.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </TabsContent>
+          </Tabs>
+        </section>
+
         {/* Educational Content */}
         <section className="mb-12 bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-8">
           <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Our Gemstones?</h2>
