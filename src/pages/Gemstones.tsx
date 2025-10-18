@@ -327,13 +327,16 @@ const Gemstones = () => {
                   </div>
                   
                   {/* Price */}
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-foreground">
-                      ₹{gemstone.price.toLocaleString()}
-                    </span>
-                    <span className="text-sm text-muted-foreground line-through">
-                      ₹{gemstone.originalPrice.toLocaleString()}
-                    </span>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xs text-muted-foreground">Starting from</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-foreground">
+                        ₹{gemstone.price.toLocaleString()}
+                      </span>
+                      <span className="text-sm text-muted-foreground line-through">
+                        ₹{gemstone.originalPrice.toLocaleString()}
+                      </span>
+                    </div>
                   </div>
                   
                   {/* CTA */}

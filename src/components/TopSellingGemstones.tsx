@@ -124,13 +124,16 @@ const TopSellingGemstones = () => {
                 </div>
 
                 {/* Price */}
-                <div className="flex items-center justify-center gap-1.5">
-                  <span className="text-xl font-bold text-foreground">
-                    ₹{product.price.toLocaleString()}
-                  </span>
-                  <span className="text-xs text-muted-foreground line-through">
-                    ₹{product.originalPrice.toLocaleString()}
-                  </span>
+                <div className="flex flex-col items-center gap-0.5">
+                  <span className="text-[10px] text-muted-foreground">Starting from</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xl font-bold text-foreground">
+                      ₹{product.price.toLocaleString()}
+                    </span>
+                    <span className="text-xs text-muted-foreground line-through">
+                      ₹{product.originalPrice.toLocaleString()}
+                    </span>
+                  </div>
                 </div>
 
                 {/* EMI Option */}
