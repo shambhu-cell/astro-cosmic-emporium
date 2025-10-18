@@ -58,13 +58,13 @@ const TopSellingRudraksha = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-12 px-4 bg-gradient-to-b from-background to-muted/20">
       <div className="container max-w-screen-xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
             Our Top Selling Rudraksha
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Certified Authentic Rudraksha from Nepal
           </p>
         </div>
@@ -73,17 +73,17 @@ const TopSellingRudraksha = () => {
           {products.map((product, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-background border-2 border-dashed border-amber-400 hover:border-amber-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-background border-2 border-dashed border-amber-400 hover:border-amber-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Certified Badge */}
-              <div className="absolute top-4 right-4 z-10">
-                <Badge className="bg-muted/80 text-foreground border-2 border-amber-400 rounded-full px-3 py-1 text-xs font-bold shadow-lg">
+              <div className="absolute top-2 right-2 z-10">
+                <Badge className="bg-muted/80 text-foreground border border-amber-400 rounded-full px-2 py-0.5 text-[10px] font-bold shadow-md">
                   CERTIFIED
                 </Badge>
               </div>
 
               {/* Product Image */}
-              <div className="aspect-square bg-gradient-to-br from-amber-50 to-white p-8 flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-amber-50 to-white p-6 flex items-center justify-center">
                 <img 
                   src={product.image} 
                   alt={product.name}
@@ -92,41 +92,37 @@ const TopSellingRudraksha = () => {
               </div>
 
               {/* Product Info */}
-              <div className="p-5 space-y-3 bg-background">
-                <div className="text-center space-y-1">
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">
+              <div className="p-4 space-y-2 bg-background">
+                <div className="text-center">
+                  <h3 className="font-bold text-base group-hover:text-primary transition-colors">
                     {product.name}
                   </h3>
-                  <p className="text-xs text-muted-foreground font-medium">
+                  <p className="text-[10px] text-muted-foreground font-medium">
                     {product.subtitle}
                   </p>
                 </div>
 
-                <p className="text-xs text-center text-muted-foreground leading-relaxed">
-                  {product.description}
-                </p>
-
                 {/* Rating */}
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-1.5">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i} 
-                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
+                        className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
                       />
                     ))}
                   </div>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-[10px] text-muted-foreground">
                     {product.reviews} reviews
                   </span>
                 </div>
 
                 {/* Price */}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-2xl font-bold text-foreground">
+                <div className="flex items-center justify-center gap-1.5">
+                  <span className="text-xl font-bold text-foreground">
                     ₹{product.price.toLocaleString()}
                   </span>
-                  <span className="text-sm text-muted-foreground line-through">
+                  <span className="text-xs text-muted-foreground line-through">
                     ₹{product.originalPrice.toLocaleString()}
                   </span>
                 </div>
@@ -134,18 +130,17 @@ const TopSellingRudraksha = () => {
                 {/* EMI Option */}
                 {product.emi && (
                   <div className="text-center">
-                    <span className="text-xs text-muted-foreground">or ₹{product.emiAmount}/Month</span>
-                    <Badge variant="secondary" className="ml-2 text-xs">Buy on EMI</Badge>
+                    <span className="text-[10px] text-muted-foreground">or ₹{product.emiAmount}/Month</span>
+                    <Badge variant="secondary" className="ml-1 text-[9px] px-1.5 py-0">Buy on EMI</Badge>
                   </div>
                 )}
 
                 {/* Add Button */}
                 <Button 
                   className="w-full bg-foreground hover:bg-foreground/90 text-background"
-                  size="lg"
                   onClick={() => window.location.href = product.link}
                 >
-                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  <ShoppingBag className="w-3.5 h-3.5 mr-1.5" />
                   Add
                 </Button>
               </div>
@@ -153,10 +148,9 @@ const TopSellingRudraksha = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <Button 
-            variant="outline" 
-            size="lg"
+            variant="outline"
             className="border-2 hover:bg-primary hover:text-primary-foreground"
             onClick={() => window.location.href = '/rudraksha'}
           >
