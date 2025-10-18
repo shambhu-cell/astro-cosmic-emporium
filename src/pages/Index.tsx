@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import TrustLogos from "@/components/TrustLogos";
 import ShopByPurpose from "@/components/ShopByPurpose";
+import CollectionsSlider from "@/components/CollectionsSlider";
 import TopSellingRudraksha from "@/components/TopSellingRudraksha";
 import TopSellingBracelets from "@/components/TopSellingBracelets";
 import TopSellingGemstones from "@/components/TopSellingGemstones";
@@ -158,6 +159,7 @@ const Index = () => {
         </div>
       </section>
 
+      <CollectionsSlider />
       <ShopByPurpose />
       <TopSellingRudraksha />
       <TopSellingBracelets />
