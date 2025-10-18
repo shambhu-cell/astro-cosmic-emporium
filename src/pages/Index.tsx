@@ -127,8 +127,8 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <Award className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-base">23+ Years Trust</h3>
-              <p className="text-xs text-muted-foreground">Serving Since 2001</p>
+              <h3 className="font-semibold text-base">21 Years Trust</h3>
+              <p className="text-xs text-muted-foreground">Serving Since 2004</p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
