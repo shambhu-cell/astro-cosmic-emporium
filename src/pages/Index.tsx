@@ -155,10 +155,10 @@ const Index = () => {
         </div>
       </section>
 
-      <TrustLogos />
       <ValueProposition />
       <Testimonials />
       <FAQ />
+      <TrustLogos />
       <Newsletter />
     </main>
   );
