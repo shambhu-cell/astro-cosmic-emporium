@@ -167,29 +167,29 @@ const Gemstones = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-violet-50 via-purple-50 to-background">
+      <section className="relative py-8 px-4 bg-gradient-to-br from-violet-50 via-purple-50 to-background">
         <div className="container max-w-screen-xl mx-auto text-center">
-          <Badge className="mb-4 bg-violet-100 text-violet-700 border-violet-300">100% Certified & Authentic</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <Badge className="mb-2 bg-violet-100 text-violet-700 border-violet-300 text-xs">100% Certified & Authentic</Badge>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
             Premium Natural Gemstones
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Transform your life with certified authentic gemstones. Trusted by 5 Lakh+ customers for astrological benefits & healing powers.
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-4">
+            Certified authentic gemstones trusted by 5 Lakh+ customers
           </p>
           
           {/* Trust Indicators */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="flex flex-col items-center gap-2">
-              <Shield className="w-8 h-8 text-violet-600" />
-              <p className="text-sm font-semibold">Lab Certified</p>
+          <div className="grid grid-cols-3 gap-3 max-w-lg mx-auto">
+            <div className="flex flex-col items-center gap-1">
+              <Shield className="w-6 h-6 text-violet-600" />
+              <p className="text-xs font-semibold">Lab Certified</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <Award className="w-8 h-8 text-violet-600" />
-              <p className="text-sm font-semibold">21 Years Trust</p>
+            <div className="flex flex-col items-center gap-1">
+              <Award className="w-6 h-6 text-violet-600" />
+              <p className="text-xs font-semibold">21 Years Trust</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <TrendingUp className="w-8 h-8 text-violet-600" />
-              <p className="text-sm font-semibold">Best Prices</p>
+            <div className="flex flex-col items-center gap-1">
+              <TrendingUp className="w-6 h-6 text-violet-600" />
+              <p className="text-xs font-semibold">Best Prices</p>
             </div>
           </div>
         </div>
