@@ -6,65 +6,65 @@
 
 @layer base {
   :root {
-    /* AstroSage Brand Colors */
-    --background: 35 40% 96%;  /* Beige/cream background */
-    --foreground: 25 20% 20%;   /* Dark brown text */
+    /* Base colors - Clean white background for trust & conversions */
+    --background: 0 0% 100%;
+    --foreground: 222 15% 15%;
 
-    /* Card colors - Light cream with warmth */
-    --card: 35 50% 98%;
-    --card-foreground: 25 20% 20%;
+    /* Card colors - Clean white with soft shadows */
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 15%;
 
-    --popover: 35 50% 98%;
-    --popover-foreground: 25 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 15%;
 
-    /* Primary - AstroSage Orange #FF6600 */
-    --primary: 20 100% 50%;
+    /* Primary - AstroSage orange (kept as brand accent) */
+    --primary: 25 95% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Warm beige */
-    --secondary: 35 35% 90%;
-    --secondary-foreground: 25 20% 20%;
+    /* Secondary - Soft warm background */
+    --secondary: 25 20% 96%;
+    --secondary-foreground: 222 15% 15%;
 
-    /* Muted - Soft beige backgrounds */
-    --muted: 35 30% 92%;
-    --muted-foreground: 25 20% 45%;
+    /* Muted - Light neutral backgrounds */
+    --muted: 25 10% 95%;
+    --muted-foreground: 222 15% 45%;
 
-    /* Accent - Golden Yellow #FFB800 */
-    --accent: 45 100% 50%;
-    --accent-foreground: 25 20% 20%;
+    /* Accent - Golden highlights for trust & premium feel */
+    --accent: 45 90% 65%;
+    --accent-foreground: 222 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 35 25% 85%;
-    --input: 35 30% 90%;
-    --ring: 20 100% 50%;
+    --border: 25 15% 90%;
+    --input: 25 15% 92%;
+    --ring: 25 95% 55%;
 
     --radius: 0.5rem;
     
-    /* AstroSage themed gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(25 50% 25%), hsl(20 60% 15%));
-    --gradient-primary: linear-gradient(135deg, hsl(20 100% 50%), hsl(45 100% 50%));
-    --gradient-card: linear-gradient(135deg, hsl(35 50% 98%), hsl(35 40% 95%));
-    --gradient-premium: linear-gradient(120deg, hsl(45 90% 92%), hsl(35 50% 95%));
+    /* Premium ecommerce gradients - soft and trustworthy */
+    --gradient-hero: linear-gradient(135deg, hsl(25 50% 98%), hsl(25 30% 95%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(25 85% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(25 20% 98%));
+    --gradient-premium: linear-gradient(120deg, hsl(45 90% 95%), hsl(25 30% 92%));
     
-    /* Shadows with orange tint */
-    --shadow-soft: 0 4px 20px -4px hsl(20 50% 60% / 0.25);
-    --shadow-card: 0 8px 30px -8px hsl(20 40% 50% / 0.15);
-    --shadow-primary: 0 8px 25px -5px hsl(20 100% 50% / 0.4);
+    /* Professional shadows for conversion */
+    --shadow-soft: 0 4px 20px -4px hsl(25 50% 80% / 0.25);
+    --shadow-card: 0 8px 30px -8px hsl(25 30% 70% / 0.15);
+    --shadow-primary: 0 8px 25px -5px hsl(var(--primary) / 0.3);
     
-    /* Smooth transitions */
+    /* Smooth transitions for professional feel */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-gentle: all 0.2s ease-out;
 
-    --sidebar-background: 35 50% 98%;
-    --sidebar-foreground: 25 20% 20%;
-    --sidebar-primary: 20 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 15% 15%;
+    --sidebar-primary: 25 95% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 35 30% 92%;
-    --sidebar-accent-foreground: 25 20% 20%;
-    --sidebar-border: 35 25% 85%;
-    --sidebar-ring: 20 100% 50%;
+    --sidebar-accent: 25 10% 95%;
+    --sidebar-accent-foreground: 222 15% 15%;
+    --sidebar-border: 25 15% 90%;
+    --sidebar-ring: 25 95% 55%;
   }
 }
 
