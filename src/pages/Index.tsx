@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Shield, Award, Clock } from "lucide-react";
+import { ChevronLeft, ChevronRight, Shield, Award, Clock, BadgeCheck, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -113,23 +113,43 @@ const Index = () => {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-8 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="flex flex-col items-center gap-2">
-              <Shield className="w-12 h-12 text-primary" />
-              <h3 className="font-semibold">100% Authentic</h3>
-              <p className="text-sm text-muted-foreground">Certified Genuine Products</p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-semibold text-base">100% Authentic</h3>
+              <p className="text-xs text-muted-foreground">Lab Certified Products</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <Award className="w-12 h-12 text-primary" />
-              <h3 className="font-semibold">23+ Years Trust</h3>
-              <p className="text-sm text-muted-foreground">Serving Since 2001</p>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Award className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-semibold text-base">23+ Years Trust</h3>
+              <p className="text-xs text-muted-foreground">Serving Since 2001</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <Clock className="w-12 h-12 text-primary" />
-              <h3 className="font-semibold">Fast Delivery</h3>
-              <p className="text-sm text-muted-foreground">Pan India Shipping</p>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Clock className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-semibold text-base">Fast Delivery</h3>
+              <p className="text-xs text-muted-foreground">3-7 Days Shipping</p>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <BadgeCheck className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-semibold text-base">5 Lakh+ Customers</h3>
+              <p className="text-xs text-muted-foreground">Trusted Worldwide</p>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Headphones className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-semibold text-base">Expert Support</h3>
+              <p className="text-xs text-muted-foreground">Free Consultation</p>
             </div>
           </div>
         </div>
