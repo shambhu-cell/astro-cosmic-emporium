@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Star, Shield, Award, TrendingUp, Filter, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,10 +13,18 @@ import emeraldImage from "@/assets/gemstones/emerald.jpg";
 import yellowSapphireImage from "@/assets/gemstones/yellow-sapphire.jpg";
 
 const Gemstones = () => {
+  const navigate = useNavigate();
   const [selectedPlanet, setSelectedPlanet] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [priceRange, setPriceRange] = useState<string>("all");
   const [showFilters, setShowFilters] = useState(false);
+
+  // Function to convert gemstone name to URL slug
+  const getGemstoneSlug = (name: string) => {
+    // Extract the main name before parentheses and convert to slug
+    const mainName = name.split('(')[0].trim();
+    return mainName.toLowerCase().replace(/\s+/g, '-');
+  };
 
   const gemstones = [
     {
@@ -538,14 +547,14 @@ const Gemstones = () => {
                   <div className="space-y-2">
                     <Button 
                       className="w-full bg-primary hover:bg-primary/90"
-                      onClick={() => window.location.href = `/gemstones/${gemstone.id}`}
+                      onClick={() => navigate(`/gemstones/${getGemstoneSlug(gemstone.name)}`)}
                     >
-                      View Details
+                      View Collection
                     </Button>
                     <Button 
                       variant="outline" 
                       className="w-full text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                      onClick={() => window.location.href = `/contact`}
+                      onClick={() => navigate('/contact')}
                     >
                       Consult Gem Expert
                     </Button>
