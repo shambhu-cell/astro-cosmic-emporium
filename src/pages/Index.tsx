@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import TrustLogos from "@/components/TrustLogos";
+import ShopByPurpose from "@/components/ShopByPurpose";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
 
@@ -153,6 +154,7 @@ const Index = () => {
         </div>
       </section>
 
+      <ShopByPurpose />
       <FAQ />
       <TrustLogos />
       <Newsletter />
