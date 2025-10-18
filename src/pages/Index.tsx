@@ -7,6 +7,7 @@ import TrustLogos from "@/components/TrustLogos";
 import ShopByPurpose from "@/components/ShopByPurpose";
 import TopSellingRudraksha from "@/components/TopSellingRudraksha";
 import TopSellingBracelets from "@/components/TopSellingBracelets";
+import TopSellingGemstones from "@/components/TopSellingGemstones";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
 
@@ -159,6 +160,7 @@ const Index = () => {
       <ShopByPurpose />
       <TopSellingRudraksha />
       <TopSellingBracelets />
+      <TopSellingGemstones />
       <FAQ />
       <TrustLogos />
       <Newsletter />
