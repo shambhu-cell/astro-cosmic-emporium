@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/carousel";
 import { ArrowRight } from "lucide-react";
 import gemstonesImage from "@/assets/gemstones.jpg";
-import consultationImage from "@/assets/consultation.jpg";
 import yantrasImage from "@/assets/yantras.jpg";
+import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
+import tigerEyeImage from "@/assets/bracelets/tiger-eye.jpg";
+import rudrakshaMalaImage from "@/assets/mala/rudraksha-mala.jpg";
 
 const CollectionsSlider = () => {
   const collections = [
@@ -24,21 +26,21 @@ const CollectionsSlider = () => {
     {
       title: "Rudraksha",
       description: "Original Nepal Rudraksha for Spiritual Protection",
-      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=500&fit=crop",
+      image: nirakarImage,
       link: "/rudraksha",
       gradient: "from-amber-500/20 to-orange-500/20"
     },
     {
       title: "Bracelets",
       description: "Energy Crystal Bracelets for Fashion & Faith",
-      image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=500&fit=crop",
+      image: tigerEyeImage,
       link: "/bracelets",
       gradient: "from-emerald-500/20 to-teal-500/20"
     },
     {
       title: "Mala",
       description: "108 Beads Prayer Mala for Meditation & Mantras",
-      image: "https://images.unsplash.com/photo-1612033448550-9d6f9c17f07d?w=800&h=500&fit=crop",
+      image: rudrakshaMalaImage,
       link: "/mala",
       gradient: "from-orange-500/20 to-red-500/20"
     },
@@ -48,13 +50,6 @@ const CollectionsSlider = () => {
       image: yantrasImage,
       link: "/yantra",
       gradient: "from-yellow-500/20 to-amber-500/20"
-    },
-    {
-      title: "Consultation",
-      description: "Expert Astrology Consultation & Guidance",
-      image: consultationImage,
-      link: "/contact",
-      gradient: "from-blue-500/20 to-indigo-500/20"
     }
   ];
 
