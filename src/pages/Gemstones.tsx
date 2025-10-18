@@ -357,7 +357,7 @@ const Gemstones = () => {
                       className="w-full text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                       onClick={() => window.location.href = `/contact`}
                     >
-                      Consult Astrologer
+                      Consult Gem Expert
                     </Button>
                   </div>
                 </div>
