@@ -71,13 +71,13 @@ const Index = () => {
             <div className="relative container h-full flex items-center justify-center text-center text-white">
               <div className="max-w-4xl">
                 <h2 className="text-2xl md:text-3xl mb-2">{slide.title}</h2>
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                   {slide.subtitle}
                 </h1>
                 <p className="text-3xl md:text-4xl mb-8">{slide.description}</p>
                 <Button
                   size="lg"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-6 text-lg"
+                  className="bg-accent hover:bg-accent/90 text-foreground font-bold px-8 py-6 text-lg shadow-primary hover:scale-105 transition-all"
                   onClick={() => window.location.href = slide.link}
                 >
                   {slide.cta}
@@ -106,7 +106,7 @@ const Index = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? "bg-yellow-500" : "bg-white/50"
+                index === currentSlide ? "bg-accent" : "bg-white/50"
               }`}
             />
           ))}
