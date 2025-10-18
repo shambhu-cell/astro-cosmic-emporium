@@ -1,4 +1,4 @@
-import { ShoppingCart, Search, User, Star, Menu, Heart } from "lucide-react";
+import { ShoppingCart, Search, User, Star, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -58,11 +58,6 @@ const Header = () => {
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="sm" className="hidden sm:flex">
-            <Heart className="h-4 w-4" />
-            <span className="hidden lg:inline">Wishlist</span>
-          </Button>
-          
           <Button variant="ghost" size="sm">
             <User className="h-4 w-4" />
             <span className="hidden lg:inline">Account</span>
