@@ -4,11 +4,11 @@ import { CheckCircle2 } from "lucide-react";
 
 const TrustLogos = () => {
   const logos = [
-    { name: "Times of India", text: "Featured in TOI", color: "from-blue-500/20 to-blue-600/20" },
-    { name: "India Today", text: "Recommended", color: "from-red-500/20 to-red-600/20" },
-    { name: "Economic Times", text: "Business Coverage", color: "from-purple-500/20 to-purple-600/20" },
-    { name: "Hindustan Times", text: "Media Partner", color: "from-orange-500/20 to-orange-600/20" },
-    { name: "DNA India", text: "Verified Partner", color: "from-green-500/20 to-green-600/20" },
+    { name: "Times of India", text: "Featured", color: "from-blue-500/20 to-blue-600/20" },
+    { name: "India Today", text: "Featured", color: "from-red-500/20 to-red-600/20" },
+    { name: "Economic Times", text: "Featured", color: "from-purple-500/20 to-purple-600/20" },
+    { name: "Hindustan Times", text: "Featured", color: "from-orange-500/20 to-orange-600/20" },
+    { name: "DNA India", text: "Featured", color: "from-green-500/20 to-green-600/20" },
   ];
 
   return (
