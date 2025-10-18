@@ -19,7 +19,7 @@ const Header = () => {
             <h1 className="text-xl font-bold text-primary">
               AstroSage
             </h1>
-            <p className="text-xs text-muted-foreground">Trusted Since 2001</p>
+            <p className="text-xs text-muted-foreground">Trusted Since 2004</p>
           </div>
         </div>
 
