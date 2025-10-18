@@ -198,10 +198,7 @@ const Gemstones = () => {
       <div className="container max-w-screen-xl mx-auto px-4 py-12">
         {/* Filters Section */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold">
-              Shop Gemstones ({filteredGemstones.length})
-            </h2>
+          <div className="flex items-center justify-end mb-6">
             <Button 
               variant="outline" 
               className="md:hidden"
