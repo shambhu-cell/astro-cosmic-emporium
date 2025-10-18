@@ -290,11 +290,11 @@ const Gemstones = () => {
                     alt={gemstone.name}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <Badge className="absolute top-3 right-3 bg-red-500 text-white">
+                  <Badge className="absolute top-3 right-3 bg-red-500 text-white text-xs">
                     {Math.round(((gemstone.originalPrice - gemstone.price) / gemstone.originalPrice) * 100)}% OFF
                   </Badge>
                   {gemstone.certified && (
-                    <Badge className="absolute top-3 left-3 bg-green-500 text-white">
+                    <Badge className="absolute top-12 left-3 bg-green-500 text-white text-xs">
                       <Shield className="w-3 h-3 mr-1" />
                       Certified
                     </Badge>
