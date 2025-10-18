@@ -347,14 +347,14 @@ const Gemstones = () => {
                   {/* CTA */}
                   <div className="space-y-2">
                     <Button 
-                      className="w-full bg-violet-600 hover:bg-violet-700"
+                      className="w-full bg-primary hover:bg-primary/90"
                       onClick={() => window.location.href = `/gemstones/${gemstone.id}`}
                     >
                       View Details
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="w-full text-xs"
+                      className="w-full text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                       onClick={() => window.location.href = `/contact`}
                     >
                       Consult Astrologer
