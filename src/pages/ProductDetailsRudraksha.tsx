@@ -472,16 +472,6 @@ const ProductDetailsRudraksha = () => {
                 ADD TO CART - ₹{(product.price * quantity).toLocaleString()}
               </Button>
 
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="w-full text-lg py-7 border-2 border-green-600 text-green-700 hover:bg-green-50 dark:hover:bg-green-950/20 font-bold"
-                onClick={() => window.open('https://wa.me/1234567890?text=Hi, I want to order 7 Mukhi Rudraksha', '_blank')}
-              >
-                <MessageCircle className="mr-2 h-6 w-6" />
-                Order via WhatsApp
-              </Button>
-
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" size="lg" className="border-2">
                   <Heart className="mr-2 h-5 w-5" />
