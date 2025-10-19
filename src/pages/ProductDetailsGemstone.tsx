@@ -217,7 +217,6 @@ const ProductDetailsGemstone = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedWeight, setSelectedWeight] = useState(0);
-  const [selectedMetal, setSelectedMetal] = useState(0);
 
   // Get product data based on URL parameter with ID mapping
   const productId = id || "blue-sapphire";
@@ -248,7 +247,7 @@ const ProductDetailsGemstone = () => {
     "Cut & Shape": product.cut,
     "Treatment": product.treatment,
     "Certification": product.certification,
-    "Metal": product.metalOptions[selectedMetal],
+    "Metal": "92.5% Sterling Silver",
     "Planet": product.planet,
     "Chakra": product.chakra,
     "Zodiac": product.zodiac
@@ -372,7 +371,7 @@ const ProductDetailsGemstone = () => {
                 {product.hindiName} | {product.planet}
               </Badge>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-muted-foreground text-lg">Selected: {product.weightOptions[selectedWeight]} in {product.metalOptions[selectedMetal]}</p>
+              <p className="text-muted-foreground text-lg">Selected: {product.weightOptions[selectedWeight]}</p>
             </div>
 
             {/* Pricing */}
@@ -412,26 +411,6 @@ const ProductDetailsGemstone = () => {
                       }`}
                     >
                       {weight}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Metal Selector */}
-              <div>
-                <label className="font-semibold mb-2 block">Select Metal:</label>
-                <div className="grid grid-cols-2 gap-2">
-                  {product.metalOptions.map((metal: string, idx: number) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedMetal(idx)}
-                      className={`py-3 px-4 rounded-lg border-2 transition-all text-sm font-medium ${
-                        selectedMetal === idx
-                          ? 'border-primary bg-primary text-primary-foreground shadow-md'
-                          : 'border-border hover:border-primary/50 hover:bg-muted'
-                      }`}
-                    >
-                      {metal}
                     </button>
                   ))}
                 </div>
