@@ -627,26 +627,6 @@ const Rudraksha = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Trust Bar */}
-      <div className="bg-gradient-to-r from-primary to-accent text-white py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4" />
-              <span className="font-medium">100% Authentic Nepal Rudraksha</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4" />
-              <span className="font-medium">Lab Certified & Energized</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Truck className="h-4 w-4" />
-              <span className="font-medium">Free Shipping Pan India</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Breadcrumb */}
       <div className="bg-muted/30 border-b">
         <div className="container mx-auto px-4 py-4">
