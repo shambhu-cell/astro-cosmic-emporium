@@ -25,6 +25,155 @@ const Bracelets = () => {
     ? allBraceletProducts 
     : allBraceletProducts.filter(p => p.category === selectedCategory);
 
+  // Category descriptions and benefits
+  const categoryInfo: Record<string, any> = {
+    "all": {
+      title: "Complete Crystal Bracelet Collection",
+      description: "Explore our handpicked collection of authentic crystal healing bracelets. Each piece is crafted with natural, lab-certified crystals and energized for maximum spiritual and healing benefits.",
+      benefits: [
+        "100% Natural & Lab Certified Crystals",
+        "Handcrafted with Premium Quality Beads",
+        "Cleansed & Energized Before Shipping",
+        "Multiple Size Options Available",
+        "30-Day Money Back Guarantee"
+      ],
+      whyChoose: [
+        "Authentic crystals sourced from trusted suppliers worldwide",
+        "Each bracelet undergoes quality inspection and certification",
+        "Powerful healing properties for mind, body, and spirit",
+        "Suitable for meditation, yoga, and daily wear"
+      ]
+    },
+    "Chakra": {
+      title: "Chakra Balancing Crystal Bracelets",
+      description: "Align and balance your chakras with our specially designed multi-crystal bracelets. These powerful combinations work on all seven energy centers, promoting complete harmony and well-being.",
+      benefits: [
+        "Balances All 7 Chakras Simultaneously",
+        "Removes Energy Blockages & Stagnation",
+        "Promotes Complete Mind-Body-Spirit Harmony",
+        "Enhances Energy Flow Throughout Body",
+        "Perfect for Beginners in Energy Work"
+      ],
+      crystals: "Amethyst (Crown), Lapis (Third Eye), Turquoise (Throat), Green Aventurine (Heart), Citrine (Solar Plexus), Carnelian (Sacral), Red Jasper (Root)",
+      idealFor: [
+        "Yoga and meditation practitioners",
+        "Energy healers and Reiki practitioners",
+        "Those new to crystal healing",
+        "Anyone feeling energetically unbalanced"
+      ]
+    },
+    "Protection": {
+      title: "Protection & Grounding Crystal Bracelets",
+      description: "Shield yourself from negative energies, EMF radiation, and psychic attacks with our powerful protection crystals. These grounding stones create a protective barrier around your aura.",
+      benefits: [
+        "Blocks Negative Energy & Psychic Attacks",
+        "Shields from EMF Radiation (Phones, Computers)",
+        "Grounds Excess Energy & Promotes Stability",
+        "Transmutes Negativity into Positive Energy",
+        "Creates Protective Energy Shield"
+      ],
+      crystals: "Black Tourmaline, Black Obsidian, Smoky Quartz, Hematite",
+      idealFor: [
+        "Empaths and highly sensitive people",
+        "Office workers (EMF protection)",
+        "Those in negative environments",
+        "Energy workers and healers"
+      ]
+    },
+    "Love": {
+      title: "Love & Relationship Crystal Bracelets",
+      description: "Open your heart to love with our heart chakra healing crystals. These gentle yet powerful stones attract love, heal emotional wounds, and promote self-acceptance.",
+      benefits: [
+        "Opens & Heals Heart Chakra",
+        "Attracts Love & Romantic Relationships",
+        "Promotes Self-Love & Acceptance",
+        "Heals Heartbreak & Emotional Trauma",
+        "Enhances Compassion & Forgiveness"
+      ],
+      crystals: "Rose Quartz, Rhodonite, Pink Tourmaline, Morganite",
+      idealFor: [
+        "Those seeking romantic love",
+        "Healing from heartbreak or divorce",
+        "Building self-esteem and confidence",
+        "Improving existing relationships"
+      ]
+    },
+    "Prosperity": {
+      title: "Prosperity & Abundance Crystal Bracelets",
+      description: "Manifest wealth and success with our powerful abundance crystals. Known as the ultimate money magnets, these stones attract prosperity in all areas of life.",
+      benefits: [
+        "Attracts Wealth & Financial Prosperity",
+        "Enhances Manifestation Power",
+        "Promotes Success in Business & Career",
+        "Dispels Negative Money Mindset",
+        "Boosts Confidence & Personal Power"
+      ],
+      crystals: "Citrine, Pyrite, Green Jade, Tiger Eye",
+      idealFor: [
+        "Business owners and entrepreneurs",
+        "Those manifesting financial abundance",
+        "Career-focused individuals",
+        "Anyone seeking prosperity"
+      ]
+    },
+    "Healing": {
+      title: "Healing & Wellness Crystal Bracelets",
+      description: "Experience holistic healing with our master healer crystals. These versatile stones work on physical, emotional, mental, and spiritual levels for complete well-being.",
+      benefits: [
+        "Promotes Physical & Emotional Healing",
+        "Enhances Mental Clarity & Focus",
+        "Reduces Stress, Anxiety & Depression",
+        "Strengthens Immune System",
+        "Accelerates Recovery & Regeneration"
+      ],
+      crystals: "Clear Quartz, Amethyst, Fluorite, Selenite",
+      idealFor: [
+        "Those recovering from illness",
+        "People dealing with chronic stress",
+        "Holistic health practitioners",
+        "Anyone seeking overall wellness"
+      ]
+    },
+    "Confidence": {
+      title: "Confidence & Courage Crystal Bracelets",
+      description: "Boost your self-esteem and courage with solar plexus activating crystals. These powerful stones enhance willpower, motivation, and personal power.",
+      benefits: [
+        "Boosts Self-Confidence & Self-Esteem",
+        "Enhances Courage & Fearlessness",
+        "Activates Solar Plexus Chakra",
+        "Improves Decision-Making Ability",
+        "Provides Mental Clarity & Focus"
+      ],
+      crystals: "Tiger Eye, Carnelian, Sunstone, Amber",
+      idealFor: [
+        "Public speakers and performers",
+        "Students taking exams",
+        "Those lacking self-confidence",
+        "Business professionals"
+      ]
+    },
+    "Money": {
+      title: "Money & Good Luck Crystal Bracelets",
+      description: "Attract good fortune and opportunities with our luck-enhancing crystals. Known as stones of opportunity, they open doors to prosperity and success.",
+      benefits: [
+        "Attracts Good Luck & Opportunities",
+        "Brings Success in New Ventures",
+        "Enhances Financial Fortune",
+        "Promotes Optimism & Positive Outlook",
+        "Aids in Decision Making"
+      ],
+      crystals: "Green Aventurine, Jade, Pyrite, Malachite",
+      idealFor: [
+        "Gamblers and risk-takers",
+        "Job seekers and interviewees",
+        "Those starting new projects",
+        "Anyone needing a lucky boost"
+      ]
+    }
+  };
+
+  const currentCategoryInfo = categoryInfo[selectedCategory] || categoryInfo["all"];
+
   return (
     <main className="min-h-screen bg-background py-8">
       {/* Trust Bar */}
@@ -102,6 +251,95 @@ const Bracelets = () => {
                 )}
               </Button>
             ))}
+          </div>
+        </div>
+
+        {/* Category Information Section */}
+        <div className="mb-12 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-2xl p-8 border-2 border-primary/10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {currentCategoryInfo.title}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                {currentCategoryInfo.description}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              {/* Key Benefits */}
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-bold">Key Benefits</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {currentCategoryInfo.benefits.map((benefit: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-sm">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Additional Info */}
+              <div className="space-y-4">
+                {currentCategoryInfo.crystals && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Award className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Featured Crystals</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {currentCategoryInfo.crystals}
+                      </p>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {currentCategoryInfo.idealFor && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Users className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Perfect For</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {currentCategoryInfo.idealFor.map((person: string, idx: number) => (
+                          <li key={idx} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {person}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {currentCategoryInfo.whyChoose && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Shield className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Why Choose Us</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {currentCategoryInfo.whyChoose.map((reason: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                            <span className="text-muted-foreground">{reason}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
