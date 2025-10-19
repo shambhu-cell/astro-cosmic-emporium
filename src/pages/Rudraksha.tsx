@@ -669,31 +669,6 @@ const Rudraksha = () => {
           </div>
         </div>
 
-        {/* Expert Consultation Banner */}
-        <Card className="mb-8 border-2 border-primary/20 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
-          <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Not Sure Which Rudraksha to Choose?</h3>
-                  <p className="text-sm text-muted-foreground">Get FREE consultation from our expert astrologers</p>
-                </div>
-              </div>
-              <Button 
-                size="lg"
-                className="whitespace-nowrap"
-                onClick={() => window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about Rudraksha', '_blank')}
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Talk to Expert - FREE
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Filters */}
         <div className="flex justify-end mb-6">
           <Select value={sortBy} onValueChange={setSortBy}>
@@ -818,6 +793,31 @@ const Rudraksha = () => {
               </Card>
             ))}
         </div>
+
+        {/* Expert Consultation Banner */}
+        <Card className="mt-12 border-2 border-primary/20 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
+          <CardContent className="p-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <MessageCircle className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Not Sure Which Rudraksha to Choose?</h3>
+                  <p className="text-sm text-muted-foreground">Get FREE consultation from our expert astrologers</p>
+                </div>
+              </div>
+              <Button 
+                size="lg"
+                className="whitespace-nowrap"
+                onClick={() => window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about Rudraksha', '_blank')}
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Talk to Expert - FREE
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Why Choose Us Section */}
         <div className="mt-16 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-8 md:p-12">
