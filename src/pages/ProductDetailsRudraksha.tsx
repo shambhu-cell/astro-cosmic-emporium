@@ -724,53 +724,6 @@ const ProductDetailsRudraksha = () => {
           </div>
         </div>
 
-        {/* Final CTA Section */}
-        <Card className="bg-gradient-to-r from-primary via-accent to-primary text-white border-0">
-          <CardContent className="p-8 md:p-12 text-center">
-            <Crown className="h-16 w-16 mx-auto mb-4 opacity-90" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Attract Wealth & Prosperity?
-            </h2>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Join 15,000+ devotees who transformed their lives with authentic 7 Mukhi Rudraksha blessed by Goddess Lakshmi
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
-                size="lg" 
-                variant="secondary" 
-                className="text-lg px-8 py-6"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              >
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                Buy Now - ₹{product.price.toLocaleString()}
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
-                onClick={() => window.open('https://wa.me/1234567890?text=I need help with 7 Mukhi Rudraksha', '_blank')}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Talk to Expert
-              </Button>
-            </div>
-            <div className="mt-6 flex items-center justify-center gap-6 text-sm opacity-90">
-              <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5" />
-                <span>30-Day Guarantee</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Truck className="h-5 w-5" />
-                <span>Free Shipping</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="h-5 w-5" />
-                <span>Lab Certified</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Trust Section */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold mb-6">Trusted by Devotees Worldwide</h3>
