@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, ShoppingBag, Shield, Award, Truck, CheckCircle2, MessageCircle, Filter, TrendingUp, Users, Search } from "lucide-react";
+import { Star, ShoppingBag, Shield, Award, Truck, CheckCircle2, MessageCircle, Filter, TrendingUp, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Input } from "@/components/ui/input";
 import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
 import oneMukhiImage from "@/assets/rudraksha/1-mukhi.jpg";
 import threeMukhiImage from "@/assets/rudraksha/3-mukhi.jpg";
@@ -16,7 +15,6 @@ import fourMukhiImage from "@/assets/rudraksha/4-mukhi.jpg";
 const Rudraksha = () => {
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("popular");
-  const [searchQuery, setSearchQuery] = useState("");
 
   // Comprehensive Rudraksha collections by type
   const rudrakshaCollections: Record<string, any> = {
@@ -156,10 +154,7 @@ const Rudraksha = () => {
   const [activeTab, setActiveTab] = useState("all");
   const currentCollection = rudrakshaCollections[activeTab];
 
-  // Filter products based on search
-  const filteredProducts = currentCollection.products.filter((product: any) =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = currentCollection.products;
 
   const faqs = [
     {
@@ -346,31 +341,20 @@ const Rudraksha = () => {
             </div>
           </div>
 
-          {/* Filters and Search */}
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search Rudraksha..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex gap-2">
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-[180px]">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="Sort by" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="popular">Most Popular</SelectItem>
-                  <SelectItem value="price-low">Price: Low to High</SelectItem>
-                  <SelectItem value="price-high">Price: High to Low</SelectItem>
-                  <SelectItem value="rating">Highest Rated</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+          {/* Filters */}
+          <div className="flex justify-end mb-6">
+            <Select value={sortBy} onValueChange={setSortBy}>
+              <SelectTrigger className="w-[180px]">
+                <Filter className="h-4 w-4 mr-2" />
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="popular">Most Popular</SelectItem>
+                <SelectItem value="price-low">Price: Low to High</SelectItem>
+                <SelectItem value="price-high">Price: High to Low</SelectItem>
+                <SelectItem value="rating">Highest Rated</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Products Grid */}
@@ -481,13 +465,6 @@ const Rudraksha = () => {
               </Card>
             ))}
           </div>
-
-          {/* No Results */}
-          {filteredProducts.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">No Rudraksha found matching your search.</p>
-            </div>
-          )}
         </Tabs>
 
         {/* Why Choose Us Section */}
