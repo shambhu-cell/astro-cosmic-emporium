@@ -40,7 +40,7 @@ const ProductDetailsRudraksha = () => {
   const faqs = [
     {
       q: `What are the main benefits of ${product.name}?`,
-      a: `${product.name} is blessed by ${product.deity} and rules planet ${product.planet}. ${product.benefits[0].desc}. It's highly beneficial for spiritual growth, health improvements, and overall well-being. The Rudraksha provides divine protection and helps achieve life goals.`
+      a: `${product.name} is blessed by ${product.deity} and rules planet ${product.planet}. ${product.benefits?.[0]?.desc || 'It provides numerous spiritual and health benefits'}. It's highly beneficial for spiritual growth, health improvements, and overall well-being. The Rudraksha provides divine protection and helps achieve life goals.`
     },
     {
       q: "Is this really authentic Nepal Rudraksha?",
@@ -48,7 +48,7 @@ const ProductDetailsRudraksha = () => {
     },
     {
       q: `Can anyone wear ${product.id.replace('-', ' ')} Rudraksha?`,
-      a: `Yes! This Rudraksha can be worn by anyone regardless of age, gender, caste, or religion. It's especially beneficial for ${product.idealFor[0].toLowerCase()}. There are no negative side effects when worn with faith and devotion.`
+      a: `Yes! This Rudraksha can be worn by anyone regardless of age, gender, caste, or religion. It's especially beneficial for ${product.idealFor?.[0]?.toLowerCase() || 'spiritual seekers'}. There are no negative side effects when worn with faith and devotion.`
     },
     {
       q: "How soon will I see results?",
@@ -169,7 +169,7 @@ const ProductDetailsRudraksha = () => {
             </div>
             
             <div className="grid grid-cols-4 gap-3">
-              {product.images.map((img, idx) => (
+              {(product.images || []).map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
@@ -294,7 +294,7 @@ const ProductDetailsRudraksha = () => {
                   Why Choose This Rudraksha?
                 </h3>
                 <div className="space-y-2">
-                  {product.keyHighlights.map((point, idx) => (
+                  {(product.keyHighlights || []).map((point, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                       <span className="text-sm leading-relaxed">{point}</span>
@@ -413,7 +413,7 @@ const ProductDetailsRudraksha = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {product.benefits.map((benefit, idx) => (
+            {(product.benefits || []).map((benefit, idx) => (
               <Card key={idx} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-primary/10 hover:border-primary/30">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
@@ -433,14 +433,14 @@ const ProductDetailsRudraksha = () => {
           <Card>
             <CardContent className="p-6">
               <Accordion type="single" collapsible className="w-full">
-                {product.detailedBenefits.map((section, idx) => (
+                {(product.detailedBenefits || []).map((section, idx) => (
                   <AccordionItem key={idx} value={`benefits-${idx}`}>
                     <AccordionTrigger className="text-left font-bold text-lg hover:text-primary">
                       {section.category}
                     </AccordionTrigger>
                     <AccordionContent>
                       <ul className="space-y-2 ml-2">
-                        {section.points.map((point, pidx) => (
+                        {(section.points || []).map((point, pidx) => (
                           <li key={pidx} className="flex items-start gap-2">
                             <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                             <span className="text-muted-foreground">{point}</span>
@@ -461,7 +461,7 @@ const ProductDetailsRudraksha = () => {
           <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
             <CardContent className="p-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {product.idealFor.map((person, idx) => (
+                {(product.idealFor || []).map((person, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-3 bg-background rounded-lg border">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shrink-0">
                       {idx + 1}
@@ -480,7 +480,7 @@ const ProductDetailsRudraksha = () => {
           <Card className="max-w-3xl mx-auto border-2 border-primary/20">
             <CardContent className="p-8">
               <div className="space-y-4">
-                {product.wearingInstructions.map((instruction, idx) => (
+                {(product.wearingInstructions || []).map((instruction, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
                     <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">
                       {idx + 1}
@@ -500,7 +500,7 @@ const ProductDetailsRudraksha = () => {
             See how 7 Mukhi Rudraksha transformed lives
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            {product.testimonials.map((testimonial, idx) => (
+            {testimonials.map((testimonial, idx) => (
               <Card key={idx} className="border-2 border-primary/10 hover:border-primary/30 transition-colors">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-3">
@@ -539,7 +539,7 @@ const ProductDetailsRudraksha = () => {
           <Card>
             <CardContent className="p-6">
               <Accordion type="single" collapsible className="w-full">
-                {product.faqs.map((faq, idx) => (
+                {faqs.map((faq, idx) => (
                   <AccordionItem key={idx} value={`faq-${idx}`}>
                     <AccordionTrigger className="text-left font-semibold hover:text-primary">
                       {faq.q}
