@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Sparkles, Check, Leaf, Users, Phone, MessageCircle, Zap, Clock, Package, IndianRupee, TrendingUp, Crown, Gem } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
-import oneMukhiImage from "@/assets/rudraksha/1-mukhi.jpg";
-import threeMukhiImage from "@/assets/rudraksha/3-mukhi.jpg";
-import fourMukhiImage from "@/assets/rudraksha/4-mukhi.jpg";
+import { rudrakshaProductsData } from "@/data/rudrakshaProducts";
 
 const ProductDetailsRudraksha = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isSticky, setIsSticky] = useState(false);
@@ -24,221 +22,101 @@ const ProductDetailsRudraksha = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 7 Mukhi Rudraksha Product Data
-  const product = {
-    id: "7-mukhi",
-    name: "7 Mukhi Rudraksha - Certified Nepal",
-    subtitle: "Goddess Lakshmi's Divine Blessing for Wealth & Prosperity",
-    price: 2499,
-    originalPrice: 3499,
-    discount: 29,
-    rating: 4.9,
-    reviews: 2847,
-    sold: "15,000+",
-    inStock: true,
-    stockLeft: 9,
-    deliveryDate: "October 22-23, 2025",
-    images: [oneMukhiImage, nirakarImage, threeMukhiImage, fourMukhiImage],
-    origin: "Nepal - Original",
-    size: "18mm - 22mm",
-    deity: "Goddess Mahalakshmi",
-    planet: "Saturn (Shani)",
-    element: "Earth",
-    chakra: "Solar Plexus",
-    mantra: "Om Hum Namah",
-    certification: "Lab X-Ray Certified",
-    energization: "Vedic Mantras by Expert Pandits",
-    emiAvailable: true,
-    emiAmount: 833,
-    
-    keyHighlights: [
-      "🪷 Blessed by Goddess Lakshmi - Direct blessings for wealth",
-      "💰 Removes Financial Obstacles - Opens doors to prosperity",
-      "🔒 100% Authentic Nepal Origin - Lab certified with X-ray proof",
-      "⚡ Pre-Energized & Blessed - Ready to wear immediately",
-      "🎯 Saturn (Shani) Remedy - Reduces malefic effects",
-      "📦 Free Shipping Pan India - Secure & insured delivery"
-    ],
+  // Get product data based on ID
+  const product = rudrakshaProductsData[id || "7-mukhi"];
 
-    benefits: [
-      { 
-        icon: Crown, 
-        title: "Attracts Wealth & Prosperity", 
-        desc: "Blessed by Goddess Lakshmi, brings abundance and financial success into your life"
-      },
-      { 
-        icon: Shield, 
-        title: "Saturn (Shani) Protection", 
-        desc: "Powerful remedy for Saturn's malefic effects, removes Shani Dosh"
-      },
-      { 
-        icon: Sparkles, 
-        title: "Business Success", 
-        desc: "Enhances career growth, business opportunities and professional success"
-      },
-      { 
-        icon: Zap, 
-        title: "Removes Bad Luck", 
-        desc: "Clears negative karma, removes obstacles and brings good fortune"
-      },
-      { 
-        icon: Leaf, 
-        title: "Health & Vitality", 
-        desc: "Improves overall health, boosts immunity and provides physical strength"
-      },
-      { 
-        icon: Gem, 
-        title: "Spiritual Growth", 
-        desc: "Enhances meditation, spiritual wisdom and divine connection"
-      },
-    ],
+  // If product not found, redirect to 7-mukhi
+  useEffect(() => {
+    if (!product) {
+      navigate("/rudraksha/7-mukhi");
+    }
+  }, [product, navigate]);
 
-    detailedBenefits: [
-      {
-        category: "💰 Financial Benefits",
-        points: [
-          "Attracts wealth, prosperity and abundance",
-          "Removes financial obstacles and debts",
-          "Enhances business growth and opportunities",
-          "Brings stability in income and savings",
-          "Protects from financial losses"
-        ]
-      },
-      {
-        category: "🛡️ Astrological Benefits",
-        points: [
-          "Powerful remedy for Saturn (Shani) Dosh",
-          "Reduces malefic effects of planet Saturn",
-          "Brings relief from Sade Sati period",
-          "Balances planetary energies",
-          "Enhances positive Saturn influences"
-        ]
-      },
-      {
-        category: "🧘 Health & Wellness",
-        points: [
-          "Improves overall physical health",
-          "Helps in bone and joint issues",
-          "Boosts immunity and vitality",
-          "Reduces stress and anxiety",
-          "Enhances mental clarity and focus"
-        ]
-      },
-      {
-        category: "🌟 Spiritual & Personal",
-        points: [
-          "Enhances spiritual awareness",
-          "Brings good luck and fortune",
-          "Removes negative energies",
-          "Increases confidence and willpower",
-          "Attracts Lakshmi's divine blessings"
-        ]
-      }
-    ],
+  if (!product) {
+    return null;
+  }
 
-    idealFor: [
-      "Business owners seeking financial growth",
-      "Individuals facing Saturn Dosh or Sade Sati",
-      "People experiencing financial difficulties",
-      "Those seeking Goddess Lakshmi's blessings",
-      "Professionals wanting career advancement",
-      "Anyone desiring wealth and prosperity"
-    ],
+  // Generate FAQs dynamically
+  const faqs = [
+    {
+      q: `What are the main benefits of ${product.name}?`,
+      a: `${product.name} is blessed by ${product.deity} and rules planet ${product.planet}. ${product.benefits[0].desc}. It's highly beneficial for spiritual growth, health improvements, and overall well-being. The Rudraksha provides divine protection and helps achieve life goals.`
+    },
+    {
+      q: "Is this really authentic Nepal Rudraksha?",
+      a: "Yes! This is 100% authentic Nepal origin Rudraksha, lab certified with X-ray testing. We provide authenticity certificate with each Rudraksha. We source directly from Nepal's sacred regions and guarantee natural holes and genuine quality. All our Rudraksha undergo rigorous quality checks."
+    },
+    {
+      q: `Can anyone wear ${product.id.replace('-', ' ')} Rudraksha?`,
+      a: `Yes! This Rudraksha can be worn by anyone regardless of age, gender, caste, or religion. It's especially beneficial for ${product.idealFor[0].toLowerCase()}. There are no negative side effects when worn with faith and devotion.`
+    },
+    {
+      q: "How soon will I see results?",
+      a: "Results vary by individual, but many devotees report positive changes within 40-45 days of regular wearing. The benefits manifest gradually as you develop a deeper connection with the Rudraksha. For maximum benefits, wear with faith, maintain purity, and chant the mantra regularly."
+    },
+    {
+      q: "Do you provide energization and certificate?",
+      a: `Yes! Every ${product.name} comes pre-energized with Vedic mantras by expert pandits. We provide a lab certification for authenticity, energization certificate, and complete wearing instructions. You can wear it immediately upon receiving.`
+    },
+    {
+      q: "What is your return and refund policy?",
+      a: "We offer 30-day money-back guarantee. If you're not satisfied or have any issues, you can return within 30 days for full refund. Item must be in original condition with certificate. Your satisfaction and divine blessings are our priority."
+    },
+    {
+      q: "How do I take care of my Rudraksha?",
+      a: "Keep it clean - wipe with soft cloth regularly. Avoid chemicals, perfumes, and harsh soaps. Remove during sleep if uncomfortable. You can occasionally clean with water and dry properly. Apply natural oil (olive/coconut) once a month to maintain luster. Store in clean place when not wearing."
+    }
+  ];
 
-    certifications: [
-      { title: "Lab Certified", desc: "X-ray tested authenticity" },
-      { title: "Nepal Origin", desc: "Sourced from sacred regions" },
-      { title: "Vedic Energized", desc: "Activated by expert pandits" },
-      { title: "Quality Assured", desc: "Natural holes, no artificial" }
-    ],
+  // Generate testimonials dynamically
+  const testimonials = [
+    {
+      name: "Rajesh Kumar",
+      location: "Mumbai, Maharashtra",
+      rating: 5,
+      text: `After wearing ${product.id.replace('-', ' ')} Rudraksha, my life completely transformed! The benefits are real and powerful. Highly authentic product.`,
+      verified: true,
+      date: "2 months ago"
+    },
+    {
+      name: "Priya Sharma",
+      location: "Delhi, NCR",
+      rating: 5,
+      text: `Amazing results within 60 days! ${product.deity}'s blessings are clearly visible. The Rudraksha is original Nepal quality. Worth every rupee!`,
+      verified: true,
+      date: "3 months ago"
+    },
+    {
+      name: "Amit Patel",
+      location: "Ahmedabad, Gujarat",
+      rating: 5,
+      text: "Best purchase ever! The energization is powerful and I can feel the positive vibrations. Original, certified and highly effective.",
+      verified: true,
+      date: "1 month ago"
+    },
+    {
+      name: "Sunita Verma",
+      location: "Bangalore, Karnataka",
+      rating: 5,
+      text: `Got amazing results with ${product.id.replace('-', ' ')} Rudraksha. Life changed for better. Thank you AstroSage! 🙏`,
+      verified: true,
+      date: "6 weeks ago"
+    }
+  ];
 
-    wearingInstructions: [
-      "Best Day to Wear: Monday or Friday morning",
-      "Ideal Time: During Shukla Paksha (waxing moon)",
-      "Purification: Wash with Ganga jal or clean water",
-      "Energization: Chant 'Om Hum Namah' 108 times",
-      "Wearing: Can be worn as pendant or bracelet",
-      "Touch: Should touch your skin for maximum benefits",
-      "Care: Keep clean, avoid chemicals and perfumes"
-    ],
+  const certifications = [
+    { title: "Lab Certified", desc: "X-ray tested authenticity" },
+    { title: "Nepal Origin", desc: "Sourced from sacred regions" },
+    { title: "Vedic Energized", desc: "Activated by expert pandits" },
+    { title: "Quality Assured", desc: "Natural holes, no artificial" }
+  ];
 
-    faqs: [
-      {
-        q: "What are the main benefits of 7 Mukhi Rudraksha?",
-        a: "7 Mukhi Rudraksha is blessed by Goddess Mahalakshmi and rules planet Saturn. It brings wealth, prosperity, financial success, removes Saturn Dosh (Shani Dosh), cures financial problems, enhances business growth, and provides protection from negative energies. It's one of the most powerful Rudraksha for attracting abundance."
-      },
-      {
-        q: "Is this really authentic Nepal Rudraksha?",
-        a: "Yes! This is 100% authentic Nepal origin Rudraksha, lab certified with X-ray testing. We provide authenticity certificate with each Rudraksha. We source directly from Nepal's sacred regions and guarantee natural holes and genuine quality. All our Rudraksha undergo rigorous quality checks."
-      },
-      {
-        q: "Can anyone wear 7 Mukhi Rudraksha?",
-        a: "Yes! 7 Mukhi Rudraksha can be worn by anyone regardless of age, gender, caste, or religion. It's especially beneficial for business owners, those facing financial issues, people undergoing Saturn Dosh or Sade Sati period. There are no negative side effects."
-      },
-      {
-        q: "How is it different from other Mukhi Rudraksha?",
-        a: "7 Mukhi Rudraksha is specifically blessed by Goddess Lakshmi and represents the 7 forms of abundance. It's unique for attracting wealth and prosperity. While other Mukhi have different benefits, 7 Mukhi specializes in financial success, Saturn remedy, and removing poverty consciousness."
-      },
-      {
-        q: "How soon will I see results?",
-        a: "Results vary by individual, but many devotees report positive changes within 40-45 days of regular wearing. Financial improvements, reduced stress, and better opportunities are commonly experienced. For maximum benefits, wear with faith, maintain purity, and chant the mantra regularly."
-      },
-      {
-        q: "Do you provide energization and certificate?",
-        a: "Yes! Every 7 Mukhi Rudraksha comes pre-energized with Vedic mantras by expert pandits. We provide a lab certification for authenticity, energization certificate, and complete wearing instructions. You can wear it immediately upon receiving."
-      },
-      {
-        q: "What is your return and refund policy?",
-        a: "We offer 30-day money-back guarantee. If you're not satisfied or have any issues, you can return within 30 days for full refund. Item must be in original condition with certificate. Your satisfaction and divine blessings are our priority."
-      },
-      {
-        q: "How do I take care of my Rudraksha?",
-        a: "Keep it clean - wipe with soft cloth regularly. Avoid chemicals, perfumes, and harsh soaps. Remove during sleep if uncomfortable. You can occasionally clean with water and dry properly. Apply natural oil (olive/coconut) once a month to maintain luster. Store in clean place when not wearing."
-      }
-    ],
-
-    testimonials: [
-      {
-        name: "Rajesh Kumar",
-        location: "Mumbai, Maharashtra",
-        rating: 5,
-        text: "My business was struggling for 2 years. After wearing 7 Mukhi Rudraksha, I got 3 major contracts within 60 days! Amazing transformation. 100% authentic and powerful.",
-        verified: true,
-        date: "2 months ago"
-      },
-      {
-        name: "Priya Sharma",
-        location: "Delhi, NCR",
-        rating: 5,
-        text: "I was going through Sade Sati period with constant financial problems. This Rudraksha changed everything! Got promotion and financial stability returned. Truly blessed by Goddess Lakshmi.",
-        verified: true,
-        date: "3 months ago"
-      },
-      {
-        name: "Amit Patel",
-        location: "Ahmedabad, Gujarat",
-        rating: 5,
-        text: "Ordered for my wife who was facing health and money issues. Within 45 days, her health improved and unexpected money came from old sources. Original Nepal quality. Highly recommend!",
-        verified: true,
-        date: "1 month ago"
-      },
-      {
-        name: "Sunita Verma",
-        location: "Bangalore, Karnataka",
-        rating: 5,
-        text: "Best investment ever! My Saturn was causing problems in career. After wearing 7 Mukhi, got job offer with 40% salary hike. The energization is powerful. Thank you AstroSage! 🙏",
-        verified: true,
-        date: "6 weeks ago"
-      }
-    ],
-
-    relatedProducts: [
-      { id: "5-mukhi", name: "5 Mukhi Rudraksha", price: 699, image: fourMukhiImage, rating: 4.9 },
-      { id: "8-mukhi", name: "8 Mukhi Rudraksha (Ganesha)", price: 2999, image: threeMukhiImage, rating: 4.8 },
-      { id: "rudraksha-mala", name: "Rudraksha Mala 108 Beads", price: 1999, image: nirakarImage, rating: 4.9 },
-      { id: "lakshmi-yantra", name: "Shri Lakshmi Yantra", price: 1299, image: oneMukhiImage, rating: 4.7 }
-    ]
-  };
+  const relatedProducts = [
+    { id: "5-mukhi", name: "5 Mukhi Rudraksha", price: 699, image: product.images[3], rating: 4.9 },
+    { id: "7-mukhi", name: "7 Mukhi Rudraksha", price: 2499, image: product.images[2], rating: 4.9 },
+    { id: "9-mukhi", name: "9 Mukhi Rudraksha", price: 3499, image: product.images[1], rating: 4.8 },
+    { id: "1-mukhi", name: "1 Mukhi Rudraksha", price: 8399, image: product.images[0], rating: 4.9 }
+  ].filter(p => p.id !== product.id);
 
   return (
     <div className="min-h-screen bg-background">
@@ -306,7 +184,7 @@ const ProductDetailsRudraksha = () => {
 
             {/* Trust Badges */}
             <div className="grid grid-cols-2 gap-3">
-              {product.certifications.map((cert, idx) => (
+              {certifications.map((cert, idx) => (
                 <Card key={idx} className="border-primary/20">
                   <CardContent className="p-3 text-center">
                     <Award className="h-5 w-5 text-primary mx-auto mb-1" />
@@ -345,7 +223,7 @@ const ProductDetailsRudraksha = () => {
             <div>
               <Badge className="mb-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
                 <Crown className="h-3 w-3 mr-1" />
-                Goddess Lakshmi Blessing
+                {product.deity}'s Blessing
               </Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
                 {product.name}
@@ -680,7 +558,7 @@ const ProductDetailsRudraksha = () => {
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-10">You May Also Like</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {product.relatedProducts.map((item) => (
+            {relatedProducts.map((item) => (
               <Link key={item.id} to={`/rudraksha/${item.id}`}>
                 <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
                   <CardContent className="p-4">
