@@ -394,7 +394,6 @@ const GemstoneCollection = () => {
       <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-b">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-3xl">
-            <Badge className="mb-4">Planet: {currentCollection.planet}</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{currentCollection.name}</h1>
             <p className="text-lg text-muted-foreground mb-6">{currentCollection.description}</p>
             <div className="flex flex-wrap gap-2">
