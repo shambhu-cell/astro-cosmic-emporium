@@ -4,7 +4,6 @@ import { Star, ShoppingBag, Shield, Award, Truck, CheckCircle2, MessageCircle, F
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
@@ -151,9 +150,8 @@ const Rudraksha = () => {
     }
   });
 
-  const [activeTab, setActiveTab] = useState("all");
+  const activeTab = "all";
   const currentCollection = rudrakshaCollections[activeTab];
-
   const filteredProducts = currentCollection.products;
 
   const faqs = [
@@ -272,93 +270,24 @@ const Rudraksha = () => {
           </CardContent>
         </Card>
 
-        {/* Tabs for Mukhi Types */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-          <TabsList className="w-full justify-start h-auto p-1 bg-muted/50 rounded-lg overflow-x-auto flex-wrap md:flex-nowrap">
-            <TabsTrigger value="all" className="flex-1 md:flex-none px-4 py-3 text-sm whitespace-nowrap">
-              All Rudraksha
-            </TabsTrigger>
-            <TabsTrigger value="1-mukhi" className="flex-1 md:flex-none px-4 py-3 text-sm whitespace-nowrap">
-              1 Mukhi
-            </TabsTrigger>
-            <TabsTrigger value="3-mukhi" className="flex-1 md:flex-none px-4 py-3 text-sm whitespace-nowrap">
-              3 Mukhi
-            </TabsTrigger>
-            <TabsTrigger value="4-mukhi" className="flex-1 md:flex-none px-4 py-3 text-sm whitespace-nowrap">
-              4 Mukhi
-            </TabsTrigger>
-            <TabsTrigger value="nirakar" className="flex-1 md:flex-none px-4 py-3 text-sm whitespace-nowrap">
-              Nirakar (0 Mukhi)
-            </TabsTrigger>
-          </TabsList>
+        {/* Filters */}
+        <div className="flex justify-end mb-6">
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger className="w-[180px]">
+              <Filter className="h-4 w-4 mr-2" />
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="popular">Most Popular</SelectItem>
+              <SelectItem value="price-low">Price: Low to High</SelectItem>
+              <SelectItem value="price-high">Price: High to Low</SelectItem>
+              <SelectItem value="rating">Highest Rated</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
 
-          {/* Collection Info */}
-          <div className="mt-8 mb-6">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-2xl p-6 md:p-8">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div>
-                  <h2 className="text-3xl font-bold mb-2">{currentCollection.name}</h2>
-                  {currentCollection.deity && (
-                    <div className="flex flex-wrap gap-3 mb-3">
-                      <Badge variant="outline" className="bg-white/50">
-                        <Award className="h-3 w-3 mr-1" />
-                        Deity: {currentCollection.deity}
-                      </Badge>
-                      {currentCollection.planet && (
-                        <Badge variant="outline" className="bg-white/50">
-                          Planet: {currentCollection.planet}
-                        </Badge>
-                      )}
-                    </div>
-                  )}
-                  <p className="text-muted-foreground">{currentCollection.description}</p>
-                </div>
-              </div>
-
-              {/* Main Benefits */}
-              {currentCollection.mainBenefits && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {currentCollection.mainBenefits.map((benefit: string, idx: number) => (
-                    <Badge key={idx} className="bg-primary/10 text-primary hover:bg-primary/20">
-                      <CheckCircle2 className="h-3 w-3 mr-1" />
-                      {benefit}
-                    </Badge>
-                  ))}
-                </div>
-              )}
-
-              {/* Detailed Benefits */}
-              {currentCollection.benefits && (
-                <div className="grid md:grid-cols-2 gap-3 mt-4">
-                  {currentCollection.benefits.map((benefit: string, idx: number) => (
-                    <div key={idx} className="flex items-start gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Filters */}
-          <div className="flex justify-end mb-6">
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px]">
-                <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="popular">Most Popular</SelectItem>
-                <SelectItem value="price-low">Price: Low to High</SelectItem>
-                <SelectItem value="price-high">Price: High to Low</SelectItem>
-                <SelectItem value="rating">Highest Rated</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product: any) => (
               <Card
                 key={product.id}
@@ -464,8 +393,7 @@ const Rudraksha = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </Tabs>
+        </div>
 
         {/* Why Choose Us Section */}
         <div className="mt-16 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-8 md:p-12">
