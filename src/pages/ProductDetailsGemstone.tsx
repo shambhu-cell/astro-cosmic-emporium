@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import blueSapphireImage from "@/assets/gemstones/blue-sapphire.jpg";
+import rubyImage from "@/assets/gemstones/ruby.jpg";
+import emeraldImage from "@/assets/gemstones/emerald.jpg";
+import yellowSapphireImage from "@/assets/gemstones/yellow-sapphire.jpg";
 
 const ProductDetailsGemstone = () => {
   const { id } = useParams();
@@ -22,7 +26,7 @@ const ProductDetailsGemstone = () => {
     sold: "15,000+",
     inStock: true,
     deliveryDate: "October 18",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [blueSapphireImage, blueSapphireImage, blueSapphireImage, blueSapphireImage],
     weight: "5.25 Ratti (4.75 Carat)",
     certification: "Government Lab Certified",
     benefits: [
