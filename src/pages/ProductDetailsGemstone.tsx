@@ -528,8 +528,8 @@ const ProductDetailsGemstone = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">23+ Years Trusted</h3>
-              <p className="text-muted-foreground">India's #1 astrology platform since 2001</p>
+              <h3 className="font-bold text-lg mb-2">21 Years of Trust</h3>
+              <p className="text-muted-foreground">Since 2001</p>
             </div>
             <div className="text-center">
               <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
