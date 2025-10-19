@@ -242,26 +242,6 @@ const ProductDetailsRudraksha = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Trust Bar */}
-      <div className="bg-gradient-to-r from-primary via-accent to-primary text-white py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-xs md:text-sm font-medium">
-            <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4" />
-              <span>100% Authentic Nepal - Lab Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Truck className="h-4 w-4" />
-              <span>Free Shipping Pan India</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="h-4 w-4" />
-              <span>30-Day Money Back Guarantee</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Sticky Add to Cart Bar - Mobile */}
       {isSticky && (
         <div className="fixed bottom-0 left-0 right-0 bg-background border-t-2 border-primary/20 shadow-lg z-50 lg:hidden animate-slide-in-right">
