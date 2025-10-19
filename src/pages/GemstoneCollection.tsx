@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Star, Shield, Award, Filter, ChevronDown, Sparkles, Heart, Users } from "lucide-react";
+import { Star, Shield, Award, Filter, ChevronDown, Sparkles, Heart, Users, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -378,6 +378,21 @@ const GemstoneCollection = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Floating Talk to Expert Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Button 
+          size="lg" 
+          className="rounded-full shadow-2xl h-14 px-6 bg-gradient-to-r from-primary to-accent hover:scale-105 transition-transform"
+          onClick={() => {
+            // Add functionality to open chat/contact form
+            window.open('https://wa.me/1234567890?text=Hi, I need help choosing a gemstone', '_blank');
+          }}
+        >
+          <MessageCircle className="w-5 h-5 mr-2" />
+          Talk to Gem Expert
+        </Button>
+      </div>
+
       {/* Breadcrumb */}
       <div className="bg-muted/30 border-b">
         <div className="container mx-auto px-4 py-4">
@@ -704,6 +719,47 @@ const GemstoneCollection = () => {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* Expert Consultation Banner */}
+        <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-2 border-primary/20 rounded-2xl p-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl font-bold mb-2">Need Help Choosing the Right Gemstone?</h3>
+              <p className="text-muted-foreground mb-4">
+                Our expert astrologers are available 24/7 to guide you in selecting the perfect gemstone based on your birth chart and requirements.
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                <Badge variant="outline" className="text-sm">
+                  <Shield className="w-3 h-3 mr-1" />
+                  Free Consultation
+                </Badge>
+                <Badge variant="outline" className="text-sm">
+                  <Star className="w-3 h-3 mr-1" />
+                  23+ Years Experience
+                </Badge>
+                <Badge variant="outline" className="text-sm">
+                  <Users className="w-3 h-3 mr-1" />
+                  5000+ Happy Customers
+                </Badge>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-accent hover:scale-105 transition-transform"
+                onClick={() => {
+                  window.open('https://wa.me/1234567890?text=Hi, I need expert consultation for gemstones', '_blank');
+                }}
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Talk to Expert Now
+              </Button>
+              <p className="text-xs text-center text-muted-foreground">
+                Response within 2 minutes
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Trust Indicators */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 border-t pt-12">
