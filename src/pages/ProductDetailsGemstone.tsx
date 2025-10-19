@@ -12,6 +12,26 @@ import rubyImage from "@/assets/gemstones/ruby.jpg";
 import emeraldImage from "@/assets/gemstones/emerald.jpg";
 import yellowSapphireImage from "@/assets/gemstones/yellow-sapphire.jpg";
 
+// ID mapping for different URL formats
+const idMapping: Record<string, string> = {
+  "bs-1": "blue-sapphire",
+  "bs-2": "blue-sapphire",
+  "bs-3": "blue-sapphire",
+  "bs-4": "blue-sapphire",
+  "ys-1": "yellow-sapphire",
+  "ys-2": "yellow-sapphire",
+  "ys-3": "yellow-sapphire",
+  "ys-4": "yellow-sapphire",
+  "ruby-1": "ruby",
+  "ruby-2": "ruby",
+  "ruby-3": "ruby",
+  "ruby-4": "ruby",
+  "emerald-1": "emerald",
+  "emerald-2": "emerald",
+  "emerald-3": "emerald",
+  "emerald-4": "emerald",
+};
+
 // Gemstone data repository
 const gemstonesData: Record<string, any> = {
   "blue-sapphire": {
@@ -199,8 +219,10 @@ const ProductDetailsGemstone = () => {
   const [selectedWeight, setSelectedWeight] = useState(0);
   const [selectedMetal, setSelectedMetal] = useState(0);
 
-  // Get product data based on URL parameter
-  const product = gemstonesData[id || "blue-sapphire"];
+  // Get product data based on URL parameter with ID mapping
+  const productId = id || "blue-sapphire";
+  const mappedId = idMapping[productId] || productId;
+  const product = gemstonesData[mappedId];
 
   // If product not found, show default or redirect
   if (!product) {
