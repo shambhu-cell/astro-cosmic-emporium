@@ -1,63 +1,76 @@
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Sparkles, Check, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { Star, ShoppingCart, Heart, Share2, Shield, Truck, ArrowLeft, Sparkles, Check, Zap, Award, Users, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { braceletProductsData } from "@/data/braceletProducts";
 
 const ProductDetailsBracelet = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("M");
 
-  const product = {
-    id: id || "1",
-    name: "Natural Amethyst Crystal Bracelet",
-    price: 1499,
-    originalPrice: 3499,
-    discount: 57,
-    rating: 4.9,
-    reviews: 18452,
-    sold: "32,000+",
-    inStock: true,
-    deliveryDate: "October 18",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    sizes: ["S (6.5in)", "M (7in)", "L (7.5in)", "XL (8in)"],
-    material: "AAA Grade Natural Amethyst",
-    beadSize: "8mm Round Beads",
-    benefits: [
-      { icon: Sparkles, title: "Spiritual Growth", desc: "Enhances intuition & third eye" },
-      { icon: Zap, title: "Stress Relief", desc: "Calms mind and promotes peace" },
-      { icon: Shield, title: "Protection", desc: "Shields from negative energy" },
-      { icon: Star, title: "Better Sleep", desc: "Reduces insomnia & nightmares" },
-    ],
-    keyPoints: [
-      "AAA Grade natural amethyst crystals",
-      "Activates Crown & Third Eye Chakras",
-      "Powerful for meditation & spiritual work",
-      "Reduces stress, anxiety & promotes clarity"
-    ],
-    properties: [
-      { name: "Chakra", value: "Crown & Third Eye", color: "Purple" },
-      { name: "Element", value: "Air & Water", color: "Blue" },
-      { name: "Planet", value: "Jupiter & Neptune", color: "Indigo" },
-      { name: "Zodiac", value: "Pisces, Aquarius", color: "Purple" },
-    ],
-    healingProperties: [
-      "Calms the mind and reduces stress",
-      "Enhances spiritual awareness & intuition",
-      "Promotes restful sleep & vivid dreams",
-      "Protects against psychic attacks",
-      "Aids in overcoming addictions",
-      "Balances emotional highs and lows"
-    ],
-    upsells: [
-      { name: "Amethyst Geode", desc: "Natural crystal cluster", price: 2499 },
-      { name: "Crystal Cleansing Kit", desc: "Sage & selenite plate", price: 599 },
-      { name: "Meditation Guide", desc: "Amethyst activation ebook", price: 299 },
-    ]
-  };
+  const product = braceletProductsData[id || "amethyst"];
+
+  useEffect(() => {
+    if (!product) {
+      navigate("/bracelet/amethyst");
+    }
+  }, [product, navigate]);
+
+  if (!product) {
+    return null;
+  }
+
+  // Generate dynamic FAQs
+  const faqs = [
+    {
+      question: `What are the benefits of ${product.crystal}?`,
+      answer: `${product.crystal} ${product.healingProperties[0].toLowerCase()} and ${product.healingProperties[1].toLowerCase()}. It's particularly powerful for ${product.benefits[0]?.desc.toLowerCase()}.`
+    },
+    {
+      question: "Is this bracelet made from natural crystals?",
+      answer: "Yes! All our bracelets are made from 100% natural, lab-certified crystals. Each piece is hand-selected for quality and authenticity. We provide certification upon request."
+    },
+    {
+      question: "How do I choose the right size?",
+      answer: "Measure your wrist and add 0.5 inches for a comfortable fit. Our sizes are: S (6.5in), M (7in), L (7.5in), XL (8in). Most people prefer M or L size. Contact us if you need help!"
+    },
+    {
+      question: "How should I care for my crystal bracelet?",
+      answer: `${product.wearingInstructions[0]} ${product.wearingInstructions[1]} Avoid exposure to harsh chemicals, perfumes, or extreme temperatures. Handle with care as natural crystals can be delicate.`
+    },
+    {
+      question: "Do you offer returns?",
+      answer: "Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with your purchase, return it within 30 days for a full refund, no questions asked."
+    }
+  ];
+
+  // Dynamic testimonials
+  const testimonials = [
+    {
+      name: "Priya Sharma",
+      rating: 5,
+      text: `The ${product.crystal} bracelet exceeded my expectations! I've been wearing it for 2 weeks and can already feel the positive energy. Highly recommend!`,
+      verified: true
+    },
+    {
+      name: "Rahul Verma",
+      rating: 5,
+      text: "Excellent quality crystals. Beautifully crafted and came with proper certification. Customer service was also very helpful.",
+      verified: true
+    },
+    {
+      name: "Anjali Patel",
+      rating: 5,
+      text: `I bought this for ${product.benefits[0]?.desc.toLowerCase()} and it's been amazing. The energy is very strong and positive. Worth every rupee!`,
+      verified: true
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -67,17 +80,22 @@ const ProductDetailsBracelet = () => {
       </div>
 
       <div className="container max-w-screen-xl mx-auto px-4 py-6">
-        <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-4">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Shop
-        </Link>
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+          <Link to="/" className="hover:text-primary">Home</Link>
+          <span>/</span>
+          <Link to="/bracelets" className="hover:text-primary">Bracelets</Link>
+          <span>/</span>
+          <span className="text-foreground font-medium">{product.name}</span>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Images */}
           <div className="space-y-4">
             <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl overflow-hidden">
-              <Badge className="absolute top-4 left-4 bg-accent text-white z-10">
-                Bestseller ⭐
+              <Badge className="absolute top-4 left-4 bg-primary/90 text-white z-10 backdrop-blur">
+                <Sparkles className="h-3 w-3 mr-1" />
+                {product.crystal} Blessing
               </Badge>
               <Badge className="absolute top-4 right-4 bg-green-600 text-white z-10">
                 {product.discount}% OFF
@@ -148,8 +166,11 @@ const ProductDetailsBracelet = () => {
             {/* Key Benefits Card */}
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
               <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-lg mb-3">The Power of Amethyst at Your Wrist</h3>
-                {product.keyPoints.map((point, idx) => (
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  The Power of {product.crystal}
+                </h3>
+                {product.keyHighlights?.map((point, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-accent shrink-0" />
                     <span className="text-sm">{point}</span>
@@ -157,6 +178,18 @@ const ProductDetailsBracelet = () => {
                 ))}
               </CardContent>
             </Card>
+
+            {/* Social Proof */}
+            <div className="flex items-center gap-6 text-sm pt-2">
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-muted-foreground" />
+                <span><span className="font-bold text-foreground">{product.sold}</span> sold</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-green-600" />
+                <span className="text-green-600 font-medium">In Stock</span>
+              </div>
+            </div>
 
             {/* Size Selection */}
             <div className="space-y-3">
@@ -216,9 +249,9 @@ const ProductDetailsBracelet = () => {
               </div>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <p className="text-green-800 font-medium">
-                ✓ In Stock - Order Today, Delivered by {product.deliveryDate}
+            <div className="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-4">
+              <p className="text-green-800 dark:text-green-200 font-medium">
+                ✓ In Stock - Ships within 24 hours • Free Delivery Pan India
               </p>
             </div>
           </div>
@@ -228,18 +261,37 @@ const ProductDetailsBracelet = () => {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-4">Crystal Properties</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Amethyst's powerful metaphysical attributes
+            {product.crystal}'s powerful metaphysical attributes
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {product.properties.map((prop, idx) => (
-              <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: prop.color.toLowerCase() }}></div>
-                  <h3 className="font-bold text-sm mb-1">{prop.name}</h3>
-                  <p className="text-xs text-muted-foreground">{prop.value}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <Card className="text-center hover:shadow-lg transition-shadow border-2">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: product.chakra.color.toLowerCase() }}></div>
+                <h3 className="font-bold text-sm mb-1">Chakra</h3>
+                <p className="text-xs text-muted-foreground">{product.chakra.name}</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center hover:shadow-lg transition-shadow border-2">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: product.element.color.toLowerCase() }}></div>
+                <h3 className="font-bold text-sm mb-1">Element</h3>
+                <p className="text-xs text-muted-foreground">{product.element.name}</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center hover:shadow-lg transition-shadow border-2">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: product.planet.color.toLowerCase() }}></div>
+                <h3 className="font-bold text-sm mb-1">Planet</h3>
+                <p className="text-xs text-muted-foreground">{product.planet.name}</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center hover:shadow-lg transition-shadow border-2">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full" style={{ backgroundColor: product.zodiac.color.toLowerCase() }}></div>
+                <h3 className="font-bold text-sm mb-1">Zodiac</h3>
+                <p className="text-xs text-muted-foreground">{product.zodiac.name}</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
 
@@ -247,14 +299,14 @@ const ProductDetailsBracelet = () => {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-4">Healing Properties</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Experience the transformative power of natural amethyst
+            Experience the transformative power of natural {product.crystal.toLowerCase()}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {product.healingProperties.map((property, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-shadow">
+            {product.healingProperties?.map((property, idx) => (
+              <Card key={idx} className="hover:shadow-lg transition-shadow border">
                 <CardContent className="p-4">
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <p className="text-sm">{property}</p>
                   </div>
                 </CardContent>
@@ -267,41 +319,126 @@ const ProductDetailsBracelet = () => {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-10">Healing Benefits</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {product.benefits.map((benefit, idx) => (
-              <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
+            {product.benefits?.map((benefit, idx) => {
+              const icons = [Sparkles, Zap, Shield, Star];
+              const Icon = icons[idx % icons.length];
+              return (
+                <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Ideal For Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-center mb-4">Perfect For</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Who can benefit most from this crystal bracelet
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            {product.idealFor?.map((person, idx) => (
+              <Badge key={idx} variant="outline" className="px-4 py-2 text-sm">
+                <Users className="h-4 w-4 mr-2" />
+                {person}
+              </Badge>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonials */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-center mb-4">Customer Reviews</h2>
+          <p className="text-center text-muted-foreground mb-10">
+            See what our customers are saying about {product.crystal}
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, idx) => (
+              <Card key={idx} className="border-2">
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <benefit.icon className="h-8 w-8 text-white" />
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    {testimonial.verified && (
+                      <Badge variant="outline" className="text-xs">
+                        <Check className="h-3 w-3 mr-1" />
+                        Verified
+                      </Badge>
+                    )}
                   </div>
-                  <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                  <p className="text-sm mb-3">{testimonial.text}</p>
+                  <p className="text-sm font-semibold">- {testimonial.name}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
+        {/* FAQ Section */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+          <p className="text-center text-muted-foreground mb-10">
+            Everything you need to know about {product.crystal} bracelets
+          </p>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, idx) => (
+              <AccordionItem key={idx} value={`item-${idx}`}>
+                <AccordionTrigger className="text-left font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
         {/* Upsells */}
-        <div className="mt-12 border-2 border-dashed border-primary/30 rounded-xl p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-          <h3 className="text-xl font-bold mb-4">Complete Your Healing Journey</h3>
+        <div className="mt-16 border-2 border-dashed border-primary/30 rounded-xl p-6 bg-gradient-to-br from-primary/5 to-accent/5">
+          <h3 className="text-2xl font-bold mb-2 text-center">Complete Your Healing Journey</h3>
+          <p className="text-center text-muted-foreground mb-6">Add these complementary items to enhance your experience</p>
           <div className="grid md:grid-cols-3 gap-4">
-            {product.upsells.map((item, idx) => (
-              <Card key={idx} className="hover:shadow-md transition-shadow">
+            {product.upsells?.map((item, idx) => (
+              <Card key={idx} className="hover:shadow-md transition-shadow border-2">
                 <CardContent className="p-4">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h4 className="font-bold">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      <h4 className="font-bold text-base">{item.name}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
                     </div>
-                    <Badge className="bg-primary">₹{item.price}</Badge>
+                    <Badge className="bg-primary shrink-0 ml-2">₹{item.price.toLocaleString()}</Badge>
                   </div>
-                  <Button size="sm" variant="outline" className="w-full mt-2">
-                    Add
+                  <Button size="sm" variant="outline" className="w-full mt-3 hover:bg-primary hover:text-white">
+                    <ShoppingCart className="h-4 w-4 mr-2" />
+                    Add to Cart
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {product.certifications?.map((cert, idx) => (
+            <div key={idx} className="text-center space-y-2">
+              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <Award className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-sm font-semibold">{cert}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
