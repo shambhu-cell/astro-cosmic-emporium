@@ -12,14 +12,12 @@ import rubyImage from "@/assets/gemstones/ruby.jpg";
 import emeraldImage from "@/assets/gemstones/emerald.jpg";
 import yellowSapphireImage from "@/assets/gemstones/yellow-sapphire.jpg";
 
-const ProductDetailsGemstone = () => {
-  const { id } = useParams();
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-
-  const product = {
-    id: id || "1",
-    name: "Certified Blue Sapphire (Neelam) Ring",
+// Gemstone data repository
+const gemstonesData: Record<string, any> = {
+  "blue-sapphire": {
+    id: "blue-sapphire",
+    name: "Certified Blue Sapphire (Neelam)",
+    hindiName: "नीलम",
     price: 14999,
     originalPrice: 24999,
     discount: 40,
@@ -28,16 +26,19 @@ const ProductDetailsGemstone = () => {
     sold: "15,000+",
     inStock: true,
     stockLeft: 7,
-    deliveryDate: "October 18",
+    deliveryDate: "October 22",
     images: [blueSapphireImage, blueSapphireImage, blueSapphireImage, blueSapphireImage],
-    weight: "5.25 Ratti (4.75 Carat)",
+    weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5.25 Ratti (4.75 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
+    metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)", "Platinum"],
     certification: "Government Lab Certified",
     origin: "Sri Lanka (Ceylon)",
-    clarity: "Eye Clean",
+    clarity: "Eye Clean (VVS)",
     cut: "Oval Mixed Cut",
     color: "Royal Blue",
     treatment: "No Heat, No Treatment",
-    metal: "92.5% Sterling Silver",
+    planet: "Saturn (Shani)",
+    chakra: "Throat Chakra",
+    zodiac: "Capricorn, Aquarius",
     benefits: [
       { icon: Sparkles, title: "Career Success", desc: "Attracts promotions & professional growth" },
       { icon: Shield, title: "Mental Clarity", desc: "Enhances focus and decision-making" },
@@ -50,31 +51,185 @@ const ProductDetailsGemstone = () => {
       "100% genuine with certificate",
       "Perfect for Saturn (Shani) remedies"
     ],
-    upsells: [
-      { name: "Gemstone Energization Kit", desc: "Activation mantras & guide", price: 499 },
-      { name: "Silver Chain", desc: "Premium 92.5 silver chain", price: 1299 },
-      { name: "Gemstone Care Kit", desc: "Cleaning & storage solution", price: 799 },
-    ],
-    specifications: {
-      "Gemstone": "Natural Blue Sapphire (Neelam)",
-      "Weight": "5.25 Ratti (4.75 Carat)",
-      "Origin": "Sri Lanka (Ceylon)",
-      "Color": "Royal Blue",
-      "Clarity": "Eye Clean (VVS)",
-      "Cut & Shape": "Oval Mixed Cut",
-      "Treatment": "No Heat, No Treatment",
-      "Certification": "Government Approved Lab",
-      "Metal": "92.5% Sterling Silver",
-      "Planet": "Saturn (Shani)",
-      "Chakra": "Throat Chakra",
-      "Zodiac": "Capricorn, Aquarius"
-    },
     description: "This magnificent Blue Sapphire (Neelam) is a natural, unheated gemstone sourced from the legendary mines of Sri Lanka. Known for its deep royal blue color and exceptional clarity, this gemstone has been carefully selected and certified by government-approved laboratories. Blue Sapphire is the gemstone of Saturn (Shani) and is renowned in Vedic astrology for its powerful effects on career, wealth, and protection. Each stone is energized by our expert astrologers with proper mantras and rituals before delivery.",
     customerReviews: [
       { name: "Rajesh Kumar", rating: 5, date: "2 weeks ago", comment: "Excellent quality gemstone! Got promotion within 3 months of wearing. Highly recommended!", verified: true },
       { name: "Priya Sharma", rating: 5, date: "1 month ago", comment: "Beautiful blue color and came with authentic certificate. Very happy with purchase.", verified: true },
       { name: "Amit Patel", rating: 4, date: "1 month ago", comment: "Good quality, but took little time for delivery. Overall satisfied with the product.", verified: true },
     ]
+  },
+  "ruby": {
+    id: "ruby",
+    name: "Certified Ruby (Manik)",
+    hindiName: "माणिक",
+    price: 11499,
+    originalPrice: 16999,
+    discount: 32,
+    rating: 4.8,
+    reviewCount: 6234,
+    sold: "12,000+",
+    inStock: true,
+    stockLeft: 5,
+    deliveryDate: "October 22",
+    images: [rubyImage, rubyImage, rubyImage, rubyImage],
+    weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
+    metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)", "Platinum"],
+    certification: "Government Lab Certified",
+    origin: "Burma (Myanmar)",
+    clarity: "Eye Clean (VVS)",
+    cut: "Oval Mixed Cut",
+    color: "Pigeon Blood Red",
+    treatment: "No Heat, No Treatment",
+    planet: "Sun (Surya)",
+    chakra: "Root Chakra",
+    zodiac: "Leo, Aries",
+    benefits: [
+      { icon: Star, title: "Leadership", desc: "Enhances authority and confidence" },
+      { icon: Sparkles, title: "Vitality", desc: "Boosts energy and physical health" },
+      { icon: Award, title: "Success", desc: "Brings fame and recognition" },
+      { icon: Shield, title: "Protection", desc: "Guards against enemies and negativity" },
+    ],
+    keyPoints: [
+      "Natural Burmese Ruby",
+      "Energized for Sun (Surya)",
+      "Government certified authentic",
+      "Perfect for leadership roles"
+    ],
+    description: "This exquisite Ruby (Manik) is sourced from the prestigious mines of Burma, known worldwide for producing the finest rubies. With its intense pigeon blood red color and exceptional clarity, this gemstone represents the power of the Sun (Surya). Ruby is highly regarded in Vedic astrology for enhancing leadership qualities, vitality, and success. Each stone is carefully certified and energized with Vedic mantras.",
+    customerReviews: [
+      { name: "Vikram Singh", rating: 5, date: "1 week ago", comment: "Amazing quality ruby! My confidence has improved significantly. Worth every penny!", verified: true },
+      { name: "Meera Reddy", rating: 5, date: "3 weeks ago", comment: "Beautiful deep red color. Certificate is authentic. Highly satisfied!", verified: true },
+      { name: "Arjun Mehta", rating: 4, date: "1 month ago", comment: "Good gemstone, slightly pricey but quality justifies it.", verified: true },
+    ]
+  },
+  "emerald": {
+    id: "emerald",
+    name: "Certified Emerald (Panna)",
+    hindiName: "पन्ना",
+    price: 9999,
+    originalPrice: 14999,
+    discount: 33,
+    rating: 4.7,
+    reviewCount: 5421,
+    sold: "10,000+",
+    inStock: true,
+    stockLeft: 8,
+    deliveryDate: "October 22",
+    images: [emeraldImage, emeraldImage, emeraldImage, emeraldImage],
+    weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)"],
+    metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)"],
+    certification: "Government Lab Certified",
+    origin: "Colombia",
+    clarity: "Eye Clean",
+    cut: "Emerald Cut",
+    color: "Vivid Green",
+    treatment: "Minor Oil Treatment",
+    planet: "Mercury (Budh)",
+    chakra: "Heart Chakra",
+    zodiac: "Gemini, Virgo",
+    benefits: [
+      { icon: Sparkles, title: "Intelligence", desc: "Enhances memory and learning" },
+      { icon: Star, title: "Communication", desc: "Improves speech and expression" },
+      { icon: Shield, title: "Healing", desc: "Promotes emotional balance" },
+      { icon: Award, title: "Business Success", desc: "Attracts wealth in trade" },
+    ],
+    keyPoints: [
+      "Natural Colombian Emerald",
+      "Energized for Mercury (Budh)",
+      "Certified by government lab",
+      "Perfect for business & studies"
+    ],
+    description: "This stunning Emerald (Panna) hails from the emerald capital of the world - Colombia. Known for its vivid green color and clarity, emerald is the gemstone of Mercury (Budh) in Vedic astrology. It's renowned for enhancing intelligence, communication skills, and business acumen. Each emerald is carefully selected, certified, and energized to maximize its astrological benefits.",
+    customerReviews: [
+      { name: "Neha Kapoor", rating: 5, date: "2 weeks ago", comment: "Gorgeous green color! My communication skills have definitely improved. Great purchase!", verified: true },
+      { name: "Rohit Sharma", rating: 4, date: "3 weeks ago", comment: "Good quality emerald. Delivery was quick. Happy with the product.", verified: true },
+      { name: "Anjali Desai", rating: 5, date: "1 month ago", comment: "Beautiful gemstone with authentic certificate. Highly recommend!", verified: true },
+    ]
+  },
+  "yellow-sapphire": {
+    id: "yellow-sapphire",
+    name: "Certified Yellow Sapphire (Pukhraj)",
+    hindiName: "पुखराज",
+    price: 10999,
+    originalPrice: 15999,
+    discount: 31,
+    rating: 4.9,
+    reviewCount: 7890,
+    sold: "18,000+",
+    inStock: true,
+    stockLeft: 6,
+    deliveryDate: "October 22",
+    images: [yellowSapphireImage, yellowSapphireImage, yellowSapphireImage, yellowSapphireImage],
+    weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
+    metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (22K)", "Platinum"],
+    certification: "Government Lab Certified",
+    origin: "Sri Lanka (Ceylon)",
+    clarity: "Eye Clean (VVS)",
+    cut: "Cushion Cut",
+    color: "Golden Yellow",
+    treatment: "No Heat, No Treatment",
+    planet: "Jupiter (Guru)",
+    chakra: "Solar Plexus Chakra",
+    zodiac: "Sagittarius, Pisces",
+    benefits: [
+      { icon: Star, title: "Prosperity", desc: "Attracts wealth and abundance" },
+      { icon: Sparkles, title: "Wisdom", desc: "Enhances knowledge and spirituality" },
+      { icon: Award, title: "Marriage", desc: "Brings marital bliss and harmony" },
+      { icon: Shield, title: "Health", desc: "Improves overall well-being" },
+    ],
+    keyPoints: [
+      "Natural unheated Yellow Sapphire",
+      "Energized for Jupiter (Guru)",
+      "100% certified authentic",
+      "Perfect for prosperity & marriage"
+    ],
+    description: "This magnificent Yellow Sapphire (Pukhraj) is a premium quality gemstone from Sri Lanka, representing the planet Jupiter (Guru) in Vedic astrology. Known for its brilliant golden yellow color and exceptional clarity, this gemstone is highly sought after for attracting prosperity, wisdom, and marital happiness. Each stone is unheated, certified, and energized with traditional Vedic rituals.",
+    customerReviews: [
+      { name: "Suresh Gupta", rating: 5, date: "1 week ago", comment: "Excellent quality! My business has seen significant growth. Truly blessed!", verified: true },
+      { name: "Kavita Joshi", rating: 5, date: "2 weeks ago", comment: "Beautiful yellow color and came with proper certificate. Very satisfied!", verified: true },
+      { name: "Manish Agarwal", rating: 5, date: "3 weeks ago", comment: "Best investment I made! Quality is superb and effects are amazing!", verified: true },
+    ]
+  }
+};
+
+const ProductDetailsGemstone = () => {
+  const { id } = useParams();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedWeight, setSelectedWeight] = useState(0);
+  const [selectedMetal, setSelectedMetal] = useState(0);
+
+  // Get product data based on URL parameter
+  const product = gemstonesData[id || "blue-sapphire"];
+
+  // If product not found, show default or redirect
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Card className="p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">Gemstone Not Found</h2>
+          <p className="text-muted-foreground mb-4">The gemstone you're looking for doesn't exist.</p>
+          <Button onClick={() => window.location.href = '/gemstones'}>
+            Browse All Gemstones
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
+  const specifications = {
+    "Gemstone": product.name,
+    "Weight": product.weightOptions[selectedWeight],
+    "Origin": product.origin,
+    "Color": product.color,
+    "Clarity": product.clarity,
+    "Cut & Shape": product.cut,
+    "Treatment": product.treatment,
+    "Certification": product.certification,
+    "Metal": product.metalOptions[selectedMetal],
+    "Planet": product.planet,
+    "Chakra": product.chakra,
+    "Zodiac": product.zodiac
   };
 
   const faqs = [
@@ -112,10 +267,18 @@ const ProductDetailsGemstone = () => {
       </div>
 
       <div className="container max-w-screen-xl mx-auto px-4 py-6">
-        <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-4">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Shop
-        </Link>
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-sm mb-6 flex-wrap">
+          <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+            Home
+          </Link>
+          <span className="text-muted-foreground">/</span>
+          <Link to="/gemstones" className="text-muted-foreground hover:text-primary transition-colors">
+            Gemstones
+          </Link>
+          <span className="text-muted-foreground">/</span>
+          <span className="text-foreground font-medium">{product.name}</span>
+        </nav>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Images */}
@@ -149,17 +312,17 @@ const ProductDetailsGemstone = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex gap-3 pt-2">
-              <div className="flex items-center gap-2 text-sm">
-                <Shield className="h-5 w-5 text-green-600" />
+            <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex items-center gap-2 text-xs md:text-sm">
+                <Shield className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                 <span className="font-medium">Lab Certified</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Truck className="h-5 w-5 text-green-600" />
+              <div className="flex items-center gap-2 text-xs md:text-sm">
+                <Truck className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                 <span className="font-medium">Free Shipping</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Award className="h-5 w-5 text-green-600" />
+              <div className="flex items-center gap-2 text-xs md:text-sm">
+                <Award className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                 <span className="font-medium">Energized</span>
               </div>
             </div>
@@ -183,8 +346,11 @@ const ProductDetailsGemstone = () => {
 
             {/* Title */}
             <div>
+              <Badge variant="outline" className="mb-2">
+                {product.hindiName} | {product.planet}
+              </Badge>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-muted-foreground text-lg">{product.weight}</p>
+              <p className="text-muted-foreground text-lg">Selected: {product.weightOptions[selectedWeight]} in {product.metalOptions[selectedMetal]}</p>
             </div>
 
             {/* Pricing */}
@@ -197,8 +363,8 @@ const ProductDetailsGemstone = () => {
             {/* Key Benefits */}
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
               <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-lg mb-3">Transform Your Life with Blue Sapphire</h3>
-                {product.keyPoints.map((point, idx) => (
+                <h3 className="font-bold text-lg mb-3">Transform Your Life with {product.name}</h3>
+                {product.keyPoints.map((point: string, idx: number) => (
                   <div key={idx} className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-accent shrink-0" />
                     <span className="text-sm">{point}</span>
@@ -206,6 +372,49 @@ const ProductDetailsGemstone = () => {
                 ))}
               </CardContent>
             </Card>
+
+            {/* Weight & Metal Selectors */}
+            <div className="space-y-4">
+              {/* Weight Selector */}
+              <div>
+                <label className="font-semibold mb-2 block">Select Weight:</label>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {product.weightOptions.map((weight: string, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedWeight(idx)}
+                      className={`py-3 px-4 rounded-lg border-2 transition-all text-sm font-medium ${
+                        selectedWeight === idx
+                          ? 'border-primary bg-primary text-primary-foreground shadow-md'
+                          : 'border-border hover:border-primary/50 hover:bg-muted'
+                      }`}
+                    >
+                      {weight}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Metal Selector */}
+              <div>
+                <label className="font-semibold mb-2 block">Select Metal:</label>
+                <div className="grid grid-cols-2 gap-2">
+                  {product.metalOptions.map((metal: string, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedMetal(idx)}
+                      className={`py-3 px-4 rounded-lg border-2 transition-all text-sm font-medium ${
+                        selectedMetal === idx
+                          ? 'border-primary bg-primary text-primary-foreground shadow-md'
+                          : 'border-border hover:border-primary/50 hover:bg-muted'
+                      }`}
+                    >
+                      {metal}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Quantity & CTA */}
             <div className="space-y-4">
@@ -351,7 +560,7 @@ const ProductDetailsGemstone = () => {
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-4">Technical Specifications</h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {Object.entries(product.specifications).map(([key, value]) => (
+                    {Object.entries(specifications).map(([key, value]) => (
                       <div key={key} className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                         <span className="font-medium">{key}:</span>
                         <span className="text-muted-foreground">{value}</span>
@@ -484,8 +693,11 @@ const ProductDetailsGemstone = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-10">Astrological Benefits</h2>
+        <div className="mt-16 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-8 md:p-12">
+          <h2 className="text-3xl font-bold text-center mb-4">Astrological Benefits</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Experience the transformative power of {product.name} in your life
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {product.benefits.map((benefit, idx) => (
               <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
@@ -604,6 +816,33 @@ const ProductDetailsGemstone = () => {
               <p className="text-sm text-muted-foreground">Industry Experience</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Sticky Mobile Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-background border-t-2 border-primary/20 p-4 lg:hidden z-50 shadow-lg">
+        <div className="flex items-center gap-3">
+          <div className="flex-1">
+            <p className="text-xs text-muted-foreground">Total Price</p>
+            <p className="text-xl font-bold text-primary">₹{(product.price * quantity).toLocaleString()}</p>
+          </div>
+          <Button 
+            size="lg" 
+            className="flex-1 bg-accent hover:bg-accent/90"
+            onClick={() => {
+              // Add to cart logic
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <ShoppingCart className="mr-2 h-4 w-4" />
+            Add to Cart
+          </Button>
+          <Button 
+            size="lg" 
+            className="flex-1 bg-primary hover:bg-primary/90"
+          >
+            Buy Now
+          </Button>
         </div>
       </div>
     </div>
