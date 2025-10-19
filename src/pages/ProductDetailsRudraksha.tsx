@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
+import oneMukhiImage from "@/assets/rudraksha/1-mukhi.jpg";
+import threeMukhiImage from "@/assets/rudraksha/3-mukhi.jpg";
+import fourMukhiImage from "@/assets/rudraksha/4-mukhi.jpg";
 
 const ProductDetailsRudraksha = () => {
   const { id } = useParams();
@@ -34,7 +38,7 @@ const ProductDetailsRudraksha = () => {
     inStock: true,
     stockLeft: 9,
     deliveryDate: "October 22-23, 2025",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [oneMukhiImage, nirakarImage, threeMukhiImage, fourMukhiImage],
     origin: "Nepal - Original",
     size: "18mm - 22mm",
     deity: "Goddess Mahalakshmi",
@@ -229,10 +233,10 @@ const ProductDetailsRudraksha = () => {
     ],
 
     relatedProducts: [
-      { id: "5-mukhi", name: "5 Mukhi Rudraksha", price: 699, image: "/placeholder.svg", rating: 4.9 },
-      { id: "8-mukhi", name: "8 Mukhi Rudraksha (Ganesha)", price: 2999, image: "/placeholder.svg", rating: 4.8 },
-      { id: "rudraksha-mala", name: "Rudraksha Mala 108 Beads", price: 1999, image: "/placeholder.svg", rating: 4.9 },
-      { id: "lakshmi-yantra", name: "Shri Lakshmi Yantra", price: 1299, image: "/placeholder.svg", rating: 4.7 }
+      { id: "5-mukhi", name: "5 Mukhi Rudraksha", price: 699, image: fourMukhiImage, rating: 4.9 },
+      { id: "8-mukhi", name: "8 Mukhi Rudraksha (Ganesha)", price: 2999, image: threeMukhiImage, rating: 4.8 },
+      { id: "rudraksha-mala", name: "Rudraksha Mala 108 Beads", price: 1999, image: nirakarImage, rating: 4.9 },
+      { id: "lakshmi-yantra", name: "Shri Lakshmi Yantra", price: 1299, image: oneMukhiImage, rating: 4.7 }
     ]
   };
 
