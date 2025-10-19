@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Star, Shield, Award, Filter, ChevronDown } from "lucide-react";
+import { Star, Shield, Award, Filter, ChevronDown, Sparkles, Heart, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import blueSapphireImage from "@/assets/gemstones/blue-sapphire.jpg";
 import rubyImage from "@/assets/gemstones/ruby.jpg";
 import emeraldImage from "@/assets/gemstones/emerald.jpg";
@@ -407,41 +408,51 @@ const GemstoneCollection = () => {
         </div>
       </div>
 
-      {/* Products Section */}
+      {/* Content Tabs Section */}
       <div className="container mx-auto px-4 py-8">
-        {/* Filters and Sort */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <div className="flex items-center gap-2">
-            <p className="text-sm text-muted-foreground">
-              Showing {currentCollection.products.length} products
-            </p>
-          </div>
-          <div className="flex items-center gap-4 w-full sm:w-auto">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => setShowFilters(!showFilters)}
-              className="sm:hidden w-full"
-            >
-              <Filter className="w-4 h-4 mr-2" />
-              Filters
-            </Button>
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="popular">Most Popular</SelectItem>
-                <SelectItem value="price-low">Price: Low to High</SelectItem>
-                <SelectItem value="price-high">Price: High to Low</SelectItem>
-                <SelectItem value="rating">Highest Rated</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+        <Tabs defaultValue="products" className="w-full">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsTrigger value="products">All Products</TabsTrigger>
+            <TabsTrigger value="benefits">Benefits</TabsTrigger>
+            <TabsTrigger value="wearing">How to Wear</TabsTrigger>
+            <TabsTrigger value="care">Care Guide</TabsTrigger>
+          </TabsList>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Products Tab */}
+          <TabsContent value="products" className="space-y-6">
+            {/* Filters and Sort */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div className="flex items-center gap-2">
+                <p className="text-sm text-muted-foreground">
+                  Showing {currentCollection.products.length} products
+                </p>
+              </div>
+              <div className="flex items-center gap-4 w-full sm:w-auto">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="sm:hidden w-full"
+                >
+                  <Filter className="w-4 h-4 mr-2" />
+                  Filters
+                </Button>
+                <Select value={sortBy} onValueChange={setSortBy}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Sort by" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="popular">Most Popular</SelectItem>
+                    <SelectItem value="price-low">Price: Low to High</SelectItem>
+                    <SelectItem value="price-high">Price: High to Low</SelectItem>
+                    <SelectItem value="rating">Highest Rated</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {currentCollection.products.map((product: any) => (
             <Card 
               key={product.id}
@@ -515,8 +526,184 @@ const GemstoneCollection = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
+            ))}
+            </div>
+          </TabsContent>
+
+          {/* Benefits Tab */}
+          <TabsContent value="benefits" className="space-y-8">
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Sparkles className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Spiritual Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Enhances spiritual growth and awareness</li>
+                      <li>• Strengthens connection with higher consciousness</li>
+                      <li>• Promotes inner peace and tranquility</li>
+                      <li>• Balances energy centers (chakras)</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Heart className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Health Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Improves overall vitality and energy</li>
+                      <li>• Supports immune system function</li>
+                      <li>• Promotes better sleep quality</li>
+                      <li>• Reduces stress and anxiety</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Professional Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Enhances career opportunities</li>
+                      <li>• Improves decision-making abilities</li>
+                      <li>• Attracts prosperity and success</li>
+                      <li>• Strengthens leadership qualities</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Protective Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Shields from negative energies</li>
+                      <li>• Protects against evil eye</li>
+                      <li>• Provides emotional stability</li>
+                      <li>• Guards against harmful influences</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </TabsContent>
+
+          {/* How to Wear Tab */}
+          <TabsContent value="wearing" className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">How to Wear {currentCollection.name}</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Best Day to Wear</h3>
+                  <p className="text-muted-foreground">
+                    For maximum benefits, wear your {currentCollection.name.split(' ')[0]} on the day ruled by {currentCollection.planet}. 
+                    Consult with an astrologer for the most auspicious time.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Which Finger to Wear</h3>
+                  <p className="text-muted-foreground">
+                    Generally worn on the ring finger or index finger of the right hand for men, and left hand for women. 
+                    However, consult an expert astrologer for personalized guidance.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Metal Recommendation</h3>
+                  <p className="text-muted-foreground">
+                    {currentCollection.name.split(' ')[0]} gemstones are traditionally set in gold or silver. 
+                    The metal choice can enhance the gemstone's astrological effects.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Mantra to Chant</h3>
+                  <p className="text-muted-foreground">
+                    Before wearing, purify the gemstone by chanting the mantra associated with {currentCollection.planet}. 
+                    This activates the gemstone's positive energies.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Who Should Wear</h3>
+                  <p className="text-muted-foreground">
+                    Ideal for those seeking {currentCollection.mainBenefits.join(", ").toLowerCase()}. 
+                    Always consult a qualified astrologer before wearing any gemstone.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+
+          {/* Care Guide Tab */}
+          <TabsContent value="care" className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">Care Instructions for {currentCollection.name}</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Daily Care</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Remove jewelry during physical activities or sports</li>
+                    <li>• Avoid exposure to harsh chemicals and perfumes</li>
+                    <li>• Store separately in a soft cloth or jewelry box</li>
+                    <li>• Keep away from extreme temperatures</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Cleaning Instructions</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Clean with lukewarm water and mild soap</li>
+                    <li>• Use a soft brush to remove dirt gently</li>
+                    <li>• Pat dry with a soft, lint-free cloth</li>
+                    <li>• Avoid ultrasonic cleaners for treated stones</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Energetic Cleansing</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Rinse under running water once a week</li>
+                    <li>• Place in moonlight overnight for recharging</li>
+                    <li>• Use sage smoke or incense for purification</li>
+                    <li>• Recite mantras to restore positive energy</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Professional Maintenance</h3>
+                  <p className="text-muted-foreground">
+                    Have your gemstone jewelry professionally inspected and cleaned every 6-12 months. 
+                    This ensures the setting remains secure and the stone maintains its brilliance.
+                  </p>
+                </div>
+
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Important:</strong> These are general care guidelines. Different gemstones may have specific requirements. 
+                    Always follow any specific care instructions provided with your purchase.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+        </Tabs>
 
         {/* Trust Indicators */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 border-t pt-12">
