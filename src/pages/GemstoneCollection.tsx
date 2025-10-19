@@ -378,21 +378,6 @@ const GemstoneCollection = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Floating Talk to Expert Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button 
-          size="lg" 
-          className="rounded-full shadow-2xl h-14 px-6 bg-gradient-to-r from-primary to-accent hover:scale-105 transition-transform"
-          onClick={() => {
-            // Add functionality to open chat/contact form
-            window.open('https://wa.me/1234567890?text=Hi, I need help choosing a gemstone', '_blank');
-          }}
-        >
-          <MessageCircle className="w-5 h-5 mr-2" />
-          Talk to Gem Expert
-        </Button>
-      </div>
-
       {/* Breadcrumb */}
       <div className="bg-muted/30 border-b">
         <div className="container mx-auto px-4 py-4">
@@ -535,9 +520,23 @@ const GemstoneCollection = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <Button className="w-full" size="lg">
-                    View Details
-                  </Button>
+                  <div className="space-y-2">
+                    <Button className="w-full" size="lg">
+                      View Details
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="w-full" 
+                      size="lg"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
+                      }}
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Talk to Gem Expert
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
