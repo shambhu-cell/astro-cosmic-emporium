@@ -501,29 +501,6 @@ const ProductDetailsGemstone = () => {
           </div>
         </div>
 
-        {/* Upsells */}
-        <div className="mt-12 border-2 border-dashed border-primary/30 rounded-xl p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-          <h3 className="text-xl font-bold mb-4">89% of customers also add...</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {product.upsells.map((item, idx) => (
-              <Card key={idx} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="font-bold">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </div>
-                    <Badge className="bg-primary">₹{item.price}</Badge>
-                  </div>
-                  <Button size="sm" variant="outline" className="w-full mt-2">
-                    Add
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
         {/* FAQ Section */}
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
