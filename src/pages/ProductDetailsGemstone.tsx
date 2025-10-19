@@ -310,11 +310,19 @@ const ProductDetailsGemstone = () => {
         {/* Product Tabs Section */}
         <div className="mt-16">
           <Tabs defaultValue="description" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-grid">
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="specifications">Specifications</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews ({product.reviewCount.toLocaleString()})</TabsTrigger>
-              <TabsTrigger value="shipping">Shipping & Returns</TabsTrigger>
+            <TabsList className="w-full justify-start h-auto p-1 bg-muted/50 rounded-lg overflow-x-auto flex-wrap md:flex-nowrap">
+              <TabsTrigger value="description" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
+                Description
+              </TabsTrigger>
+              <TabsTrigger value="specifications" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
+                Specifications
+              </TabsTrigger>
+              <TabsTrigger value="reviews" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
+                Reviews ({product.reviewCount.toLocaleString()})
+              </TabsTrigger>
+              <TabsTrigger value="shipping" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
+                Shipping & Returns
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="description" className="mt-6">
