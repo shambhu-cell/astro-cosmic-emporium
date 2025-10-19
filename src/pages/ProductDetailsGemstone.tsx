@@ -24,7 +24,6 @@ const ProductDetailsGemstone = () => {
     deliveryDate: "October 18",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     weight: "5.25 Ratti (4.75 Carat)",
-    metal: "Sterling Silver 92.5%",
     certification: "Government Lab Certified",
     benefits: [
       { icon: Sparkles, title: "Career Success", desc: "Attracts promotions & professional growth" },
@@ -125,7 +124,7 @@ const ProductDetailsGemstone = () => {
             {/* Title */}
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-muted-foreground text-lg">{product.weight} • {product.metal}</p>
+              <p className="text-muted-foreground text-lg">{product.weight}</p>
             </div>
 
             {/* Pricing */}
