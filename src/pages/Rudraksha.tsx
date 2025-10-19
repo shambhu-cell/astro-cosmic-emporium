@@ -140,6 +140,450 @@ const Rudraksha = () => {
           stockLeft: 18
         }
       ]
+    },
+    "2-mukhi": {
+      name: "2 Mukhi Rudraksha",
+      deity: "Ardha Nareshwar (Shiva-Parvati)",
+      planet: "Moon",
+      mainBenefits: ["Unity", "Harmony", "Emotional Balance"],
+      description: "2 Mukhi Rudraksha represents Ardha Nareshwar (union of Shiva and Parvati). It brings unity in relationships, emotional balance, and harmonizes contradictory energies.",
+      products: [
+        {
+          id: "2-mukhi",
+          name: "Certified 2 Mukhi Rudraksha",
+          price: 1299,
+          originalPrice: 1899,
+          image: threeMukhiImage,
+          rating: 4.8,
+          reviews: 87,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          stockLeft: 14
+        }
+      ]
+    },
+    "5-mukhi": {
+      name: "5 Mukhi Rudraksha",
+      deity: "Kalagni Rudra",
+      planet: "Jupiter",
+      mainBenefits: ["Health", "Peace", "General Wellness"],
+      description: "5 Mukhi Rudraksha is the most common and powerful for general wellness. It controls blood pressure, mental stress, and brings overall peace and harmony.",
+      products: [
+        {
+          id: "5-mukhi",
+          name: "Premium 5 Mukhi Rudraksha",
+          price: 699,
+          originalPrice: 1199,
+          image: fourMukhiImage,
+          rating: 4.9,
+          reviews: 456,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          stockLeft: 25
+        }
+      ]
+    },
+    "6-mukhi": {
+      name: "6 Mukhi Rudraksha",
+      deity: "Lord Kartikeya",
+      planet: "Mars",
+      mainBenefits: ["Willpower", "Focus", "Courage"],
+      description: "6 Mukhi Rudraksha is blessed by Lord Kartikeya. It enhances willpower, concentration, and provides courage to overcome obstacles.",
+      products: [
+        {
+          id: "6-mukhi",
+          name: "Original 6 Mukhi Rudraksha",
+          price: 1899,
+          originalPrice: 2799,
+          image: oneMukhiImage,
+          rating: 4.8,
+          reviews: 156,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          stockLeft: 11
+        }
+      ]
+    },
+    "7-mukhi": {
+      name: "7 Mukhi Rudraksha",
+      deity: "Goddess Lakshmi",
+      planet: "Saturn",
+      mainBenefits: ["Wealth", "Prosperity", "Good Fortune"],
+      description: "7 Mukhi Rudraksha is blessed by Goddess Lakshmi. It brings wealth, prosperity, and removes financial obstacles from life.",
+      products: [
+        {
+          id: "7-mukhi",
+          name: "Certified 7 Mukhi Rudraksha",
+          price: 2499,
+          originalPrice: 3499,
+          image: nirakarImage,
+          rating: 4.9,
+          reviews: 198,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 833,
+          stockLeft: 9
+        }
+      ]
+    },
+    "8-mukhi": {
+      name: "8 Mukhi Rudraksha",
+      deity: "Lord Ganesha",
+      planet: "Rahu",
+      mainBenefits: ["Remove Obstacles", "Success", "Wisdom"],
+      description: "8 Mukhi Rudraksha is blessed by Lord Ganesha. It removes obstacles, brings success, and enhances wisdom and intellect.",
+      products: [
+        {
+          id: "8-mukhi",
+          name: "Premium 8 Mukhi Rudraksha",
+          price: 2999,
+          originalPrice: 4299,
+          image: threeMukhiImage,
+          rating: 4.8,
+          reviews: 134,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 1000,
+          stockLeft: 8
+        }
+      ]
+    },
+    "9-mukhi": {
+      name: "9 Mukhi Rudraksha",
+      deity: "Goddess Durga",
+      planet: "Ketu",
+      mainBenefits: ["Energy", "Power", "Fearlessness"],
+      description: "9 Mukhi Rudraksha is blessed by Goddess Durga. It provides immense energy, power, and fearlessness to overcome all challenges.",
+      products: [
+        {
+          id: "9-mukhi",
+          name: "Certified 9 Mukhi Rudraksha",
+          price: 3499,
+          originalPrice: 4999,
+          image: fourMukhiImage,
+          rating: 4.9,
+          reviews: 112,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 1166,
+          stockLeft: 7
+        }
+      ]
+    },
+    "10-mukhi": {
+      name: "10 Mukhi Rudraksha",
+      deity: "Lord Vishnu",
+      planet: "All Planets",
+      mainBenefits: ["Protection", "Peace", "Success"],
+      description: "10 Mukhi Rudraksha is blessed by Lord Vishnu. It provides protection from all negative energies and ensures peace and success in all endeavors.",
+      products: [
+        {
+          id: "10-mukhi",
+          name: "Original 10 Mukhi Rudraksha",
+          price: 3999,
+          originalPrice: 5999,
+          image: oneMukhiImage,
+          rating: 4.8,
+          reviews: 89,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 1333,
+          stockLeft: 6
+        }
+      ]
+    },
+    "11-mukhi": {
+      name: "11 Mukhi Rudraksha",
+      deity: "11 Rudras",
+      planet: "All Planets",
+      mainBenefits: ["Wisdom", "Meditation", "Divine Connection"],
+      description: "11 Mukhi Rudraksha is blessed by 11 Rudras. It enhances meditation, provides divine wisdom, and establishes connection with higher consciousness.",
+      products: [
+        {
+          id: "11-mukhi",
+          name: "Premium 11 Mukhi Rudraksha",
+          price: 4999,
+          originalPrice: 7499,
+          image: nirakarImage,
+          rating: 4.9,
+          reviews: 67,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 1666,
+          stockLeft: 5
+        }
+      ]
+    },
+    "12-mukhi": {
+      name: "12 Mukhi Rudraksha",
+      deity: "Lord Surya (Sun)",
+      planet: "Sun",
+      mainBenefits: ["Leadership", "Confidence", "Radiance"],
+      description: "12 Mukhi Rudraksha is blessed by Lord Surya. It enhances leadership qualities, brings confidence, and provides the radiance of the Sun.",
+      products: [
+        {
+          id: "12-mukhi",
+          name: "Certified 12 Mukhi Rudraksha",
+          price: 5499,
+          originalPrice: 8299,
+          image: threeMukhiImage,
+          rating: 4.8,
+          reviews: 54,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 1833,
+          stockLeft: 4
+        }
+      ]
+    },
+    "13-mukhi": {
+      name: "13 Mukhi Rudraksha",
+      deity: "Lord Indra & Kamadeva",
+      planet: "Venus",
+      mainBenefits: ["Attraction", "Charisma", "Fulfillment"],
+      description: "13 Mukhi Rudraksha is blessed by Lord Indra and Kamadeva. It enhances attraction, charisma, and fulfills all material desires.",
+      products: [
+        {
+          id: "13-mukhi",
+          name: "Original 13 Mukhi Rudraksha",
+          price: 6999,
+          originalPrice: 10499,
+          image: fourMukhiImage,
+          rating: 4.9,
+          reviews: 43,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 2333,
+          stockLeft: 3
+        }
+      ]
+    },
+    "14-mukhi": {
+      name: "14 Mukhi Rudraksha",
+      deity: "Lord Hanuman",
+      planet: "Saturn",
+      mainBenefits: ["Courage", "Strength", "Protection"],
+      description: "14 Mukhi Rudraksha is blessed by Lord Hanuman. It provides immense courage, physical and mental strength, and divine protection.",
+      products: [
+        {
+          id: "14-mukhi",
+          name: "Premium 14 Mukhi Rudraksha",
+          price: 9999,
+          originalPrice: 14999,
+          image: oneMukhiImage,
+          rating: 4.9,
+          reviews: 38,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 3333,
+          stockLeft: 3
+        }
+      ]
+    },
+    "15-mukhi": {
+      name: "15 Mukhi Rudraksha",
+      deity: "Lord Pashupatinath",
+      planet: "All Planets",
+      mainBenefits: ["Spiritual Growth", "Healing", "Fortune"],
+      description: "15 Mukhi Rudraksha is blessed by Lord Pashupatinath. It accelerates spiritual growth, provides healing powers, and brings good fortune.",
+      products: [
+        {
+          id: "15-mukhi",
+          name: "Certified 15 Mukhi Rudraksha",
+          price: 11999,
+          originalPrice: 17999,
+          image: nirakarImage,
+          rating: 4.8,
+          reviews: 29,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 4000,
+          stockLeft: 2
+        }
+      ]
+    },
+    "16-mukhi": {
+      name: "16 Mukhi Rudraksha",
+      deity: "Lord Mahamrityunjaya",
+      planet: "All Planets",
+      mainBenefits: ["Victory", "Protection", "Longevity"],
+      description: "16 Mukhi Rudraksha is blessed by Lord Mahamrityunjaya. It provides victory over death, complete protection, and enhances longevity.",
+      products: [
+        {
+          id: "16-mukhi",
+          name: "Original 16 Mukhi Rudraksha",
+          price: 14999,
+          originalPrice: 22499,
+          image: threeMukhiImage,
+          rating: 4.9,
+          reviews: 21,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 5000,
+          stockLeft: 2
+        }
+      ]
+    },
+    "17-mukhi": {
+      name: "17 Mukhi Rudraksha",
+      deity: "Vishwakarma",
+      planet: "All Planets",
+      mainBenefits: ["Wealth", "Creativity", "Success"],
+      description: "17 Mukhi Rudraksha is blessed by Vishwakarma. It brings unexpected wealth, enhances creativity, and ensures success in all ventures.",
+      products: [
+        {
+          id: "17-mukhi",
+          name: "Premium 17 Mukhi Rudraksha",
+          price: 17999,
+          originalPrice: 26999,
+          image: fourMukhiImage,
+          rating: 4.8,
+          reviews: 15,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 6000,
+          stockLeft: 1
+        }
+      ]
+    },
+    "18-mukhi": {
+      name: "18 Mukhi Rudraksha",
+      deity: "Bhumi (Mother Earth)",
+      planet: "Earth",
+      mainBenefits: ["Grounding", "Stability", "Prosperity"],
+      description: "18 Mukhi Rudraksha is blessed by Bhumi (Mother Earth). It provides grounding energy, stability in life, and attracts prosperity.",
+      products: [
+        {
+          id: "18-mukhi",
+          name: "Certified 18 Mukhi Rudraksha",
+          price: 21999,
+          originalPrice: 32999,
+          image: oneMukhiImage,
+          rating: 4.9,
+          reviews: 12,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 7333,
+          stockLeft: 1
+        }
+      ]
+    },
+    "19-mukhi": {
+      name: "19 Mukhi Rudraksha",
+      deity: "Lord Narayana",
+      planet: "All Planets",
+      mainBenefits: ["Success", "Abundance", "Divine Grace"],
+      description: "19 Mukhi Rudraksha is blessed by Lord Narayana. It brings success in all endeavors, abundance, and showers divine grace upon the wearer.",
+      products: [
+        {
+          id: "19-mukhi",
+          name: "Original 19 Mukhi Rudraksha",
+          price: 27999,
+          originalPrice: 41999,
+          image: nirakarImage,
+          rating: 4.9,
+          reviews: 8,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 9333,
+          stockLeft: 1
+        }
+      ]
+    },
+    "20-mukhi": {
+      name: "20 Mukhi Rudraksha",
+      deity: "Lord Brahma",
+      planet: "All Planets",
+      mainBenefits: ["Creation", "Knowledge", "Divine Power"],
+      description: "20 Mukhi Rudraksha is blessed by Lord Brahma, the creator. It bestows creative power, divine knowledge, and opens all doors of success.",
+      products: [
+        {
+          id: "20-mukhi",
+          name: "Premium 20 Mukhi Rudraksha",
+          price: 34999,
+          originalPrice: 52499,
+          image: threeMukhiImage,
+          rating: 5.0,
+          reviews: 6,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 11666,
+          stockLeft: 1
+        }
+      ]
+    },
+    "21-mukhi": {
+      name: "21 Mukhi Rudraksha",
+      deity: "Kuber (Lord of Wealth)",
+      planet: "All Planets",
+      mainBenefits: ["Immense Wealth", "Luxury", "Ultimate Success"],
+      description: "21 Mukhi Rudraksha is the rarest and most powerful, blessed by Kuber. It brings immense wealth, luxury, and ultimate success in all aspects of life.",
+      products: [
+        {
+          id: "21-mukhi",
+          name: "Rare 21 Mukhi Rudraksha",
+          price: 49999,
+          originalPrice: 74999,
+          image: fourMukhiImage,
+          rating: 5.0,
+          reviews: 4,
+          size: "18mm - 22mm",
+          origin: "Nepal",
+          certified: true,
+          energized: true,
+          emi: true,
+          emiAmount: 16666,
+          stockLeft: 1
+        }
+      ]
     }
   };
 
