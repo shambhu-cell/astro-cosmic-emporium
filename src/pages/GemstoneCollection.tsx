@@ -408,144 +408,144 @@ const GemstoneCollection = () => {
         </div>
       </div>
 
-      {/* Content Tabs Section */}
+      {/* Products Section */}
       <div className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="products" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="products">All Products</TabsTrigger>
-            <TabsTrigger value="benefits">Benefits</TabsTrigger>
-            <TabsTrigger value="wearing">How to Wear</TabsTrigger>
-            <TabsTrigger value="care">Care Guide</TabsTrigger>
-          </TabsList>
-
-          {/* Products Tab */}
-          <TabsContent value="products" className="space-y-6">
-            {/* Filters and Sort */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div className="flex items-center gap-2">
-                <p className="text-sm text-muted-foreground">
-                  Showing {currentCollection.products.length} products
-                </p>
-              </div>
-              <div className="flex items-center gap-4 w-full sm:w-auto">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="sm:hidden w-full"
-                >
-                  <Filter className="w-4 h-4 mr-2" />
-                  Filters
-                </Button>
-                <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Sort by" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="popular">Most Popular</SelectItem>
-                    <SelectItem value="price-low">Price: Low to High</SelectItem>
-                    <SelectItem value="price-high">Price: High to Low</SelectItem>
-                    <SelectItem value="rating">Highest Rated</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+        <div className="space-y-6">
+          {/* Filters and Sort */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex items-center gap-2">
+              <p className="text-sm text-muted-foreground">
+                Showing {currentCollection.products.length} products
+              </p>
             </div>
+            <div className="flex items-center gap-4 w-full sm:w-auto">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => setShowFilters(!showFilters)}
+                className="sm:hidden w-full"
+              >
+                <Filter className="w-4 h-4 mr-2" />
+                Filters
+              </Button>
+              <Select value={sortBy} onValueChange={setSortBy}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="popular">Most Popular</SelectItem>
+                  <SelectItem value="price-low">Price: Low to High</SelectItem>
+                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+                  <SelectItem value="rating">Highest Rated</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
 
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {currentCollection.products.map((product: any) => (
-            <Card 
-              key={product.id}
-              className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50"
-              onClick={() => navigate(`/gemstone/${product.id}`)}
-            >
-              <CardContent className="p-0">
-                {/* Image Section */}
-                <div className="relative overflow-hidden aspect-square">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  {product.certified && (
-                    <div className="absolute top-3 right-3">
-                      <Badge className="bg-green-500 hover:bg-green-600">
-                        <Shield className="w-3 h-3 mr-1" />
-                        Certified
-                      </Badge>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Section */}
-                <div className="p-4 space-y-3">
-                  {/* Title */}
-                  <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h3>
-
-                  {/* Details */}
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <span>{product.weight}</span>
-                    <span>•</span>
-                    <span>{product.origin}</span>
-                    <span>•</span>
-                    <span>{product.clarity}</span>
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {currentCollection.products.map((product: any) => (
+              <Card 
+                key={product.id}
+                className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50"
+                onClick={() => navigate(`/gemstone/${product.id}`)}
+              >
+                <CardContent className="p-0">
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden aspect-square">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    {product.certified && (
+                      <div className="absolute top-3 right-3">
+                        <Badge className="bg-green-500 hover:bg-green-600">
+                          <Shield className="w-3 h-3 mr-1" />
+                          Certified
+                        </Badge>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Rating */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="ml-1 text-sm font-medium">{product.rating}</span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      ({product.reviews} reviews)
-                    </span>
-                  </div>
+                  {/* Content Section */}
+                  <div className="p-4 space-y-3">
+                    {/* Title */}
+                    <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                      {product.name}
+                    </h3>
 
-                  {/* Price */}
-                  <div className="space-y-1">
+                    {/* Details */}
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span>{product.weight}</span>
+                      <span>•</span>
+                      <span>{product.origin}</span>
+                      <span>•</span>
+                      <span>{product.clarity}</span>
+                    </div>
+
+                    {/* Rating */}
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-primary">
-                        ₹{product.price.toLocaleString()}
-                      </span>
-                      <span className="text-sm text-muted-foreground line-through">
-                        ₹{product.originalPrice.toLocaleString()}
+                      <div className="flex items-center">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="ml-1 text-sm font-medium">{product.rating}</span>
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        ({product.reviews} reviews)
                       </span>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      or 3 interest-free EMI of ₹{Math.round(product.price / 3).toLocaleString()}
-                    </p>
-                  </div>
 
-                  {/* CTA Button */}
-                  <div className="space-y-2">
-                    <Button className="w-full" size="lg">
-                      View Details
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      className="w-full" 
-                      size="lg"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
-                      }}
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Talk to Gem Expert
-                    </Button>
+                    {/* Price */}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl font-bold text-primary">
+                          ₹{product.price.toLocaleString()}
+                        </span>
+                        <span className="text-sm text-muted-foreground line-through">
+                          ₹{product.originalPrice.toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        or 3 interest-free EMI of ₹{Math.round(product.price / 3).toLocaleString()}
+                      </p>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="space-y-2">
+                      <Button className="w-full" size="lg">
+                        View Details
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="w-full" 
+                        size="lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
+                        }}
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Talk to Gem Expert
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
             ))}
-            </div>
-          </TabsContent>
+          </div>
+        </div>
 
-          {/* Benefits Tab */}
-          <TabsContent value="benefits" className="space-y-8">
+        {/* Content Tabs Section */}
+        <div className="mt-16">
+          <Tabs defaultValue="benefits" className="w-full">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsTrigger value="benefits">Benefits</TabsTrigger>
+              <TabsTrigger value="wearing">How to Wear</TabsTrigger>
+              <TabsTrigger value="care">Care Guide</TabsTrigger>
+            </TabsList>
+
+            {/* Benefits Tab */}
+            <TabsContent value="benefits" className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="p-6">
                 <div className="flex items-start gap-4">
@@ -717,7 +717,8 @@ const GemstoneCollection = () => {
               </div>
             </Card>
           </TabsContent>
-        </Tabs>
+          </Tabs>
+        </div>
 
         {/* Expert Consultation Banner */}
         <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-2 border-primary/20 rounded-2xl p-8">
