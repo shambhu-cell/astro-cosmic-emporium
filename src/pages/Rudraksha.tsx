@@ -696,21 +696,23 @@ const Rudraksha = () => {
             >
               <CardContent className="p-0">
                 {/* Image Section */}
-                <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 p-6">
-                  {product.certified && (
-                    <Badge className="absolute top-3 right-3 bg-green-600 text-white z-10">
-                      <Shield className="h-3 w-3 mr-1" />
-                      Certified
-                    </Badge>
-                  )}
-                  {product.energized && (
-                    <Badge className="absolute top-3 left-3 bg-amber-600 text-white z-10">
-                      Energized
-                    </Badge>
-                  )}
+                <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-951/20 p-6">
+                  <div className="absolute top-2 left-2 right-2 flex flex-col gap-1 z-10">
+                    {product.certified && (
+                      <Badge className="bg-green-600 text-white text-[10px] px-1.5 py-0.5 w-fit">
+                        <Shield className="h-2.5 w-2.5 mr-0.5" />
+                        Certified
+                      </Badge>
+                    )}
+                    {product.energized && (
+                      <Badge className="bg-amber-600 text-white text-[10px] px-1.5 py-0.5 w-fit">
+                        Energized
+                      </Badge>
+                    )}
+                  </div>
                   {product.discount && (
-                    <Badge className="absolute bottom-3 right-3 bg-red-600 text-white z-10">
-                      Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                    <Badge className="absolute bottom-2 right-2 bg-red-600 text-white text-[10px] px-1.5 py-0.5 z-10">
+                      {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
                     </Badge>
                   )}
                   <img
