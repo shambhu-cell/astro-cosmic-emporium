@@ -16,28 +16,6 @@ const GemstoneCollection = () => {
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("popular");
   const [showFilters, setShowFilters] = useState(false);
-  const [viewingUsers, setViewingUsers] = useState(47);
-  const [showStickyBanner, setShowStickyBanner] = useState(false);
-
-  // Simulate live viewing count
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setViewingUsers(prev => {
-        const change = Math.floor(Math.random() * 5) - 2;
-        return Math.max(35, Math.min(65, prev + change));
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Sticky banner on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowStickyBanner(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Define all gemstone collections with multiple products per type
   const gemstoneCollections: Record<string, any> = {
@@ -413,41 +391,11 @@ const GemstoneCollection = () => {
         </div>
       </div>
 
-      {/* Sticky CTA Banner */}
-      {showStickyBanner && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary via-accent to-primary text-white py-3 shadow-lg animate-slide-down">
-          <div className="container mx-auto px-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Zap className="w-5 h-5 animate-pulse" />
-              <span className="font-semibold hidden sm:inline">Limited Time: Extra 10% OFF on {currentCollection.name}</span>
-              <span className="font-semibold sm:hidden">10% OFF Today!</span>
-            </div>
-            <Button 
-              size="sm" 
-              variant="secondary"
-              onClick={() => window.open('https://wa.me/1234567890?text=Hi, I want to buy ' + currentCollection.name, '_blank')}
-            >
-              Claim Offer
-            </Button>
-          </div>
-        </div>
-      )}
 
       {/* Header Section */}
       <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-b">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl">
-            {/* Live Activity Badge */}
-            <div className="flex items-center gap-4 mb-6 animate-fade-in">
-              <Badge variant="default" className="bg-green-500/10 text-green-700 border-green-500/20 animate-pulse">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-ping" />
-                {viewingUsers} people viewing now
-              </Badge>
-              <Badge variant="default" className="bg-orange-500/10 text-orange-700 border-orange-500/20">
-                <Clock className="w-3 h-3 mr-1" />
-                Sale ends in 12:45:32
-              </Badge>
-            </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{currentCollection.name}</h1>
             <p className="text-lg text-muted-foreground mb-6">{currentCollection.description}</p>
