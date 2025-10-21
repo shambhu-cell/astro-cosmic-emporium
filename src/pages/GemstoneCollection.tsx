@@ -108,7 +108,7 @@ const GemstoneCollection = () => {
     "yellow-sapphire": {
       name: "Yellow Sapphire (Pukhraj)",
       planet: "Jupiter",
-      mainBenefits: ["Prosperity", "Wisdom", "Marriage Harmony"],
+      mainBenefits: ["Prosperity", "Wisdom", "Marriage Harmony", "Good Fortune"],
       description: "Yellow Sapphire is the gemstone of Jupiter, bringing wealth, wisdom, and marital bliss. It's highly recommended for career and financial growth.",
       products: [
         {
@@ -401,7 +401,7 @@ const GemstoneCollection = () => {
             <p className="text-lg text-muted-foreground mb-6">{currentCollection.description}</p>
             
             {/* Benefits Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
               {currentCollection.mainBenefits.map((benefit: string, index: number) => (
                 <div key={index} className="flex items-center gap-2 bg-background/80 backdrop-blur rounded-lg px-3 py-2 border">
                   <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
