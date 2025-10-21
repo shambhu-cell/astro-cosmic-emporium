@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Shield, Truck, ArrowLeft, Sparkles, Check, Zap, Award, Users, CheckCircle2 } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Shield, Truck, ArrowLeft, Sparkles, Check, Zap, Award, Users, CheckCircle2, Clock, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +13,20 @@ const ProductDetailsBracelet = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("M");
+  const [viewingUsers, setViewingUsers] = useState(45);
 
   const product = braceletProductsData[id || "amethyst"];
+
+  // Simulate live viewing count
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setViewingUsers(prev => {
+        const change = Math.floor(Math.random() * 5) - 2;
+        return Math.max(35, Math.min(65, prev + change));
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (!product) {
@@ -148,6 +160,18 @@ const ProductDetailsBracelet = () => {
               </div>
               <span className="font-bold text-lg">{product.rating}</span>
               <span className="text-muted-foreground">({product.reviews.toLocaleString()} Happy Customers)</span>
+            </div>
+
+            {/* Live Activity Badges */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <Badge variant="default" className="bg-green-50 text-green-700 border-green-200 px-4 py-2">
+                <Eye className="w-4 h-4 mr-2" />
+                {viewingUsers} people viewing now
+              </Badge>
+              <Badge variant="default" className="bg-orange-50 text-orange-700 border-orange-200 px-4 py-2">
+                <Clock className="w-4 h-4 mr-2" />
+                Sale ends in 12:45:32
+              </Badge>
             </div>
 
             {/* Title */}

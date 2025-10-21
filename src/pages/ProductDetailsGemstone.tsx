@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, ChevronDown, Phone, Mail, MapPin, Users, TrendingUp, CheckCircle2, AlertCircle } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, ChevronDown, Phone, Mail, MapPin, Users, TrendingUp, CheckCircle2, AlertCircle, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -216,6 +216,18 @@ const ProductDetailsGemstone = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [viewingUsers, setViewingUsers] = useState(45);
+
+  // Simulate live viewing count
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setViewingUsers(prev => {
+        const change = Math.floor(Math.random() * 5) - 2;
+        return Math.max(35, Math.min(65, prev + change));
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Get product data based on URL parameter with ID mapping
   const productId = id || "blue-sapphire";
@@ -362,6 +374,18 @@ const ProductDetailsGemstone = () => {
             <p className="text-sm text-primary font-semibold">
               ⭐ {product.sold} Gemstones Sold - Trusted Worldwide
             </p>
+
+            {/* Live Activity Badges */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <Badge variant="default" className="bg-green-50 text-green-700 border-green-200 px-4 py-2">
+                <Eye className="w-4 h-4 mr-2" />
+                {viewingUsers} people viewing now
+              </Badge>
+              <Badge variant="default" className="bg-orange-50 text-orange-700 border-orange-200 px-4 py-2">
+                <Clock className="w-4 h-4 mr-2" />
+                Sale ends in 12:45:32
+              </Badge>
+            </div>
 
             {/* Title */}
             <div>
