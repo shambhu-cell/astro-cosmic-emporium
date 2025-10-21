@@ -579,7 +579,7 @@ const GemstoneCollection = () => {
                     <div className="space-y-2">
                       <Button className="w-full group-hover:scale-105 transition-transform" size="lg">
                         <Shield className="w-4 h-4 mr-2" />
-                        Buy Now - Get Certified
+                        Buy Now
                       </Button>
                       <Button 
                         variant="outline" 
