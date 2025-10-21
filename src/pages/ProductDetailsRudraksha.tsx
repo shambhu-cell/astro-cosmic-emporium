@@ -355,12 +355,12 @@ const ProductDetailsRudraksha = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <Button size="lg" className="text-lg py-7 bg-accent hover:bg-accent/90 font-bold shadow-lg">
-                  <ShoppingCart className="mr-2 h-6 w-6" />
-                  ADD TO CART
+                <Button size="lg" className="text-base md:text-lg py-6 md:py-7 bg-accent hover:bg-accent/90 font-bold shadow-lg">
+                  <ShoppingCart className="mr-1 md:mr-2 h-5 w-5 md:h-6 md:w-6" />
+                  <span className="whitespace-nowrap">ADD TO CART</span>
                 </Button>
-                <Button size="lg" className="text-lg py-7 bg-primary hover:bg-primary/90 font-bold shadow-lg">
-                  BUY NOW
+                <Button size="lg" className="text-base md:text-lg py-6 md:py-7 bg-primary hover:bg-primary/90 font-bold shadow-lg">
+                  <span className="whitespace-nowrap">BUY NOW</span>
                 </Button>
               </div>
 
