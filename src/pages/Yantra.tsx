@@ -91,7 +91,7 @@ const Yantra = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {yantras.map((yantra) => (
             <Card key={yantra.id} className="group hover:shadow-glow transition-all duration-300">
               <CardContent className="p-4">
