@@ -231,13 +231,6 @@ const Bracelets = () => {
           </div>
         </div>
 
-        {/* Results Count */}
-        <div className="mb-6 flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
-            Showing <span className="font-semibold text-foreground">{filteredBracelets.length}</span> products
-          </p>
-        </div>
-
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
           {filteredBracelets.map((bracelet) => (
