@@ -216,7 +216,6 @@ const ProductDetailsGemstone = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [selectedWeight, setSelectedWeight] = useState(0);
 
   // Get product data based on URL parameter with ID mapping
   const productId = id || "blue-sapphire";
@@ -240,7 +239,6 @@ const ProductDetailsGemstone = () => {
 
   const specifications = {
     "Gemstone": product.name,
-    "Weight": product.weightOptions[selectedWeight],
     "Origin": product.origin,
     "Color": product.color,
     "Clarity": product.clarity,
@@ -371,7 +369,6 @@ const ProductDetailsGemstone = () => {
                 {product.hindiName} | {product.planet}
               </Badge>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-muted-foreground text-lg">Selected: {product.weightOptions[selectedWeight]}</p>
             </div>
 
             {/* Pricing */}
@@ -394,28 +391,6 @@ const ProductDetailsGemstone = () => {
               </CardContent>
             </Card>
 
-            {/* Weight & Metal Selectors */}
-            <div className="space-y-4">
-              {/* Weight Selector */}
-              <div>
-                <label className="font-semibold mb-2 block">Select Weight:</label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {product.weightOptions.map((weight: string, idx: number) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedWeight(idx)}
-                      className={`py-3 px-4 rounded-lg border-2 transition-all text-sm font-medium ${
-                        selectedWeight === idx
-                          ? 'border-primary bg-primary text-primary-foreground shadow-md'
-                          : 'border-border hover:border-primary/50 hover:bg-muted'
-                      }`}
-                    >
-                      {weight}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             {/* Quantity & CTA */}
             <div className="space-y-4">
