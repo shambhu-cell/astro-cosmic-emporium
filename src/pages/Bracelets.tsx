@@ -231,95 +231,6 @@ const Bracelets = () => {
           </div>
         </div>
 
-        {/* Category Information Section */}
-        <div className="mb-12 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-2xl p-8 border-2 border-primary/10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {currentCategoryInfo.title}
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                {currentCategoryInfo.description}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mt-8">
-              {/* Key Benefits */}
-              <Card className="border-2">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Sparkles className="h-5 w-5 text-primary" />
-                    <h3 className="text-xl font-bold">Key Benefits</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {currentCategoryInfo.benefits.map((benefit: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-sm">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* Additional Info */}
-              <div className="space-y-4">
-                {currentCategoryInfo.crystals && (
-                  <Card className="border-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Award className="h-5 w-5 text-primary" />
-                        <h3 className="text-lg font-bold">Featured Crystals</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {currentCategoryInfo.crystals}
-                      </p>
-                    </CardContent>
-                  </Card>
-                )}
-
-                {currentCategoryInfo.idealFor && (
-                  <Card className="border-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Users className="h-5 w-5 text-primary" />
-                        <h3 className="text-lg font-bold">Perfect For</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {currentCategoryInfo.idealFor.map((person: string, idx: number) => (
-                          <li key={idx} className="flex items-center gap-2 text-sm">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                            {person}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                )}
-
-                {currentCategoryInfo.whyChoose && (
-                  <Card className="border-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Shield className="h-5 w-5 text-primary" />
-                        <h3 className="text-lg font-bold">Why Choose Us</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {currentCategoryInfo.whyChoose.map((reason: string, idx: number) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                            <span className="text-muted-foreground">{reason}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Results Count */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
@@ -427,6 +338,95 @@ const Bracelets = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Category Information Section */}
+        <div className="mb-12 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 rounded-2xl p-8 border-2 border-primary/10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {currentCategoryInfo.title}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                {currentCategoryInfo.description}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+              {/* Key Benefits */}
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-bold">Key Benefits</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {currentCategoryInfo.benefits.map((benefit: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-sm">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Additional Info */}
+              <div className="space-y-4">
+                {currentCategoryInfo.crystals && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Award className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Featured Crystals</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {currentCategoryInfo.crystals}
+                      </p>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {currentCategoryInfo.idealFor && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Users className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Perfect For</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {currentCategoryInfo.idealFor.map((person: string, idx: number) => (
+                          <li key={idx} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {person}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {currentCategoryInfo.whyChoose && (
+                  <Card className="border-2">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Shield className="h-5 w-5 text-primary" />
+                        <h3 className="text-lg font-bold">Why Choose Us</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {currentCategoryInfo.whyChoose.map((reason: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                            <span className="text-muted-foreground">{reason}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Why Choose Us Section */}
