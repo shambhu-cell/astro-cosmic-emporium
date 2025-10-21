@@ -670,142 +670,138 @@ const Rudraksha = () => {
           </div>
         </div>
 
+        {/* Filters */}
+        <div className="flex justify-end mb-6">
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger className="w-[180px]">
+              <Filter className="h-4 w-4 mr-2" />
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="popular">Most Popular</SelectItem>
+              <SelectItem value="price-low">Price: Low to High</SelectItem>
+              <SelectItem value="price-high">Price: High to Low</SelectItem>
+              <SelectItem value="rating">Highest Rated</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+          {filteredProducts.map((product: any) => (
+            <Card
+              key={product.id}
+              className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50 to-background dark:from-amber-950/20"
+              onClick={() => navigate(`/rudraksha/${product.id}`)}
+            >
+              <CardContent className="p-0">
+                {/* Image Section */}
+                <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 p-6">
+                  {product.certified && (
+                    <Badge className="absolute top-3 right-3 bg-green-600 text-white z-10">
+                      <Shield className="h-3 w-3 mr-1" />
+                      Certified
+                    </Badge>
+                  )}
+                  {product.energized && (
+                    <Badge className="absolute top-3 left-3 bg-amber-600 text-white z-10">
+                      Energized
+                    </Badge>
+                  )}
+                  {product.discount && (
+                    <Badge className="absolute bottom-3 right-3 bg-red-600 text-white z-10">
+                      Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                    </Badge>
+                  )}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Product Info */}
+                <div className="p-4 space-y-3 bg-background">
+                  {/* Title */}
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium mb-1">
+                      {product.origin} Origin • {product.size}
+                    </p>
+                    <h3 className="font-bold text-lg group-hover:text-primary transition-colors line-clamp-2">
+                      {product.name}
+                    </h3>
+                  </div>
+
+                  {/* Rating */}
+                  <div className="flex items-center gap-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium">{product.rating}</span>
+                    <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
+                  </div>
+
+                  {/* Stock */}
+                  {product.stockLeft <= 10 && (
+                    <p className="text-xs text-orange-600 font-medium">
+                      ⚡ Only {product.stockLeft} left in stock!
+                    </p>
+                  )}
+
+                  {/* Price */}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl font-bold text-primary">
+                        ₹{product.price.toLocaleString()}
+                      </span>
+                      <span className="text-sm text-muted-foreground line-through">
+                        ₹{product.originalPrice.toLocaleString()}
+                      </span>
+                    </div>
+                    {product.emi && (
+                      <p className="text-xs text-muted-foreground">
+                        or ₹{product.emiAmount}/month
+                        <Badge variant="outline" className="ml-2 text-[10px] px-1.5 py-0">EMI</Badge>
+                      </p>
+                    )}
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="space-y-2">
+                    <Button className="w-full" size="lg">
+                      View Details
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      size="lg"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
+                      }}
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Talk to Expert
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
         {/* Content Tabs Section */}
-        <Tabs defaultValue="products" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="products">All Products</TabsTrigger>
+        <Tabs defaultValue="benefits" className="w-full mb-12">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="benefits">Benefits</TabsTrigger>
             <TabsTrigger value="wearing">How to Wear</TabsTrigger>
             <TabsTrigger value="care">Care Guide</TabsTrigger>
           </TabsList>
-
-          {/* Products Tab */}
-          <TabsContent value="products" className="space-y-6">
-            {/* Filters */}
-            <div className="flex justify-end mb-6">
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-[180px]">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="Sort by" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="popular">Most Popular</SelectItem>
-                  <SelectItem value="price-low">Price: Low to High</SelectItem>
-                  <SelectItem value="price-high">Price: High to Low</SelectItem>
-                  <SelectItem value="rating">Highest Rated</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product: any) => (
-                <Card
-                  key={product.id}
-                  className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50 to-background dark:from-amber-950/20"
-                  onClick={() => navigate(`/rudraksha/${product.id}`)}
-                >
-                  <CardContent className="p-0">
-                    {/* Image Section */}
-                    <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 p-6">
-                      {product.certified && (
-                        <Badge className="absolute top-3 right-3 bg-green-600 text-white z-10">
-                          <Shield className="h-3 w-3 mr-1" />
-                          Certified
-                        </Badge>
-                      )}
-                      {product.energized && (
-                        <Badge className="absolute top-3 left-3 bg-amber-600 text-white z-10">
-                          Energized
-                        </Badge>
-                      )}
-                      {product.discount && (
-                        <Badge className="absolute bottom-3 right-3 bg-red-600 text-white z-10">
-                          Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
-                        </Badge>
-                      )}
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                      />
-                    </div>
-
-                    {/* Product Info */}
-                    <div className="p-4 space-y-3 bg-background">
-                      {/* Title */}
-                      <div>
-                        <p className="text-xs text-muted-foreground font-medium mb-1">
-                          {product.origin} Origin • {product.size}
-                        </p>
-                        <h3 className="font-bold text-lg group-hover:text-primary transition-colors line-clamp-2">
-                          {product.name}
-                        </h3>
-                      </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center gap-2">
-                        <div className="flex">
-                          {[...Array(5)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
-                            />
-                          ))}
-                        </div>
-                        <span className="text-sm font-medium">{product.rating}</span>
-                        <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
-                      </div>
-
-                      {/* Stock */}
-                      {product.stockLeft <= 10 && (
-                        <p className="text-xs text-orange-600 font-medium">
-                          ⚡ Only {product.stockLeft} left in stock!
-                        </p>
-                      )}
-
-                      {/* Price */}
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl font-bold text-primary">
-                            ₹{product.price.toLocaleString()}
-                          </span>
-                          <span className="text-sm text-muted-foreground line-through">
-                            ₹{product.originalPrice.toLocaleString()}
-                          </span>
-                        </div>
-                        {product.emi && (
-                          <p className="text-xs text-muted-foreground">
-                            or ₹{product.emiAmount}/month
-                            <Badge variant="outline" className="ml-2 text-[10px] px-1.5 py-0">EMI</Badge>
-                          </p>
-                        )}
-                      </div>
-
-                      {/* CTA Buttons */}
-                      <div className="space-y-2">
-                        <Button className="w-full" size="lg">
-                          View Details
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="w-full"
-                          size="lg"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
-                          }}
-                        >
-                          <MessageCircle className="w-4 h-4 mr-2" />
-                          Talk to Expert
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
 
           {/* Benefits Tab */}
           <TabsContent value="benefits" className="space-y-8">
