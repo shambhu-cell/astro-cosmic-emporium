@@ -135,15 +135,20 @@ const ProductDetailsRudraksha = () => {
       {/* Sticky Add to Cart Bar - Mobile */}
       {isSticky && (
         <div className="fixed bottom-0 left-0 right-0 bg-background border-t-2 border-primary/20 shadow-lg z-50 lg:hidden animate-slide-in-right">
-          <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-3">
-            <div>
+          <div className="container mx-auto px-4 py-3 flex items-center gap-3">
+            <div className="flex-shrink-0">
               <p className="font-bold text-lg">₹{product.price.toLocaleString()}</p>
               <p className="text-xs text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</p>
             </div>
-            <Button className="flex-1" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <ShoppingCart className="mr-2 h-4 w-4" />
-              Add to Cart
-            </Button>
+            <div className="flex gap-2 flex-1">
+              <Button className="flex-1" size="sm" variant="outline" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <ShoppingCart className="mr-1 h-4 w-4" />
+                Cart
+              </Button>
+              <Button className="flex-1" size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Buy Now
+              </Button>
+            </div>
           </div>
         </div>
       )}
@@ -349,10 +354,15 @@ const ProductDetailsRudraksha = () => {
                 </div>
               </div>
 
-              <Button size="lg" className="w-full text-lg py-7 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 font-bold shadow-lg">
-                <ShoppingCart className="mr-2 h-6 w-6" />
-                ADD TO CART - ₹{(product.price * quantity).toLocaleString()}
-              </Button>
+              <div className="grid grid-cols-2 gap-3">
+                <Button size="lg" className="text-lg py-7 bg-accent hover:bg-accent/90 font-bold shadow-lg">
+                  <ShoppingCart className="mr-2 h-6 w-6" />
+                  ADD TO CART
+                </Button>
+                <Button size="lg" className="text-lg py-7 bg-primary hover:bg-primary/90 font-bold shadow-lg">
+                  BUY NOW
+                </Button>
+              </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" size="lg" className="border-2">
