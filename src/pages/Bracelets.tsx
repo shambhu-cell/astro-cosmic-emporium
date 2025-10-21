@@ -212,13 +212,13 @@ const Bracelets = () => {
         {/* Category Filters */}
         <div className="mb-10">
           <h2 className="text-xl font-semibold mb-4">Shop by Category</h2>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category.id)}
-                className="gap-2"
+                className="gap-2 whitespace-nowrap flex-shrink-0"
               >
                 {category.name}
                 {category.count > 0 && (
