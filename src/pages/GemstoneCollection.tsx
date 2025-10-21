@@ -429,16 +429,6 @@ const GemstoneCollection = () => {
         </div>
       </div>
 
-      {/* Social Proof Banner */}
-      <div className="bg-gradient-to-r from-green-500/10 via-emerald-500/10 to-green-500/10 border-y border-green-500/20">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-center gap-2 text-sm animate-fade-in">
-            <Sparkles className="w-4 h-4 text-green-600" />
-            <span className="font-semibold text-green-700">Someone from Mumbai just purchased Premium Yellow Sapphire 5 minutes ago</span>
-            <Sparkles className="w-4 h-4 text-green-600" />
-          </div>
-        </div>
-      </div>
 
       {/* Products Section */}
       <div className="container mx-auto px-4 py-8">
