@@ -91,7 +91,7 @@ const Mala = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {malas.map((mala) => (
             <Card key={mala.id} className="group hover:shadow-glow transition-all duration-300">
               <CardContent className="p-4">
