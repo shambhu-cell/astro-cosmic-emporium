@@ -215,25 +215,6 @@ const ProductDetailsBracelet = () => {
               </div>
             </div>
 
-            {/* Size Selection */}
-            <div className="space-y-3">
-              <label className="font-semibold text-lg">Select Size:</label>
-              <div className="grid grid-cols-2 gap-3">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size.split(" ")[0])}
-                    className={`py-3 px-4 rounded-lg border-2 font-medium transition-all ${
-                      selectedSize === size.split(" ")[0]
-                        ? 'border-primary bg-primary/10 text-primary'
-                        : 'border-border hover:border-primary/50'
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             {/* Quantity & CTA */}
             <div className="space-y-4">
