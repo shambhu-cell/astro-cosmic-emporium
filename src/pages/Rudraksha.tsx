@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, ShoppingBag, Shield, Award, Truck, CheckCircle2, MessageCircle, Filter, TrendingUp, Users } from "lucide-react";
+import { Star, ShoppingBag, Shield, Award, Truck, CheckCircle2, MessageCircle, Filter, TrendingUp, Users, Sparkles, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
 import oneMukhiImage from "@/assets/rudraksha/1-mukhi.jpg";
 import threeMukhiImage from "@/assets/rudraksha/3-mukhi.jpg";
@@ -669,130 +670,319 @@ const Rudraksha = () => {
           </div>
         </div>
 
-        {/* Filters */}
-        <div className="flex justify-end mb-6">
-          <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-[180px]">
-              <Filter className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="popular">Most Popular</SelectItem>
-              <SelectItem value="price-low">Price: Low to High</SelectItem>
-              <SelectItem value="price-high">Price: High to Low</SelectItem>
-              <SelectItem value="rating">Highest Rated</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        {/* Content Tabs Section */}
+        <Tabs defaultValue="products" className="w-full">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsTrigger value="products">All Products</TabsTrigger>
+            <TabsTrigger value="benefits">Benefits</TabsTrigger>
+            <TabsTrigger value="wearing">How to Wear</TabsTrigger>
+            <TabsTrigger value="care">Care Guide</TabsTrigger>
+          </TabsList>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product: any) => (
-              <Card
-                key={product.id}
-                className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50 to-background dark:from-amber-950/20"
-                onClick={() => navigate(`/rudraksha/${product.id}`)}
-              >
-                <CardContent className="p-0">
-                  {/* Image Section */}
-                  <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 p-6">
-                    {product.certified && (
-                      <Badge className="absolute top-3 right-3 bg-green-600 text-white z-10">
-                        <Shield className="h-3 w-3 mr-1" />
-                        Certified
-                      </Badge>
-                    )}
-                    {product.energized && (
-                      <Badge className="absolute top-3 left-3 bg-amber-600 text-white z-10">
-                        Energized
-                      </Badge>
-                    )}
-                    {product.discount && (
-                      <Badge className="absolute bottom-3 right-3 bg-red-600 text-white z-10">
-                        Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
-                      </Badge>
-                    )}
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
+          {/* Products Tab */}
+          <TabsContent value="products" className="space-y-6">
+            {/* Filters */}
+            <div className="flex justify-end mb-6">
+              <Select value={sortBy} onValueChange={setSortBy}>
+                <SelectTrigger className="w-[180px]">
+                  <Filter className="h-4 w-4 mr-2" />
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="popular">Most Popular</SelectItem>
+                  <SelectItem value="price-low">Price: Low to High</SelectItem>
+                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+                  <SelectItem value="rating">Highest Rated</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
-                  {/* Product Info */}
-                  <div className="p-4 space-y-3 bg-background">
-                    {/* Title */}
-                    <div>
-                      <p className="text-xs text-muted-foreground font-medium mb-1">
-                        {product.origin} Origin • {product.size}
-                      </p>
-                      <h3 className="font-bold text-lg group-hover:text-primary transition-colors line-clamp-2">
-                        {product.name}
-                      </h3>
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product: any) => (
+                <Card
+                  key={product.id}
+                  className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50 to-background dark:from-amber-950/20"
+                  onClick={() => navigate(`/rudraksha/${product.id}`)}
+                >
+                  <CardContent className="p-0">
+                    {/* Image Section */}
+                    <div className="relative overflow-hidden aspect-square bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 p-6">
+                      {product.certified && (
+                        <Badge className="absolute top-3 right-3 bg-green-600 text-white z-10">
+                          <Shield className="h-3 w-3 mr-1" />
+                          Certified
+                        </Badge>
+                      )}
+                      {product.energized && (
+                        <Badge className="absolute top-3 left-3 bg-amber-600 text-white z-10">
+                          Energized
+                        </Badge>
+                      )}
+                      {product.discount && (
+                        <Badge className="absolute bottom-3 right-3 bg-red-600 text-white z-10">
+                          Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                        </Badge>
+                      )}
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                      />
                     </div>
 
-                    {/* Rating */}
-                    <div className="flex items-center gap-2">
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
-                          />
-                        ))}
+                    {/* Product Info */}
+                    <div className="p-4 space-y-3 bg-background">
+                      {/* Title */}
+                      <div>
+                        <p className="text-xs text-muted-foreground font-medium mb-1">
+                          {product.origin} Origin • {product.size}
+                        </p>
+                        <h3 className="font-bold text-lg group-hover:text-primary transition-colors line-clamp-2">
+                          {product.name}
+                        </h3>
                       </div>
-                      <span className="text-sm font-medium">{product.rating}</span>
-                      <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
-                    </div>
 
-                    {/* Stock */}
-                    {product.stockLeft <= 10 && (
-                      <p className="text-xs text-orange-600 font-medium">
-                        ⚡ Only {product.stockLeft} left in stock!
-                      </p>
-                    )}
-
-                    {/* Price */}
-                    <div className="space-y-1">
+                      {/* Rating */}
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-primary">
-                          ₹{product.price.toLocaleString()}
-                        </span>
-                        <span className="text-sm text-muted-foreground line-through">
-                          ₹{product.originalPrice.toLocaleString()}
-                        </span>
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm font-medium">{product.rating}</span>
+                        <span className="text-xs text-muted-foreground">({product.reviews} reviews)</span>
                       </div>
-                      {product.emi && (
-                        <p className="text-xs text-muted-foreground">
-                          or ₹{product.emiAmount}/month
-                          <Badge variant="outline" className="ml-2 text-[10px] px-1.5 py-0">EMI</Badge>
+
+                      {/* Stock */}
+                      {product.stockLeft <= 10 && (
+                        <p className="text-xs text-orange-600 font-medium">
+                          ⚡ Only {product.stockLeft} left in stock!
                         </p>
                       )}
-                    </div>
 
-                    {/* CTA Buttons */}
-                    <div className="space-y-2">
-                      <Button className="w-full" size="lg">
-                        View Details
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full"
-                        size="lg"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
-                        }}
-                      >
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        Talk to Expert
-                      </Button>
+                      {/* Price */}
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl font-bold text-primary">
+                            ₹{product.price.toLocaleString()}
+                          </span>
+                          <span className="text-sm text-muted-foreground line-through">
+                            ₹{product.originalPrice.toLocaleString()}
+                          </span>
+                        </div>
+                        {product.emi && (
+                          <p className="text-xs text-muted-foreground">
+                            or ₹{product.emiAmount}/month
+                            <Badge variant="outline" className="ml-2 text-[10px] px-1.5 py-0">EMI</Badge>
+                          </p>
+                        )}
+                      </div>
+
+                      {/* CTA Buttons */}
+                      <div className="space-y-2">
+                        <Button className="w-full" size="lg">
+                          View Details
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="w-full"
+                          size="lg"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank');
+                          }}
+                        >
+                          <MessageCircle className="w-4 h-4 mr-2" />
+                          Talk to Expert
+                        </Button>
+                      </div>
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          {/* Benefits Tab */}
+          <TabsContent value="benefits" className="space-y-8">
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Sparkles className="w-6 h-6 text-primary" />
                   </div>
-                </CardContent>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Spiritual Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Enhances meditation and spiritual practices</li>
+                      <li>• Connects you with divine consciousness</li>
+                      <li>• Balances chakras and energy flow</li>
+                      <li>• Promotes inner peace and tranquility</li>
+                    </ul>
+                  </div>
+                </div>
               </Card>
-            ))}
-        </div>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Heart className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Health Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Reduces stress and anxiety</li>
+                      <li>• Improves blood circulation</li>
+                      <li>• Enhances overall vitality</li>
+                      <li>• Supports mental clarity and focus</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Professional Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Attracts success and prosperity</li>
+                      <li>• Enhances decision-making abilities</li>
+                      <li>• Improves confidence and leadership</li>
+                      <li>• Removes obstacles in career path</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Protective Benefits</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Shields from negative energies</li>
+                      <li>• Protects against evil eye and black magic</li>
+                      <li>• Provides emotional stability</li>
+                      <li>• Creates a protective aura around wearer</li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </TabsContent>
+
+          {/* How to Wear Tab */}
+          <TabsContent value="wearing" className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">How to Wear Rudraksha</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Best Day to Wear</h3>
+                  <p className="text-muted-foreground">
+                    Monday is considered the most auspicious day to wear Rudraksha as it's dedicated to Lord Shiva. 
+                    Wear it early morning after bath during Brahma Muhurta (before sunrise) for maximum benefits.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">How to Wear</h3>
+                  <p className="text-muted-foreground">
+                    Rudraksha can be worn as a pendant, bracelet, or mala (necklace). It should touch your skin for maximum benefits. 
+                    The bead can be worn by anyone regardless of age, gender, caste, or religion.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Energization Process</h3>
+                  <p className="text-muted-foreground">
+                    All our Rudraksha beads come pre-energized. However, you can re-energize them by washing with Ganga Jal or clean water, 
+                    applying sandalwood paste, and chanting "Om Namah Shivaya" 108 times while holding the bead.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Mantra to Chant</h3>
+                  <p className="text-muted-foreground">
+                    Before wearing, chant the mantra "Om Namah Shivaya" 108 times. You can also chant specific mantras 
+                    associated with each Mukhi type for enhanced benefits. Mantras are provided with each purchase.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Who Should Wear</h3>
+                  <p className="text-muted-foreground">
+                    Anyone can wear Rudraksha. There are no restrictions based on gender, age, caste, or religion. 
+                    However, specific Mukhi types may be more beneficial for certain individuals based on their astrological chart.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+
+          {/* Care Guide Tab */}
+          <TabsContent value="care" className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-6">Care Instructions for Rudraksha</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Daily Care</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Remove Rudraksha before bathing or swimming</li>
+                    <li>• Avoid wearing during sleep if possible</li>
+                    <li>• Keep away from chemicals, perfumes, and soap</li>
+                    <li>• Store in a clean, sacred place when not wearing</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Cleaning Instructions</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Clean with water and a soft brush once a week</li>
+                    <li>• Apply a drop of oil (sandalwood or mustard) occasionally</li>
+                    <li>• Wipe with a soft cloth after oiling</li>
+                    <li>• Never use harsh chemicals or detergents</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Energetic Cleansing</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Wash with Ganga Jal or clean water every full moon</li>
+                    <li>• Re-energize by chanting mantras periodically</li>
+                    <li>• Keep near a Shiva idol or sacred space</li>
+                    <li>• Avoid wearing during inauspicious occasions</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">What to Avoid</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Don't let others touch your Rudraksha</li>
+                    <li>• Avoid wearing during funeral ceremonies</li>
+                    <li>• Don't wear while consuming alcohol or non-vegetarian food</li>
+                    <li>• Remove during intimate activities</li>
+                  </ul>
+                </div>
+
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Important:</strong> Proper care ensures your Rudraksha remains energized and effective. 
+                    If you notice any cracks or damage, consult with us for guidance. We offer lifetime support for all our products.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+        </Tabs>
 
         {/* Expert Consultation Banner */}
         <Card className="mt-12 border-2 border-primary/20 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
