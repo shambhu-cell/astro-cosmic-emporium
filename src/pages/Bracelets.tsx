@@ -176,29 +176,6 @@ const Bracelets = () => {
 
   return (
     <main className="min-h-screen bg-background py-8">
-      {/* Trust Bar */}
-      <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y">
-        <div className="container max-w-screen-2xl mx-auto px-4 py-4">
-          <div className="flex flex-wrap justify-center md:justify-around items-center gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <Shield className="h-5 w-5 text-primary" />
-              <span className="font-medium">100% Natural Crystals</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="h-5 w-5 text-primary" />
-              <span className="font-medium">Lab Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Truck className="h-5 w-5 text-primary" />
-              <span className="font-medium">Free Shipping Pan India</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-primary" />
-              <span className="font-medium">30-Day Money Back</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="container max-w-screen-2xl px-4 mx-auto mt-8">
         {/* Hero Section */}
