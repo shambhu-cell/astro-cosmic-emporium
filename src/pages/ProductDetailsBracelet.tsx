@@ -428,30 +428,6 @@ const ProductDetailsBracelet = () => {
           </Accordion>
         </div>
 
-        {/* Upsells */}
-        <div className="mt-16 border-2 border-dashed border-primary/30 rounded-xl p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-          <h3 className="text-2xl font-bold mb-2 text-center">Complete Your Healing Journey</h3>
-          <p className="text-center text-muted-foreground mb-6">Add these complementary items to enhance your experience</p>
-          <div className="grid md:grid-cols-3 gap-4">
-            {product.upsells?.map((item, idx) => (
-              <Card key={idx} className="hover:shadow-md transition-shadow border-2">
-                <CardContent className="p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="font-bold text-base">{item.name}</h4>
-                      <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
-                    </div>
-                    <Badge className="bg-primary shrink-0 ml-2">₹{item.price.toLocaleString()}</Badge>
-                  </div>
-                  <Button size="sm" variant="outline" className="w-full mt-3 hover:bg-primary hover:text-white">
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                    Add to Cart
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* Trust Badges */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
