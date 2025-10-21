@@ -414,18 +414,6 @@ const ProductDetailsBracelet = () => {
           </Accordion>
         </div>
 
-
-        {/* Trust Badges */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          {product.certifications?.map((cert, idx) => (
-            <div key={idx} className="text-center space-y-2">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Award className="h-8 w-8 text-white" />
-              </div>
-              <p className="text-sm font-semibold">{cert}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
