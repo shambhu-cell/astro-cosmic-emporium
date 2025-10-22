@@ -331,50 +331,6 @@ const Yantra = () => {
           ))}
         </div>
 
-        {/* Value Proposition Section */}
-        <section className="mt-16 bg-background">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">100% Energized</h3>
-                <p className="text-muted-foreground">All yantras activated by experienced priests</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Award className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Authentic</h3>
-                <p className="text-muted-foreground">Genuine copper, brass & silver materials</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Package className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Free Delivery</h3>
-                <p className="text-muted-foreground">Safe packaging & doorstep delivery</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">24/7 Support</h3>
-                <p className="text-muted-foreground">Expert guidance on placement & worship</p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </main>
   );
