@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Yantra = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -200,8 +201,18 @@ const Yantra = () => {
       </section>
 
       <div className="container max-w-screen-2xl mx-auto px-4 py-12">
-        {/* Filters & Sorting */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8 items-start md:items-center justify-between">
+        {/* Tabbed Content */}
+        <Tabs defaultValue="products" className="w-full">
+          <TabsList className="w-full justify-start mb-8 bg-muted/50">
+            <TabsTrigger value="products">All Products</TabsTrigger>
+            <TabsTrigger value="about">About Yantras</TabsTrigger>
+            <TabsTrigger value="benefits">Benefits & Usage</TabsTrigger>
+            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="products" className="mt-0">
+            {/* Filters & Sorting */}
+            <div className="flex flex-col md:flex-row gap-4 mb-8 items-start md:items-center justify-between">
           <div className="flex flex-wrap gap-2">
             <Button 
               variant={selectedCategory === "all" ? "default" : "outline"}
@@ -330,7 +341,123 @@ const Yantra = () => {
             </Card>
           ))}
         </div>
+          </TabsContent>
 
+          <TabsContent value="about">
+            <div className="prose prose-lg max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">What are Yantras?</h2>
+              <p className="text-muted-foreground mb-4">
+                Yantras are sacred geometric diagrams used in Hindu and Buddhist practices as powerful tools for meditation, worship, and achieving specific spiritual or material goals. The word "Yantra" comes from the Sanskrit root "yam" meaning to sustain or hold the essence of an object or concept.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                Each Yantra is a symbolic representation of divine energy patterns. When properly energized and worshipped, they act as cosmic receptors, channeling positive energies and divine blessings into the lives of devotees.
+              </p>
+              <h3 className="text-2xl font-bold mb-4 mt-8">Types of Yantras</h3>
+              <div className="grid md:grid-cols-2 gap-6 mt-4">
+                <Card>
+                  <CardContent className="p-6">
+                    <h4 className="font-bold text-lg mb-2">Wealth Yantras</h4>
+                    <p className="text-sm text-muted-foreground">Shri Yantra, Kuber Yantra, Lakshmi Yantra - for prosperity and abundance</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h4 className="font-bold text-lg mb-2">Protection Yantras</h4>
+                    <p className="text-sm text-muted-foreground">Baglamukhi Yantra, Durga Yantra - for divine protection and courage</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h4 className="font-bold text-lg mb-2">Planetary Yantras</h4>
+                    <p className="text-sm text-muted-foreground">Shani Yantra, Navagraha Yantra - for planetary remedies</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h4 className="font-bold text-lg mb-2">Success Yantras</h4>
+                    <p className="text-sm text-muted-foreground">Ganesh Yantra, Saraswati Yantra - for wisdom and removing obstacles</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="benefits">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">How to Use Yantras</h2>
+              <div className="space-y-8">
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">1</span>
+                      Placement
+                    </h3>
+                    <p className="text-muted-foreground">Place the Yantra in a clean, sacred space facing East or North. The worship area should be peaceful and free from distractions.</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">2</span>
+                      Cleansing
+                    </h3>
+                    <p className="text-muted-foreground">Clean the Yantra with pure water or milk. Wipe it gently with a clean cloth and apply sandalwood paste or kumkum.</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">3</span>
+                      Worship
+                    </h3>
+                    <p className="text-muted-foreground">Light incense and a lamp. Chant the associated mantra (we provide this with each Yantra) 108 times daily, preferably during morning hours.</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">4</span>
+                      Meditation
+                    </h3>
+                    <p className="text-muted-foreground">Sit in front of the Yantra and meditate on its center point (Bindu) for at least 10-15 minutes daily to absorb its energies.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="reviews">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6">Customer Reviews</h2>
+              <div className="space-y-6">
+                {[
+                  { name: "Rajesh Kumar", rating: 5, yantra: "Shri Yantra", review: "Absolutely amazing! Within 2 months of regular worship, I noticed significant improvements in my business. The copper quality is excellent and it came properly energized.", date: "2 weeks ago" },
+                  { name: "Priya Sharma", rating: 5, yantra: "Kuber Yantra", review: "Very authentic product. I can feel the positive energy. My financial situation has improved and I feel more confident about my future.", date: "1 month ago" },
+                  { name: "Amit Patel", rating: 5, yantra: "Ganesh Yantra", review: "This Yantra helped me overcome major obstacles in my career. I got the promotion I was waiting for. Highly recommend!", date: "3 weeks ago" },
+                  { name: "Meera Reddy", rating: 4, yantra: "Durga Yantra", review: "Beautiful craftsmanship. I feel protected and my anxiety has reduced significantly. The packaging was also very good.", date: "1 week ago" }
+                ].map((review, idx) => (
+                  <Card key={idx}>
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h4 className="font-bold">{review.name}</h4>
+                          <p className="text-sm text-muted-foreground">{review.yantra}</p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {Array.from({ length: review.rating }).map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground mb-2">{review.review}</p>
+                      <p className="text-xs text-muted-foreground">{review.date}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </main>
   );
