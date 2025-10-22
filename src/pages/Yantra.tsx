@@ -331,28 +331,46 @@ const Yantra = () => {
           ))}
         </div>
 
-        {/* Trust Section */}
-        <section className="mt-16 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Our Yantras?</h2>
-            <p className="text-muted-foreground mb-8">
-              Every yantra is crafted with authentic materials, energized through Vedic rituals, and blessed by experienced priests. We ensure each piece carries the spiritual power to transform your life.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div className="bg-card p-6 rounded-lg">
-                <Shield className="w-10 h-10 text-primary mb-3" />
-                <h3 className="font-semibold mb-2">Authenticity Guaranteed</h3>
-                <p className="text-sm text-muted-foreground">Made with genuine copper, brass, and silver. Certificate included.</p>
+        {/* Value Proposition Section */}
+        <section className="mt-16 bg-background">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-primary" />
               </div>
-              <div className="bg-card p-6 rounded-lg">
-                <Zap className="w-10 h-10 text-primary mb-3" />
-                <h3 className="font-semibold mb-2">Vedic Energization</h3>
-                <p className="text-sm text-muted-foreground">Activated through traditional mantras and sacred rituals.</p>
+              <div>
+                <h3 className="text-xl font-bold mb-2">100% Energized</h3>
+                <p className="text-muted-foreground">All yantras activated by experienced priests</p>
               </div>
-              <div className="bg-card p-6 rounded-lg">
-                <Award className="w-10 h-10 text-primary mb-3" />
-                <h3 className="font-semibold mb-2">Expert Guidance</h3>
-                <p className="text-sm text-muted-foreground">Free consultation on placement and worship methods.</p>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Award className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Authentic</h3>
+                <p className="text-muted-foreground">Genuine copper, brass & silver materials</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Package className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Free Delivery</h3>
+                <p className="text-muted-foreground">Safe packaging & doorstep delivery</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Clock className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">24/7 Support</h3>
+                <p className="text-muted-foreground">Expert guidance on placement & worship</p>
               </div>
             </div>
           </div>
