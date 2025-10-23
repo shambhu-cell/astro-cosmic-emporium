@@ -26,67 +26,68 @@ const Mala = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-purple-500/5 py-16 md:py-24">
-        <div className="container max-w-screen-2xl px-4">
+      <section className="bg-gradient-to-br from-primary/5 via-background to-purple-500/5 py-12 md:py-16 lg:py-24">
+        <div className="container max-w-screen-2xl px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-4" variant="outline">
+            <Badge className="mb-3 md:mb-4 text-xs" variant="outline">
               <Sparkles className="w-3 h-3 mr-1" />
               Authentic 108 Beads Prayer Malas
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-600 to-primary bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary via-purple-600 to-primary bg-clip-text text-transparent leading-tight">
               Sacred Mala Collection
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 px-4">
               Premium 108 beads prayer malas for meditation, japa, and spiritual awakening. Handcrafted with authentic materials.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs md:text-sm">
               <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-primary" />
-                <span>100% Authentic</span>
+                <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="whitespace-nowrap">100% Authentic</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-primary" />
-                <span>Energized & Blessed</span>
+                <Award className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="whitespace-nowrap">Energized & Blessed</span>
               </div>
               <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-primary fill-primary" />
-                <span>4.8+ Rating</span>
+                <Star className="w-4 h-4 md:w-5 md:h-5 text-primary fill-primary" />
+                <span className="whitespace-nowrap">4.8+ Rating</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="container max-w-screen-2xl px-4 py-12">
+      <div className="container max-w-screen-2xl px-4 md:px-6 py-8 md:py-12">
         {/* Filters & Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-          <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 mb-6 md:mb-8">
+          <div className="flex overflow-x-auto gap-2 pb-2 md:pb-0 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap">
             {categories.map((cat) => (
               <Button
                 key={cat.id}
                 variant={selectedCategory === cat.id ? "default" : "outline"}
                 onClick={() => setSelectedCategory(cat.id)}
                 size="sm"
+                className="whitespace-nowrap shrink-0 min-h-[36px] md:min-h-0"
               >
                 {cat.label}
               </Button>
             ))}
           </div>
           
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm">
-              <Filter className="w-4 h-4 mr-2" />
-              Filter
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            <Button variant="outline" size="sm" className="flex-1 md:flex-none min-h-[36px] md:min-h-0">
+              <Filter className="w-4 h-4 md:mr-2" />
+              <span className="md:inline">Filter</span>
             </Button>
-            <Button variant="outline" size="sm">
-              <ArrowUpDown className="w-4 h-4 mr-2" />
-              Sort
+            <Button variant="outline" size="sm" className="flex-1 md:flex-none min-h-[36px] md:min-h-0">
+              <ArrowUpDown className="w-4 h-4 md:mr-2" />
+              <span className="md:inline">Sort</span>
             </Button>
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
           {filteredProducts.map((mala) => (
             <Card 
               key={mala.id} 
@@ -97,10 +98,10 @@ const Mala = () => {
                   <img
                     src={mala.image}
                     alt={mala.name}
-                    className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <Badge className="absolute top-3 right-3 bg-primary/90 backdrop-blur-sm">
+                  <Badge className="absolute top-2 right-2 md:top-3 md:right-3 bg-primary/90 backdrop-blur-sm text-xs">
                     {Math.round(((mala.originalPrice - mala.price) / mala.originalPrice) * 100)}% OFF
                   </Badge>
                   {!mala.inStock && (
@@ -110,36 +111,36 @@ const Mala = () => {
                   )}
                 </div>
                 
-                <div className="p-4 space-y-3">
+                <div className="p-3 md:p-4 space-y-2 md:space-y-3">
                   <Badge variant="outline" className="text-xs">
                     {mala.type}
                   </Badge>
-                  <h3 className="font-semibold text-base line-clamp-2 min-h-[3rem]">
+                  <h3 className="font-semibold text-sm md:text-base line-clamp-2 min-h-[2.5rem] md:min-h-[3rem]">
                     {mala.name}
                   </h3>
                   
                   <div className="flex items-center gap-2">
                     <div className="flex items-center">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="ml-1 text-sm font-medium">{mala.rating}</span>
+                      <Star className="w-3.5 h-3.5 md:w-4 md:h-4 fill-yellow-400 text-yellow-400" />
+                      <span className="ml-1 text-xs md:text-sm font-medium">{mala.rating}</span>
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      ({mala.reviews.toLocaleString()} reviews)
+                      ({mala.reviews.toLocaleString()})
                     </span>
                   </div>
                   
-                  <div className="flex items-baseline gap-2 pt-2">
-                    <span className="text-2xl font-bold text-primary">
+                  <div className="flex items-baseline gap-2 pt-1 md:pt-2">
+                    <span className="text-xl md:text-2xl font-bold text-primary">
                       ₹{mala.price.toLocaleString()}
                     </span>
-                    <span className="text-sm text-muted-foreground line-through">
+                    <span className="text-xs md:text-sm text-muted-foreground line-through">
                       ₹{mala.originalPrice.toLocaleString()}
                     </span>
                   </div>
                   
-                  <div className="flex gap-2 pt-2">
+                  <div className="flex gap-2 pt-1 md:pt-2">
                     <Button 
-                      className="flex-1" 
+                      className="flex-1 text-xs md:text-sm h-9 md:h-10" 
                       onClick={() => window.location.href = `/mala/${mala.id}`}
                       disabled={!mala.inStock}
                     >
@@ -149,6 +150,7 @@ const Mala = () => {
                       size="icon" 
                       variant="outline"
                       disabled={!mala.inStock}
+                      className="h-9 w-9 md:h-10 md:w-10"
                     >
                       <ShoppingCart className="w-4 h-4" />
                     </Button>
@@ -161,27 +163,37 @@ const Mala = () => {
 
         {/* Tabbed Content Section */}
         <Tabs defaultValue="about" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-grid">
-            <TabsTrigger value="about">About Malas</TabsTrigger>
-            <TabsTrigger value="benefits">Benefits & Usage</TabsTrigger>
-            <TabsTrigger value="types">Types of Malas</TabsTrigger>
-            <TabsTrigger value="reviews">Reviews</TabsTrigger>
-          </TabsList>
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <TabsList className="inline-flex w-auto min-w-full md:min-w-0 mb-2">
+              <TabsTrigger value="about" className="flex-1 md:flex-none whitespace-nowrap text-xs md:text-sm">
+                About
+              </TabsTrigger>
+              <TabsTrigger value="benefits" className="flex-1 md:flex-none whitespace-nowrap text-xs md:text-sm">
+                Benefits
+              </TabsTrigger>
+              <TabsTrigger value="types" className="flex-1 md:flex-none whitespace-nowrap text-xs md:text-sm">
+                Types
+              </TabsTrigger>
+              <TabsTrigger value="reviews" className="flex-1 md:flex-none whitespace-nowrap text-xs md:text-sm">
+                Reviews
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-          <TabsContent value="about" className="mt-8 space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold mb-4">About Sacred Mala Beads</h2>
-              <p className="text-muted-foreground leading-relaxed">
+          <TabsContent value="about" className="mt-6 md:mt-8 space-y-4 md:space-y-6">
+            <div className="prose prose-sm md:prose-lg max-w-none">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">About Sacred Mala Beads</h2>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 A mala is a string of 108 beads used in Hindu and Buddhist traditions for meditation, 
                 prayer, and japa (mantra repetition). Each bead represents one repetition of a mantra, 
                 helping practitioners maintain count and focus during spiritual practice.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-6 md:mt-8">
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3">Why 108 Beads?</h3>
-                    <p className="text-muted-foreground">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3">Why 108 Beads?</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       The number 108 is considered sacred in many Eastern traditions. It represents 
                       spiritual completion and is believed to align with cosmic rhythms. The number 
                       appears throughout nature, astronomy, and sacred texts.
@@ -190,9 +202,9 @@ const Mala = () => {
                 </Card>
                 
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3">Energization Process</h3>
-                    <p className="text-muted-foreground">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3">Energization Process</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
                       All our malas are energized through traditional Vedic rituals and mantras before 
                       shipping. This process enhances their spiritual potency and prepares them for 
                       your personal practice.
@@ -203,18 +215,18 @@ const Mala = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="benefits" className="mt-8 space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold mb-4">Benefits & How to Use</h2>
+          <TabsContent value="benefits" className="mt-6 md:mt-8 space-y-4 md:space-y-6">
+            <div className="prose prose-sm md:prose-lg max-w-none">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Benefits & How to Use</h2>
               
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
                 <Card className="border-primary/20">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">1</span>
+                  <CardContent className="p-4 md:p-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                      <span className="text-xl md:text-2xl font-bold text-primary">1</span>
                     </div>
-                    <h3 className="font-semibold text-lg mb-2">Cleanse Your Mala</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="font-semibold text-base md:text-lg mb-2">Cleanse Your Mala</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Before first use, cleanse your mala with sage smoke or place it under moonlight 
                       overnight to remove any residual energies.
                     </p>
@@ -222,12 +234,12 @@ const Mala = () => {
                 </Card>
                 
                 <Card className="border-primary/20">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">2</span>
+                  <CardContent className="p-4 md:p-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                      <span className="text-xl md:text-2xl font-bold text-primary">2</span>
                     </div>
-                    <h3 className="font-semibold text-lg mb-2">Set Your Intention</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="font-semibold text-base md:text-lg mb-2">Set Your Intention</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Hold your mala and set a clear intention or choose a mantra that resonates 
                       with your spiritual goals.
                     </p>
@@ -235,12 +247,12 @@ const Mala = () => {
                 </Card>
                 
                 <Card className="border-primary/20">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">3</span>
+                  <CardContent className="p-4 md:p-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                      <span className="text-xl md:text-2xl font-bold text-primary">3</span>
                     </div>
-                    <h3 className="font-semibold text-lg mb-2">Practice Daily</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="font-semibold text-base md:text-lg mb-2">Practice Daily</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Use your mala daily for meditation or japa. Move through each bead with your 
                       thumb while reciting your chosen mantra.
                     </p>
@@ -249,9 +261,9 @@ const Mala = () => {
               </div>
 
               <Card className="bg-primary/5 border-primary/20">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-xl mb-4">Key Benefits of Using a Mala</h3>
-                  <ul className="space-y-2 text-muted-foreground">
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="font-semibold text-lg md:text-xl mb-3 md:mb-4">Key Benefits of Using a Mala</h3>
+                  <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
                       <span>Maintains focus and concentration during meditation</span>
@@ -278,75 +290,75 @@ const Mala = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="types" className="mt-8 space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold mb-6">Different Types of Malas</h2>
+          <TabsContent value="types" className="mt-6 md:mt-8 space-y-4 md:space-y-6">
+            <div className="prose prose-sm md:prose-lg max-w-none">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Different Types of Malas</h2>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3 flex items-center gap-2">
-                      <span className="text-2xl">🔮</span>
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3 flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">🔮</span>
                       Crystal Malas
                     </h3>
-                    <p className="text-muted-foreground mb-3">
+                    <p className="text-sm md:text-base text-muted-foreground mb-2 md:mb-3">
                       Made from natural crystals like Clear Quartz, Amethyst, or Rose Quartz. 
                       Each crystal carries unique energetic properties.
                     </p>
-                    <p className="text-sm font-medium">Best for: Energy work, healing, clarity</p>
+                    <p className="text-xs md:text-sm font-medium">Best for: Energy work, healing, clarity</p>
                   </CardContent>
                 </Card>
 
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3 flex items-center gap-2">
-                      <span className="text-2xl">🌰</span>
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3 flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">🌰</span>
                       Rudraksha Malas
                     </h3>
-                    <p className="text-muted-foreground mb-3">
+                    <p className="text-sm md:text-base text-muted-foreground mb-2 md:mb-3">
                       Sacred beads from the Rudraksha tree, highly revered in Hindu tradition. 
                       Different mukhi (faces) offer different benefits.
                     </p>
-                    <p className="text-sm font-medium">Best for: Spiritual power, health, protection</p>
+                    <p className="text-xs md:text-sm font-medium">Best for: Spiritual power, health, protection</p>
                   </CardContent>
                 </Card>
 
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3 flex items-center gap-2">
-                      <span className="text-2xl">🌿</span>
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3 flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">🌿</span>
                       Tulsi Malas
                     </h3>
-                    <p className="text-muted-foreground mb-3">
+                    <p className="text-sm md:text-base text-muted-foreground mb-2 md:mb-3">
                       Made from sacred Tulsi (Holy Basil) wood, especially dear to Lord Krishna 
                       devotees. Carries divine blessings.
                     </p>
-                    <p className="text-sm font-medium">Best for: Devotion, purification, Krishna bhakti</p>
+                    <p className="text-xs md:text-sm font-medium">Best for: Devotion, purification, Krishna bhakti</p>
                   </CardContent>
                 </Card>
 
                 <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-xl mb-3 flex items-center gap-2">
-                      <span className="text-2xl">🪵</span>
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3 flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">🪵</span>
                       Sandalwood Malas
                     </h3>
-                    <p className="text-muted-foreground mb-3">
+                    <p className="text-sm md:text-base text-muted-foreground mb-2 md:mb-3">
                       Fragrant sandalwood beads that naturally calm the mind. The aroma 
                       enhances meditation experience.
                     </p>
-                    <p className="text-sm font-medium">Best for: Meditation, stress relief, focus</p>
+                    <p className="text-xs md:text-sm font-medium">Best for: Meditation, stress relief, focus</p>
                   </CardContent>
                 </Card>
               </div>
             </div>
           </TabsContent>
 
-          <TabsContent value="reviews" className="mt-8 space-y-6">
+          <TabsContent value="reviews" className="mt-6 md:mt-8 space-y-4 md:space-y-6">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Customer Reviews</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Customer Reviews</h2>
               
-              <div className="grid gap-6">
+              <div className="grid gap-4 md:gap-6">
                 {[
                   {
                     name: "Priya Sharma",

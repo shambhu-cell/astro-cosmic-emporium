@@ -114,4 +114,14 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Hide scrollbar for horizontal scrolling while keeping functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
