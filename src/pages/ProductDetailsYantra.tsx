@@ -234,6 +234,35 @@ const ProductDetailsYantra = () => {
                   <span className="hidden sm:inline">Share</span>
                 </Button>
               </div>
+
+              {/* Payment & Shipping Info */}
+              <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
+                <CardContent className="p-4 space-y-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 flex-1">
+                      <Truck className="h-4 w-4 text-green-600" />
+                      <span className="font-medium">Free Delivery</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">All Orders</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 flex-1">
+                      <Shield className="h-4 w-4 text-green-600" />
+                      <span className="font-medium">COD Available</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Pay on Delivery</span>
+                  </div>
+                  <div className="border-t pt-3">
+                    <p className="text-xs font-medium mb-2">We Accept:</p>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <span className="font-medium">💳 Cards</span>
+                      <span className="font-medium">📱 UPI</span>
+                      <span className="font-medium">🏦 Net Banking</span>
+                      <span className="font-medium">💰 COD</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4">
