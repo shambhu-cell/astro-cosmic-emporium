@@ -157,16 +157,16 @@ const Yantra = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-accent/10 to-background py-16 px-4">
+      <section className="relative bg-gradient-to-br from-primary/10 via-accent/10 to-background py-8 sm:py-12 md:py-16 px-4">
         <div className="container max-w-screen-2xl mx-auto text-center">
           <Badge className="mb-4 bg-primary/20 text-primary border-primary/30" variant="outline">
             <Zap className="w-3 h-3 mr-1" />
             Energized by Vedic Priests
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
             Sacred Energized Yantras
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8">
             Transform Your Life with Ancient Vedic Power Instruments. Attract Wealth, Protection, Success & Spiritual Growth.
           </p>
           <div className="flex items-center justify-center gap-6 text-sm">
@@ -184,16 +184,16 @@ const Yantra = () => {
 
       {/* Benefits Bar */}
       <section className="border-y bg-card">
-        <div className="container max-w-screen-2xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container max-w-screen-2xl mx-auto px-4 py-4 sm:py-6 md:py-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {benefits.map((benefit, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <benefit.icon className="w-6 h-6 text-primary" />
+              <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <benefit.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm">{benefit.title}</p>
-                  <p className="text-xs text-muted-foreground">{benefit.desc}</p>
+                  <p className="font-semibold text-xs sm:text-sm">{benefit.title}</p>
+                  <p className="text-xs text-muted-foreground hidden sm:block">{benefit.desc}</p>
                 </div>
               </div>
             ))}
@@ -263,7 +263,7 @@ const Yantra = () => {
         </p>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {sortedYantras.map((yantra) => (
             <Card key={yantra.id} className="group hover:shadow-glow transition-all duration-300 relative overflow-hidden">
               <CardContent className="p-4">

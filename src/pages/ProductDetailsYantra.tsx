@@ -97,14 +97,14 @@ const ProductDetailsYantra = () => {
           Back to Shop
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Left Column - Images */}
-          <div className="space-y-4">
-            <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl overflow-hidden">
-              <Badge className="absolute top-4 left-4 bg-accent text-white z-10">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl sm:rounded-2xl overflow-hidden">
+              <Badge className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-accent text-white z-10 text-xs sm:text-sm">
                 🏆 Bestseller
               </Badge>
-              <Badge className="absolute top-4 right-4 bg-green-600 text-white z-10">
+              <Badge className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-green-600 text-white z-10 text-xs sm:text-sm">
                 {product.discount}% OFF
               </Badge>
               <img 
@@ -114,12 +114,12 @@ const ProductDetailsYantra = () => {
               />
             </div>
             
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 gap-2 sm:gap-3">
               {product.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`aspect-square rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
                     selectedImage === idx ? 'border-primary shadow-md scale-105' : 'border-border hover:border-primary/50'
                   }`}
                 >
@@ -128,17 +128,17 @@ const ProductDetailsYantra = () => {
               ))}
             </div>
 
-            <div className="flex gap-3 pt-2">
-              <div className="flex items-center gap-2 text-sm">
-                <Sparkles className="h-5 w-5 text-green-600" />
+            <div className="flex flex-wrap gap-2 sm:gap-3 pt-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 <span className="font-medium">Energized</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Truck className="h-5 w-5 text-green-600" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                <Truck className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 <span className="font-medium">Free Shipping</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Shield className="h-5 w-5 text-green-600" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 <span className="font-medium">30-Day Returns</span>
               </div>
             </div>
@@ -174,15 +174,15 @@ const ProductDetailsYantra = () => {
 
             {/* Title */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-              <p className="text-muted-foreground text-lg">{product.size} • {product.energization}</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight">{product.name}</h1>
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg">{product.size} • {product.energization}</p>
             </div>
 
             {/* Pricing */}
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl font-bold text-primary">₹{materialPrices[selectedMaterial].toLocaleString()}</span>
-              <span className="text-2xl text-muted-foreground line-through">₹{(materialPrices[selectedMaterial] * 2).toLocaleString()}</span>
-              <Badge className="bg-green-600 text-white px-3 py-1 text-base">50% OFF</Badge>
+            <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
+              <span className="text-3xl sm:text-4xl font-bold text-primary">₹{materialPrices[selectedMaterial].toLocaleString()}</span>
+              <span className="text-xl sm:text-2xl text-muted-foreground line-through">₹{(materialPrices[selectedMaterial] * 2).toLocaleString()}</span>
+              <Badge className="bg-green-600 text-white px-2 sm:px-3 py-1 text-sm sm:text-base">50% OFF</Badge>
             </div>
 
             {/* Key Benefits */}
@@ -222,51 +222,53 @@ const ProductDetailsYantra = () => {
             </div>
 
             {/* Quantity & CTA */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <label className="font-semibold">Quantity:</label>
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <label className="font-semibold text-sm sm:text-base">Quantity:</label>
                 <div className="flex items-center border rounded-lg">
                   <button 
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-2 hover:bg-muted"
+                    className="px-3 sm:px-4 py-2 hover:bg-muted text-sm sm:text-base"
                   >
                     -
                   </button>
-                  <span className="px-6 py-2 border-x">{quantity}</span>
+                  <span className="px-4 sm:px-6 py-2 border-x text-sm sm:text-base">{quantity}</span>
                   <button 
                     onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-2 hover:bg-muted"
+                    className="px-3 sm:px-4 py-2 hover:bg-muted text-sm sm:text-base"
                   >
                     +
                   </button>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <Button size="lg" className="text-lg py-6 bg-accent hover:bg-accent/90">
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  ADD TO CART
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                <Button size="lg" className="text-sm sm:text-base md:text-lg py-5 sm:py-6 bg-accent hover:bg-accent/90">
+                  <ShoppingCart className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden xs:inline">ADD TO CART</span>
+                  <span className="xs:hidden">ADD</span>
                 </Button>
-                <Button size="lg" className="text-lg py-6 bg-primary hover:bg-primary/90">
-                  <Zap className="mr-2 h-5 w-5" />
-                  BUY NOW
+                <Button size="lg" className="text-sm sm:text-base md:text-lg py-5 sm:py-6 bg-primary hover:bg-primary/90">
+                  <Zap className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden xs:inline">BUY NOW</span>
+                  <span className="xs:hidden">BUY</span>
                 </Button>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <Button variant="outline" size="lg">
-                  <Heart className="mr-2 h-5 w-5" />
-                  Wishlist
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                <Button variant="outline" size="lg" className="text-sm sm:text-base">
+                  <Heart className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden sm:inline">Wishlist</span>
                 </Button>
-                <Button variant="outline" size="lg">
-                  <Share2 className="mr-2 h-5 w-5" />
-                  Share
+                <Button variant="outline" size="lg" className="text-sm sm:text-base">
+                  <Share2 className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden sm:inline">Share</span>
                 </Button>
               </div>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <p className="text-green-800 font-medium">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4">
+              <p className="text-green-800 font-medium text-sm sm:text-base">
                 ✓ In Stock - Order Now, Start Attracting Wealth by {product.deliveryDate}
               </p>
             </div>

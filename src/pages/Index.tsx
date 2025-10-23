@@ -57,7 +57,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Slider */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -71,16 +71,16 @@ const Index = () => {
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${slide.image})`
               }}
             />
-            <div className="relative container h-full flex items-center justify-center text-center text-white">
+            <div className="relative container h-full flex items-center justify-center text-center text-white px-4">
               <div className="max-w-4xl">
-                <h2 className="text-2xl md:text-3xl mb-2">{slide.title}</h2>
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-2">{slide.title}</h2>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent leading-tight">
                   {slide.subtitle}
                 </h1>
-                <p className="text-3xl md:text-4xl mb-8">{slide.description}</p>
+                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4 sm:mb-6 md:mb-8">{slide.description}</p>
                 <Button
                   size="lg"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-8 py-6 text-lg"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6 text-sm sm:text-base md:text-lg"
                   onClick={() => window.location.href = slide.link}
                 >
                   {slide.cta}
@@ -92,15 +92,15 @@ const Index = () => {
         
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-colors z-10"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-1.5 sm:p-2 rounded-full transition-colors z-10"
         >
-          <ChevronLeft className="w-6 h-6 text-white" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-colors z-10"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-1.5 sm:p-2 rounded-full transition-colors z-10"
         >
-          <ChevronRight className="w-6 h-6 text-white" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
         </button>
 
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -117,15 +117,15 @@ const Index = () => {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 bg-muted/30">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-primary" />
+      <section className="py-8 sm:py-10 md:py-12 bg-muted/30">
+        <div className="container px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 text-center">
+            <div className="flex flex-col items-center gap-2 sm:gap-3">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Shield className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-base">100% Authentic</h3>
-              <p className="text-xs text-muted-foreground">Lab Certified Products</p>
+              <h3 className="font-semibold text-sm sm:text-base">100% Authentic</h3>
+              <p className="text-xs text-muted-foreground hidden sm:block">Lab Certified Products</p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
