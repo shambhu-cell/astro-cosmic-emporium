@@ -10,6 +10,7 @@ import ProductDetailsGemstone from "./pages/ProductDetailsGemstone";
 import ProductDetailsBracelet from "./pages/ProductDetailsBracelet";
 import ProductDetailsRudraksha from "./pages/ProductDetailsRudraksha";
 import ProductDetailsYantra from "./pages/ProductDetailsYantra";
+import ProductDetailsMala from "./pages/ProductDetailsMala";
 import Gemstones from "./pages/Gemstones";
 import GemstoneCollection from "./pages/GemstoneCollection";
 import Rudraksha from "./pages/Rudraksha";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/bracelet/:id" element={<ProductDetailsBracelet />} />
           <Route path="/rudraksha/:id" element={<ProductDetailsRudraksha />} />
           <Route path="/yantra/:id" element={<ProductDetailsYantra />} />
+          <Route path="/mala/:id" element={<ProductDetailsMala />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
