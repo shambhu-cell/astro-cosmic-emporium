@@ -242,10 +242,16 @@ const ProductDetailsYantra = () => {
                 </div>
               </div>
 
-              <Button size="lg" className="w-full text-lg py-6 bg-accent hover:bg-accent/90">
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                ADD TO CART - ₹{(materialPrices[selectedMaterial] * quantity).toLocaleString()}
-              </Button>
+              <div className="grid grid-cols-2 gap-3">
+                <Button size="lg" className="text-lg py-6 bg-accent hover:bg-accent/90">
+                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  ADD TO CART
+                </Button>
+                <Button size="lg" className="text-lg py-6 bg-primary hover:bg-primary/90">
+                  <Zap className="mr-2 h-5 w-5" />
+                  BUY NOW
+                </Button>
+              </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" size="lg">
