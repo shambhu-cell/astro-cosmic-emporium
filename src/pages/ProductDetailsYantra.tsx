@@ -10,7 +10,6 @@ const ProductDetailsYantra = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [selectedMaterial, setSelectedMaterial] = useState("Copper");
   const [viewingUsers, setViewingUsers] = useState(45);
 
   // Simulate live viewing count
@@ -36,7 +35,6 @@ const ProductDetailsYantra = () => {
     inStock: true,
     deliveryDate: "October 18",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    materials: ["Copper", "Brass", "Silver Plated"],
     size: "3x3 inches",
     energization: "Lakshmi Mantra Energized",
     benefits: [
@@ -76,12 +74,6 @@ const ProductDetailsYantra = () => {
       { name: "Yantra Stand", desc: "Wooden display stand", price: 399 },
       { name: "Puja Kit", desc: "Complete worship essentials", price: 699 },
     ]
-  };
-
-  const materialPrices: { [key: string]: number } = {
-    "Copper": 1999,
-    "Brass": 2499,
-    "Silver Plated": 3999
   };
 
   return (
@@ -180,9 +172,9 @@ const ProductDetailsYantra = () => {
 
             {/* Pricing */}
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
-              <span className="text-3xl sm:text-4xl font-bold text-primary">₹{materialPrices[selectedMaterial].toLocaleString()}</span>
-              <span className="text-xl sm:text-2xl text-muted-foreground line-through">₹{(materialPrices[selectedMaterial] * 2).toLocaleString()}</span>
-              <Badge className="bg-green-600 text-white px-2 sm:px-3 py-1 text-sm sm:text-base">50% OFF</Badge>
+              <span className="text-3xl sm:text-4xl font-bold text-primary">₹{product.price.toLocaleString()}</span>
+              <span className="text-xl sm:text-2xl text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</span>
+              <Badge className="bg-green-600 text-white px-2 sm:px-3 py-1 text-sm sm:text-base">{product.discount}% OFF</Badge>
             </div>
 
             {/* Key Benefits */}
@@ -197,29 +189,6 @@ const ProductDetailsYantra = () => {
                 ))}
               </CardContent>
             </Card>
-
-            {/* Material Selection */}
-            <div className="space-y-3">
-              <label className="font-semibold text-lg">Select Material:</label>
-              <div className="grid grid-cols-3 gap-3">
-                {product.materials.map((material) => (
-                  <button
-                    key={material}
-                    onClick={() => setSelectedMaterial(material)}
-                    className={`py-3 px-4 rounded-lg border-2 font-medium transition-all text-sm ${
-                      selectedMaterial === material
-                        ? 'border-primary bg-primary/10 text-primary'
-                        : 'border-border hover:border-primary/50'
-                    }`}
-                  >
-                    {material}
-                    <div className="text-xs text-muted-foreground mt-1">
-                      ₹{materialPrices[material]}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
 
             {/* Quantity & CTA */}
             <div className="space-y-3 sm:space-y-4">
