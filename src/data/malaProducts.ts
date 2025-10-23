@@ -1,3 +1,8 @@
+import crystalMalaImg from "@/assets/mala/crystal-mala.jpg";
+import rudrakshaImg from "@/assets/mala/rudraksha-mala.jpg";
+import sandalwoodImg from "@/assets/mala/sandalwood-mala.jpg";
+import tulsiImg from "@/assets/mala/tulsi-mala.jpg";
+
 export interface MalaProduct {
   id: number;
   name: string;
@@ -18,7 +23,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Sphatik Crystal Mala - 108 Beads",
     price: 2999,
     originalPrice: 4499,
-    image: "/src/assets/mala/crystal-mala.jpg",
+    image: crystalMalaImg,
     rating: 4.9,
     reviews: 287,
     type: "Crystal Mala",
@@ -31,7 +36,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Tulsi Mala - Holy Basil 108 Beads",
     price: 1499,
     originalPrice: 2299,
-    image: "/src/assets/mala/tulsi-mala.jpg",
+    image: tulsiImg,
     rating: 4.8,
     reviews: 534,
     type: "Sacred Mala",
@@ -44,7 +49,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Sandalwood Mala - Premium Quality",
     price: 1999,
     originalPrice: 2999,
-    image: "/src/assets/mala/sandalwood-mala.jpg",
+    image: sandalwoodImg,
     rating: 4.7,
     reviews: 412,
     type: "Meditation",
@@ -57,7 +62,7 @@ export const malaProducts: MalaProduct[] = [
     name: "5 Mukhi Rudraksha Mala - Certified",
     price: 2499,
     originalPrice: 3999,
-    image: "/src/assets/mala/rudraksha-mala.jpg",
+    image: rudrakshaImg,
     rating: 4.9,
     reviews: 698,
     type: "Rudraksha Mala",
@@ -70,7 +75,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Rose Quartz Mala - Love & Peace",
     price: 2799,
     originalPrice: 3999,
-    image: "/src/assets/mala/crystal-mala.jpg",
+    image: crystalMalaImg,
     rating: 4.8,
     reviews: 345,
     type: "Love & Peace",
@@ -83,7 +88,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Black Tourmaline Mala - Protection",
     price: 3499,
     originalPrice: 4999,
-    image: "/src/assets/mala/crystal-mala.jpg",
+    image: crystalMalaImg,
     rating: 4.9,
     reviews: 267,
     type: "Protection",
@@ -96,7 +101,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Red Sandalwood Mala - Premium",
     price: 3999,
     originalPrice: 5999,
-    image: "/src/assets/mala/sandalwood-mala.jpg",
+    image: sandalwoodImg,
     rating: 4.8,
     reviews: 189,
     type: "Sacred Mala",
@@ -109,7 +114,7 @@ export const malaProducts: MalaProduct[] = [
     name: "Amethyst Mala - Spiritual Awakening",
     price: 3299,
     originalPrice: 4799,
-    image: "/src/assets/mala/crystal-mala.jpg",
+    image: crystalMalaImg,
     rating: 4.7,
     reviews: 223,
     type: "Crystal Mala",
