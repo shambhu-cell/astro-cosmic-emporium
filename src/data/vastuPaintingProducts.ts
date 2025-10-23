@@ -1,3 +1,16 @@
+import goldenForest from "@/assets/vastu-painting/golden-forest.jpg";
+import goldenMountain from "@/assets/vastu-painting/golden-mountain.jpg";
+import lakeForest from "@/assets/vastu-painting/lake-forest.jpg";
+import venice from "@/assets/vastu-painting/venice.jpg";
+import radhaKrishna1 from "@/assets/vastu-painting/radha-krishna-1.jpg";
+import radhaKrishna2 from "@/assets/vastu-painting/radha-krishna-2.jpg";
+import radhaKrishna3 from "@/assets/vastu-painting/radha-krishna-3.jpg";
+import radhaKrishna4 from "@/assets/vastu-painting/radha-krishna-4.jpg";
+import radhaKrishna5 from "@/assets/vastu-painting/radha-krishna-5.jpg";
+import radhaKrishna6 from "@/assets/vastu-painting/radha-krishna-6.jpg";
+import radhaKrishna7 from "@/assets/vastu-painting/radha-krishna-7.jpg";
+import radhaKrishna8 from "@/assets/vastu-painting/radha-krishna-8.jpg";
+
 export interface VastuPaintingProduct {
   id: string;
   name: string;
@@ -31,8 +44,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Golden Forest and Mountains Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    image: goldenForest,
+    images: [goldenForest, goldenForest, goldenForest],
     category: "Vastu Painting",
     theme: "Sunset & Nature",
     rating: 4.8,
@@ -79,8 +92,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Golden Mountain Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    image: goldenMountain,
+    images: [goldenMountain, goldenMountain, goldenMountain],
     category: "Vastu Painting",
     theme: "Sunset & Nature",
     rating: 4.7,
@@ -126,8 +139,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Modern Sunset Lake Forest Natural Scenery 3D Mural Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: lakeForest,
+    images: [lakeForest, lakeForest],
     category: "Vastu Painting",
     theme: "Sunset & Nature",
     rating: 4.9,
@@ -173,8 +186,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Oil Painting - Venice, Italy Beautiful Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: venice,
+    images: [venice, venice],
     category: "Vastu Painting",
     theme: "Sunset & Nature",
     rating: 4.6,
@@ -220,8 +233,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Abstract Green-Pink Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna1,
+    images: [radhaKrishna1, radhaKrishna1],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.9,
@@ -268,8 +281,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Abstract Multicolor Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna2,
+    images: [radhaKrishna2, radhaKrishna2],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.8,
@@ -315,8 +328,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Abstract Multicolor Canvas Wall Painting (Variant 2)",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna3,
+    images: [radhaKrishna3, radhaKrishna3],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.7,
@@ -362,8 +375,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Abstract Multicolor Canvas Wall Painting (Variant 3)",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna4,
+    images: [radhaKrishna4, radhaKrishna4],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.8,
@@ -409,8 +422,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Blue Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna5,
+    images: [radhaKrishna5, radhaKrishna5],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.9,
@@ -456,8 +469,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Blue Canvas Wall Painting (Variant 2)",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna6,
+    images: [radhaKrishna6, radhaKrishna6],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.8,
@@ -503,8 +516,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna7,
+    images: [radhaKrishna7, radhaKrishna7],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.7,
@@ -550,8 +563,8 @@ export const vastuPaintingProducts: VastuPaintingProduct[] = [
     name: "Radha Krishna Green Canvas Wall Painting",
     price: 4099,
     originalPrice: 4699,
-    image: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    image: radhaKrishna8,
+    images: [radhaKrishna8, radhaKrishna8],
     category: "Vastu Painting",
     theme: "Radha Krishna",
     rating: 4.8,

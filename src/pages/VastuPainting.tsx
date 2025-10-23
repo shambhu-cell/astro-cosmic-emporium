@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Star, Heart, Eye } from "lucide-react";
+import { ShoppingCart, Star, Heart, Eye, Shield, Award } from "lucide-react";
 import { vastuPaintingProducts } from "@/data/vastuPaintingProducts";
 
 const VastuPainting = () => {
@@ -45,9 +45,42 @@ const VastuPainting = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Vastu Paintings Collection
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Transform your space with powerful Vastu paintings that eliminate doshas, enhance positive energy, and create harmony in your home or office
           </p>
+          
+          {/* Trust Factors */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
+              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Shield className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">100% Authentic</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                Certified Vastu-compliant paintings designed by experts
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
+              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Star className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">Premium Quality</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                HD canvas prints with wooden frames, ready to hang
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
+              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Award className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">5000+ Happy Customers</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                Trusted by thousands for positive energy transformation
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
