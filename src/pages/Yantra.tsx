@@ -202,18 +202,8 @@ const Yantra = () => {
       </section>
 
       <div className="container max-w-screen-2xl mx-auto px-4 py-12">
-        {/* Tabbed Content */}
-        <Tabs defaultValue="products" className="w-full">
-          <TabsList className="w-full justify-start mb-8 bg-muted/50">
-            <TabsTrigger value="products">All Products</TabsTrigger>
-            <TabsTrigger value="about">About Yantras</TabsTrigger>
-            <TabsTrigger value="benefits">Benefits & Usage</TabsTrigger>
-            <TabsTrigger value="reviews">Reviews</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="products" className="mt-0">
-            {/* Filters & Sorting */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8 items-start md:items-center justify-between">
+        {/* Filters & Sorting */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8 items-start md:items-center justify-between">
           <div className="flex flex-wrap gap-2">
             <Button 
               variant={selectedCategory === "all" ? "default" : "outline"}
@@ -359,7 +349,14 @@ const Yantra = () => {
             ))}
           </div>
         </div>
-          </TabsContent>
+
+        {/* Tabbed Content After Products */}
+        <Tabs defaultValue="about" className="w-full mt-16">
+          <TabsList className="w-full justify-start mb-8 bg-muted/50">
+            <TabsTrigger value="about">About Yantras</TabsTrigger>
+            <TabsTrigger value="benefits">Benefits & Usage</TabsTrigger>
+            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+          </TabsList>
 
           <TabsContent value="about">
             <div className="max-w-5xl mx-auto space-y-12">
