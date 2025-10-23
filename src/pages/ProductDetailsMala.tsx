@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Shield, Truck, RefreshCw, Award, Phone, CheckCircle2, Sparkles, ChevronLeft } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Shield, Truck, RefreshCw, Award, Phone, CheckCircle2, Sparkles, ChevronLeft, CreditCard, Smartphone, Building2, Banknote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -212,15 +212,15 @@ const ProductDetailsMala = () => {
                       </div>
                       <span className="text-xs text-muted-foreground">Pay on Delivery</span>
                     </div>
-                    <div className="border-t pt-3">
-                      <p className="text-xs font-medium mb-2">We Accept:</p>
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span className="font-medium">💳 Cards</span>
-                        <span className="font-medium">📱 UPI</span>
-                        <span className="font-medium">🏦 Net Banking</span>
-                        <span className="font-medium">💰 COD</span>
-                      </div>
+                  <div className="border-t pt-3">
+                    <p className="text-xs font-medium mb-2">We Accept:</p>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <span className="font-medium flex items-center gap-1"><CreditCard className="h-3 w-3" /> Cards</span>
+                      <span className="font-medium flex items-center gap-1"><Smartphone className="h-3 w-3" /> UPI</span>
+                      <span className="font-medium flex items-center gap-1"><Building2 className="h-3 w-3" /> Net Banking</span>
+                      <span className="font-medium flex items-center gap-1"><Banknote className="h-3 w-3" /> COD</span>
                     </div>
+                  </div>
                   </CardContent>
                 </Card>
               </div>
