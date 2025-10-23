@@ -46,6 +46,9 @@ const Header = () => {
           <a href="/jadi-roots" className="text-sm font-medium hover:text-primary transition-colors">
             Jadi Roots
           </a>
+          <a href="/vastu-painting" className="text-sm font-medium hover:text-primary transition-colors">
+            Vastu Painting
+          </a>
         </nav>
 
         {/* Search */}

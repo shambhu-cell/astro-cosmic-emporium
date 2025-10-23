@@ -12,6 +12,7 @@ import ProductDetailsRudraksha from "./pages/ProductDetailsRudraksha";
 import ProductDetailsYantra from "./pages/ProductDetailsYantra";
 import ProductDetailsMala from "./pages/ProductDetailsMala";
 import ProductDetailsJadi from "./pages/ProductDetailsJadi";
+import ProductDetailsVastuPainting from "./pages/ProductDetailsVastuPainting";
 import Gemstones from "./pages/Gemstones";
 import GemstoneCollection from "./pages/GemstoneCollection";
 import Rudraksha from "./pages/Rudraksha";
@@ -19,6 +20,7 @@ import Bracelets from "./pages/Bracelets";
 import Mala from "./pages/Mala";
 import Yantra from "./pages/Yantra";
 import JadiRoots from "./pages/JadiRoots";
+import VastuPainting from "./pages/VastuPainting";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -45,6 +47,7 @@ const App = () => (
           <Route path="/mala" element={<Mala />} />
           <Route path="/yantra" element={<Yantra />} />
           <Route path="/jadi-roots" element={<JadiRoots />} />
+          <Route path="/vastu-painting" element={<VastuPainting />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -56,6 +59,7 @@ const App = () => (
           <Route path="/yantra/:id" element={<ProductDetailsYantra />} />
           <Route path="/mala/:id" element={<ProductDetailsMala />} />
           <Route path="/jadi-roots/:id" element={<ProductDetailsJadi />} />
+          <Route path="/vastu-painting/:id" element={<ProductDetailsVastuPainting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
