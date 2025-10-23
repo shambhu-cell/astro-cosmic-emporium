@@ -342,6 +342,23 @@ const Yantra = () => {
             </Card>
           ))}
         </div>
+
+        {/* Benefits Section After Products */}
+        <div className="mt-16 bg-card border rounded-lg p-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-base mb-1">{benefit.title}</p>
+                  <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
           </TabsContent>
 
           <TabsContent value="about">
