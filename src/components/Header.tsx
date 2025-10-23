@@ -43,6 +43,9 @@ const Header = () => {
           <a href="/yantra" className="text-sm font-medium hover:text-primary transition-colors">
             Yantra
           </a>
+          <a href="/jadi-roots" className="text-sm font-medium hover:text-primary transition-colors">
+            Jadi Roots
+          </a>
         </nav>
 
         {/* Search */}
