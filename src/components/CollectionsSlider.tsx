@@ -50,6 +50,13 @@ const CollectionsSlider = () => {
       image: yantrasImage,
       link: "/yantra",
       gradient: "from-yellow-500/20 to-amber-500/20"
+    },
+    {
+      title: "Pendant",
+      description: "Divine Spiritual Pendants for Protection & Blessings",
+      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+      link: "/pendant",
+      gradient: "from-blue-500/20 to-indigo-500/20"
     }
   ];
 
