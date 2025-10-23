@@ -15,8 +15,7 @@ const Mala = () => {
     { id: "rudraksha", label: "Rudraksha" },
     { id: "crystal", label: "Crystal" },
     { id: "sandalwood", label: "Sandalwood" },
-    { id: "tulsi", label: "Tulsi" },
-    { id: "gemstone", label: "Gemstone" }
+    { id: "tulsi", label: "Tulsi" }
   ];
 
   const filteredProducts = selectedCategory === "all" 
