@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { jadiProducts } from "@/data/jadiProducts";
 
 const ProductDetailsJadi = () => {
@@ -299,6 +300,181 @@ const ProductDetailsJadi = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Tabs Section */}
+        <div className="mt-12 md:mt-16">
+          <Tabs defaultValue="description" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+              <TabsTrigger value="description" className="text-xs md:text-sm py-2 md:py-3">Description</TabsTrigger>
+              <TabsTrigger value="usage" className="text-xs md:text-sm py-2 md:py-3">How to Use</TabsTrigger>
+              <TabsTrigger value="details" className="text-xs md:text-sm py-2 md:py-3">Details</TabsTrigger>
+              <TabsTrigger value="care" className="text-xs md:text-sm py-2 md:py-3">Care Guide</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="description" className="mt-6 md:mt-8">
+              <Card>
+                <CardContent className="p-4 md:p-6 space-y-4">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">About {product.name}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {product.description}
+                  </p>
+                  <div className="pt-4 border-t">
+                    <h4 className="font-semibold mb-3 text-sm md:text-base">Key Features:</h4>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {product.keyHighlights?.map((highlight, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0 mt-0.5" />
+                          <span className="text-xs md:text-sm">{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <h4 className="font-semibold mb-3 text-sm md:text-base">Purpose:</h4>
+                    <p className="text-sm md:text-base text-muted-foreground">{product.purpose}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="usage" className="mt-6 md:mt-8">
+              <Card>
+                <CardContent className="p-4 md:p-6 space-y-4">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">How to Use {product.name}</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-2 text-sm md:text-base flex items-center gap-2">
+                        <Leaf className="h-4 w-4 text-primary" />
+                        Usage Instructions
+                      </h4>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {product.howToUse}
+                      </p>
+                    </div>
+                    <div className="pt-4 border-t">
+                      <h4 className="font-semibold mb-3 text-sm md:text-base">Best Results:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Wear after consulting with an astrologer for personalized guidance</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Keep the root close to your body for maximum energy absorption</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Maintain purity of thought and positive intentions while wearing</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Regular prayers or meditation can enhance the root's effectiveness</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="details" className="mt-6 md:mt-8">
+              <Card>
+                <CardContent className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Product Specifications</h3>
+                  <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+                    <div className="space-y-3">
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Planet Connection:</span>
+                        <span className="text-muted-foreground">{product.planetConnection}</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Chakra:</span>
+                        <span className="text-muted-foreground">{product.chakra.name}</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Element:</span>
+                        <span className="text-muted-foreground">{product.element.name}</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Zodiac Sign:</span>
+                        <span className="text-muted-foreground">{product.zodiac.name}</span>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Origin:</span>
+                        <span className="text-muted-foreground">India</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Authenticity:</span>
+                        <span className="text-muted-foreground">100% Natural</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Energization:</span>
+                        <span className="text-muted-foreground">Vedic Mantras</span>
+                      </div>
+                      <div className="flex justify-between py-2 border-b text-xs md:text-sm">
+                        <span className="font-medium">Certification:</span>
+                        <span className="text-muted-foreground">Astrologer Verified</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="care" className="mt-6 md:mt-8">
+              <Card>
+                <CardContent className="p-4 md:p-6 space-y-4">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Care Instructions</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold mb-3 text-sm md:text-base flex items-center gap-2">
+                        <Shield className="h-4 w-4 text-primary" />
+                        Maintenance & Storage
+                      </h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Store in a clean, dry place away from direct sunlight when not in use</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Clean gently with a soft, dry cloth - avoid using water or chemicals</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Keep away from moisture, perfumes, and cosmetics to preserve its natural energy</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                          <span>Handle with clean hands and maintain respect for the sacred root</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="pt-4 border-t">
+                      <h4 className="font-semibold mb-3 text-sm md:text-base">Re-energization Tips:</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <span>Cleanse energetically every full moon by placing under moonlight</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <span>Chant the associated planetary mantra to revitalize its power</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-xs md:text-sm">
+                          <Sparkles className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <span>Keep near sacred items or in a prayer room to maintain positive energy</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
 
         {/* Properties Grid */}
