@@ -40,10 +40,10 @@ const Pendant = () => {
           <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
             <span className="text-sm font-medium text-primary">✨ Handcrafted Excellence</span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-foreground tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground tracking-tight">
             Sacred Pendant Collection
           </h1>
-          <p className="text-xl md:text-2xl font-elegant text-muted-foreground max-w-3xl mx-auto mb-6 leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-6 leading-relaxed">
             Discover divine protection and blessings with our authentic spiritual pendants, crafted with precision and energized for maximum benefits
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -67,7 +67,7 @@ const Pendant = () => {
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Shield className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground">100% Authentic</h3>
+              <h3 className="text-xl font-semibold text-foreground">100% Authentic</h3>
               <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Certified metals and gemstones with authenticity guarantee
               </p>
@@ -77,7 +77,7 @@ const Pendant = () => {
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Sparkles className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground">Energized & Blessed</h3>
+              <h3 className="text-xl font-semibold text-foreground">Energized & Blessed</h3>
               <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Each pendant is energized through Vedic rituals by experts
               </p>
@@ -87,7 +87,7 @@ const Pendant = () => {
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Award className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground">10,000+ Happy Customers</h3>
+              <h3 className="text-xl font-semibold text-foreground">10,000+ Happy Customers</h3>
               <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Trusted by thousands for divine blessings and protection
               </p>
@@ -185,7 +185,7 @@ const Pendant = () => {
                       </span>
                     </div>
                     
-                    <h3 className="font-serif text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors leading-tight">
                       {product.name}
                     </h3>
 
@@ -208,7 +208,7 @@ const Pendant = () => {
                     </div>
 
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-2xl font-bold text-foreground font-serif">
+                      <span className="text-2xl font-bold text-foreground">
                         ₹{product.price.toLocaleString()}
                       </span>
                       {product.originalPrice > product.price && (
@@ -245,15 +245,15 @@ const Pendant = () => {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="about" className="max-w-6xl mx-auto">
             <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
-              <TabsTrigger value="about" className="font-serif text-base py-3">About Pendants</TabsTrigger>
-              <TabsTrigger value="benefits" className="font-serif text-base py-3">Benefits</TabsTrigger>
-              <TabsTrigger value="guide" className="font-serif text-base py-3">Selection Guide</TabsTrigger>
-              <TabsTrigger value="care" className="font-serif text-base py-3">Care Tips</TabsTrigger>
+              <TabsTrigger value="about" className="text-base py-3">About Pendants</TabsTrigger>
+              <TabsTrigger value="benefits" className="text-base py-3">Benefits</TabsTrigger>
+              <TabsTrigger value="guide" className="text-base py-3">Selection Guide</TabsTrigger>
+              <TabsTrigger value="care" className="text-base py-3">Care Tips</TabsTrigger>
             </TabsList>
             
             <TabsContent value="about" className="mt-10">
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
-                <h2 className="text-4xl font-serif font-bold mb-8 text-foreground">
+                <h2 className="text-4xl font-bold mb-8 text-foreground">
                   About Sacred Pendants
                 </h2>
                 <p>
