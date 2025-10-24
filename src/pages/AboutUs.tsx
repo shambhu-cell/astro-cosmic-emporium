@@ -257,12 +257,13 @@ const AboutUs = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
             <div className="order-2 md:order-1">
-              <Card className="overflow-hidden border-2 border-primary/20">
-                <CardContent className="p-0">
+              <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 animate-fade-in group">
+                <CardContent className="p-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <img 
                     src={founderVision} 
                     alt="Founder's Vision - AstroSage Leadership" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
                 </CardContent>
               </Card>
