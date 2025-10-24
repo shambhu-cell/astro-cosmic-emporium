@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Download, TrendingUp, Shield, Sparkles, Store } from "lucide-react";
+import { Award, Users, Download, TrendingUp, Shield, Sparkles, Store, Quote } from "lucide-react";
+import founderVision from "@/assets/founder-vision.jpg";
 
 const AboutUs = () => {
   const stats = [
@@ -241,6 +242,60 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Founder's Vision */}
+      <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/30">
+        <div className="container max-w-screen-xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge variant="outline" className="mb-4 px-4 py-1.5">
+              <Quote className="w-3 h-3 mr-2 inline" />
+              Founder&apos;s Vision
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              A Message from Our Founder
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
+            <div className="order-2 md:order-1">
+              <Card className="overflow-hidden border-2 border-primary/20">
+                <CardContent className="p-0">
+                  <img 
+                    src={founderVision} 
+                    alt="Founder's Vision - AstroSage Leadership" 
+                    className="w-full h-full object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="relative">
+                <Quote className="absolute -top-4 -left-4 w-16 h-16 text-primary/10" />
+                <div className="relative z-10">
+                  <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-6 text-foreground">
+                    "Astrology is not about predicting the future—it&apos;s about empowering people to create their own destiny with awareness and wisdom."
+                  </blockquote>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    Since our inception, we&apos;ve believed that ancient Vedic wisdom, when combined with modern 
+                    technology, can transform lives. Our mission has always been to make authentic astrological 
+                    guidance accessible to everyone, breaking down barriers of geography, language, and cost.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    Today, as we expand into offering spiritual products, we carry forward the same principles: 
+                    <strong className="text-foreground"> authenticity, quality, and trust</strong>. Every product we offer is 
+                    selected with the same care and verification we apply to our astrological services.
+                  </p>
+                  <div className="mt-8">
+                    <p className="font-bold text-lg text-foreground">Puneet Pandey</p>
+                    <p className="text-muted-foreground">Founder & CEO, AstroSage</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Closing Section */}
       <section className="py-16 px-4">
         <div className="container max-w-screen-xl mx-auto text-center">
@@ -250,8 +305,8 @@ const AboutUs = () => {
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               As we continue to innovate, our core promise remains the same: to be your most trusted 
-              companion on your life's path. With cutting-edge technology and deep astrological wisdom, 
-              we're committed to serving millions with authenticity and precision.
+              companion on your life&apos;s path. With cutting-edge technology and deep astrological wisdom, 
+              we&apos;re committed to serving millions with authenticity and precision.
             </p>
           </div>
         </div>
