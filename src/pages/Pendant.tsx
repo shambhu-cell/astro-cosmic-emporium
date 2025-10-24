@@ -16,15 +16,8 @@ import { pendantProducts } from "@/data/pendantProducts";
 
 const Pendant = () => {
   const [sortBy, setSortBy] = useState("featured");
-  const [filterType, setFilterType] = useState("all");
-
-  const types = ["all", "Religious", "Spiritual", "Astrological", "Yantra", "Mantra", "Rudraksha", "Kavach"];
 
   const filteredProducts = pendantProducts
-    .filter((product) => {
-      if (filterType === "all") return true;
-      return product.type === filterType;
-    })
     .sort((a, b) => {
       switch (sortBy) {
         case "price-low":
@@ -89,21 +82,6 @@ const Pendant = () => {
       <section className="py-8 border-b border-border bg-card/50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-            {/* Type Filter */}
-            <div className="flex flex-wrap gap-2">
-              {types.map((type) => (
-                <Button
-                  key={type}
-                  variant={filterType === type ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setFilterType(type)}
-                  className="capitalize"
-                >
-                  {type === "all" ? "All Pendants" : type}
-                </Button>
-              ))}
-            </div>
-
             {/* Sort */}
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Sort by:</span>
