@@ -34,7 +34,7 @@ const Pendant = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 px-4 bg-gradient-to-b from-primary/10 via-primary/5 to-background overflow-hidden">
+      <section className="relative py-12 px-4 bg-gradient-to-b from-primary/10 via-primary/5 to-background overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(var(--primary-rgb),0.1),transparent_50%)]"></div>
         <div className="container mx-auto text-center relative z-10">
           <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
@@ -62,8 +62,8 @@ const Pendant = () => {
           </div>
           
           {/* Trust Factors */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Shield className="h-8 w-8 text-primary" />
               </div>
@@ -73,7 +73,7 @@ const Pendant = () => {
               </p>
             </div>
             
-            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Sparkles className="h-8 w-8 text-primary" />
               </div>
@@ -83,7 +83,7 @@ const Pendant = () => {
               </p>
             </div>
             
-            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Award className="h-8 w-8 text-primary" />
               </div>
@@ -122,9 +122,9 @@ const Pendant = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-12 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <Card
                 key={product.id}
@@ -241,7 +241,7 @@ const Pendant = () => {
       </section>
 
       {/* Tab Content Section */}
-      <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
+      <section className="py-12 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="about" className="max-w-6xl mx-auto">
             <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
