@@ -34,19 +34,19 @@ const Pendant = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-12 px-4 bg-gradient-to-b from-primary/10 via-primary/5 to-background overflow-hidden">
+      <section className="relative py-8 px-4 bg-gradient-to-b from-primary/10 via-primary/5 to-background overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(var(--primary-rgb),0.1),transparent_50%)]"></div>
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
-            <span className="text-sm font-medium text-primary">✨ Handcrafted Excellence</span>
+          <div className="inline-block mb-3 px-3 py-1.5 bg-primary/10 rounded-full">
+            <span className="text-xs font-medium text-primary">✨ Handcrafted Excellence</span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground tracking-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-foreground tracking-tight">
             Sacred Pendant Collection
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-6 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
             Discover divine protection and blessings with our authentic spiritual pendants, crafted with precision and energized for maximum benefits
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Shield className="h-4 w-4 text-primary" />
               <span>Lifetime Guarantee</span>
@@ -62,33 +62,33 @@ const Pendant = () => {
           </div>
           
           {/* Trust Factors */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
-              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Shield className="h-8 w-8 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="group flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Shield className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">100% Authentic</h3>
-              <p className="text-sm text-muted-foreground text-center leading-relaxed">
+              <h3 className="text-base font-semibold text-foreground">100% Authentic</h3>
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
                 Certified metals and gemstones with authenticity guarantee
               </p>
             </div>
             
-            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
-              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Sparkles className="h-8 w-8 text-primary" />
+            <div className="group flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Sparkles className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Energized & Blessed</h3>
-              <p className="text-sm text-muted-foreground text-center leading-relaxed">
+              <h3 className="text-base font-semibold text-foreground">Energized & Blessed</h3>
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
                 Each pendant is energized through Vedic rituals by experts
               </p>
             </div>
             
-            <div className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
-              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Award className="h-8 w-8 text-primary" />
+            <div className="group flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Award className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">10,000+ Happy Customers</h3>
-              <p className="text-sm text-muted-foreground text-center leading-relaxed">
+              <h3 className="text-base font-semibold text-foreground">10,000+ Happy Customers</h3>
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
                 Trusted by thousands for divine blessings and protection
               </p>
             </div>
@@ -97,7 +97,7 @@ const Pendant = () => {
       </section>
 
       {/* Filters and Sort */}
-      <section className="sticky top-0 z-40 py-6 border-b border-border bg-background/95 backdrop-blur-md shadow-sm">
+      <section className="sticky top-0 z-40 py-3 border-b border-border bg-background/95 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
             <div className="text-sm font-medium text-muted-foreground">
@@ -122,9 +122,9 @@ const Pendant = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-12 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-6 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredProducts.map((product) => (
               <Card
                 key={product.id}
@@ -178,7 +178,7 @@ const Pendant = () => {
                     )}
                   </div>
 
-                  <CardContent className="p-5">
+                  <CardContent className="p-4">
                     <div className="mb-2">
                       <span className="text-xs text-primary font-medium uppercase tracking-wider">
                         {product.category}
@@ -241,7 +241,7 @@ const Pendant = () => {
       </section>
 
       {/* Tab Content Section */}
-      <section className="py-12 bg-gradient-to-b from-muted/20 to-background">
+      <section className="py-8 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="about" className="max-w-6xl mx-auto">
             <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
