@@ -98,12 +98,6 @@ const Pendant = () => {
               </Select>
             </div>
           </div>
-
-          <div className="mt-4">
-            <p className="text-sm text-muted-foreground">
-              Showing {filteredProducts.length} of {pendantProducts.length} pendants
-            </p>
-          </div>
         </div>
       </section>
 
