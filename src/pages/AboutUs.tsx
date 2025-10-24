@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Download, TrendingUp, Shield, Sparkles, Store, Quote } from "lucide-react";
-import founderVision from "@/assets/founder-vision.jpg";
+import founderVision from "@/assets/founder-puneet-pandey.jpg";
 
 const AboutUs = () => {
   const stats = [
