@@ -52,6 +52,12 @@ const Header = () => {
           <a href="/pendant" className="text-sm font-medium hover:text-primary transition-colors">
             Pendant
           </a>
+          <a href="/about-us" className="text-sm font-medium hover:text-primary transition-colors">
+            About Us
+          </a>
+          <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
+            Contact
+          </a>
         </nav>
 
         {/* Search */}

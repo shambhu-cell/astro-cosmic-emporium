@@ -24,6 +24,7 @@ import Yantra from "./pages/Yantra";
 import JadiRoots from "./pages/JadiRoots";
 import VastuPainting from "./pages/VastuPainting";
 import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/jadi-roots" element={<JadiRoots />} />
           <Route path="/vastu-painting" element={<VastuPainting />} />
           <Route path="/pendant" element={<Pendant />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
