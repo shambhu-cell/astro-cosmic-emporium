@@ -34,43 +34,61 @@ const Pendant = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+      <section className="relative py-24 px-4 bg-gradient-to-b from-primary/10 via-primary/5 to-background overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(var(--primary-rgb),0.1),transparent_50%)]"></div>
+        <div className="container mx-auto text-center relative z-10">
+          <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
+            <span className="text-sm font-medium text-primary">✨ Handcrafted Excellence</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-foreground tracking-tight">
             Sacred Pendant Collection
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-xl md:text-2xl font-elegant text-muted-foreground max-w-3xl mx-auto mb-6 leading-relaxed">
             Discover divine protection and blessings with our authentic spiritual pendants, crafted with precision and energized for maximum benefits
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Shield className="h-4 w-4 text-primary" />
+              <span>Lifetime Guarantee</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span>Free Energization</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Award className="h-4 w-4 text-primary" />
+              <span>Free Shipping</span>
+            </div>
+          </div>
           
           {/* Trust Factors */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Shield className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground">100% Authentic</h3>
-              <p className="text-sm text-muted-foreground text-center">
+              <h3 className="font-serif text-xl font-semibold text-foreground">100% Authentic</h3>
+              <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Certified metals and gemstones with authenticity guarantee
               </p>
             </div>
             
-            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Sparkles className="h-6 w-6 text-primary" />
+            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Sparkles className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground">Energized & Blessed</h3>
-              <p className="text-sm text-muted-foreground text-center">
+              <h3 className="font-serif text-xl font-semibold text-foreground">Energized & Blessed</h3>
+              <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Each pendant is energized through Vedic rituals by experts
               </p>
             </div>
             
-            <div className="flex flex-col items-center gap-3 p-6 rounded-lg bg-card border border-border">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Award className="h-6 w-6 text-primary" />
+            <div className="group flex flex-col items-center gap-4 p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Award className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground">10,000+ Satisfied Customers</h3>
-              <p className="text-sm text-muted-foreground text-center">
+              <h3 className="font-serif text-xl font-semibold text-foreground">10,000+ Happy Customers</h3>
+              <p className="text-sm text-muted-foreground text-center leading-relaxed">
                 Trusted by thousands for divine blessings and protection
               </p>
             </div>
@@ -79,14 +97,16 @@ const Pendant = () => {
       </section>
 
       {/* Filters and Sort */}
-      <section className="py-8 border-b border-border bg-card/50">
+      <section className="sticky top-0 z-40 py-6 border-b border-border bg-background/95 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-            {/* Sort */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Sort by:</span>
+            <div className="text-sm font-medium text-muted-foreground">
+              {filteredProducts.length} exquisite pieces
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-foreground">Sort by:</span>
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-[200px] border-border/50 hover:border-primary/50 transition-colors">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -102,31 +122,32 @@ const Pendant = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-12">
+      <section className="py-16 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map((product) => (
               <Card
                 key={product.id}
-                className="group overflow-hidden hover:shadow-lg transition-all duration-300 border-border"
+                className="group overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border-border/50 hover:border-primary/50 bg-card/80 backdrop-blur-sm"
               >
                 <Link to={`/pendant/${product.id}`}>
-                  <div className="relative aspect-square overflow-hidden bg-muted">
+                  <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <Badge
-                      className="absolute top-3 left-3 bg-primary/90 text-primary-foreground"
+                      className="absolute top-4 left-4 bg-primary text-primary-foreground font-medium shadow-lg"
                     >
                       {product.type}
                     </Badge>
-                    <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
                       <Button
                         size="icon"
                         variant="secondary"
-                        className="h-8 w-8 bg-background/90 hover:bg-background"
+                        className="h-9 w-9 bg-background/95 hover:bg-background shadow-lg"
                         onClick={(e) => {
                           e.preventDefault();
                         }}
@@ -136,7 +157,7 @@ const Pendant = () => {
                       <Button
                         size="icon"
                         variant="secondary"
-                        className="h-8 w-8 bg-background/90 hover:bg-background"
+                        className="h-9 w-9 bg-background/95 hover:bg-background shadow-lg"
                         onClick={(e) => {
                           e.preventDefault();
                         }}
@@ -144,60 +165,66 @@ const Pendant = () => {
                         <Eye className="h-4 w-4" />
                       </Button>
                     </div>
+                    {product.originalPrice > product.price && (
+                      <div className="absolute bottom-4 left-4">
+                        <Badge variant="destructive" className="text-xs font-semibold shadow-lg">
+                          {Math.round(
+                            ((product.originalPrice - product.price) /
+                              product.originalPrice) *
+                              100
+                          )}% OFF
+                        </Badge>
+                      </div>
+                    )}
                   </div>
 
-                  <CardContent className="p-4">
+                  <CardContent className="p-5">
                     <div className="mb-2">
-                      <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                      <span className="text-xs text-primary font-medium uppercase tracking-wider">
                         {product.category}
                       </span>
                     </div>
                     
-                    <h3 className="font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-serif text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors leading-tight">
                       {product.name}
                     </h3>
 
-                    <div className="flex items-center gap-1 mb-3">
+                    <div className="flex items-center gap-2 mb-4">
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className={`h-3 w-3 ${
+                            className={`h-4 w-4 ${
                               i < Math.floor(product.rating)
                                 ? "fill-yellow-400 text-yellow-400"
-                                : "fill-muted text-muted"
+                                : "fill-muted-foreground/20 text-muted-foreground/20"
                             }`}
                           />
                         ))}
                       </div>
-                      <span className="text-xs text-muted-foreground">
-                        ({product.reviewCount})
+                      <span className="text-xs text-muted-foreground font-medium">
+                        ({product.reviewCount} reviews)
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xl font-bold text-foreground">
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-2xl font-bold text-foreground font-serif">
                         ₹{product.price.toLocaleString()}
                       </span>
-                      <span className="text-sm text-muted-foreground line-through">
-                        ₹{product.originalPrice.toLocaleString()}
-                      </span>
-                      <Badge variant="secondary" className="text-xs">
-                        {Math.round(
-                          ((product.originalPrice - product.price) /
-                            product.originalPrice) *
-                            100
-                        )}
-                        % OFF
-                      </Badge>
+                      {product.originalPrice > product.price && (
+                        <span className="text-sm text-muted-foreground line-through">
+                          ₹{product.originalPrice.toLocaleString()}
+                        </span>
+                      )}
                     </div>
 
-                    <div className="text-xs text-muted-foreground mb-3">
-                      Metal: {product.metal}
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4 pb-4 border-b border-border/50">
+                      <Sparkles className="h-3 w-3 text-primary" />
+                      <span className="font-medium">{product.metal}</span>
                     </div>
 
                     <Button
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-md hover:shadow-lg transition-all"
                       onClick={(e) => {
                         e.preventDefault();
                       }}
@@ -214,19 +241,19 @@ const Pendant = () => {
       </section>
 
       {/* Tab Content Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="about" className="max-w-5xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="about">About Pendants</TabsTrigger>
-              <TabsTrigger value="benefits">Benefits</TabsTrigger>
-              <TabsTrigger value="guide">Selection Guide</TabsTrigger>
-              <TabsTrigger value="care">Care Tips</TabsTrigger>
+          <Tabs defaultValue="about" className="max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted/50">
+              <TabsTrigger value="about" className="font-serif text-base py-3">About Pendants</TabsTrigger>
+              <TabsTrigger value="benefits" className="font-serif text-base py-3">Benefits</TabsTrigger>
+              <TabsTrigger value="guide" className="font-serif text-base py-3">Selection Guide</TabsTrigger>
+              <TabsTrigger value="care" className="font-serif text-base py-3">Care Tips</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="about" className="mt-8">
-              <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-                <h2 className="text-3xl font-bold mb-6 text-foreground">
+            <TabsContent value="about" className="mt-10">
+              <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
+                <h2 className="text-4xl font-serif font-bold mb-8 text-foreground">
                   About Sacred Pendants
                 </h2>
                 <p>
