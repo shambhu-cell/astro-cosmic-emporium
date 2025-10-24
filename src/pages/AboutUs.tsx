@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Download, TrendingUp, Shield, Sparkles } from "lucide-react";
+import { Award, Users, Download, TrendingUp, Shield, Sparkles, Store } from "lucide-react";
 
 const AboutUs = () => {
   const stats = [
@@ -194,6 +194,50 @@ const AboutUs = () => {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* D2C Platform Launch */}
+      <section className="py-16 px-4">
+        <div className="container max-w-screen-xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge variant="outline" className="mb-4 px-4 py-1.5">
+              <Store className="w-3 h-3 mr-2 inline" />
+              New Chapter
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Entering the D2C Space
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Responding to overwhelming demand from our community, we have expanded beyond digital services 
+              to offer authentic spiritual and astrological products directly to you.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="hover:shadow-lg transition-all border-2 border-primary/20">
+              <CardContent className="p-8">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    After serving millions of users with astrological guidance and consultations, we received 
+                    countless requests for authentic, high-quality spiritual products. Our users wanted trusted 
+                    sources for genuine gemstones, rudraksha, yantras, and other sacred items that align with 
+                    their astrological remedies.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    <strong className="text-foreground">This overwhelming demand inspired us to launch our Direct-to-Consumer platform.</strong> Leveraging 
+                    our two decades of expertise and the trust of millions, we now bring you a curated collection 
+                    of authentic spiritual products, each verified and energized according to Vedic traditions.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    From certified gemstones to powerful yantras, from traditional rudraksha to blessed malas—every 
+                    product on our platform carries the same commitment to authenticity and quality that has made 
+                    AstroSage India&apos;s most trusted astrology brand.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
