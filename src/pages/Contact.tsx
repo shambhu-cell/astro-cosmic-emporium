@@ -1,114 +1,291 @@
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+import contactBanner from "@/assets/contact-banner.png";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, { message: "Name is required" }).max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
+  phone: z.string().trim().max(20, { message: "Phone number must be less than 20 characters" }).optional(),
+  message: z.string().trim().min(1, { message: "Message is required" }).max(1000, { message: "Message must be less than 1000 characters" })
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState<ContactForm>({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+    setIsSubmitting(true);
+
+    try {
+      // Validate form data
+      const validatedData = contactSchema.parse(formData);
+      
+      // Here you would send the data to your backend
+      // For now, we'll just show a success message
+      console.log("Form submitted:", validatedData);
+      
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Partial<Record<keyof ContactForm, string>> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0] as keyof ContactForm] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        
+        toast({
+          title: "Validation Error",
+          description: "Please check the form for errors.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (field: keyof ContactForm, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: undefined }));
+    }
+  };
+
   return (
-    <main className="min-h-screen py-12">
-      <div className="container max-w-screen-xl px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-            Contact Us
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Questions? Comments? Let us know. We'll get back to you within 24 hours.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Contact Form */}
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name *</label>
-                  <Input placeholder="Your name" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email *</label>
-                  <Input type="email" placeholder="your@email.com" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Phone Number</label>
-                  <Input type="tel" placeholder="+91 98765 43210" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message *</label>
-                  <Textarea placeholder="Your message here..." rows={5} required />
-                </div>
-                <Button type="submit" className="w-full">Send Message</Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Address</h3>
-                      <p className="text-muted-foreground">
-                        A-139, Sector 63<br />
-                        Noida - 201307<br />
-                        Uttar Pradesh, India
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+91-95602 67006</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">support@astrosage.shop</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Opening Hours</h3>
-                      <p className="text-muted-foreground">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday: 9:00 AM - 6:00 PM<br />
-                        Sunday: Closed
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Why Choose AstroSage?</h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>✓ 23+ Years of Trusted Service</li>
-                  <li>✓ 100% Authentic Products</li>
-                  <li>✓ Expert Astrological Guidance</li>
-                  <li>✓ Secure Payment Options</li>
-                  <li>✓ Fast Pan-India Delivery</li>
-                  <li>✓ Easy Returns & Refunds</li>
-                </ul>
-              </CardContent>
-            </Card>
+    <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
+      {/* Hero Banner */}
+      <section className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <img 
+          src={contactBanner} 
+          alt="Contact AstroSage - Get in Touch" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent flex items-center">
+          <div className="container max-w-screen-xl px-4">
+            <Badge variant="outline" className="mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-sm border-white/20 text-white">
+              <Mail className="w-3 h-3 mr-2 inline" />
+              Get in Touch
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+              Contact Us
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl">
+              Questions? Comments? Let us know. We'll get back to you within 24 hours.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-12 px-4 -mt-20 relative z-10">
+        <div className="container max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Contact Form */}
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-center gap-2 mb-6">
+                  <Send className="w-6 h-6 text-primary" />
+                  <h2 className="text-2xl md:text-3xl font-bold">Send us a Message</h2>
+                </div>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Name <span className="text-destructive">*</span>
+                    </label>
+                    <Input 
+                      placeholder="Your full name" 
+                      value={formData.name}
+                      onChange={(e) => handleChange("name", e.target.value)}
+                      className={errors.name ? "border-destructive" : ""}
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Email <span className="text-destructive">*</span>
+                    </label>
+                    <Input 
+                      type="email" 
+                      placeholder="your@email.com" 
+                      value={formData.email}
+                      onChange={(e) => handleChange("email", e.target.value)}
+                      className={errors.email ? "border-destructive" : ""}
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Phone Number <span className="text-muted-foreground">(Optional)</span>
+                    </label>
+                    <Input 
+                      type="tel" 
+                      placeholder="+91 98765 43210" 
+                      value={formData.phone}
+                      onChange={(e) => handleChange("phone", e.target.value)}
+                      className={errors.phone ? "border-destructive" : ""}
+                    />
+                    {errors.phone && (
+                      <p className="text-sm text-destructive mt-1">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Message <span className="text-destructive">*</span>
+                    </label>
+                    <Textarea 
+                      placeholder="Tell us how we can help you..." 
+                      rows={6} 
+                      value={formData.message}
+                      onChange={(e) => handleChange("message", e.target.value)}
+                      className={errors.message ? "border-destructive" : ""}
+                    />
+                    {errors.message && (
+                      <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                    )}
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {formData.message.length}/1000 characters
+                    </p>
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    className="w-full" 
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    <Send className="w-4 h-4 ml-2" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <Card className="shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-6 md:p-8">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact Information</h2>
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4 group">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <MapPin className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 text-lg">Address</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          A-139, Sector 63<br />
+                          Noida - 201307<br />
+                          Uttar Pradesh, India
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 group">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <Phone className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 text-lg">Phone</h3>
+                        <a href="tel:+919560267006" className="text-muted-foreground hover:text-primary transition-colors">
+                          +91-95602 67006
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 group">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <Mail className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 text-lg">Email</h3>
+                        <a href="mailto:support@astrosage.shop" className="text-muted-foreground hover:text-primary transition-colors">
+                          support@astrosage.shop
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 group">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <Clock className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 text-lg">Opening Hours</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br />
+                          <strong>Saturday:</strong> 9:00 AM - 6:00 PM<br />
+                          <strong>Sunday:</strong> Closed
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="font-bold text-xl mb-4">Why Choose AstroSage?</h3>
+                  <ul className="space-y-3">
+                    {[
+                      "23+ Years of Trusted Service",
+                      "100% Authentic Products",
+                      "Expert Astrological Guidance",
+                      "Secure Payment Options",
+                      "Fast Pan-India Delivery",
+                      "Easy Returns & Refunds"
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-center gap-3 text-sm">
+                        <span className="w-5 h-5 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-primary-foreground text-xs">✓</span>
+                        </span>
+                        <span className="font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
