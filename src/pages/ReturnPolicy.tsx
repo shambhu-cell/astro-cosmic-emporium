@@ -46,7 +46,7 @@ const ReturnPolicy = () => {
     {
       step: "1",
       title: "Register Your Dispute",
-      description: "Send an email to customercare@astrosage.com with images of broken/defective/damaged products within two working days of delivery. Include your order number in the email."
+      description: "Send an email to support@astrosage.shop with images of broken/defective/damaged products within two working days of delivery. Include your order number in the email."
     },
     {
       step: "2",
@@ -274,11 +274,11 @@ const ReturnPolicy = () => {
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Help with Returns?</h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Customer need to register dispute by sending email to customercare@astrosage.com with images of 
+                Customer need to register dispute by sending email to support@astrosage.shop with images of 
                 broken/defective/damaged products within two working days of delivery.
               </p>
               <Button size="lg" asChild className="group">
-                <a href="mailto:customercare@astrosage.com">
+                <a href="mailto:support@astrosage.shop">
                   <Mail className="w-5 h-5 mr-2" />
                   Email Customer Care
                 </a>
