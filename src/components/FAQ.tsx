@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       question: "What is your return and exchange policy?",
-      answer: "We offer a 30-day hassle-free return and exchange policy. If you're not satisfied with your purchase, you can return it in original condition for a full refund or exchange."
+      answer: "We offer a 7 days money back no question asked return policy. If you're not satisfied with your purchase, you can return it in original condition for a full refund or exchange."
     },
     {
       question: "How long does shipping take?",

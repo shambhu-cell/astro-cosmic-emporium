@@ -37,7 +37,7 @@ const Bracelets = () => {
         "Handcrafted with Premium Quality Beads",
         "Cleansed & Energized Before Shipping",
         "Multiple Size Options Available",
-        "30-Day Money Back Guarantee"
+        "7 Days Money Back No Question Asked"
       ],
       whyChoose: [
         "Authentic crystals sourced from trusted suppliers worldwide",
@@ -459,7 +459,7 @@ const Bracelets = () => {
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <Award className="h-8 w-8 text-white" />
               </div>
-              <h3 className="font-bold text-lg">30-Day Guarantee</h3>
+              <h3 className="font-bold text-lg">7 Days Money Back Guarantee</h3>
               <p className="text-sm text-muted-foreground">
                 Not satisfied? Get 100% money back, no questions asked
               </p>
@@ -668,7 +668,7 @@ const Bracelets = () => {
                 <AccordionItem value="item-4">
                   <AccordionTrigger>Our Quality Guarantee</AccordionTrigger>
                   <AccordionContent>
-                    We stand behind every bracelet with a 30-day money-back guarantee. If you receive a bracelet that doesn't meet our quality standards or you're not satisfied for any reason, return it for a full refund. We also offer free replacement for any manufacturing defects within 90 days. Your trust is our priority.
+                    We stand behind every bracelet with a 7 days money back no question asked return policy. If you receive a bracelet that doesn't meet our quality standards or you're not satisfied for any reason, return it for a full refund. We also offer free replacement for any manufacturing defects within 90 days. Your trust is our priority.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

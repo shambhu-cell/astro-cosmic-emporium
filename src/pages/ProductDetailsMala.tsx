@@ -149,7 +149,7 @@ const ProductDetailsMala = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <RefreshCw className="w-4 h-4 text-primary" />
-                  <span>30-Day Returns</span>
+                  <span>7 Days Returns</span>
                 </div>
               </div>
 
@@ -351,7 +351,7 @@ const ProductDetailsMala = () => {
                   <div className="flex items-start gap-3">
                     <RefreshCw className="w-5 h-5 text-primary mt-0.5" />
                     <div>
-                      <p className="font-medium">30-Day Returns</p>
+                      <p className="font-medium">7 Days Returns</p>
                       <p className="text-sm text-muted-foreground">Easy returns and exchanges</p>
                     </div>
                   </div>

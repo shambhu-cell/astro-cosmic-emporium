@@ -58,7 +58,7 @@ const ProductDetailsBracelet = () => {
     },
     {
       question: "Do you offer returns?",
-      answer: "Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with your purchase, return it within 30 days for a full refund, no questions asked."
+      answer: "Yes! We offer a 7 days money back no question asked return policy. If you're not completely satisfied with your purchase, return it within 7 days for a full refund."
     }
   ];
 
@@ -144,7 +144,7 @@ const ProductDetailsBracelet = () => {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Shield className="h-5 w-5 text-green-600" />
-                <span className="font-medium">30-Day Returns</span>
+                <span className="font-medium">7 Days Returns</span>
               </div>
             </div>
           </div>

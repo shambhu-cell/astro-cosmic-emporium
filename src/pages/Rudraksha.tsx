@@ -622,7 +622,7 @@ const Rudraksha = () => {
     },
     {
       question: "What is your return policy?",
-      answer: "We offer a 30-day money-back guarantee. If you're not satisfied, you can return the Rudraksha within 30 days for a full refund. The item must be in original condition with certificate and packaging intact."
+      answer: "We offer a 7 days money back no question asked return policy. If you're not satisfied, you can return the Rudraksha within 7 days for a full refund. The item must be in original condition with certificate and packaging intact."
     }
   ];
 

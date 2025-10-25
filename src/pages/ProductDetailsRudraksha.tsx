@@ -72,7 +72,7 @@ const ProductDetailsRudraksha = () => {
     },
     {
       q: "What is your return and refund policy?",
-      a: "We offer 30-day money-back guarantee. If you're not satisfied or have any issues, you can return within 30 days for full refund. Item must be in original condition with certificate. Your satisfaction and divine blessings are our priority."
+      a: "We offer 7 days money back no question asked return policy. If you're not satisfied or have any issues, you can return within 7 days for full refund. Item must be in original condition with certificate. Your satisfaction and divine blessings are our priority."
     },
     {
       q: "How do I take care of my Rudraksha?",

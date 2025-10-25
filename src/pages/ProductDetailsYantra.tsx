@@ -131,7 +131,7 @@ const ProductDetailsYantra = () => {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                 <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
-                <span className="font-medium">30-Day Returns</span>
+                <span className="font-medium">7 Days Returns</span>
               </div>
             </div>
           </div>

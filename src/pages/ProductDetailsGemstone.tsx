@@ -278,7 +278,7 @@ const ProductDetailsGemstone = () => {
     },
     {
       question: "What is your return policy?",
-      answer: "We offer a 30-day money-back guarantee. If you're not satisfied with your purchase, you can return it within 30 days for a full refund. The gemstone must be in original condition with certificate."
+      answer: "We offer a 7 days money back no question asked return policy. If you're not satisfied with your purchase, you can return it within 7 days for a full refund. The gemstone must be in original condition with certificate."
     },
     {
       question: "How long does delivery take?",
@@ -294,7 +294,7 @@ const ProductDetailsGemstone = () => {
     <div className="min-h-screen bg-background">
       {/* Money Back Guarantee Bar */}
       <div className="bg-accent text-white py-3 text-center font-medium">
-        ✓ 30 Day Money Back Guarantee - 100% Authentic Gemstones
+        ✓ 7 Days Money Back No Question Asked - 100% Authentic Gemstones
       </div>
 
       <div className="container max-w-screen-xl mx-auto px-4 py-6">
@@ -695,8 +695,8 @@ const ProductDetailsGemstone = () => {
                       <div className="flex items-start gap-3">
                         <RefreshCcw className="h-6 w-6 text-primary shrink-0" />
                         <div>
-                          <p className="font-medium">30-Day Money Back Guarantee</p>
-                          <p className="text-muted-foreground">Not satisfied? Return within 30 days for a full refund. No questions asked.</p>
+                          <p className="font-medium">7 Days Money Back Guarantee</p>
+                          <p className="text-muted-foreground">Not satisfied? Return within 7 days for a full refund. No questions asked.</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">

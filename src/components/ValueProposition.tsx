@@ -16,7 +16,7 @@ const ValueProposition = () => {
     {
       icon: Truck,
       title: "Free Shipping & Returns",
-      description: "Complimentary shipping across India with hassle-free 30-day return policy.",
+      description: "Complimentary shipping across India with hassle-free 7 days return policy.",
     },
     {
       icon: Headphones,
