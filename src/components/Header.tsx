@@ -19,6 +19,10 @@ const Header = () => {
     { name: "Jadi Roots", href: "/jadi-roots", icon: Droplet },
     { name: "Vastu Painting", href: "/vastu-painting", icon: Palette },
     { name: "Pendant", href: "/pendant", icon: Gem },
+    { name: "Rings", href: "/rings", icon: Circle },
+    { name: "Lockets", href: "/lockets", icon: Heart },
+    { name: "Idols", href: "/idols", icon: Sparkles },
+    { name: "Puja Items", href: "/puja-items", icon: Sparkles },
   ];
 
   return (
