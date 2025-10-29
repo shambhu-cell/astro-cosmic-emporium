@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRightLeft, Gem, Info, Sparkles, TrendingUp } from "lucide-react";
+import { Calculator, ArrowRightLeft, Gem, Info, Sparkles, TrendingUp, BookOpen, AlertCircle, CheckCircle, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import blueSapphireImg from "@/assets/gemstones/blue-sapphire.jpg";
 import rubyImg from "@/assets/gemstones/ruby.jpg";
@@ -404,6 +404,358 @@ const CaratRattiCalculator = () => {
                 Explore All Gemstones
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Conversion Examples */}
+      <section className="py-16 px-4 bg-gradient-to-b from-background to-accent/5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <Badge className="mb-4" variant="secondary">
+              <Scale className="w-3.5 h-3.5 mr-1.5" />
+              Quick Reference
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Common Gemstone Weight Conversions
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Real-world examples to help you make informed decisions
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="hover:shadow-xl transition-all border-2">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Gem className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Small Gemstone</h3>
+                    <p className="text-sm text-muted-foreground">Delicate jewelry</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">3 Ratti</span>
+                    <span className="text-primary">2.74 Carats</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">Weight</span>
+                    <span>0.548 Grams</span>
+                  </div>
+                  <div className="flex justify-between py-2">
+                    <span className="font-semibold">Use Case</span>
+                    <span>Rings, Pendants</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-all border-2">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-full bg-accent/10">
+                    <Sparkles className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Medium Gemstone</h3>
+                    <p className="text-sm text-muted-foreground">Standard size</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">5 Ratti</span>
+                    <span className="text-accent">4.57 Carats</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">Weight</span>
+                    <span>0.914 Grams</span>
+                  </div>
+                  <div className="flex justify-between py-2">
+                    <span className="font-semibold">Use Case</span>
+                    <span>Most Popular</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-all border-2">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg">Large Gemstone</h3>
+                    <p className="text-sm text-muted-foreground">Premium quality</p>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">7 Ratti</span>
+                    <span className="text-primary">6.40 Carats</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b">
+                    <span className="font-semibold">Weight</span>
+                    <span>1.28 Grams</span>
+                  </div>
+                  <div className="flex justify-between py-2">
+                    <span className="font-semibold">Use Case</span>
+                    <span>Statement Pieces</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Buyer's Guide */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <Badge className="mb-4" variant="secondary">
+              <BookOpen className="w-3.5 h-3.5 mr-1.5" />
+              Expert Tips
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Essential Gemstone Buying Guide
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Professional insights to help you choose the right gemstone weight
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            <Card className="border-2 hover:shadow-xl transition-all">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="p-3 rounded-full bg-primary/10 flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">What to Consider When Choosing Weight</h3>
+                    <p className="text-muted-foreground mb-4">Make informed decisions based on these key factors</p>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Astrological Recommendation</p>
+                      <p className="text-sm text-muted-foreground">Always consult an astrologer for the ideal weight based on your birth chart. Typically recommended in Ratti.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Body Weight Calculation</p>
+                      <p className="text-sm text-muted-foreground">General rule: 1/10th to 1/12th of your body weight in kg equals recommended gemstone weight in Ratti.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Visual Appearance</p>
+                      <p className="text-sm text-muted-foreground">Consider how the gemstone will look on your finger or neck. Larger stones make bolder statements.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Budget Considerations</p>
+                      <p className="text-sm text-muted-foreground">Gemstone prices increase exponentially with carat weight. Balance quality and size within your budget.</p>
+                    </div>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:shadow-xl transition-all">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="p-3 rounded-full bg-accent/10 flex-shrink-0">
+                    <AlertCircle className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Common Mistakes to Avoid</h3>
+                    <p className="text-muted-foreground mb-4">Protect yourself from these frequent purchasing errors</p>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Confusing Carat with Karat</p>
+                      <p className="text-sm text-muted-foreground">Carat measures gemstone weight, while karat measures gold purity. Don't mix them up!</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Ignoring Density Differences</p>
+                      <p className="text-sm text-muted-foreground">Same carat weight looks different on different gemstones. A 5-carat sapphire is smaller than a 5-carat emerald.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Buying Without Certification</p>
+                      <p className="text-sm text-muted-foreground">Always ask for a certified lab report verifying the gemstone's weight and authenticity.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-1">Focusing Only on Weight</p>
+                      <p className="text-sm text-muted-foreground">Quality matters more than size. A smaller, high-quality gemstone is more valuable than a larger, flawed one.</p>
+                    </div>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Historical Context */}
+      <section className="py-16 px-4 bg-gradient-to-b from-accent/5 to-background">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="border-2 shadow-2xl">
+            <CardContent className="p-8 md:p-12">
+              <div className="text-center mb-8">
+                <Badge className="mb-4" variant="secondary">
+                  <BookOpen className="w-3.5 h-3.5 mr-1.5" />
+                  Historical Context
+                </Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  The Story Behind Gemstone Measurements
+                </h2>
+              </div>
+              
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <div className="border-l-4 border-primary pl-6">
+                  <h3 className="font-bold text-foreground text-xl mb-2">Origin of Carat</h3>
+                  <p>The word "carat" comes from the carob seed, which ancient traders used as counterweights on their balance scales. These seeds were remarkably uniform in weight, making them perfect for measuring precious gemstones. In 1907, the metric carat was internationally standardized at 200 milligrams.</p>
+                </div>
+
+                <div className="border-l-4 border-accent pl-6">
+                  <h3 className="font-bold text-foreground text-xl mb-2">Origin of Ratti</h3>
+                  <p>Ratti is a traditional Indian unit of measurement derived from the red and black seeds of the Gunja plant (Abrus precatorius). These seeds were historically used in India for weighing gold and gemstones. The measurement has been preserved in Vedic astrology, where gemstone recommendations are still given in Ratti.</p>
+                </div>
+
+                <div className="border-l-4 border-primary pl-6">
+                  <h3 className="font-bold text-foreground text-xl mb-2">Modern Usage</h3>
+                  <p>Today, while the international jewelry industry primarily uses carats, Ratti remains prevalent in India, especially for astrological gemstones. Understanding both measurements is essential for anyone interested in authentic gemstone astrology or purchasing gemstones from Indian sellers.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Comprehensive FAQ */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <Badge className="mb-4" variant="secondary">
+              <Info className="w-3.5 h-3.5 mr-1.5" />
+              Frequently Asked Questions
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Everything You Need to Know
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Expert answers to common questions about gemstone weight conversion
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">Q</span>
+                  </div>
+                  <span>How many Ratti are in 1 Carat?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">1 Carat equals 1.09375 Ratti. This is a precise conversion ratio used universally in the gemstone industry. So if you have a 5-carat gemstone, it would be approximately 5.47 Ratti.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-accent/10 flex-shrink-0 mt-1">
+                    <span className="text-accent font-bold">Q</span>
+                  </div>
+                  <span>Which unit should I use when buying gemstones?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">For astrological purposes, use Ratti as recommended by Vedic astrologers. For international purchases or comparing prices globally, use Carats as it's the standard unit worldwide. Our calculator helps you convert between both seamlessly.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">Q</span>
+                  </div>
+                  <span>How do I calculate the right gemstone weight for me?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">The traditional method is to divide your body weight (in kg) by 10 to 12 to get the recommended Ratti. For example, if you weigh 60kg, a gemstone between 5-6 Ratti (4.5-5.5 carats) would be appropriate. However, always consult a qualified astrologer for personalized recommendations.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-accent/10 flex-shrink-0 mt-1">
+                    <span className="text-accent font-bold">Q</span>
+                  </div>
+                  <span>Is a heavier gemstone always better?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">Not necessarily. While weight is important for astrological effects, quality factors like clarity, color, and cut are equally crucial. A smaller, high-quality gemstone with good energy is more effective than a larger, flawed stone. Balance size with quality and your budget.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">Q</span>
+                  </div>
+                  <span>Why do different gemstones of the same carat look different in size?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">Gemstones have different densities. A 5-carat diamond will appear smaller than a 5-carat emerald because diamond is denser. Carat measures weight, not size. Sapphires and rubies (corundum) are denser than emeralds, so they appear smaller at the same carat weight.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-accent/10 flex-shrink-0 mt-1">
+                    <span className="text-accent font-bold">Q</span>
+                  </div>
+                  <span>Can I wear a gemstone lighter than recommended?</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pl-16">
+                <p className="text-muted-foreground">While lighter gemstones may have reduced astrological effects, it's better to wear a lighter, high-quality, natural gemstone than nothing at all. If budget is a concern, prioritize quality over weight. Consult your astrologer for minimum weight recommendations specific to your needs.</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
