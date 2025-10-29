@@ -53,7 +53,10 @@ const Header = () => {
             Pendant
           </a>
           <a href="/gemstone-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-primary/10 px-3 py-1 rounded-full">
-            Calculator
+            Gemstone Calc
+          </a>
+          <a href="/rudraksha-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-accent/10 px-3 py-1 rounded-full">
+            Rudraksha Calc
           </a>
           <a href="/about-us" className="text-sm font-medium hover:text-primary transition-colors">
             About Us
