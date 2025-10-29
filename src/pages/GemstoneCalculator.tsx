@@ -181,48 +181,46 @@ const GemstoneCalculator = () => {
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 md:p-10">
+                <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10">
                   {!showResults ? (
                     <>
                       {/* Step 1: Personal Details */}
                       {step === 1 && (
-                        <div className="space-y-4 md:space-y-6 animate-fade-in">
-                          <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-                            <div>
-                              <Label htmlFor="name" className="flex items-center gap-2 mb-2">
-                                <User className="w-4 h-4 text-primary" />
-                                Full Name <span className="text-destructive">*</span>
-                              </Label>
-                              <Input
-                                id="name"
-                                placeholder="Enter your full name"
-                                value={formData.name || ""}
-                                onChange={(e) => handleChange("name", e.target.value)}
-                                className={errors.name ? "border-destructive" : ""}
-                              />
-                              {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
-                            </div>
-
-                            <div>
-                              <Label htmlFor="email" className="flex items-center gap-2 mb-2">
-                                <Mail className="w-4 h-4 text-primary" />
-                                Email Address <span className="text-destructive">*</span>
-                              </Label>
-                              <Input
-                                id="email"
-                                type="email"
-                                placeholder="your@email.com"
-                                value={formData.email || ""}
-                                onChange={(e) => handleChange("email", e.target.value)}
-                                className={errors.email ? "border-destructive" : ""}
-                              />
-                              {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
-                            </div>
+                        <div className="space-y-5 md:space-y-6 animate-fade-in">
+                          <div>
+                            <Label htmlFor="name" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                              Full Name <span className="text-destructive">*</span>
+                            </Label>
+                            <Input
+                              id="name"
+                              placeholder="Enter your full name"
+                              value={formData.name || ""}
+                              onChange={(e) => handleChange("name", e.target.value)}
+                              className={`h-11 md:h-12 ${errors.name ? "border-destructive" : ""}`}
+                            />
+                            {errors.name && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.name}</p>}
                           </div>
 
                           <div>
-                            <Label htmlFor="phone" className="flex items-center gap-2 mb-2">
-                              <Phone className="w-4 h-4 text-primary" />
+                            <Label htmlFor="email" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                              Email Address <span className="text-destructive">*</span>
+                            </Label>
+                            <Input
+                              id="email"
+                              type="email"
+                              placeholder="your@email.com"
+                              value={formData.email || ""}
+                              onChange={(e) => handleChange("email", e.target.value)}
+                              className={`h-11 md:h-12 ${errors.email ? "border-destructive" : ""}`}
+                            />
+                            {errors.email && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.email}</p>}
+                          </div>
+
+                          <div>
+                            <Label htmlFor="phone" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <Phone className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                               Phone Number <span className="text-destructive">*</span>
                             </Label>
                             <Input
@@ -231,55 +229,53 @@ const GemstoneCalculator = () => {
                               placeholder="+91 98765 43210"
                               value={formData.phone || ""}
                               onChange={(e) => handleChange("phone", e.target.value)}
-                              className={errors.phone ? "border-destructive" : ""}
+                              className={`h-11 md:h-12 ${errors.phone ? "border-destructive" : ""}`}
                             />
-                            {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
+                            {errors.phone && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.phone}</p>}
                           </div>
                         </div>
                       )}
 
                       {/* Step 2: Birth Details */}
                       {step === 2 && (
-                        <div className="space-y-4 md:space-y-6 animate-fade-in">
-                          <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-                            <div>
-                              <Label htmlFor="gender" className="flex items-center gap-2 mb-2">
-                                <User className="w-4 h-4 text-primary" />
-                                Gender <span className="text-destructive">*</span>
-                              </Label>
-                              <Select value={formData.gender} onValueChange={(value) => handleChange("gender", value)}>
-                                <SelectTrigger className={errors.gender ? "border-destructive" : ""}>
-                                  <SelectValue placeholder="Select gender" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  <SelectItem value="male">Male</SelectItem>
-                                  <SelectItem value="female">Female</SelectItem>
-                                  <SelectItem value="other">Other</SelectItem>
-                                </SelectContent>
-                              </Select>
-                              {errors.gender && <p className="text-sm text-destructive mt-1">{errors.gender}</p>}
-                            </div>
-
-                            <div>
-                              <Label htmlFor="weight" className="flex items-center gap-2 mb-2">
-                                <Weight className="w-4 h-4 text-primary" />
-                                Body Weight (kg) <span className="text-destructive">*</span>
-                              </Label>
-                              <Input
-                                id="weight"
-                                type="number"
-                                placeholder="Enter your weight"
-                                value={formData.weight || ""}
-                                onChange={(e) => handleChange("weight", e.target.value)}
-                                className={errors.weight ? "border-destructive" : ""}
-                              />
-                              {errors.weight && <p className="text-sm text-destructive mt-1">{errors.weight}</p>}
-                            </div>
+                        <div className="space-y-5 md:space-y-6 animate-fade-in">
+                          <div>
+                            <Label htmlFor="gender" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <User className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                              Gender <span className="text-destructive">*</span>
+                            </Label>
+                            <Select value={formData.gender} onValueChange={(value) => handleChange("gender", value)}>
+                              <SelectTrigger className={`h-11 md:h-12 ${errors.gender ? "border-destructive" : ""}`}>
+                                <SelectValue placeholder="Select gender" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="male">Male</SelectItem>
+                                <SelectItem value="female">Female</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            {errors.gender && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.gender}</p>}
                           </div>
 
                           <div>
-                            <Label htmlFor="birthDate" className="flex items-center gap-2 mb-2">
-                              <Calendar className="w-4 h-4 text-primary" />
+                            <Label htmlFor="weight" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <Weight className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                              Body Weight (kg) <span className="text-destructive">*</span>
+                            </Label>
+                            <Input
+                              id="weight"
+                              type="number"
+                              placeholder="Enter your weight"
+                              value={formData.weight || ""}
+                              onChange={(e) => handleChange("weight", e.target.value)}
+                              className={`h-11 md:h-12 ${errors.weight ? "border-destructive" : ""}`}
+                            />
+                            {errors.weight && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.weight}</p>}
+                          </div>
+
+                          <div>
+                            <Label htmlFor="birthDate" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                               Birth Date <span className="text-destructive">*</span>
                             </Label>
                             <Input
@@ -287,19 +283,19 @@ const GemstoneCalculator = () => {
                               type="date"
                               value={formData.birthDate || ""}
                               onChange={(e) => handleChange("birthDate", e.target.value)}
-                              className={errors.birthDate ? "border-destructive" : ""}
+                              className={`h-11 md:h-12 ${errors.birthDate ? "border-destructive" : ""}`}
                             />
-                            {errors.birthDate && <p className="text-sm text-destructive mt-1">{errors.birthDate}</p>}
+                            {errors.birthDate && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.birthDate}</p>}
                           </div>
                         </div>
                       )}
 
                       {/* Step 3: Time & Place */}
                       {step === 3 && (
-                        <div className="space-y-4 md:space-y-6 animate-fade-in">
+                        <div className="space-y-5 md:space-y-6 animate-fade-in">
                           <div>
-                            <Label htmlFor="birthTime" className="flex items-center gap-2 mb-2">
-                              <Clock className="w-4 h-4 text-primary" />
+                            <Label htmlFor="birthTime" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                               Birth Time <span className="text-destructive">*</span>
                             </Label>
                             <Input
@@ -307,14 +303,14 @@ const GemstoneCalculator = () => {
                               type="time"
                               value={formData.birthTime || ""}
                               onChange={(e) => handleChange("birthTime", e.target.value)}
-                              className={errors.birthTime ? "border-destructive" : ""}
+                              className={`h-11 md:h-12 ${errors.birthTime ? "border-destructive" : ""}`}
                             />
-                            {errors.birthTime && <p className="text-sm text-destructive mt-1">{errors.birthTime}</p>}
+                            {errors.birthTime && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.birthTime}</p>}
                           </div>
 
                           <div>
-                            <Label htmlFor="birthPlace" className="flex items-center gap-2 mb-2">
-                              <MapPin className="w-4 h-4 text-primary" />
+                            <Label htmlFor="birthPlace" className="flex items-center gap-1.5 mb-2 text-sm md:text-base">
+                              <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                               Birth Place <span className="text-destructive">*</span>
                             </Label>
                             <Input
@@ -322,13 +318,13 @@ const GemstoneCalculator = () => {
                               placeholder="City, State, Country"
                               value={formData.birthPlace || ""}
                               onChange={(e) => handleChange("birthPlace", e.target.value)}
-                              className={errors.birthPlace ? "border-destructive" : ""}
+                              className={`h-11 md:h-12 ${errors.birthPlace ? "border-destructive" : ""}`}
                             />
-                            {errors.birthPlace && <p className="text-sm text-destructive mt-1">{errors.birthPlace}</p>}
+                            {errors.birthPlace && <p className="text-xs md:text-sm text-destructive mt-1.5">{errors.birthPlace}</p>}
                           </div>
 
-                          <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                            <p className="text-sm text-muted-foreground">
+                          <div className="p-3 md:p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                            <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                               <strong className="text-foreground">Note:</strong> Accurate birth time and place are essential 
                               for precise gemstone recommendations based on your Kundali and planetary positions.
                             </p>
