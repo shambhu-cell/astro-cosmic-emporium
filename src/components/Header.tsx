@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet, ChevronDown } from "lucide-react";
+import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet, ChevronDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +15,38 @@ import astrosageLogo from "@/assets/astrosage-logo.webp";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navaratna = [
+    { name: "Ruby (Manikya)", href: "/gemstones/ruby", planet: "Sun" },
+    { name: "Pearl (Moti)", href: "/gemstones/pearl", planet: "Moon" },
+    { name: "Red Coral (Moonga)", href: "/gemstones/coral", planet: "Mars" },
+    { name: "Emerald (Panna)", href: "/gemstones/emerald", planet: "Mercury" },
+    { name: "Yellow Sapphire (Pukhraj)", href: "/gemstones/yellow-sapphire", planet: "Jupiter" },
+    { name: "Diamond (Heera)", href: "/gemstones/diamond", planet: "Venus" },
+    { name: "Blue Sapphire (Neelam)", href: "/gemstones/blue-sapphire", planet: "Saturn" },
+    { name: "Hessonite (Gomed)", href: "/gemstones/hessonite", planet: "Rahu" },
+    { name: "Cat's Eye (Lehsunia)", href: "/gemstones/cats-eye", planet: "Ketu" },
+  ];
+
+  const rudrakshaTypes = [
+    { name: "1 Mukhi Rudraksha", href: "/rudraksha/1-mukhi" },
+    { name: "2 Mukhi Rudraksha", href: "/rudraksha/2-mukhi" },
+    { name: "3 Mukhi Rudraksha", href: "/rudraksha/3-mukhi" },
+    { name: "4 Mukhi Rudraksha", href: "/rudraksha/4-mukhi" },
+    { name: "5 Mukhi Rudraksha", href: "/rudraksha/5-mukhi" },
+    { name: "6 Mukhi Rudraksha", href: "/rudraksha/6-mukhi" },
+    { name: "7 Mukhi Rudraksha", href: "/rudraksha/7-mukhi" },
+    { name: "Gauri Shankar", href: "/rudraksha/gauri-shankar" },
+  ];
+
+  const braceletTypes = [
+    { name: "Crystal Bracelets", href: "/bracelets/crystal" },
+    { name: "Gemstone Bracelets", href: "/bracelets/gemstone" },
+    { name: "Rudraksha Bracelets", href: "/bracelets/rudraksha" },
+    { name: "7 Chakra Bracelets", href: "/bracelets/7-chakra" },
+    { name: "Tiger Eye Bracelets", href: "/bracelets/tiger-eye" },
+    { name: "Black Obsidian", href: "/bracelets/obsidian" },
+  ];
 
   const productCategories = [
     { name: "Gemstones", href: "/gemstones", icon: Gem },
@@ -51,15 +83,103 @@ const Header = () => {
           <a href="/" className="text-sm font-medium hover:text-primary transition-colors">
             Home
           </a>
-          <a href="/gemstones" className="text-sm font-medium hover:text-primary transition-colors">
-            Gemstones
-          </a>
-          <a href="/rudraksha" className="text-sm font-medium hover:text-primary transition-colors">
-            Rudraksha
-          </a>
-          <a href="/bracelets" className="text-sm font-medium hover:text-primary transition-colors">
-            Bracelets
-          </a>
+          
+          {/* Gemstones Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <Gem className="w-3.5 h-3.5" />
+                Gemstones
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-64 bg-background border-border z-50">
+              <div className="px-2 py-2">
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase">Navratna - 9 Sacred Gemstones</p>
+              </div>
+              {navaratna.map((gem) => (
+                <DropdownMenuItem key={gem.name} asChild>
+                  <a href={gem.href} className="cursor-pointer flex items-center justify-between gap-2 py-2">
+                    <div className="flex items-center gap-2">
+                      <Star className="w-4 h-4 text-primary" />
+                      <span className="font-medium">{gem.name}</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">{gem.planet}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <div className="border-t mt-1 pt-1">
+                <DropdownMenuItem asChild>
+                  <a href="/gemstones" className="cursor-pointer font-semibold text-primary py-2">
+                    View All Gemstones →
+                  </a>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Rudraksha Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <Circle className="w-3.5 h-3.5" />
+                Rudraksha
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56 bg-background border-border z-50">
+              <div className="px-2 py-2">
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase">Popular Types</p>
+              </div>
+              {rudrakshaTypes.map((type) => (
+                <DropdownMenuItem key={type.name} asChild>
+                  <a href={type.href} className="cursor-pointer flex items-center gap-2 py-2">
+                    <Circle className="w-4 h-4 text-primary" />
+                    <span className="font-medium">{type.name}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <div className="border-t mt-1 pt-1">
+                <DropdownMenuItem asChild>
+                  <a href="/rudraksha" className="cursor-pointer font-semibold text-primary py-2">
+                    View All Rudraksha →
+                  </a>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Bracelets Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <Heart className="w-3.5 h-3.5" />
+                Bracelets
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56 bg-background border-border z-50">
+              <div className="px-2 py-2">
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase">Popular Collections</p>
+              </div>
+              {braceletTypes.map((type) => (
+                <DropdownMenuItem key={type.name} asChild>
+                  <a href={type.href} className="cursor-pointer flex items-center gap-2 py-2">
+                    <Heart className="w-4 h-4 text-primary" />
+                    <span className="font-medium">{type.name}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <div className="border-t mt-1 pt-1">
+                <DropdownMenuItem asChild>
+                  <a href="/bracelets" className="cursor-pointer font-semibold text-primary py-2">
+                    View All Bracelets →
+                  </a>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <a href="/mala" className="text-sm font-medium hover:text-primary transition-colors">
             Mala
           </a>
