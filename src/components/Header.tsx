@@ -22,9 +22,6 @@ const Header = () => {
     { name: "Bracelets", href: "/bracelets", icon: Heart },
     { name: "Mala", href: "/mala", icon: Circle },
     { name: "Yantra", href: "/yantra", icon: Eye },
-    { name: "Jadi Roots", href: "/jadi-roots", icon: Droplet },
-    { name: "Vastu Painting", href: "/vastu-painting", icon: Palette },
-    { name: "Pendant", href: "/pendant", icon: Gem },
     { name: "Rings", href: "/rings", icon: Circle },
     { name: "Lockets", href: "/lockets", icon: Heart },
     { name: "Idols", href: "/idols", icon: Sparkles },
@@ -68,15 +65,6 @@ const Header = () => {
           </a>
           <a href="/yantra" className="text-sm font-medium hover:text-primary transition-colors">
             Yantra
-          </a>
-          <a href="/jadi-roots" className="text-sm font-medium hover:text-primary transition-colors">
-            Jadi Roots
-          </a>
-          <a href="/vastu-painting" className="text-sm font-medium hover:text-primary transition-colors">
-            Vastu Painting
-          </a>
-          <a href="/pendant" className="text-sm font-medium hover:text-primary transition-colors">
-            Pendant
           </a>
           
           {/* Calculators Dropdown */}
