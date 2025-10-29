@@ -158,12 +158,12 @@ const GemstoneCalculator = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-8 md:py-16 px-4 -mt-12 sm:-mt-16 md:-mt-20 relative z-10">
+      <section className="py-8 md:py-16 px-4 -mt-8 sm:-mt-12 md:-mt-20 relative z-20">
         <div className="container max-w-screen-xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
             {/* Calculator Form */}
             <div className="lg:col-span-2">
-              <Card className="shadow-2xl border-2 border-primary/20 animate-fade-in">
+              <Card className="shadow-2xl border-2 border-primary/20 animate-fade-in bg-background relative z-20">
                 <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-accent/5 p-4 md:p-6">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <CardTitle className="text-xl sm:text-2xl md:text-3xl">
@@ -416,7 +416,7 @@ const GemstoneCalculator = () => {
 
             {/* Gemstone Guide Sidebar */}
             <div className="lg:col-span-1 hidden lg:block">
-              <Card className="shadow-2xl border-2 border-primary/20 sticky top-4 animate-fade-in">
+              <Card className="shadow-2xl border-2 border-primary/20 sticky top-4 animate-fade-in bg-background relative z-20">
                 <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10 p-4 md:p-6">
                   <CardTitle className="text-lg md:text-xl flex items-center gap-2">
                     <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-primary" />
