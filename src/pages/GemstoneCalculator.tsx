@@ -124,33 +124,33 @@ const GemstoneCalculator = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
+      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6bTAgMTJjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6TTI0IDM0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDEyYzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0tMTItMTJjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6bTAgMTJjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         <div className="relative container max-w-screen-xl px-4 h-full flex items-center justify-center">
           <div className="text-center animate-fade-in">
-            <Badge variant="outline" className="mb-4 px-6 py-2 text-base border-primary/20 bg-white/10 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
+            <Badge variant="outline" className="mb-3 md:mb-4 px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base border-primary/20 bg-white/10 backdrop-blur-sm">
+              <Sparkles className="w-3 h-3 md:w-4 md:h-4 mr-2 inline" />
               Free Gemstone Recommendation
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent px-4">
               Discover Your Perfect Gemstone
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
               Get personalized gemstone recommendations based on your birth chart and Kundali. 
               Unlock prosperity, health, and harmony with the right gemstone.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">100% Free</span>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mt-4 md:mt-8 px-4">
+              <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="text-xs md:text-sm font-medium">100% Free</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Vedic Astrology Based</span>
+              <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="text-xs md:text-sm font-medium">Vedic Astrology Based</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Instant Results</span>
+              <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <span className="text-xs md:text-sm font-medium">Instant Results</span>
               </div>
             </div>
           </div>
@@ -158,36 +158,36 @@ const GemstoneCalculator = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 px-4 -mt-20 relative z-10">
+      <section className="py-8 md:py-16 px-4 -mt-12 sm:-mt-16 md:-mt-20 relative z-10">
         <div className="container max-w-screen-xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
             {/* Calculator Form */}
             <div className="lg:col-span-2">
               <Card className="shadow-2xl border-2 border-primary/20 animate-fade-in">
-                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-accent/5">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-2xl md:text-3xl">
+                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-accent/5 p-4 md:p-6">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <CardTitle className="text-xl sm:text-2xl md:text-3xl">
                       Gemstone Recommendation
                     </CardTitle>
-                    <Badge variant="secondary" className="text-sm">
+                    <Badge variant="secondary" className="text-xs md:text-sm">
                       Step {step} of 3
                     </Badge>
                   </div>
                   {/* Progress Bar */}
-                  <div className="mt-4 h-2 bg-muted rounded-full overflow-hidden">
+                  <div className="mt-3 md:mt-4 h-1.5 md:h-2 bg-muted rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-primary transition-all duration-500 ease-out"
                       style={{ width: `${(step / 3) * 100}%` }}
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="p-8 md:p-10">
+                <CardContent className="p-4 sm:p-6 md:p-10">
                   {!showResults ? (
                     <>
                       {/* Step 1: Personal Details */}
                       {step === 1 && (
-                        <div className="space-y-6 animate-fade-in">
-                          <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-4 md:space-y-6 animate-fade-in">
+                          <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                             <div>
                               <Label htmlFor="name" className="flex items-center gap-2 mb-2">
                                 <User className="w-4 h-4 text-primary" />
@@ -240,8 +240,8 @@ const GemstoneCalculator = () => {
 
                       {/* Step 2: Birth Details */}
                       {step === 2 && (
-                        <div className="space-y-6 animate-fade-in">
-                          <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-4 md:space-y-6 animate-fade-in">
+                          <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                             <div>
                               <Label htmlFor="gender" className="flex items-center gap-2 mb-2">
                                 <User className="w-4 h-4 text-primary" />
@@ -296,7 +296,7 @@ const GemstoneCalculator = () => {
 
                       {/* Step 3: Time & Place */}
                       {step === 3 && (
-                        <div className="space-y-6 animate-fade-in">
+                        <div className="space-y-4 md:space-y-6 animate-fade-in">
                           <div>
                             <Label htmlFor="birthTime" className="flex items-center gap-2 mb-2">
                               <Clock className="w-4 h-4 text-primary" />
@@ -337,12 +337,13 @@ const GemstoneCalculator = () => {
                       )}
 
                       {/* Navigation Buttons */}
-                      <div className="flex gap-4 mt-8">
+                      <div className="flex gap-3 md:gap-4 mt-6 md:mt-8">
                         {step > 1 && (
                           <Button
                             variant="outline"
                             onClick={() => setStep(step - 1)}
                             className="flex-1"
+                            size="default"
                           >
                             Previous
                           </Button>
@@ -350,25 +351,26 @@ const GemstoneCalculator = () => {
                         <Button
                           onClick={handleNext}
                           className="flex-1 group"
-                          size="lg"
+                          size="default"
                         >
-                          {step < 3 ? "Next Step" : "Get My Gemstone"}
+                          <span className="hidden sm:inline">{step < 3 ? "Next Step" : "Get My Gemstone"}</span>
+                          <span className="sm:hidden">{step < 3 ? "Next" : "Get Results"}</span>
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </div>
                     </>
                   ) : (
                     // Results View
-                    <div className="space-y-6 animate-fade-in">
-                      <div className="text-center p-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg">
-                        <Sparkles className="w-16 h-16 mx-auto mb-4 text-primary" />
-                        <h3 className="text-2xl font-bold mb-2">Your Gemstone Recommendations</h3>
-                        <p className="text-muted-foreground">
+                    <div className="space-y-4 md:space-y-6 animate-fade-in">
+                      <div className="text-center p-6 md:p-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg">
+                        <Sparkles className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 text-primary" />
+                        <h3 className="text-xl md:text-2xl font-bold mb-2">Your Gemstone Recommendations</h3>
+                        <p className="text-sm md:text-base text-muted-foreground">
                           Based on your birth chart analysis
                         </p>
                       </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
                         <Card className="hover:shadow-lg transition-all duration-300">
                           <CardContent className="p-6">
                             <img src={blueSapphireSrc} alt="Blue Sapphire" className="w-full h-48 object-cover rounded-lg mb-4" />
@@ -417,16 +419,16 @@ const GemstoneCalculator = () => {
             </div>
 
             {/* Gemstone Guide Sidebar */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 hidden lg:block">
               <Card className="shadow-2xl border-2 border-primary/20 sticky top-4 animate-fade-in">
-                <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
+                <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10 p-4 md:p-6">
+                  <CardTitle className="text-lg md:text-xl flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     Suggested Finger Guide
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="p-6">
-                  <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                <CardContent className="p-4 md:p-6">
+                  <div className="space-y-3 md:space-y-4 max-h-[600px] overflow-y-auto pr-2">
                     {gemstoneGuide.map((gem, index) => (
                       <div
                         key={index}
@@ -456,16 +458,16 @@ const GemstoneCalculator = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-8 md:py-16 px-4 bg-muted/30">
         <div className="container max-w-screen-xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Use Our Calculator?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Why Use Our Calculator?</h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-4">
               Get accurate gemstone recommendations based on authentic Vedic astrology principles
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {[
               {
                 title: "Vedic Accuracy",
@@ -481,12 +483,12 @@ const GemstoneCalculator = () => {
               }
             ].map((benefit, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-primary" />
+                <CardContent className="p-6 md:p-8">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <CheckCircle2 className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{benefit.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
