@@ -469,7 +469,7 @@ const GemstoneCalculator = () => {
             {[
               {
                 title: "21+ Years Expertise",
-                description: "Two decades of dedicated research in Vedic gemology and planetary science, serving 50,000+ satisfied customers worldwide"
+                description: "Two decades of dedicated research in Vedic gemology and planetary science, serving 50 million+ customers worldwide"
               },
               {
                 title: "Data-Driven Analysis",
