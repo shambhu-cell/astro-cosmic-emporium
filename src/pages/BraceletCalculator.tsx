@@ -511,6 +511,344 @@ const BraceletCalculator = () => {
         </div>
       </section>
 
+      {/* What are Crystal Bracelets Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              What are Crystal Healing Bracelets?
+            </h2>
+          </div>
+
+          <Card className="border-2 border-primary/10">
+            <CardContent className="p-6 sm:p-8 space-y-4 text-muted-foreground">
+              <p className="text-base leading-relaxed">
+                Crystal healing bracelets are powerful tools for personal transformation and energy healing. 
+                These bracelets are crafted from natural gemstones and crystals, each possessing unique vibrational frequencies 
+                that interact with your body&apos;s energy field or aura.
+              </p>
+              <p className="text-base leading-relaxed">
+                For thousands of years, ancient civilizations have recognized the healing properties of crystals. 
+                From the Egyptians who adorned themselves with lapis lazuli for wisdom, to the Chinese who used jade for harmony, 
+                crystal therapy has stood the test of time as a holistic approach to well-being.
+              </p>
+              <p className="text-base leading-relaxed">
+                When worn close to your skin, crystal bracelets work by <strong className="text-foreground">balancing your chakras</strong>, 
+                clearing energy blockages, and promoting the free flow of positive energy throughout your body. 
+                Each crystal resonates with specific chakras and addresses particular physical, emotional, or spiritual needs.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Popular Crystal Types Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-gradient-to-br from-accent/5 to-secondary/10">
+        <div className="container mx-auto max-w-6xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Popular Crystal Bracelet Types
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Discover the unique properties and benefits of different crystal bracelets
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                name: "Amethyst",
+                color: "Purple",
+                chakra: "Crown & Third Eye",
+                benefits: "Spiritual growth, intuition, stress relief, protection from negative energy",
+                bestFor: "Meditation, spiritual seekers, those experiencing anxiety"
+              },
+              {
+                name: "Rose Quartz",
+                color: "Pink",
+                chakra: "Heart",
+                benefits: "Unconditional love, self-love, emotional healing, attracting relationships",
+                bestFor: "Healing heartbreak, self-esteem, romantic love"
+              },
+              {
+                name: "Tiger Eye",
+                color: "Golden Brown",
+                chakra: "Solar Plexus",
+                benefits: "Courage, confidence, willpower, prosperity, mental clarity",
+                bestFor: "Business professionals, students, manifestation"
+              },
+              {
+                name: "Black Tourmaline",
+                color: "Black",
+                chakra: "Root",
+                benefits: "Protection, EMF shielding, grounding, negativity removal",
+                bestFor: "Empaths, office workers, energy protection"
+              },
+              {
+                name: "Citrine",
+                color: "Yellow/Gold",
+                chakra: "Solar Plexus",
+                benefits: "Wealth, abundance, manifestation, joy, positive energy",
+                bestFor: "Entrepreneurs, wealth building, success"
+              },
+              {
+                name: "Green Aventurine",
+                color: "Green",
+                chakra: "Heart",
+                benefits: "Luck, opportunity, prosperity, emotional calm, confidence",
+                bestFor: "New ventures, gamblers, emotional balance"
+              }
+            ].map((crystal, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
+                <CardHeader>
+                  <CardTitle className="text-lg font-bold text-foreground flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-primary" />
+                    {crystal.name}
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">{crystal.color}</p>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2">
+                      <span className="font-semibold text-foreground min-w-[60px]">Chakra:</span>
+                      <span className="text-muted-foreground">{crystal.chakra}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="font-semibold text-foreground min-w-[60px]">Benefits:</span>
+                      <span className="text-muted-foreground text-xs">{crystal.benefits}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="font-semibold text-foreground min-w-[60px]">Best For:</span>
+                      <span className="text-muted-foreground text-xs">{crystal.bestFor}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Benefits of Wearing Crystal Bracelets
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Experience holistic transformation with crystal healing energy
+            </p>
+          </div>
+
+          <Card className="border-2 border-primary/10">
+            <CardContent className="p-6 sm:p-8">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  "Balances and aligns your chakra energy centers",
+                  "Protects from negative energies and psychic attacks",
+                  "Enhances emotional well-being and mental clarity",
+                  "Attracts abundance, love, and positive opportunities",
+                  "Promotes physical healing and pain relief",
+                  "Strengthens intuition and spiritual awareness",
+                  "Reduces stress, anxiety, and promotes inner peace",
+                  "Boosts confidence, courage, and personal power",
+                  "Supports manifestation of goals and desires",
+                  "Creates a protective energy shield around your aura",
+                  "Improves sleep quality and dream recall",
+                  "Enhances creativity and problem-solving abilities"
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-muted-foreground leading-relaxed">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-base text-foreground font-semibold mt-6 pt-6 border-t text-center">
+                Crystal bracelets work as constant companions on your journey to wellness, continuously radiating their healing energies 
+                to support your mind, body, and spirit throughout the day.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* How to Choose Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/30 to-accent/10">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              How to Choose Your Perfect Bracelet
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Find the crystal that resonates with your unique energy and needs
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                step: "1",
+                title: "Identify Your Intention",
+                description: "Begin by understanding what you want to manifest or heal in your life. Whether it's love, prosperity, protection, or spiritual growth, clarity of intention is key. Our calculator helps you match your specific needs with the perfect crystal."
+              },
+              {
+                step: "2",
+                title: "Consider Your Birth Chart",
+                description: "Your astrological birth chart reveals your planetary influences and energy patterns. Certain crystals resonate with specific planetary energies, making them more effective for you. Use our Birth Chart Analysis option for personalized recommendations."
+              },
+              {
+                step: "3",
+                title: "Trust Your Intuition",
+                description: "Often, you'll feel naturally drawn to certain crystals. This intuitive pull is your energy field recognizing the crystal that can help balance or enhance specific aspects of your life. Pay attention to which crystals catch your eye or make you feel calm."
+              },
+              {
+                step: "4",
+                title: "Verify Authenticity",
+                description: "Always purchase from trusted sources that provide lab certification. Natural crystals have unique properties that synthetic or fake stones cannot replicate. Look for AAA grade crystals for maximum healing benefits."
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border-2 hover:border-primary/20 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg font-bold text-foreground flex items-center gap-3">
+                    <Badge className="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      {item.step}
+                    </Badge>
+                    {item.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wearing Instructions Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              How to Wear and Care for Your Crystal Bracelet
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Maximize the healing benefits with proper wearing and maintenance
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card className="border-2 border-primary/10">
+              <CardHeader>
+                <CardTitle className="text-xl font-bold text-foreground">
+                  Wearing Guidelines
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Choose the Right Wrist</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Left wrist: Receive energy (healing, protection). Right wrist: Project energy (manifesting, giving).
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Set Your Intention</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Hold your bracelet, close your eyes, and clearly state your intention or goal before wearing.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Wear Consistently</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        For best results, wear daily for at least 21-40 days to allow the crystal energy to fully integrate.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Remove When Needed</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Take off during showering, swimming, sleeping, or when working with chemicals.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-primary/10">
+              <CardHeader>
+                <CardTitle className="text-xl font-bold text-foreground">
+                  Cleansing & Charging
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Initial Cleansing</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Before first use, cleanse with sage smoke, palo santo, or under running water for 2-3 minutes.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Regular Cleansing</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Cleanse weekly or when the energy feels heavy. Use moonlight, selenite plate, or sound healing.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Full Moon Charging</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Place under full moonlight overnight to recharge and amplify the crystal&apos;s energy.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Sunlight Charging</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Some crystals (citrine, tiger eye) benefit from 2-3 hours of morning sunlight. Avoid for rose quartz and amethyst.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20 border-2">
+            <CardContent className="p-6 text-center">
+              <p className="text-base text-foreground font-semibold">
+                Remember: Your crystal bracelet is a living tool for transformation. The more you work with it through meditation, 
+                intention-setting, and proper care, the more powerful its effects become in your life.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Consultation CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-4xl">
