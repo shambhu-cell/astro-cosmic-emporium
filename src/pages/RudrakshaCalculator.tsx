@@ -58,14 +58,25 @@ const rudrakshaGuide = [
     deity: "Lord Shiva",
     planet: "Sun",
     benefits: "Liberation, spiritual growth, peace, prosperity",
+    description: "Ek mukhi or 1 mukhi or one faced rudraksha is considered to be the physical form of Lord Shiva. It is extremely rare and difficult to find. Associated with the Sun, this rudraksha is potent to eliminate health issues such as bone diseases, heart problems, stomach issues, eye diseases etc.",
     image: oneMukhiSrc 
+  },
+  { 
+    name: "2 Mukhi Rudraksha", 
+    hindi: "दो मुखी रुद्राक्ष", 
+    deity: "Shiva-Shakti (Ardhanarishvara)",
+    planet: "Moon",
+    benefits: "Unity, harmony, relationship stability, emotional balance",
+    description: "Do mukhi or two faced Rudraksha symbolize the coming together of Shiva and Shakti. It is known to balance the opposite forces of life, help resolve conflict and promote harmony in relationships. People of marriageable age can solve the problem of delay in marriage by wearing two faced rudraksha.",
+    image: threeMukhiSrc 
   },
   { 
     name: "3 Mukhi Rudraksha", 
     hindi: "तीन मुखी रुद्राक्ष", 
-    deity: "Lord Agni",
+    deity: "Lord Agni (Holy Trinity)",
     planet: "Mars",
-    benefits: "Courage, self-confidence, health improvement",
+    benefits: "Courage, self-confidence, health improvement, prosperity",
+    description: "Three faced rudraksh is symbolic of the holy trinity i.e Brahma, Vishnu, Mahesh. It encompasses all aspects of life, from creation and preservation to destruction. The three faced rudraksha bead is known to bestow courage and strengthen self confidence.",
     image: threeMukhiSrc 
   },
   { 
@@ -73,8 +84,99 @@ const rudrakshaGuide = [
     hindi: "चार मुखी रुद्राक्ष", 
     deity: "Lord Brahma",
     planet: "Mercury",
-    benefits: "Knowledge, focus, academic excellence, stability",
+    benefits: "Knowledge, focus, academic excellence, stability, creativity",
+    description: "Chaar Mukhi Rudraksha is linked with the four vedas, the four directions and Lord Brahma. Owing to this connection with the revered vedas, students are advised to wear four faced rudraksha to perform better in academics.",
     image: fourMukhiSrc 
+  },
+  { 
+    name: "5 Mukhi Rudraksha", 
+    hindi: "पांच मुखी रुद्राक्ष", 
+    deity: "Lord Kalagni Rudra",
+    planet: "Jupiter",
+    benefits: "Health, peace, mental clarity, stress relief, spiritual growth",
+    description: "Five faced rudraksha is the most common and widely worn bead. It represents the five forms of Lord Shiva. This rudraksha enhances awareness, memory and is beneficial for meditation and spiritual practices.",
+    image: oneMukhiSrc 
+  },
+  { 
+    name: "6 Mukhi Rudraksha", 
+    hindi: "छह मुखी रुद्राक्ष", 
+    deity: "Lord Kartikeya",
+    planet: "Venus",
+    benefits: "Wisdom, willpower, grounding, emotional stability",
+    description: "Six faced rudraksha is blessed by Lord Kartikeya, the son of Lord Shiva. It helps in enhancing willpower, focus and concentration. It is particularly beneficial for students and professionals seeking success.",
+    image: fourMukhiSrc 
+  },
+  { 
+    name: "7 Mukhi Rudraksha", 
+    hindi: "सात मुखी रुद्राक्ष", 
+    deity: "Goddess Mahalakshmi",
+    planet: "Saturn",
+    benefits: "Wealth, prosperity, good fortune, abundance",
+    description: "Seven faced rudraksha is associated with Goddess Mahalakshmi and brings wealth, prosperity and good fortune. It helps overcome financial difficulties and brings stability in business and career.",
+    image: threeMukhiSrc 
+  },
+  { 
+    name: "8 Mukhi Rudraksha", 
+    hindi: "आठ मुखी रुद्राक्ष", 
+    deity: "Lord Ganesha",
+    planet: "Rahu",
+    benefits: "Obstacle removal, success, wisdom, new beginnings",
+    description: "Eight faced rudraksha is blessed by Lord Ganesha, the remover of obstacles. It helps in overcoming challenges, brings success in new ventures and enhances wisdom and analytical abilities.",
+    image: oneMukhiSrc 
+  },
+  { 
+    name: "9 Mukhi Rudraksha", 
+    hindi: "नौ मुखी रुद्राक्ष", 
+    deity: "Goddess Durga",
+    planet: "Ketu",
+    benefits: "Energy, courage, protection, fearlessness",
+    description: "Nine faced rudraksha represents Goddess Durga and her nine forms. It provides protection from negative energies, enhances courage and helps overcome fear and anxiety.",
+    image: fourMukhiSrc 
+  },
+  { 
+    name: "10 Mukhi Rudraksha", 
+    hindi: "दस मुखी रुद्राक्ष", 
+    deity: "Lord Vishnu",
+    planet: "All Planets",
+    benefits: "Protection, peace, security, spiritual advancement",
+    description: "Ten faced rudraksha is blessed by Lord Vishnu, the preserver. It provides protection from all negative influences and helps in achieving peace, security and spiritual advancement.",
+    image: threeMukhiSrc 
+  },
+  { 
+    name: "11 Mukhi Rudraksha", 
+    hindi: "ग्यारह मुखी रुद्राक्ष", 
+    deity: "11 Rudras",
+    planet: "All Planets",
+    benefits: "Meditation, awareness, judgment, success",
+    description: "Eleven faced rudraksha represents the eleven Rudras. It enhances meditation, awareness and right judgment. It is beneficial for those seeking spiritual growth and divine blessings.",
+    image: oneMukhiSrc 
+  },
+  { 
+    name: "12 Mukhi Rudraksha", 
+    hindi: "बारह मुखी रुद्राक्ष", 
+    deity: "Lord Surya (Sun God)",
+    planet: "Sun",
+    benefits: "Leadership, confidence, vitality, administrative skills",
+    description: "Twelve faced rudraksha is blessed by Lord Surya. It enhances leadership qualities, administrative abilities and brings name, fame and power. It is ideal for those in leadership positions.",
+    image: fourMukhiSrc 
+  },
+  { 
+    name: "13 Mukhi Rudraksha", 
+    hindi: "तेरह मुखी रुद्राक्ष", 
+    deity: "Lord Kamadeva",
+    planet: "Venus",
+    benefits: "Charm, attraction, fulfillment of desires, charisma",
+    description: "Thirteen faced rudraksha represents Lord Kamadeva. It enhances charm, attraction and helps in fulfillment of desires. It brings success in relationships and creative pursuits.",
+    image: threeMukhiSrc 
+  },
+  { 
+    name: "14 Mukhi Rudraksha", 
+    hindi: "चौदह मुखी रुद्राक्ष", 
+    deity: "Lord Hanuman",
+    planet: "Saturn",
+    benefits: "Protection, courage, intuition, divine grace",
+    description: "Fourteen faced rudraksha is blessed by Lord Hanuman. It provides protection, courage and enhances intuition. It is one of the most powerful beads and bestows divine grace upon the wearer.",
+    image: oneMukhiSrc 
   },
 ];
 
@@ -412,6 +514,9 @@ const RudrakshaCalculator = () => {
                         <span className="font-semibold text-foreground min-w-[70px]">Benefits:</span>
                         <span className="text-muted-foreground">{rudraksha.benefits}</span>
                       </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed pt-2 border-t">
+                        {rudraksha.description}
+                      </p>
                     </div>
                     <Button className="w-full mt-4" variant="outline">
                       View Details
@@ -478,6 +583,224 @@ const RudrakshaCalculator = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* What is Rudraksha Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              What is Rudraksha?
+            </h2>
+          </div>
+
+          <Card className="border-2 border-primary/10">
+            <CardContent className="p-6 sm:p-8 space-y-4 text-muted-foreground">
+              <p className="text-base leading-relaxed">
+                Rudraksha is found in the hilly areas on trees called <strong className="text-foreground">Elaeocarpus ganitrus</strong>. 
+                Rudraksha is a fruit or a seed which is believed to have originated from the tears of Lord Shiva. 
+                Rudraksha is considered dear to Lord Shiva.
+              </p>
+              <p className="text-base leading-relaxed">
+                The literal meaning of the word rudraksha can be understood by dividing the word into <strong className="text-foreground">"rudra"</strong> and <strong className="text-foreground">"aksha"</strong>. 
+                Rudra is another name of Lord Shiva and Aksha means tears.
+              </p>
+              <p className="text-base leading-relaxed">
+                Born out of Shiva, Rudraksha has the power to eliminate the physical grief of the world from one&apos;s life. 
+                It not only enhances the materialistic life that we know but also helps us connect deeper with the spiritual aspects.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Types of Rudraksha Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-gradient-to-br from-accent/5 to-secondary/10">
+        <div className="container mx-auto max-w-6xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Types of Rudraksha
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              This Calculator is formed with the help of Shiva Maha Purana, which states that Rudraksha range up to 38 mukhi. 
+              However, only up to 21 mukhi Rudraksha have been seen. Out of this number as well, up to 14 mukhi are acknowledged by experts.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {rudrakshaGuide.map((rudraksha, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg font-bold text-foreground flex items-center gap-2">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">
+                      {index + 1}
+                    </Badge>
+                    {rudraksha.name}
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">{rudraksha.hindi}</p>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="aspect-video overflow-hidden rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
+                    <img
+                      src={rudraksha.image}
+                      alt={rudraksha.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2">
+                      <span className="font-semibold text-foreground min-w-[60px]">Deity:</span>
+                      <span className="text-muted-foreground">{rudraksha.deity}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="font-semibold text-foreground min-w-[60px]">Planet:</span>
+                      <span className="text-muted-foreground">{rudraksha.planet}</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed pt-2 border-t">
+                    {rudraksha.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Benefits of Wearing Rudraksha
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              The benefits of wearing Rudraksha with the help of Rudraksha Calculator are multifold
+            </p>
+          </div>
+
+          <Card className="border-2 border-primary/10">
+            <CardContent className="p-6 sm:p-8">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  "Rudraksha amplifies the positive outcome of your efforts",
+                  "It protects you from negative energies",
+                  "It can heal your physical ailments as well as balance your emotions",
+                  "Wearing rudraksha can balance your karmic cycle and save you from the malefic effects of planets like Saturn and Rahu",
+                  "It protects you from accidents and unfortunate incidents",
+                  "Wearing rudraksha gives you courage, strength, willpower, determination and vitality",
+                  "Rudraksha balances the chakras in the human body, aligning the individual with the greater powers",
+                  "You can attract abundance, success and prosperity by adorning the precious beads",
+                  "Spiritual awakening and connecting with the inner self becomes much easier when you are wearing an activated rudraksha"
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-muted-foreground leading-relaxed">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-base text-foreground font-semibold mt-6 pt-6 border-t text-center">
+                Rudraksha is simply divine guidance. It shows us the path, gives us the strength to walk on it, 
+                safeguards us while on the journey and yields best possible results in the form of success, prosperity and happiness.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Wearing Process Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/30 to-accent/10">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Wearing Process of Rudraksha
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Follow these essential steps to ensure maximum benefits from your Rudraksha
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                step: "1",
+                title: "Consult Before Purchase",
+                description: "While Wearing rudraksha, the most important thing to consider is that random selection of rudraksha is not advisable to reap the maximum benefits. While there are no negative effects of wearing rudraksha, consulting an astrologer or expert is recommended. The rudraksha calculator of AstroSage is a trusted way to identify which rudraksha will suit you the best."
+              },
+              {
+                step: "2",
+                title: "Ensure Authenticity",
+                description: "Once you have identified which rudraksha you should wear, ensure that you purchase it from a trusted vendor where you will get a lab certificate which is a promise of the bead being 100% natural and authentic."
+              },
+              {
+                step: "3",
+                title: "Choose the Right Day",
+                description: "You need to wear the rudraksha on a specific day. Each mukhi rudraksha is associated with a different planet and thus the day on which it should be worn is also different. If it looks confusing, Monday mornings are the best time to adorn the sacred bead."
+              },
+              {
+                step: "4",
+                title: "Purify & Energize",
+                description: "It is crucial to purify & energize the bead while wearing and re-energizing it from time to time. To do so, dip the bead in sacred water or mix milk or honey with it. Chant mantras to awaken the positive energies of the holy rudraksha. Your intent is the strongest force that will resonate with the rudraksha."
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border-2 hover:border-primary/20 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg font-bold text-foreground flex items-center gap-3">
+                    <Badge className="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      {item.step}
+                    </Badge>
+                    {item.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20 border-2">
+            <CardContent className="p-6 text-center">
+              <p className="text-base text-foreground font-semibold">
+                Rudraksha can transform your life and help you get rid of all your problems. 
+                Analyze through our calculator which mukhi rudraksha you should wear and make Rudraksha bead an integral part of your existence.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Consultation CTA */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/10">
+            <CardContent className="p-8 sm:p-12 text-center space-y-6">
+              <Badge className="mx-auto bg-primary text-primary-foreground">
+                <Sparkles className="w-4 h-4 mr-1" />
+                Still Confused?
+              </Badge>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                Get Expert Consultation
+              </h2>
+              <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                With AstroSage&apos;s trusted online astrology consultation, get life-changing clarity and direction — 
+                based on your unique birth chart and guided by India&apos;s top Vedic astrologers.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-muted-foreground">
+                <Badge variant="outline" className="border-primary/20">One-on-One</Badge>
+                <Badge variant="outline" className="border-primary/20">15 Minutes</Badge>
+                <Badge variant="outline" className="border-primary/20">100% Personalized</Badge>
+                <Badge variant="outline" className="border-primary/20 bg-primary/10">₹699 Only</Badge>
+              </div>
+              <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-base font-semibold h-12 px-8">
+                Book Your Consultation Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
