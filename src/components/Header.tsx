@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet } from "lucide-react";
+import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import astrosageLogo from "@/assets/astrosage-logo.webp";
 
 const Header = () => {
@@ -72,15 +78,47 @@ const Header = () => {
           <a href="/pendant" className="text-sm font-medium hover:text-primary transition-colors">
             Pendant
           </a>
-          <a href="/gemstone-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-primary/10 px-3 py-1 rounded-full">
-            Gemstone Calc
-          </a>
-          <a href="/rudraksha-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-accent/10 px-3 py-1 rounded-full">
-            Rudraksha Calc
-          </a>
-          <a href="/bracelet-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-secondary/50 px-3 py-1 rounded-full">
-            Bracelet Calc
-          </a>
+          
+          {/* Calculators Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors bg-primary/10 px-3 py-1 rounded-full flex items-center gap-1">
+                <Calculator className="w-3.5 h-3.5" />
+                Calculators
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56 bg-background border-border z-50">
+              <DropdownMenuItem asChild>
+                <a href="/gemstone-calculator" className="cursor-pointer flex items-center gap-2 py-2">
+                  <Gem className="w-4 h-4 text-primary" />
+                  <div>
+                    <p className="font-medium">Gemstone Calculator</p>
+                    <p className="text-xs text-muted-foreground">Find your lucky gemstone</p>
+                  </div>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="/rudraksha-calculator" className="cursor-pointer flex items-center gap-2 py-2">
+                  <Circle className="w-4 h-4 text-primary" />
+                  <div>
+                    <p className="font-medium">Rudraksha Calculator</p>
+                    <p className="text-xs text-muted-foreground">Get Rudraksha recommendation</p>
+                  </div>
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href="/bracelet-calculator" className="cursor-pointer flex items-center gap-2 py-2">
+                  <Heart className="w-4 h-4 text-primary" />
+                  <div>
+                    <p className="font-medium">Bracelet Calculator</p>
+                    <p className="text-xs text-muted-foreground">Discover healing bracelets</p>
+                  </div>
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
           <a href="/about-us" className="text-sm font-medium hover:text-primary transition-colors">
             About Us
           </a>
