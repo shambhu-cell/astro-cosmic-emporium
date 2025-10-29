@@ -163,8 +163,8 @@ const GemstoneCalculator = () => {
           <div className="grid lg:grid-cols-3 gap-0 sm:gap-6 md:gap-8">
             {/* Calculator Form */}
             <div className="lg:col-span-2">
-              <Card className="shadow-2xl border-2 border-primary/20 animate-fade-in bg-background relative z-20 rounded-none sm:rounded-lg">
-                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-accent/5 p-4 md:p-6">
+              <Card className="shadow-2xl border-2 border-primary/20 animate-fade-in bg-background relative z-20 rounded-none sm:rounded-lg border-x-0 sm:border-x-2">
+                <CardHeader className="border-b bg-gradient-to-r from-primary/5 to-accent/5 px-4 py-4 md:p-6">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <CardTitle className="text-xl sm:text-2xl md:text-3xl">
                       Gemstone Recommendation
@@ -181,7 +181,7 @@ const GemstoneCalculator = () => {
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10">
+                <CardContent className="px-4 py-6 sm:p-6 md:p-8 lg:p-10">
                   {!showResults ? (
                     <>
                       {/* Step 1: Personal Details */}
