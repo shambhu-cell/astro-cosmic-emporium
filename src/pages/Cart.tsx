@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { 
   ShoppingBag, 
@@ -25,34 +25,43 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { cn } from "@/lib/utils";
+import chakraBracelet from "@/assets/bracelets/7-chakra.jpg";
+import tigerEyeBracelet from "@/assets/bracelets/tiger-eye.jpg";
+import aventurineBracelet from "@/assets/bracelets/aventurine.jpg";
+import rudrakshaMala from "@/assets/mala/rudraksha-mala.jpg";
+import crystalMala from "@/assets/mala/crystal-mala.jpg";
 
-// Mock cart items
+// Mock cart items with real images
 const initialCartItems = [
   {
     id: 1,
     name: "7 Chakra Healing Bracelet",
     category: "Crystal Bracelet",
+    description: "Balance your energy centers",
     price: 1299,
     originalPrice: 1999,
     quantity: 1,
-    image: "/placeholder.svg",
+    image: chakraBracelet,
     rating: 4.8,
     reviews: 342,
     inStock: 8,
-    energized: true
+    energized: true,
+    benefits: ["Chakra Balancing", "Energy Healing", "Spiritual Growth"]
   },
   {
     id: 2,
-    name: "Natural Rudraksha Mala",
+    name: "Natural Rudraksha Mala (108 Beads)",
     category: "Spiritual Mala",
+    description: "Authentic Nepali Rudraksha",
     price: 2499,
     originalPrice: 3499,
     quantity: 2,
-    image: "/placeholder.svg",
+    image: rudrakshaMala,
     rating: 4.9,
     reviews: 521,
     inStock: 12,
-    energized: true
+    energized: true,
+    benefits: ["Peace of Mind", "Meditation Support", "Divine Blessings"]
   }
 ];
 
@@ -62,24 +71,27 @@ const recommendedProducts = [
     name: "Tiger Eye Protection Bracelet",
     price: 899,
     originalPrice: 1499,
-    image: "/placeholder.svg",
-    discount: 40
+    image: tigerEyeBracelet,
+    discount: 40,
+    benefit: "Protection & Courage"
   },
   {
     id: 102,
-    name: "Rose Quartz Love Bracelet",
+    name: "Green Aventurine Prosperity",
     price: 1099,
     originalPrice: 1699,
-    image: "/placeholder.svg",
-    discount: 35
+    image: aventurineBracelet,
+    discount: 35,
+    benefit: "Wealth & Luck"
   },
   {
     id: 103,
-    name: "Black Obsidian Shield Bracelet",
+    name: "Crystal Quartz Healing Mala",
     price: 1199,
     originalPrice: 1899,
-    image: "/placeholder.svg",
-    discount: 37
+    image: crystalMala,
+    discount: 37,
+    benefit: "Clarity & Healing"
   }
 ];
 
@@ -88,6 +100,24 @@ export default function Cart() {
   const [promoCode, setPromoCode] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
   const [viewingCount] = useState(Math.floor(Math.random() * 15) + 8);
+  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 34, seconds: 28 });
+  
+  // Countdown timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const savings = cartItems.reduce((sum, item) => sum + ((item.originalPrice - item.price) * item.quantity), 0);
@@ -144,31 +174,64 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Urgency Bar */}
-      <div className="bg-gradient-primary text-primary-foreground py-2">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-2 text-sm font-medium">
-          <Clock className="w-4 h-4" />
-          <span>Flash Sale ends in 2h 34m - Complete your order now!</span>
+      {/* Urgency Bar with Live Timer */}
+      <div className="bg-gradient-primary text-primary-foreground py-3 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 text-sm font-medium flex-wrap">
+            <Clock className="w-5 h-5 animate-pulse" />
+            <span className="text-base">⚡ Flash Sale Ending Soon:</span>
+            <div className="flex items-center gap-2 bg-background/20 px-3 py-1 rounded-lg backdrop-blur-sm">
+              <span className="text-lg font-bold">{String(timeLeft.hours).padStart(2, '0')}</span>
+              <span>:</span>
+              <span className="text-lg font-bold">{String(timeLeft.minutes).padStart(2, '0')}</span>
+              <span>:</span>
+              <span className="text-lg font-bold">{String(timeLeft.seconds).padStart(2, '0')}</span>
+            </div>
+            <span className="text-xs opacity-90">Don't miss out on massive savings!</span>
+          </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-3xl font-bold flex items-center gap-3">
-              <ShoppingBag className="w-8 h-8" />
-              Shopping Cart
-            </h1>
-            <p className="text-muted-foreground mt-1">
-              {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart
-            </p>
+        {/* Header with Enhanced Savings Display */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-4xl font-bold flex items-center gap-3 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                <ShoppingBag className="w-10 h-10 text-primary" />
+                Your Cart
+              </h1>
+              <p className="text-muted-foreground mt-2 text-lg">
+                {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} ready for checkout
+              </p>
+            </div>
+            <div className="hidden md:flex items-center gap-2 text-sm px-4 py-2 bg-primary/10 rounded-lg border border-primary/20">
+              <Users className="w-4 h-4 text-primary animate-pulse" />
+              <span className="text-muted-foreground">
+                <strong className="text-primary">{viewingCount} shoppers</strong> active now
+              </span>
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-2 text-sm">
-            <Users className="w-4 h-4 text-primary" />
-            <span className="text-muted-foreground">
-              <strong className="text-foreground">{viewingCount} people</strong> viewing their carts right now
-            </span>
+          
+          {/* Savings Highlight Banner */}
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border border-green-200 dark:border-green-800 rounded-xl p-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="font-semibold text-green-900 dark:text-green-100 text-lg">
+                  🎉 You're Saving ₹{savings} Today!
+                </p>
+                <p className="text-sm text-green-700 dark:text-green-300">
+                  That's {Math.round((savings / (subtotal + savings)) * 100)}% off your purchase
+                </p>
+              </div>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 text-2xl font-bold text-green-600 dark:text-green-400">
+              <Tag className="w-6 h-6" />
+              ₹{savings}
+            </div>
           </div>
         </div>
 
@@ -196,28 +259,39 @@ export default function Cart() {
                 <CardContent className="p-4">
                   <div className="flex gap-4">
                     {/* Product Image */}
-                    <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
+                    <div className="relative w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden bg-muted group">
                       <img 
                         src={item.image} 
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       {item.energized && (
-                        <Badge className="absolute top-1 left-1 text-xs" variant="default">
+                        <Badge className="absolute top-1 left-1 text-xs shadow-lg animate-pulse">
                           <Sparkles className="w-3 h-3 mr-1" />
                           Energized
                         </Badge>
                       )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
 
                     {/* Product Details */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
-                          <Link to={`/product/${item.id}`} className="hover:text-primary transition-colors">
-                            <h3 className="font-semibold text-lg leading-tight mb-1">{item.name}</h3>
+                          <Link to={`/bracelet/${item.id}`} className="hover:text-primary transition-colors group">
+                            <h3 className="font-bold text-lg leading-tight mb-1 group-hover:underline">{item.name}</h3>
                           </Link>
-                          <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
+                          <p className="text-sm text-muted-foreground mb-1">{item.category}</p>
+                          <p className="text-xs text-muted-foreground italic mb-2">{item.description}</p>
+                          
+                          {/* Benefits Pills */}
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {item.benefits.map((benefit, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs px-2 py-0.5">
+                                {benefit}
+                              </Badge>
+                            ))}
+                          </div>
                           
                           {/* Rating & Stock */}
                           <div className="flex items-center gap-4 text-sm mb-3">
@@ -234,13 +308,18 @@ export default function Cart() {
                             )}
                           </div>
 
-                          {/* Price */}
-                          <div className="flex items-center gap-2">
-                            <span className="text-xl font-bold">₹{item.price}</span>
-                            <span className="text-sm text-muted-foreground line-through">₹{item.originalPrice}</span>
-                            <Badge variant="secondary" className="text-xs">
-                              {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% OFF
-                            </Badge>
+                          {/* Enhanced Price Display */}
+                          <div className="flex items-center gap-3 flex-wrap">
+                            <span className="text-2xl font-bold text-primary">₹{item.price}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-muted-foreground line-through">₹{item.originalPrice}</span>
+                              <Badge className="bg-green-500 hover:bg-green-600 text-white text-xs px-2">
+                                SAVE {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}%
+                              </Badge>
+                            </div>
+                            <span className="text-xs text-green-600 dark:text-green-400 font-medium">
+                              You save ₹{(item.originalPrice - item.price) * item.quantity}
+                            </span>
                           </div>
                         </div>
 
@@ -290,38 +369,55 @@ export default function Cart() {
               </Card>
             ))}
 
-            {/* Recommended Products */}
-            <Card className="mt-8">
+            {/* Enhanced Recommended Products */}
+            <Card className="mt-8 border-2 border-primary/20 shadow-lg">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Tag className="w-5 h-5 text-primary" />
-                  Frequently Bought Together
-                </h3>
+                <div className="flex items-center justify-between mb-5">
+                  <div>
+                    <h3 className="text-2xl font-bold flex items-center gap-2">
+                      <Sparkles className="w-6 h-6 text-primary" />
+                      Complete Your Spiritual Journey
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">Customers who bought these also loved...</p>
+                  </div>
+                  <Badge className="bg-gradient-primary text-primary-foreground">Hot Deals</Badge>
+                </div>
                 <div className="grid md:grid-cols-3 gap-4">
                   {recommendedProducts.map((product) => (
-                    <Card key={product.id} className="overflow-hidden hover:shadow-md transition-shadow group">
-                      <div className="relative aspect-square bg-muted">
+                    <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/30 group">
+                      <div className="relative aspect-square bg-muted overflow-hidden">
                         <img 
                           src={product.image} 
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <Badge className="absolute top-2 right-2 bg-destructive text-destructive-foreground">
-                          {product.discount}% OFF
+                        <Badge className="absolute top-3 right-3 bg-red-500 text-white shadow-lg text-sm px-3 py-1 animate-pulse">
+                          -{product.discount}%
                         </Badge>
-                      </div>
-                      <CardContent className="p-3">
-                        <h4 className="font-semibold text-sm mb-2 line-clamp-2">{product.name}</h4>
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <span className="font-bold">₹{product.price}</span>
-                            <span className="text-xs text-muted-foreground line-through ml-2">₹{product.originalPrice}</span>
-                          </div>
-                          <Button size="sm" variant="outline" className="h-8 px-3">
-                            <Plus className="w-3 h-3 mr-1" />
-                            Add
-                          </Button>
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                          <p className="text-white text-xs font-medium flex items-center gap-1">
+                            <CheckCircle2 className="w-3 h-3" />
+                            {product.benefit}
+                          </p>
                         </div>
+                      </div>
+                      <CardContent className="p-4">
+                        <h4 className="font-bold text-base mb-3 line-clamp-2 group-hover:text-primary transition-colors">{product.name}</h4>
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex flex-col">
+                            <span className="text-xl font-bold text-primary">₹{product.price}</span>
+                            <span className="text-xs text-muted-foreground line-through">₹{product.originalPrice}</span>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-xs text-green-600 dark:text-green-400 font-semibold">
+                              Save ₹{product.originalPrice - product.price}
+                            </p>
+                          </div>
+                        </div>
+                        <Button size="sm" variant="primary" className="w-full">
+                          <Plus className="w-4 h-4 mr-1" />
+                          Add to Cart
+                        </Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -330,53 +426,92 @@ export default function Cart() {
             </Card>
           </div>
 
-          {/* Order Summary - Sticky */}
+          {/* Enhanced Order Summary - Sticky */}
           <div className="lg:col-span-1">
             <div className="sticky top-4 space-y-4">
-              {/* Trust Badges */}
-              <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
-                <CardContent className="p-4 space-y-3">
-                  <div className="flex items-center gap-3 text-sm">
-                    <Shield className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span><strong>100% Authentic</strong> - Certified Products</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <RotateCcw className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span><strong>Easy Returns</strong> - 7 Days Return Policy</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Truck className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span><strong>Fast Delivery</strong> - 2-4 Business Days</span>
+              {/* Premium Trust Badges */}
+              <Card className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/5 border-2 border-primary/30 shadow-lg">
+                <CardContent className="p-5 space-y-4">
+                  <h4 className="font-bold text-center mb-3 flex items-center justify-center gap-2">
+                    <Shield className="w-5 h-5 text-primary" />
+                    Your Protection Guaranteed
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-background/50 rounded-lg">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Shield className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">100% Authentic</p>
+                        <p className="text-xs text-muted-foreground">Lab-certified genuine products</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-3 bg-background/50 rounded-lg">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <RotateCcw className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Hassle-Free Returns</p>
+                        <p className="text-xs text-muted-foreground">7-day money-back guarantee</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-3 bg-background/50 rounded-lg">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Truck className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">Express Shipping</p>
+                        <p className="text-xs text-muted-foreground">Delivered in 2-4 business days</p>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Order Summary */}
-              <Card>
-                <CardContent className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold">Order Summary</h3>
+              {/* Enhanced Order Summary */}
+              <Card className="border-2 shadow-xl">
+                <CardContent className="p-6 space-y-5">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold">Order Summary</h3>
+                    <Badge variant="secondary" className="text-xs">
+                      {cartItems.reduce((sum, item) => sum + item.quantity, 0)} items
+                    </Badge>
+                  </div>
                   
                   <Separator />
                   
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-sm">
+                  <div className="space-y-3 bg-muted/30 p-4 rounded-lg">
+                    <div className="flex justify-between">
                       <span className="text-muted-foreground">Subtotal</span>
-                      <span className="font-medium">₹{subtotal}</span>
+                      <span className="font-semibold text-lg">₹{subtotal}</span>
                     </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">You Save</span>
-                      <span className="font-medium text-green-600">-₹{savings}</span>
+                    <div className="flex justify-between items-center p-2 bg-green-50 dark:bg-green-950/30 rounded-md border border-green-200 dark:border-green-800">
+                      <span className="text-green-700 dark:text-green-300 font-medium flex items-center gap-1">
+                        <Tag className="w-4 h-4" />
+                        Your Savings
+                      </span>
+                      <span className="font-bold text-lg text-green-600 dark:text-green-400">-₹{savings}</span>
                     </div>
                     {promoApplied && (
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Promo Discount</span>
-                        <span className="font-medium text-green-600">-₹{promoDiscount}</span>
+                      <div className="flex justify-between items-center p-2 bg-green-50 dark:bg-green-950/30 rounded-md border border-green-200 dark:border-green-800">
+                        <span className="text-green-700 dark:text-green-300 font-medium flex items-center gap-1">
+                          <CheckCircle2 className="w-4 h-4" />
+                          Promo Applied
+                        </span>
+                        <span className="font-bold text-green-600 dark:text-green-400">-₹{promoDiscount}</span>
                       </div>
                     )}
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between items-center">
                       <span className="text-muted-foreground">Shipping</span>
-                      <span className={cn("font-medium", shipping === 0 && "text-green-600")}>
-                        {shipping === 0 ? "FREE" : `₹${shipping}`}
+                      <span className={cn("font-semibold", shipping === 0 && "text-green-600 dark:text-green-400")}>
+                        {shipping === 0 ? (
+                          <span className="flex items-center gap-1">
+                            <CheckCircle2 className="w-4 h-4" />
+                            FREE
+                          </span>
+                        ) : (
+                          `₹${shipping}`
+                        )}
                       </span>
                     </div>
                   </div>
@@ -410,21 +545,40 @@ export default function Cart() {
                     )}
                   </div>
 
-                  <Separator />
+                  <Separator className="my-4" />
 
-                  {/* Total */}
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold">Total</span>
-                    <span className="text-2xl font-bold text-primary">₹{total}</span>
+                  {/* Enhanced Total */}
+                  <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-4 rounded-lg space-y-2">
+                    <div className="flex justify-between items-baseline">
+                      <span className="text-lg font-semibold text-muted-foreground">Total Amount</span>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-primary">₹{total}</div>
+                        <div className="text-xs text-muted-foreground line-through">₹{subtotal + savings + shipping}</div>
+                      </div>
+                    </div>
+                    {savings > 0 && (
+                      <p className="text-center text-sm text-green-600 dark:text-green-400 font-medium">
+                        🎉 You're saving ₹{savings + promoDiscount} on this order!
+                      </p>
+                    )}
                   </div>
 
-                  {/* Checkout Button */}
-                  <Button variant="primary" size="lg" className="w-full" asChild>
+                  {/* Enhanced Checkout Button */}
+                  <Button variant="primary" size="xl" className="w-full text-lg shadow-xl hover:shadow-2xl" asChild>
                     <Link to="/payment">
-                      <Lock className="mr-2 w-4 h-4" />
-                      Secure Checkout
+                      <Lock className="mr-2 w-5 h-5" />
+                      Proceed to Secure Checkout
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
+
+                  {/* Limited Time Offer Banner */}
+                  <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-center">
+                    <p className="text-sm font-semibold text-red-700 dark:text-red-300 flex items-center justify-center gap-2">
+                      <Clock className="w-4 h-4 animate-pulse" />
+                      Complete checkout in {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')} to lock in these prices!
+                    </p>
+                  </div>
 
                   {/* Continue Shopping */}
                   <Button variant="outline" className="w-full" asChild>
@@ -447,13 +601,23 @@ export default function Cart() {
                 </CardContent>
               </Card>
 
-              {/* Social Proof */}
-              <Alert className="border-primary/20 bg-primary/5">
-                <Users className="w-4 h-4 text-primary" />
-                <AlertDescription className="text-sm">
-                  <strong>2,341 orders</strong> placed in the last 24 hours
-                </AlertDescription>
-              </Alert>
+              {/* Enhanced Social Proof */}
+              <Card className="border-primary/30 bg-gradient-to-br from-primary/5 to-secondary/5">
+                <CardContent className="p-4 space-y-3">
+                  <Alert className="border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/20">
+                    <Users className="w-4 h-4 text-green-600" />
+                    <AlertDescription className="text-sm text-green-900 dark:text-green-100">
+                      <strong>2,341 happy customers</strong> ordered in the last 24 hours
+                    </AlertDescription>
+                  </Alert>
+                  <Alert className="border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/20">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                    <AlertDescription className="text-sm text-blue-900 dark:text-blue-100">
+                      <strong>98.7% customers</strong> recommend us
+                    </AlertDescription>
+                  </Alert>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
