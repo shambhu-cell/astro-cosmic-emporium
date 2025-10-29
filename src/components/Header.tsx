@@ -48,6 +48,26 @@ const Header = () => {
     { name: "Black Obsidian", href: "/bracelets/obsidian" },
   ];
 
+  const malaTypes = [
+    { name: "Rudraksha Mala", href: "/mala/rudraksha" },
+    { name: "Crystal Mala", href: "/mala/crystal" },
+    { name: "Tulsi Mala", href: "/mala/tulsi" },
+    { name: "Sandalwood Mala", href: "/mala/sandalwood" },
+    { name: "Gemstone Mala", href: "/mala/gemstone" },
+    { name: "Sphatik Mala", href: "/mala/sphatik" },
+  ];
+
+  const yantraTypes = [
+    { name: "Sri Yantra", href: "/yantra/sri-yantra" },
+    { name: "Kuber Yantra", href: "/yantra/kuber" },
+    { name: "Shree Yantra", href: "/yantra/shree" },
+    { name: "Mahamrityunjaya Yantra", href: "/yantra/mahamrityunjaya" },
+    { name: "Baglamukhi Yantra", href: "/yantra/baglamukhi" },
+    { name: "Durga Yantra", href: "/yantra/durga" },
+    { name: "Ganesh Yantra", href: "/yantra/ganesh" },
+    { name: "Vastu Yantra", href: "/yantra/vastu" },
+  ];
+
   const productCategories = [
     { name: "Gemstones", href: "/gemstones", icon: Gem },
     { name: "Rudraksha", href: "/rudraksha", icon: Circle },
@@ -180,12 +200,67 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a href="/mala" className="text-sm font-medium hover:text-primary transition-colors">
-            Mala
-          </a>
-          <a href="/yantra" className="text-sm font-medium hover:text-primary transition-colors">
-            Yantra
-          </a>
+          {/* Mala Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <Circle className="w-3.5 h-3.5" />
+                Mala
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56 bg-background border-border z-50">
+              <div className="px-2 py-2">
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase">Popular Types</p>
+              </div>
+              {malaTypes.map((type) => (
+                <DropdownMenuItem key={type.name} asChild>
+                  <a href={type.href} className="cursor-pointer flex items-center gap-2 py-2">
+                    <Circle className="w-4 h-4 text-primary" />
+                    <span className="font-medium">{type.name}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <div className="border-t mt-1 pt-1">
+                <DropdownMenuItem asChild>
+                  <a href="/mala" className="cursor-pointer font-semibold text-primary py-2">
+                    View All Mala →
+                  </a>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Yantra Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <Eye className="w-3.5 h-3.5" />
+                Yantra
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56 bg-background border-border z-50">
+              <div className="px-2 py-2">
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase">Sacred Yantras</p>
+              </div>
+              {yantraTypes.map((type) => (
+                <DropdownMenuItem key={type.name} asChild>
+                  <a href={type.href} className="cursor-pointer flex items-center gap-2 py-2">
+                    <Eye className="w-4 h-4 text-primary" />
+                    <span className="font-medium">{type.name}</span>
+                  </a>
+                </DropdownMenuItem>
+              ))}
+              <div className="border-t mt-1 pt-1">
+                <DropdownMenuItem asChild>
+                  <a href="/yantra" className="cursor-pointer font-semibold text-primary py-2">
+                    View All Yantras →
+                  </a>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
           {/* Calculators Dropdown */}
           <DropdownMenu>
