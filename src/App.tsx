@@ -35,6 +35,7 @@ import RudrakshaCalculator from "./pages/RudrakshaCalculator";
 import BraceletCalculator from "./pages/BraceletCalculator";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/pendant" element={<Pendant />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/gemstone-calculator" element={<GemstoneCalculator />} />
           <Route path="/rudraksha-calculator" element={<RudrakshaCalculator />} />
           <Route path="/bracelet-calculator" element={<BraceletCalculator />} />
