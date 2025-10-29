@@ -78,6 +78,9 @@ const Header = () => {
           <a href="/rudraksha-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-accent/10 px-3 py-1 rounded-full">
             Rudraksha Calc
           </a>
+          <a href="/bracelet-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-secondary/50 px-3 py-1 rounded-full">
+            Bracelet Calc
+          </a>
           <a href="/about-us" className="text-sm font-medium hover:text-primary transition-colors">
             About Us
           </a>
@@ -188,6 +191,18 @@ const Header = () => {
                     <Button className="w-full h-12 bg-gradient-to-r from-accent to-accent/80 hover:opacity-90 text-base font-semibold shadow-lg group">
                       <Calculator className="w-5 h-5 mr-2" />
                       Rudraksha Calculator
+                      <Sparkles className="w-4 h-4 ml-auto" />
+                    </Button>
+                  </a>
+                  
+                  <a 
+                    href="/bracelet-calculator" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block"
+                  >
+                    <Button className="w-full h-12 bg-gradient-to-r from-secondary to-secondary/80 hover:opacity-90 text-base font-semibold shadow-lg group">
+                      <Heart className="w-5 h-5 mr-2" />
+                      Bracelet Calculator
                       <Sparkles className="w-4 h-4 ml-auto" />
                     </Button>
                   </a>
