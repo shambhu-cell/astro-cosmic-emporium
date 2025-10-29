@@ -33,6 +33,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import GemstoneCalculator from "./pages/GemstoneCalculator";
 import RudrakshaCalculator from "./pages/RudrakshaCalculator";
 import BraceletCalculator from "./pages/BraceletCalculator";
+import CaratRattiCalculator from "./pages/CaratRattiCalculator";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/gemstone-calculator" element={<GemstoneCalculator />} />
           <Route path="/rudraksha-calculator" element={<RudrakshaCalculator />} />
           <Route path="/bracelet-calculator" element={<BraceletCalculator />} />
+          <Route path="/carat-ratti-calculator" element={<CaratRattiCalculator />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
