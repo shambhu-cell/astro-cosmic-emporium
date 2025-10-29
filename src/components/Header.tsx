@@ -138,7 +138,31 @@ const Header = () => {
 
               {/* Menu Content */}
               <div className="px-6 py-6 space-y-6">
-                {/* CTA Buttons - Most Important */}
+                {/* Product Categories - First Section */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+                    Shop by Category
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {productCategories.map((category) => (
+                      <a
+                        key={category.name}
+                        href={category.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex flex-col items-center gap-2 p-4 rounded-lg bg-gradient-to-br from-secondary/50 to-secondary/30 hover:from-primary/10 hover:to-accent/10 border border-border hover:border-primary/20 transition-all group"
+                      >
+                        <category.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                        <span className="text-xs font-medium text-center text-foreground leading-tight">
+                          {category.name}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <Separator />
+
+                {/* Calculator Buttons */}
                 <div className="space-y-3">
                   <a 
                     href="/gemstone-calculator" 
@@ -163,17 +187,6 @@ const Header = () => {
                       <Sparkles className="w-4 h-4 ml-auto" />
                     </Button>
                   </a>
-                </div>
-
-                <Separator />
-
-                {/* Search */}
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    placeholder="Search products..."
-                    className="pl-10 h-11 bg-secondary/50 border-border"
-                  />
                 </div>
 
                 <Separator />
@@ -208,30 +221,6 @@ const Header = () => {
                       <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                       <span className="text-base font-medium text-foreground">Contact</span>
                     </a>
-                  </div>
-                </div>
-
-                <Separator />
-
-                {/* Product Categories */}
-                <div className="space-y-3">
-                  <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                    Shop by Category
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {productCategories.map((category) => (
-                      <a
-                        key={category.name}
-                        href={category.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex flex-col items-center gap-2 p-4 rounded-lg bg-gradient-to-br from-secondary/50 to-secondary/30 hover:from-primary/10 hover:to-accent/10 border border-border hover:border-primary/20 transition-all group"
-                      >
-                        <category.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                        <span className="text-xs font-medium text-center text-foreground leading-tight">
-                          {category.name}
-                        </span>
-                      </a>
-                    ))}
                   </div>
                 </div>
 
