@@ -52,6 +52,9 @@ const Header = () => {
           <a href="/pendant" className="text-sm font-medium hover:text-primary transition-colors">
             Pendant
           </a>
+          <a href="/gemstone-calculator" className="text-sm font-medium hover:text-primary transition-colors bg-primary/10 px-3 py-1 rounded-full">
+            Calculator
+          </a>
           <a href="/about-us" className="text-sm font-medium hover:text-primary transition-colors">
             About Us
           </a>

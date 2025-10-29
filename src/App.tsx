@@ -30,6 +30,7 @@ import ReturnPolicy from "./pages/ReturnPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
+import GemstoneCalculator from "./pages/GemstoneCalculator";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/pendant" element={<Pendant />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gemstone-calculator" element={<GemstoneCalculator />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
