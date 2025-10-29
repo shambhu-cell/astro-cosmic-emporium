@@ -158,7 +158,7 @@ const GemstoneCalculator = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-8 md:py-16 px-0 sm:px-4 -mt-8 sm:-mt-12 md:-mt-20 relative z-20">
+      <section className="py-8 md:py-16 px-0 sm:px-4 -mt-4 sm:-mt-8 md:-mt-16 relative z-20">
         <div className="container max-w-screen-xl mx-auto px-0 sm:px-4">
           <div className="grid lg:grid-cols-3 gap-0 sm:gap-6 md:gap-8">
             {/* Calculator Form */}
