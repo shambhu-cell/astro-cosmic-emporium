@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">Protecting Your Information</h2>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    At AstroSage, your privacy is of utmost importance to us. This Privacy Policy explains how we collect, 
+                    At AstroSage Shop, your privacy is of utmost importance to us. This Privacy Policy explains how we collect, 
                     use, disclose, and safeguard your information when you visit our website and use our services. 
                     By using AstroSage.shop, you agree to the collection and use of information in accordance with this policy.
                   </p>

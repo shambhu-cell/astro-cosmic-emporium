@@ -42,7 +42,7 @@ const AboutUs = () => {
             India's Most Trusted Astrology Platform
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            With <strong>1.2 Million Daily Active Users</strong>, AstroSage has been driven by a single mission since 2004: 
+            With <strong>1.2 Million Daily Active Users</strong>, AstroSage Shop has been driven by a single mission since 2004: 
             to make astrology accessible, credible, and useful for everyone.
           </p>
         </div>
@@ -233,7 +233,7 @@ const AboutUs = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     From certified gemstones to powerful yantras, from traditional rudraksha to blessed malas—every 
                     product on our platform carries the same commitment to authenticity and quality that has made 
-                    AstroSage India&apos;s most trusted astrology brand.
+                    AstroSage Shop India&apos;s most trusted astrology brand.
                   </p>
                 </div>
               </CardContent>
@@ -288,7 +288,7 @@ const AboutUs = () => {
                   </p>
                   <div className="mt-8">
                     <p className="font-bold text-lg text-foreground">Puneet Pandey</p>
-                    <p className="text-muted-foreground">Founder & CEO, AstroSage</p>
+                    <p className="text-muted-foreground">Founder & CEO, AstroSage Shop</p>
                   </div>
                 </div>
               </div>

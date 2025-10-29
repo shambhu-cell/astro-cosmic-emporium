@@ -29,7 +29,7 @@ const Footer = () => {
                   className="h-10 w-auto brightness-0 invert"
                 />
                 <div>
-                  <h3 className="text-xl font-bold">AstroSage Store</h3>
+                  <h3 className="text-xl font-bold">AstroSage Shop</h3>
                   <p className="text-sm text-background/70">Trusted Since 2001</p>
                 </div>
               </div>
@@ -163,7 +163,7 @@ const Footer = () => {
         <div className="border-t border-background/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-background/60 mb-4 md:mb-0">
-              © 2024 AstroSage.com. All rights reserved.
+              © 2024 AstroSage Shop. All rights reserved.
             </div>
             <div className="flex flex-wrap items-center space-x-6 text-sm">
               <a href="/privacy-policy" className="text-background/60 hover:text-primary transition-colors">Privacy Policy</a>

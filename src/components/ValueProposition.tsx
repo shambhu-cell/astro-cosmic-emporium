@@ -40,7 +40,7 @@ const ValueProposition = () => {
       <div className="container max-w-screen-xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose AstroSage Store?
+            Why Choose AstroSage Shop?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             India's most trusted astrology platform with unmatched quality and service

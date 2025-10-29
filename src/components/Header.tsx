@@ -17,7 +17,7 @@ const Header = () => {
           />
           <div className="hidden sm:block">
             <h1 className="text-xl font-bold text-primary">
-              AstroSage
+              AstroSage Shop
             </h1>
             <p className="text-xs text-muted-foreground">Trusted Since 2004</p>
           </div>

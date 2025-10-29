@@ -283,7 +283,7 @@ const Contact = () => {
                 <CardContent className="p-8 md:p-10">
                   <h3 className="font-bold text-2xl mb-6 flex items-center gap-2">
                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                    Why Choose AstroSage?
+                    Why Choose AstroSage Shop?
                   </h3>
                   <ul className="space-y-4">
                     {[

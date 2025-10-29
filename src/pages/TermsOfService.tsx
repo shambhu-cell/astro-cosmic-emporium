@@ -63,17 +63,17 @@ const TermsOfService = () => {
     {
       icon: FileText,
       title: "Intellectual Property",
-      content: "All content on this website, including text, images, logos, and graphics, is the property of AstroSage or its content suppliers and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission."
+      content: "All content on this website, including text, images, logos, and graphics, is the property of AstroSage Shop or its content suppliers and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission."
     },
     {
       icon: ShieldCheck,
       title: "Limitation of Liability",
-      content: "To the fullest extent permitted by law, AstroSage shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of our website or services."
+      content: "To the fullest extent permitted by law, AstroSage Shop shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of our website or services."
     },
     {
       icon: Scale,
       title: "Indemnification",
-      content: "You agree to indemnify and hold harmless AstroSage, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses arising out of your use of our services or violation of these Terms."
+      content: "You agree to indemnify and hold harmless AstroSage Shop, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses arising out of your use of our services or violation of these Terms."
     }
   ];
 
@@ -125,7 +125,7 @@ const TermsOfService = () => {
                   <ShieldCheck className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">Welcome to AstroSage</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">Welcome to AstroSage Shop</h2>
                   <p className="text-muted-foreground leading-relaxed text-lg">
                     By accessing and using our website, you accept and agree to be bound by the terms and provisions of this agreement. 
                     These Terms of Service govern your use of AstroSage.shop, including all products, services, and content available through 
