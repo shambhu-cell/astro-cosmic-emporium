@@ -169,11 +169,24 @@ const Footer = () => {
               </div>
             </div>
             <div>
-              <h5 className="font-medium mb-3">Security Certifications</h5>
-              <div className="flex items-center space-x-4">
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">SSL Secured</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">256-bit Encryption</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">PCI DSS Compliant</div>
+              <h5 className="font-medium mb-3">Certifications & Trust Marks</h5>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-primary" />
+                  <span className="text-xs">BIS Hallmark</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Award className="h-4 w-4 text-primary" />
+                  <span className="text-xs">ISO Certified</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Award className="h-4 w-4 text-primary" />
+                  <span className="text-xs">Lab Certified</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-primary" />
+                  <span className="text-xs">SSL Secured</span>
+                </div>
               </div>
             </div>
           </div>
