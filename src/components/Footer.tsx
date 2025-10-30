@@ -126,16 +126,6 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Download App */}
-              <div className="mt-6">
-                <h5 className="font-medium mb-3">Download Our App</h5>
-                <div className="flex flex-col space-y-2">
-                  <div className="bg-accent rounded px-3 py-2 text-center">
-                    <span className="text-sm">Available on Play Store & App Store</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
