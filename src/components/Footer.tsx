@@ -9,7 +9,11 @@ import {
   MapPin,
   Shield,
   Award,
-  Clock
+  Clock,
+  CreditCard,
+  Wallet,
+  Building2,
+  BadgeIndianRupee
 } from "lucide-react";
 import astrosageLogo from "@/assets/astrosage-logo.webp";
 
@@ -141,12 +145,27 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h5 className="font-medium mb-3">Secure Payments</h5>
-              <div className="flex items-center space-x-4">
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">VISA</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">MasterCard</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">RuPay</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">UPI</div>
-                <div className="bg-background/10 rounded px-3 py-1 text-xs">Net Banking</div>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <CreditCard className="h-4 w-4 text-primary" />
+                  <span className="text-xs">VISA</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <CreditCard className="h-4 w-4 text-primary" />
+                  <span className="text-xs">MasterCard</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <BadgeIndianRupee className="h-4 w-4 text-primary" />
+                  <span className="text-xs">RuPay</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Wallet className="h-4 w-4 text-primary" />
+                  <span className="text-xs">UPI</span>
+                </div>
+                <div className="bg-background/10 rounded px-3 py-2 flex items-center gap-2">
+                  <Building2 className="h-4 w-4 text-primary" />
+                  <span className="text-xs">Net Banking</span>
+                </div>
               </div>
             </div>
             <div>
