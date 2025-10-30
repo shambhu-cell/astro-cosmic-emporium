@@ -50,7 +50,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <Clock className="h-4 w-4 text-primary" />
-                  <span className="text-xs">23+ Years</span>
+                  <span className="text-xs">21+ Years</span>
                 </div>
               </div>
 
