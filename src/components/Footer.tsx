@@ -73,14 +73,15 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-3">
+                <li><a href="/" className="text-background/80 hover:text-primary transition-colors">Home</a></li>
                 <li><a href="/gemstones" className="text-background/80 hover:text-primary transition-colors">Gemstones</a></li>
                 <li><a href="/rudraksha" className="text-background/80 hover:text-primary transition-colors">Rudraksha</a></li>
                 <li><a href="/bracelets" className="text-background/80 hover:text-primary transition-colors">Bracelets</a></li>
                 <li><a href="/mala" className="text-background/80 hover:text-primary transition-colors">Mala</a></li>
                 <li><a href="/yantra" className="text-background/80 hover:text-primary transition-colors">Yantras</a></li>
-                <li><a href="/" className="text-background/80 hover:text-primary transition-colors">Home</a></li>
+                <li><a href="/about-us" className="text-background/80 hover:text-primary transition-colors">About Us</a></li>
               </ul>
             </div>
 
