@@ -183,7 +183,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-border py-6">
+        <div className="border-t border-border py-6 bg-accent">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-muted-foreground mb-4 md:mb-0">
               © 2024 AstroSage Shop. All rights reserved.
