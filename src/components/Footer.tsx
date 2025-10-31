@@ -15,7 +15,7 @@ import {
   Building2,
   BadgeIndianRupee
 } from "lucide-react";
-import astrosageLogo from "@/assets/astrosage-logo.webp";
+import ganeshLogo from "@/assets/ganesh-logo.jpg";
 
 const Footer = () => {
   return (
@@ -28,9 +28,9 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
                 <img 
-                  src={astrosageLogo} 
-                  alt="AstroSage Logo" 
-                  className="h-10 w-auto brightness-0 invert"
+                  src={ganeshLogo} 
+                  alt="Ganesh Logo" 
+                  className="h-10 w-auto"
                 />
                 <div>
                   <h3 className="text-xl font-bold">AstroSage Shop</h3>
