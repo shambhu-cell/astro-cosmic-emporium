@@ -37,6 +37,9 @@ import CaratRattiCalculator from "./pages/CaratRattiCalculator";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
+import ThemeRoyal from "./pages/ThemeRoyal";
+import ThemeEmerald from "./pages/ThemeEmerald";
+import ThemeSapphire from "./pages/ThemeSapphire";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +83,9 @@ const App = () => (
           <Route path="/jadi-roots/:id" element={<ProductDetailsJadi />} />
           <Route path="/vastu-painting/:id" element={<ProductDetailsVastuPainting />} />
           <Route path="/pendant/:id" element={<ProductDetailsPendant />} />
+          <Route path="/theme-royal" element={<ThemeRoyal />} />
+          <Route path="/theme-emerald" element={<ThemeEmerald />} />
+          <Route path="/theme-sapphire" element={<ThemeSapphire />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
