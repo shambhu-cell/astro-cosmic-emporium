@@ -21,7 +21,7 @@ const PartnerPortal = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button variant="cta" size="xl" asChild>
-                <Link to="/contact">Join Partner Program</Link>
+                <Link to="/partners/auth">Join Partner Program</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
                 <a href="mailto:support@astrosage.shop">Contact Us</a>
@@ -63,7 +63,7 @@ const PartnerPortal = () => {
                   Register as an astrologer partner and get instant access to your dashboard with unique referral links.
                 </p>
                 <Button variant="primary" asChild>
-                  <Link to="/contact">Join Now</Link>
+                  <Link to="/partners/auth">Join Now</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -230,7 +230,7 @@ const PartnerPortal = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button variant="secondary" size="xl" asChild>
-              <Link to="/contact">
+              <Link to="/partners/auth">
                 Join Partner Program
                 <ExternalLink className="ml-2 w-5 h-5" />
               </Link>
