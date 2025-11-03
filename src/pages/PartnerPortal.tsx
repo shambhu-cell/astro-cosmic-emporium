@@ -24,7 +24,7 @@ const PartnerPortal = () => {
                 <Link to="/contact">Join Partner Program</Link>
               </Button>
               <Button variant="outline" size="xl" asChild>
-                <a href="mailto:partners@astrosageshop.com">Contact Us</a>
+                <a href="mailto:support@astrosage.shop">Contact Us</a>
               </Button>
             </div>
           </div>
@@ -288,7 +288,7 @@ const PartnerPortal = () => {
             </Button>
           </div>
           <p className="text-sm opacity-80 pt-4">
-            For any queries: <a href="mailto:partners@astrosageshop.com" className="underline">partners@astrosageshop.com</a>
+            For any queries: <a href="mailto:support@astrosage.shop" className="underline">support@astrosage.shop</a>
           </p>
         </div>
       </section>
