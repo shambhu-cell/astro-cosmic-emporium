@@ -14,7 +14,7 @@ const PartnerPortal = () => {
               Partner with AstroSage Shop
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              Earn up to 10% commission for every successful referral
+              Earn 10% commission for every successful referral
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Join our astrologer partner program and monetize your expertise by recommending authentic spiritual products
