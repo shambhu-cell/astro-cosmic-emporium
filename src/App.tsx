@@ -40,6 +40,7 @@ import Cart from "./pages/Cart";
 import ThemeRoyal from "./pages/ThemeRoyal";
 import ThemeEmerald from "./pages/ThemeEmerald";
 import ThemeSapphire from "./pages/ThemeSapphire";
+import PartnerPortal from "./pages/PartnerPortal";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +87,7 @@ const App = () => (
           <Route path="/theme-royal" element={<ThemeRoyal />} />
           <Route path="/theme-emerald" element={<ThemeEmerald />} />
           <Route path="/theme-sapphire" element={<ThemeSapphire />} />
+          <Route path="/partners" element={<PartnerPortal />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
