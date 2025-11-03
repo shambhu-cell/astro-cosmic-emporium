@@ -113,57 +113,6 @@ const PartnerPortal = () => {
         </div>
       </section>
 
-      {/* Commission Structure */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-            Commission Structure
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Gemstones</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary">10%</p>
-                <p className="text-sm text-muted-foreground mt-2">on all gemstone sales</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Rudraksha</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary">8%</p>
-                <p className="text-sm text-muted-foreground mt-2">on rudraksha products</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Bracelets & Mala</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary">7%</p>
-                <p className="text-sm text-muted-foreground mt-2">on jewelry items</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Other Products</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary">5%</p>
-                <p className="text-sm text-muted-foreground mt-2">on yantras, paintings & more</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Section */}
       <section className="py-16 px-4 bg-background">
         <div className="container mx-auto max-w-4xl">
