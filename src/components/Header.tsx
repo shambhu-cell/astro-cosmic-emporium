@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet, ChevronDown, Star } from "lucide-react";
+import { ShoppingCart, Search, User, Menu, X, Home, Sparkles, Phone, Info, Calculator, Gem, Circle, Heart, Eye, Palette, Droplet, ChevronDown, Star, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -301,6 +301,11 @@ const Header = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <a href="/blog" className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+            <BookOpen className="w-3.5 h-3.5" />
+            Blog
+          </a>
         </nav>
 
         {/* Search */}
