@@ -148,17 +148,6 @@ const Consultation = () => {
                     <span className="text-xs sm:text-sm md:text-base text-foreground">Personalized Report</span>
                   </div>
                 </div>
-
-                <div className="flex flex-col gap-2 text-xs sm:text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <span className="break-all">info@astroshaktivedicgems.com</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <span>+91 98765 43210</span>
-                  </div>
-                </div>
               </div>
 
               <div className="relative animate-fade-in mt-6 lg:mt-0">
