@@ -306,6 +306,11 @@ const Header = () => {
             <BookOpen className="w-3.5 h-3.5" />
             Blog
           </a>
+          
+          <a href="/consultation" className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5" />
+            Free Consultation
+          </a>
         </nav>
 
         {/* Search */}

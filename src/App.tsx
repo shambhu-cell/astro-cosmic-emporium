@@ -44,6 +44,7 @@ import PartnerPortal from "./pages/PartnerPortal";
 import PartnerAuth from "./pages/PartnerAuth";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Consultation from "./pages/Consultation";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/partners/auth" element={<PartnerAuth />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/consultation" element={<Consultation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
