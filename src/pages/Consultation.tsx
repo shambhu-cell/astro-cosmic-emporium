@@ -126,8 +126,8 @@ const Consultation = () => {
                   <Sparkles className="h-4 w-4" />
                   <span>100% Free Consultation</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-tight">
-                  Personalized Gemstone & Rudraksha Consultation
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-tight lg:leading-tight">
+                  Personalized Gemstone <span className="block">&</span> Rudraksha Consultation
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
                   Discover the perfect gemstones and rudraksha beads aligned with your birth chart. 
