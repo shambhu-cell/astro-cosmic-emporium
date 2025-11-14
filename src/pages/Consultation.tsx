@@ -139,7 +139,7 @@ const Consultation = () => {
                     <div className="bg-primary/10 rounded-full p-1 flex-shrink-0">
                       <CheckCircle className="h-4 w-4 text-primary" />
                     </div>
-                    <span className="text-xs sm:text-sm md:text-base text-foreground">24hr Response Time</span>
+                    <span className="text-xs sm:text-sm md:text-base text-foreground">5 hrs Response Time</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="bg-primary/10 rounded-full p-1 flex-shrink-0">
@@ -212,7 +212,7 @@ const Consultation = () => {
                     <Calendar className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />
                   </div>
                 </div>
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-0.5 md:mb-1">15+</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-0.5 md:mb-1">21+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground px-2">Years Experience</div>
               </div>
               <div className="text-center group cursor-default animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -221,7 +221,7 @@ const Consultation = () => {
                     <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />
                   </div>
                 </div>
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-0.5 md:mb-1">5000+</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-0.5 md:mb-1">47000+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground px-2">Consultations</div>
               </div>
             </div>
