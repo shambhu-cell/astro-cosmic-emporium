@@ -21,8 +21,6 @@ import consultationImg from "@/assets/consultation.jpg";
 
 interface ConsultationForm {
   name: string;
-  email: string;
-  phone: string;
   dateOfBirth: string;
   timeOfBirth: string;
   placeOfBirth: string;
@@ -35,8 +33,6 @@ const Consultation = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ConsultationForm>({
     name: "",
-    email: "",
-    phone: "",
     dateOfBirth: "",
     timeOfBirth: "",
     placeOfBirth: "",
@@ -55,7 +51,7 @@ const Consultation = () => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.email || !formData.phone || !formData.dateOfBirth) {
+    if (!formData.name || !formData.dateOfBirth) {
       toast({
         title: "Required Fields Missing",
         description: "Please fill in all required fields",
@@ -84,8 +80,6 @@ const Consultation = () => {
       // Reset form
       setFormData({
         name: "",
-        email: "",
-        phone: "",
         dateOfBirth: "",
         timeOfBirth: "",
         placeOfBirth: "",
@@ -262,36 +256,6 @@ const Consultation = () => {
                     required
                     className="mt-1.5 md:mt-2 h-10 sm:h-11 md:h-12 text-sm md:text-base"
                   />
-                </div>
-
-                {/* Email & Phone */}
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                  <div>
-                    <Label htmlFor="email" className="text-foreground font-medium text-sm md:text-base">Email Address *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your@email.com"
-                      required
-                      className="mt-1.5 md:mt-2 h-10 sm:h-11 md:h-12 text-sm md:text-base"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone" className="text-foreground font-medium text-sm md:text-base">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+91 98765 43210"
-                      required
-                      className="mt-1.5 md:mt-2 h-10 sm:h-11 md:h-12 text-sm md:text-base"
-                    />
-                  </div>
                 </div>
 
                 {/* Birth Details */}
