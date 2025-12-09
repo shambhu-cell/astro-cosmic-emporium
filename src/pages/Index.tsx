@@ -57,6 +57,9 @@ const Index = () => {
 
   return (
     <main className="min-h-screen">
+      {/* Mobile Categories Grid */}
+      <MobileCategories />
+
       {/* Hero Slider */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
         {slides.map((slide, index) => (
@@ -116,9 +119,6 @@ const Index = () => {
           ))}
         </div>
       </section>
-
-      {/* Mobile Categories Grid */}
-      <MobileCategories />
 
       {/* Trust Badges */}
       <section className="py-8 sm:py-10 md:py-12 bg-muted/30">
