@@ -12,6 +12,7 @@ import TopSellingGemstones from "@/components/TopSellingGemstones";
 import TopSellingMala from "@/components/TopSellingMala";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
+import MobileCategories from "@/components/MobileCategories";
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -115,6 +116,9 @@ const Index = () => {
           ))}
         </div>
       </section>
+
+      {/* Mobile Categories Grid */}
+      <MobileCategories />
 
       {/* Trust Badges */}
       <section className="py-8 sm:py-10 md:py-12 bg-muted/30">
