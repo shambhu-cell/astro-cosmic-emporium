@@ -11,6 +11,7 @@ import nirakarImage from "@/assets/rudraksha/nirakar.jpg";
 import oneMukhiImage from "@/assets/rudraksha/1-mukhi.jpg";
 import threeMukhiImage from "@/assets/rudraksha/3-mukhi.jpg";
 import fourMukhiImage from "@/assets/rudraksha/4-mukhi.jpg";
+import MobileRudrakshaCategories from "@/components/MobileRudrakshaCategories";
 
 const Rudraksha = () => {
   const navigate = useNavigate();
@@ -628,6 +629,9 @@ const Rudraksha = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Mobile Categories */}
+      <MobileRudrakshaCategories />
+
       {/* Breadcrumb */}
       <div className="bg-muted/30 border-b">
         <div className="container mx-auto px-4 py-4">
