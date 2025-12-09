@@ -54,7 +54,7 @@ const categories = [
 
 const MobileCategories = () => {
   return (
-    <section className="py-4 md:hidden bg-background">
+    <section className="py-4 md:hidden bg-gradient-to-b from-primary/5 to-background border-b border-border/30">
       <div className="overflow-x-auto scrollbar-hide">
         <div className="flex gap-3 px-4 min-w-max">
           {categories.map((category) => (
