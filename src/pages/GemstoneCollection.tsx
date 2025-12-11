@@ -405,8 +405,7 @@ const GemstoneCollection = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-primary/5 via-background to-accent/5 border-b">
         <div className="container mx-auto px-4 py-8 md:py-12">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left - Content */}
+          <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-3">
@@ -417,13 +416,17 @@ const GemstoneCollection = () => {
                   <Badge variant="outline">
                     {currentCollection.zodiacSigns.join(" & ")}
                   </Badge>
+                  <Badge className="bg-green-500 text-white">
+                    <Shield className="w-3 h-3 mr-1" />
+                    100% Certified
+                  </Badge>
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">{currentCollection.name}</h1>
                 <p className="text-lg text-muted-foreground">{currentCollection.shortDescription}</p>
               </div>
 
               {/* Key Benefits */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {currentCollection.mainBenefits.map((benefit: string, idx: number) => (
                   <div key={idx} className="flex items-center gap-2 bg-green-500/10 rounded-lg px-3 py-2">
                     <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
@@ -432,57 +435,42 @@ const GemstoneCollection = () => {
                 ))}
               </div>
 
-              {/* Social Proof */}
-              <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="flex -space-x-2">
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-background flex items-center justify-center text-xs text-white font-bold">
-                        {['R', 'P', 'A', 'S'][i]}
-                      </div>
-                    ))}
+              {/* Social Proof & Price */}
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="flex -space-x-2">
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-background flex items-center justify-center text-xs text-white font-bold">
+                          {['R', 'P', 'A', 'S'][i]}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-muted-foreground">
+                      <span className="font-bold text-foreground">50,000+</span> Happy Customers
+                    </span>
                   </div>
-                  <span className="text-muted-foreground">
-                    <span className="font-bold text-foreground">50,000+</span> Happy Customers
-                  </span>
+                  <div className="flex items-center gap-1 bg-red-500/10 text-red-600 px-3 py-1.5 rounded-full text-sm animate-pulse">
+                    <Eye className="w-4 h-4" />
+                    <span className="font-medium">{viewingCount} people viewing now</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 bg-red-500/10 text-red-600 px-3 py-1.5 rounded-full text-sm animate-pulse">
-                  <Eye className="w-4 h-4" />
-                  <span className="font-medium">{viewingCount} people viewing now</span>
+                <div className="text-right">
+                  <p className="text-sm text-muted-foreground">Starting from</p>
+                  <p className="text-2xl font-bold text-primary">{currentCollection.priceRange.split(' - ')[0]}</p>
                 </div>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="flex-1" onClick={() => window.open('https://wa.me/1234567890', '_blank')}>
+                <Button size="lg" className="flex-1 sm:flex-none" onClick={() => window.open('https://wa.me/1234567890', '_blank')}>
                   <Phone className="w-4 h-4 mr-2" />
                   Free Expert Consultation
                 </Button>
-                <Button size="lg" variant="outline" className="flex-1" onClick={() => navigate('/gemstone-calculator')}>
+                <Button size="lg" variant="outline" className="flex-1 sm:flex-none" onClick={() => navigate('/gemstone-calculator')}>
                   <Gem className="w-4 h-4 mr-2" />
                   Check Which Suits You
                 </Button>
-              </div>
-            </div>
-
-            {/* Right - Image */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/20">
-                <img 
-                  src={currentCollection.products[0].image} 
-                  alt={currentCollection.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-background rounded-xl p-4 shadow-xl border">
-                <p className="text-sm text-muted-foreground mb-1">Starting from</p>
-                <p className="text-2xl font-bold text-primary">{currentCollection.priceRange.split(' - ')[0]}</p>
-              </div>
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-green-500 text-white">
-                  <Shield className="w-3 h-3 mr-1" />
-                  100% Certified
-                </Badge>
               </div>
             </div>
           </div>
