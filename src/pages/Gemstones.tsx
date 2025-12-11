@@ -509,6 +509,333 @@ const Gemstones = () => {
           </div>
         )}
 
+        {/* Introduction Section */}
+        <section className="mb-12 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 rounded-2xl p-6 md:p-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+              The Ancient Science of Vedic Gemstones
+            </h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground">
+              <p className="text-center mb-6">
+                For over 5,000 years, Vedic astrology has recognized the profound connection between celestial bodies and gemstones. 
+                Each gemstone is a cosmic transmitter, channeling the energy of its ruling planet to bring balance, prosperity, 
+                and positive transformation to the wearer's life.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 mt-6">
+                <div className="bg-white/60 rounded-xl p-4 text-center">
+                  <div className="text-3xl mb-2">🌟</div>
+                  <h4 className="font-bold text-foreground mb-1">Cosmic Energy</h4>
+                  <p className="text-sm">Gemstones absorb and transmit planetary vibrations</p>
+                </div>
+                <div className="bg-white/60 rounded-xl p-4 text-center">
+                  <div className="text-3xl mb-2">⚡</div>
+                  <h4 className="font-bold text-foreground mb-1">Life Transformation</h4>
+                  <p className="text-sm">Correct planetary imbalances in your birth chart</p>
+                </div>
+                <div className="bg-white/60 rounded-xl p-4 text-center">
+                  <div className="text-3xl mb-2">🔮</div>
+                  <h4 className="font-bold text-foreground mb-1">Ancient Wisdom</h4>
+                  <p className="text-sm">Backed by 5000+ years of Vedic tradition</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Navratna Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">The Sacred Navratna</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            The nine sacred gemstones representing the nine celestial bodies in Vedic astrology
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { 
+                planet: "☀️ Sun (Surya)", 
+                gem: "Ruby (Manik)", 
+                color: "from-red-500 to-orange-500",
+                benefits: "Leadership, confidence, vitality, success in government & authority",
+                finger: "Ring finger",
+                metal: "Gold"
+              },
+              { 
+                planet: "🌙 Moon (Chandra)", 
+                gem: "Pearl (Moti)", 
+                color: "from-gray-400 to-slate-500",
+                benefits: "Emotional balance, peace of mind, good relationships, mental clarity",
+                finger: "Little finger",
+                metal: "Silver"
+              },
+              { 
+                planet: "🔴 Mars (Mangal)", 
+                gem: "Red Coral (Moonga)", 
+                color: "from-red-600 to-rose-600",
+                benefits: "Courage, energy, victory over enemies, property gains",
+                finger: "Ring finger",
+                metal: "Gold/Copper"
+              },
+              { 
+                planet: "💚 Mercury (Budh)", 
+                gem: "Emerald (Panna)", 
+                color: "from-emerald-500 to-green-600",
+                benefits: "Intelligence, communication, business success, education",
+                finger: "Little finger",
+                metal: "Gold"
+              },
+              { 
+                planet: "🟡 Jupiter (Guru)", 
+                gem: "Yellow Sapphire (Pukhraj)", 
+                color: "from-yellow-400 to-amber-500",
+                benefits: "Wisdom, prosperity, marriage, children, spiritual growth",
+                finger: "Index finger",
+                metal: "Gold"
+              },
+              { 
+                planet: "💎 Venus (Shukra)", 
+                gem: "Diamond (Heera)", 
+                color: "from-violet-400 to-purple-500",
+                benefits: "Love, beauty, luxury, artistic talents, marital bliss",
+                finger: "Middle/Ring finger",
+                metal: "Platinum/Gold"
+              },
+              { 
+                planet: "💙 Saturn (Shani)", 
+                gem: "Blue Sapphire (Neelam)", 
+                color: "from-blue-600 to-indigo-700",
+                benefits: "Career growth, wealth, discipline, longevity, legal matters",
+                finger: "Middle finger",
+                metal: "Gold/Silver"
+              },
+              { 
+                planet: "🟤 Rahu", 
+                gem: "Hessonite (Gomed)", 
+                color: "from-amber-600 to-orange-700",
+                benefits: "Success, protection from enemies, overseas opportunities",
+                finger: "Middle finger",
+                metal: "Silver"
+              },
+              { 
+                planet: "🐱 Ketu", 
+                gem: "Cat's Eye (Lehsunia)", 
+                color: "from-teal-500 to-cyan-600",
+                benefits: "Spiritual growth, protection, intuition, moksha",
+                finger: "Middle finger",
+                metal: "Silver"
+              },
+            ].map((item, idx) => (
+              <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className={`h-2 bg-gradient-to-r ${item.color}`} />
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-bold text-lg">{item.planet}</h3>
+                  </div>
+                  <p className="text-violet-600 font-semibold mb-2">{item.gem}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{item.benefits}</p>
+                  <div className="flex gap-2 text-xs">
+                    <Badge variant="outline">👆 {item.finger}</Badge>
+                    <Badge variant="outline">💍 {item.metal}</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* How to Wear Gemstones */}
+        <section className="mb-12 bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">How to Wear Gemstones for Maximum Benefits</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-2xl font-bold">1</div>
+              <h3 className="font-bold mb-2">Consult an Astrologer</h3>
+              <p className="text-sm text-muted-foreground">Get your birth chart analyzed to identify the most beneficial gemstone for your specific planetary positions.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-2xl font-bold">2</div>
+              <h3 className="font-bold mb-2">Choose the Right Weight</h3>
+              <p className="text-sm text-muted-foreground">Gemstone weight should be calculated based on your body weight. Generally, 1 carat per 10-12 kg body weight is recommended.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-2xl font-bold">3</div>
+              <h3 className="font-bold mb-2">Wear on Auspicious Day</h3>
+              <p className="text-sm text-muted-foreground">Each gemstone should be worn on the day ruled by its planet during Shukla Paksha (waxing moon) for best results.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center text-white text-2xl font-bold">4</div>
+              <h3 className="font-bold mb-2">Energize with Mantras</h3>
+              <p className="text-sm text-muted-foreground">Before wearing, the gemstone should be energized with specific Vedic mantras to activate its planetary powers.</p>
+            </div>
+          </div>
+          <div className="mt-8 bg-white/60 rounded-xl p-4 md:p-6">
+            <h3 className="font-bold text-lg mb-4 text-center">Auspicious Days for Wearing Each Gemstone</h3>
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 text-center text-sm">
+              <div className="p-2 bg-red-50 rounded-lg">
+                <p className="font-bold text-red-600">Sunday</p>
+                <p className="text-xs">Ruby</p>
+              </div>
+              <div className="p-2 bg-gray-50 rounded-lg">
+                <p className="font-bold text-gray-600">Monday</p>
+                <p className="text-xs">Pearl</p>
+              </div>
+              <div className="p-2 bg-orange-50 rounded-lg">
+                <p className="font-bold text-orange-600">Tuesday</p>
+                <p className="text-xs">Coral</p>
+              </div>
+              <div className="p-2 bg-green-50 rounded-lg">
+                <p className="font-bold text-green-600">Wednesday</p>
+                <p className="text-xs">Emerald</p>
+              </div>
+              <div className="p-2 bg-yellow-50 rounded-lg">
+                <p className="font-bold text-yellow-600">Thursday</p>
+                <p className="text-xs">Yellow Sapphire</p>
+              </div>
+              <div className="p-2 bg-pink-50 rounded-lg">
+                <p className="font-bold text-pink-600">Friday</p>
+                <p className="text-xs">Diamond</p>
+              </div>
+              <div className="p-2 bg-blue-50 rounded-lg">
+                <p className="font-bold text-blue-600">Saturday</p>
+                <p className="text-xs">Blue Sapphire, Gomed, Cat's Eye</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Gemstone Quality Guide */}
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Understanding Gemstone Quality</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Learn the 4 key factors that determine a gemstone's astrological effectiveness
+          </p>
+          <div className="grid md:grid-cols-4 gap-4">
+            <Card className="p-5 hover:shadow-md transition-shadow border-t-4 border-t-amber-500">
+              <div className="text-3xl mb-3">💎</div>
+              <h3 className="font-bold text-lg mb-2">Color (Varnam)</h3>
+              <p className="text-sm text-muted-foreground">The most important factor. A gemstone should have rich, vibrant, and uniform color saturation for maximum planetary energy transmission.</p>
+            </Card>
+            <Card className="p-5 hover:shadow-md transition-shadow border-t-4 border-t-emerald-500">
+              <div className="text-3xl mb-3">🔍</div>
+              <h3 className="font-bold text-lg mb-2">Clarity (Nirmaltva)</h3>
+              <p className="text-sm text-muted-foreground">Fewer inclusions mean better light transmission. Eye-clean gemstones with minimal visible flaws are ideal for astrological purposes.</p>
+            </Card>
+            <Card className="p-5 hover:shadow-md transition-shadow border-t-4 border-t-blue-500">
+              <div className="text-3xl mb-3">✂️</div>
+              <h3 className="font-bold text-lg mb-2">Cut (Akruti)</h3>
+              <p className="text-sm text-muted-foreground">Proper cut ensures optimal light reflection and energy flow. Traditional cuts like oval, cushion, or emerald cut are preferred.</p>
+            </Card>
+            <Card className="p-5 hover:shadow-md transition-shadow border-t-4 border-t-violet-500">
+              <div className="text-3xl mb-3">⚖️</div>
+              <h3 className="font-bold text-lg mb-2">Carat Weight (Rati)</h3>
+              <p className="text-sm text-muted-foreground">Weight determines the gemstone's power. Heavier stones have stronger planetary influence. Minimum 3 carats is typically recommended.</p>
+            </Card>
+          </div>
+        </section>
+
+        {/* Customer Success Stories */}
+        <section className="mb-12 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Real Customer Transformations</h2>
+          <p className="text-center text-muted-foreground mb-8">See how gemstones have changed lives</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Rajesh Sharma",
+                location: "Delhi",
+                gemstone: "Yellow Sapphire",
+                story: "After wearing Pukhraj recommended by AstroSage, I got promoted within 3 months and my daughter got married to a wonderful family. Jupiter's blessings are real!",
+                rating: 5,
+                image: "RS"
+              },
+              {
+                name: "Priya Mehta",
+                location: "Mumbai",
+                gemstone: "Emerald",
+                story: "I was struggling in my business for years. After consulting with AstroSage and wearing Panna, my communication improved and I closed 5 major deals in 6 months.",
+                rating: 5,
+                image: "PM"
+              },
+              {
+                name: "Amit Verma",
+                location: "Bangalore",
+                gemstone: "Blue Sapphire",
+                story: "Blue Sapphire changed my career completely. I was stuck in the same position for 4 years, but after wearing Neelam, I got my dream job with 3x salary within 45 days!",
+                rating: 5,
+                image: "AV"
+              },
+            ].map((story, idx) => (
+              <Card key={idx} className="p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                    {story.image}
+                  </div>
+                  <div>
+                    <p className="font-bold">{story.name}</p>
+                    <p className="text-xs text-muted-foreground">{story.location}</p>
+                  </div>
+                  <Badge className="ml-auto bg-violet-100 text-violet-700">{story.gemstone}</Badge>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">"{story.story}"</p>
+                <div className="flex gap-0.5">
+                  {[...Array(story.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Gemstone Benefits by Life Area */}
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Gemstones for Every Life Challenge</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Find the right gemstone based on what you want to improve in your life
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { area: "Career & Job", gems: "Blue Sapphire, Ruby", icon: "💼" },
+              { area: "Wealth & Money", gems: "Yellow Sapphire, Emerald", icon: "💰" },
+              { area: "Marriage & Love", gems: "Diamond, Yellow Sapphire", icon: "💕" },
+              { area: "Health & Energy", gems: "Ruby, Red Coral", icon: "❤️" },
+              { area: "Education", gems: "Emerald, Yellow Sapphire", icon: "📚" },
+              { area: "Protection", gems: "Cat's Eye, Gomed", icon: "🛡️" },
+            ].map((item, idx) => (
+              <Card key={idx} className="p-4 text-center hover:shadow-md transition-shadow hover:border-violet-200 cursor-pointer">
+                <div className="text-3xl mb-2">{item.icon}</div>
+                <h3 className="font-bold text-sm mb-1">{item.area}</h3>
+                <p className="text-xs text-muted-foreground">{item.gems}</p>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Certification Info */}
+        <section className="mb-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl p-6 md:p-10 text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center gap-4 mb-6">
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8" />
+              </div>
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <Award className="w-8 h-8" />
+              </div>
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <BadgeCheck className="w-8 h-8" />
+              </div>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">100% Certified & Authentic Gemstones</h2>
+            <p className="text-amber-100 mb-6 max-w-2xl mx-auto">
+              Every gemstone from AstroSage Shop comes with a certificate from government-approved gemological laboratories. 
+              Our certificates include detailed analysis of origin, color, clarity, cut, carat weight, and treatment status.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Badge className="bg-white/20 text-white px-4 py-2 text-sm">GIA Certified</Badge>
+              <Badge className="bg-white/20 text-white px-4 py-2 text-sm">IGI Certified</Badge>
+              <Badge className="bg-white/20 text-white px-4 py-2 text-sm">GII Certified</Badge>
+              <Badge className="bg-white/20 text-white px-4 py-2 text-sm">SSL Certified</Badge>
+            </div>
+          </div>
+        </section>
+
         {/* Why Choose Us */}
         <section className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-6 md:p-10 mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Why Choose AstroSage Gemstones?</h2>
