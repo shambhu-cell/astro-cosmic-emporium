@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, ChevronDown, Phone, Mail, MapPin, Users, TrendingUp, CheckCircle2, AlertCircle, Eye, CreditCard, Smartphone, Building2, Banknote } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, Phone, CheckCircle2, Eye, CreditCard, Smartphone, Building2, Banknote, Flame, Users, Zap, Gift, BadgeCheck, Timer, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,6 +27,7 @@ const idMapping: Record<string, string> = {
   "ruby-3": "ruby",
   "ruby-4": "ruby",
   "emerald-1": "emerald",
+  "e-1": "emerald",
   "emerald-2": "emerald",
   "emerald-3": "emerald",
   "emerald-4": "emerald",
@@ -46,7 +47,7 @@ const gemstonesData: Record<string, any> = {
     sold: "15,000+",
     inStock: true,
     stockLeft: 7,
-    deliveryDate: "October 22",
+    deliveryDate: "December 15",
     images: [blueSapphireImage, blueSapphireImage, blueSapphireImage, blueSapphireImage],
     weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5.25 Ratti (4.75 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
     metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)", "Platinum"],
@@ -71,11 +72,11 @@ const gemstonesData: Record<string, any> = {
       "100% genuine with certificate",
       "Perfect for Saturn (Shani) remedies"
     ],
-    description: "This magnificent Blue Sapphire (Neelam) is a natural, unheated gemstone sourced from the legendary mines of Sri Lanka. Known for its deep royal blue color and exceptional clarity, this gemstone has been carefully selected and certified by government-approved laboratories. Blue Sapphire is the gemstone of Saturn (Shani) and is renowned in Vedic astrology for its powerful effects on career, wealth, and protection. Each stone is energized by our expert astrologers with proper mantras and rituals before delivery.",
+    description: "This magnificent Blue Sapphire (Neelam) is a natural, unheated gemstone sourced from the legendary mines of Sri Lanka. Known for its deep royal blue color and exceptional clarity, this gemstone has been carefully selected and certified by government-approved laboratories.",
     customerReviews: [
-      { name: "Rajesh Kumar", rating: 5, date: "2 weeks ago", comment: "Excellent quality gemstone! Got promotion within 3 months of wearing. Highly recommended!", verified: true },
-      { name: "Priya Sharma", rating: 5, date: "1 month ago", comment: "Beautiful blue color and came with authentic certificate. Very happy with purchase.", verified: true },
-      { name: "Amit Patel", rating: 4, date: "1 month ago", comment: "Good quality, but took little time for delivery. Overall satisfied with the product.", verified: true },
+      { name: "Rajesh Kumar", rating: 5, date: "2 weeks ago", comment: "Excellent quality gemstone! Got promotion within 3 months of wearing. Highly recommended!", verified: true, location: "Mumbai" },
+      { name: "Priya Sharma", rating: 5, date: "1 month ago", comment: "Beautiful blue color and came with authentic certificate. Very happy with purchase.", verified: true, location: "Delhi" },
+      { name: "Amit Patel", rating: 4, date: "1 month ago", comment: "Good quality, but took little time for delivery. Overall satisfied with the product.", verified: true, location: "Ahmedabad" },
     ]
   },
   "ruby": {
@@ -90,7 +91,7 @@ const gemstonesData: Record<string, any> = {
     sold: "12,000+",
     inStock: true,
     stockLeft: 5,
-    deliveryDate: "October 22",
+    deliveryDate: "December 15",
     images: [rubyImage, rubyImage, rubyImage, rubyImage],
     weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
     metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)", "Platinum"],
@@ -115,11 +116,11 @@ const gemstonesData: Record<string, any> = {
       "Government certified authentic",
       "Perfect for leadership roles"
     ],
-    description: "This exquisite Ruby (Manik) is sourced from the prestigious mines of Burma, known worldwide for producing the finest rubies. With its intense pigeon blood red color and exceptional clarity, this gemstone represents the power of the Sun (Surya). Ruby is highly regarded in Vedic astrology for enhancing leadership qualities, vitality, and success. Each stone is carefully certified and energized with Vedic mantras.",
+    description: "This exquisite Ruby (Manik) is sourced from the prestigious mines of Burma, known worldwide for producing the finest rubies. With its intense pigeon blood red color and exceptional clarity, this gemstone represents the power of the Sun (Surya).",
     customerReviews: [
-      { name: "Vikram Singh", rating: 5, date: "1 week ago", comment: "Amazing quality ruby! My confidence has improved significantly. Worth every penny!", verified: true },
-      { name: "Meera Reddy", rating: 5, date: "3 weeks ago", comment: "Beautiful deep red color. Certificate is authentic. Highly satisfied!", verified: true },
-      { name: "Arjun Mehta", rating: 4, date: "1 month ago", comment: "Good gemstone, slightly pricey but quality justifies it.", verified: true },
+      { name: "Vikram Singh", rating: 5, date: "1 week ago", comment: "Amazing quality ruby! My confidence has improved significantly. Worth every penny!", verified: true, location: "Jaipur" },
+      { name: "Meera Reddy", rating: 5, date: "3 weeks ago", comment: "Beautiful deep red color. Certificate is authentic. Highly satisfied!", verified: true, location: "Hyderabad" },
+      { name: "Arjun Mehta", rating: 4, date: "1 month ago", comment: "Good gemstone, slightly pricey but quality justifies it.", verified: true, location: "Pune" },
     ]
   },
   "emerald": {
@@ -134,7 +135,7 @@ const gemstonesData: Record<string, any> = {
     sold: "10,000+",
     inStock: true,
     stockLeft: 8,
-    deliveryDate: "October 22",
+    deliveryDate: "December 15",
     images: [emeraldImage, emeraldImage, emeraldImage, emeraldImage],
     weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)"],
     metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (18K)"],
@@ -159,11 +160,11 @@ const gemstonesData: Record<string, any> = {
       "Certified by government lab",
       "Perfect for business & studies"
     ],
-    description: "This stunning Emerald (Panna) hails from the emerald capital of the world - Colombia. Known for its vivid green color and clarity, emerald is the gemstone of Mercury (Budh) in Vedic astrology. It's renowned for enhancing intelligence, communication skills, and business acumen. Each emerald is carefully selected, certified, and energized to maximize its astrological benefits.",
+    description: "This stunning Emerald (Panna) hails from the emerald capital of the world - Colombia. Known for its vivid green color and clarity, emerald is the gemstone of Mercury (Budh) in Vedic astrology.",
     customerReviews: [
-      { name: "Neha Kapoor", rating: 5, date: "2 weeks ago", comment: "Gorgeous green color! My communication skills have definitely improved. Great purchase!", verified: true },
-      { name: "Rohit Sharma", rating: 4, date: "3 weeks ago", comment: "Good quality emerald. Delivery was quick. Happy with the product.", verified: true },
-      { name: "Anjali Desai", rating: 5, date: "1 month ago", comment: "Beautiful gemstone with authentic certificate. Highly recommend!", verified: true },
+      { name: "Neha Kapoor", rating: 5, date: "2 weeks ago", comment: "Gorgeous green color! My communication skills have definitely improved. Great purchase!", verified: true, location: "Bangalore" },
+      { name: "Rohit Sharma", rating: 4, date: "3 weeks ago", comment: "Good quality emerald. Delivery was quick. Happy with the product.", verified: true, location: "Chennai" },
+      { name: "Anjali Desai", rating: 5, date: "1 month ago", comment: "Beautiful gemstone with authentic certificate. Highly recommend!", verified: true, location: "Kolkata" },
     ]
   },
   "yellow-sapphire": {
@@ -178,7 +179,7 @@ const gemstonesData: Record<string, any> = {
     sold: "18,000+",
     inStock: true,
     stockLeft: 6,
-    deliveryDate: "October 22",
+    deliveryDate: "December 15",
     images: [yellowSapphireImage, yellowSapphireImage, yellowSapphireImage, yellowSapphireImage],
     weightOptions: ["3 Ratti (2.7 Carat)", "4 Ratti (3.6 Carat)", "5 Ratti (4.5 Carat)", "6 Ratti (5.4 Carat)", "7 Ratti (6.3 Carat)"],
     metalOptions: ["Silver 92.5%", "Panchdhatu", "Gold (22K)", "Platinum"],
@@ -203,11 +204,11 @@ const gemstonesData: Record<string, any> = {
       "100% certified authentic",
       "Perfect for prosperity & marriage"
     ],
-    description: "This magnificent Yellow Sapphire (Pukhraj) is a premium quality gemstone from Sri Lanka, representing the planet Jupiter (Guru) in Vedic astrology. Known for its brilliant golden yellow color and exceptional clarity, this gemstone is highly sought after for attracting prosperity, wisdom, and marital happiness. Each stone is unheated, certified, and energized with traditional Vedic rituals.",
+    description: "This magnificent Yellow Sapphire (Pukhraj) is a premium quality gemstone from Sri Lanka, representing the planet Jupiter (Guru) in Vedic astrology. Known for its brilliant golden yellow color and exceptional clarity.",
     customerReviews: [
-      { name: "Suresh Gupta", rating: 5, date: "1 week ago", comment: "Excellent quality! My business has seen significant growth. Truly blessed!", verified: true },
-      { name: "Kavita Joshi", rating: 5, date: "2 weeks ago", comment: "Beautiful yellow color and came with proper certificate. Very satisfied!", verified: true },
-      { name: "Manish Agarwal", rating: 5, date: "3 weeks ago", comment: "Best investment I made! Quality is superb and effects are amazing!", verified: true },
+      { name: "Suresh Gupta", rating: 5, date: "1 week ago", comment: "Excellent quality! My business has seen significant growth. Truly blessed!", verified: true, location: "Lucknow" },
+      { name: "Kavita Joshi", rating: 5, date: "2 weeks ago", comment: "Beautiful yellow color and came with proper certificate. Very satisfied!", verified: true, location: "Indore" },
+      { name: "Manish Agarwal", rating: 5, date: "3 weeks ago", comment: "Best investment I made! Quality is superb and effects are amazing!", verified: true, location: "Surat" },
     ]
   }
 };
@@ -216,7 +217,9 @@ const ProductDetailsGemstone = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [viewingUsers, setViewingUsers] = useState(45);
+  const [viewingUsers, setViewingUsers] = useState(47);
+  const [recentBuyer, setRecentBuyer] = useState({ name: "Rahul M.", city: "Delhi", time: "2 min ago" });
+  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 45, seconds: 32 });
 
   // Simulate live viewing count
   useEffect(() => {
@@ -229,12 +232,43 @@ const ProductDetailsGemstone = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Get product data based on URL parameter with ID mapping
+  // Countdown timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return { hours: 2, minutes: 45, seconds: 32 };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Recent buyer notifications
+  useEffect(() => {
+    const buyers = [
+      { name: "Rahul M.", city: "Delhi", time: "2 min ago" },
+      { name: "Priya S.", city: "Mumbai", time: "5 min ago" },
+      { name: "Amit K.", city: "Bangalore", time: "8 min ago" },
+      { name: "Sneha R.", city: "Pune", time: "12 min ago" },
+    ];
+    let index = 0;
+    const interval = setInterval(() => {
+      index = (index + 1) % buyers.length;
+      setRecentBuyer(buyers[index]);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   const productId = id || "blue-sapphire";
   const mappedId = idMapping[productId] || productId;
   const product = gemstonesData[mappedId];
 
-  // If product not found, show default or redirect
   if (!product) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -265,8 +299,8 @@ const ProductDetailsGemstone = () => {
 
   const faqs = [
     {
-      question: "How do I know if Blue Sapphire will suit me?",
-      answer: "Blue Sapphire is a powerful gemstone recommended for Saturn (Shani). We recommend consulting with our expert astrologers before purchasing. Click 'Talk to Expert' for a free consultation based on your birth chart."
+      question: `How do I know if ${product.name.split('(')[0].trim()} will suit me?`,
+      answer: `${product.name.split('(')[0].trim()} is recommended for ${product.planet}. We recommend consulting with our expert astrologers before purchasing. Click 'Talk to Expert' for a free consultation based on your birth chart.`
     },
     {
       question: "Is this gemstone certified?",
@@ -274,67 +308,105 @@ const ProductDetailsGemstone = () => {
     },
     {
       question: "How is the gemstone energized?",
-      answer: "Each gemstone is energized by our experienced astrologers using traditional Vedic mantras and rituals. The energization process enhances the gemstone's astrological benefits and aligns it with your energy."
+      answer: "Each gemstone is energized by our experienced astrologers using traditional Vedic mantras and rituals. The energization process enhances the gemstone's astrological benefits."
     },
     {
       question: "What is your return policy?",
-      answer: "We offer a 7 days money back no question asked return policy. If you're not satisfied with your purchase, you can return it within 7 days for a full refund. The gemstone must be in original condition with certificate."
+      answer: "We offer a 7 days money back no question asked return policy. If you're not satisfied, return within 7 days for a full refund."
     },
     {
       question: "How long does delivery take?",
-      answer: "We offer free express shipping across India. Most orders are delivered within 3-5 business days. You'll receive a tracking number once your order is shipped."
+      answer: "We offer free express shipping across India. Most orders are delivered within 3-5 business days."
     },
-    {
-      question: "Can I get this gemstone in a different metal?",
-      answer: "Yes! We can customize the setting in gold (available in 18K, 22K) or platinum. Contact our experts for customization options and pricing."
-    }
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Money Back Guarantee Bar */}
-      <div className="bg-accent text-white py-3 text-center font-medium">
-        ✓ 7 Days Money Back No Question Asked - 100% Authentic Gemstones
+      {/* Urgency Header Bar */}
+      <div className="bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white py-2.5 text-center">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-2 flex-wrap text-sm md:text-base">
+          <Flame className="h-4 w-4 animate-pulse" />
+          <span className="font-bold">FLASH SALE ENDING:</span>
+          <div className="flex items-center gap-1 font-mono font-bold bg-white/20 px-2 py-0.5 rounded">
+            <span>{String(timeLeft.hours).padStart(2, '0')}</span>:
+            <span>{String(timeLeft.minutes).padStart(2, '0')}</span>:
+            <span>{String(timeLeft.seconds).padStart(2, '0')}</span>
+          </div>
+          <span className="hidden sm:inline">| Extra {product.discount}% OFF</span>
+        </div>
       </div>
 
-      <div className="container max-w-screen-xl mx-auto px-4 py-6">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-sm mb-6 flex-wrap">
-          <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-            Home
-          </Link>
+      {/* Trust Bar */}
+      <div className="bg-green-50 border-b border-green-200 py-2">
+        <div className="container mx-auto px-4 flex items-center justify-center gap-4 md:gap-8 text-xs md:text-sm flex-wrap">
+          <span className="flex items-center gap-1.5 text-green-700 font-medium">
+            <BadgeCheck className="h-4 w-4" /> 100% Authentic
+          </span>
+          <span className="flex items-center gap-1.5 text-green-700 font-medium">
+            <Shield className="h-4 w-4" /> Lab Certified
+          </span>
+          <span className="flex items-center gap-1.5 text-green-700 font-medium">
+            <RefreshCcw className="h-4 w-4" /> 7-Day Returns
+          </span>
+          <span className="flex items-center gap-1.5 text-green-700 font-medium">
+            <Truck className="h-4 w-4" /> Free Shipping
+          </span>
+        </div>
+      </div>
+
+      {/* Recent Purchase Notification */}
+      <div className="fixed bottom-20 left-4 z-50 animate-in slide-in-from-left duration-500 md:bottom-4">
+        <div className="bg-white shadow-xl border rounded-lg p-3 max-w-xs flex items-center gap-3">
+          <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+            <CheckCircle2 className="h-5 w-5 text-green-600" />
+          </div>
+          <div className="text-sm">
+            <p className="font-semibold">{recentBuyer.name} from {recentBuyer.city}</p>
+            <p className="text-muted-foreground text-xs">just purchased this • {recentBuyer.time}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container max-w-screen-xl mx-auto px-4 py-4 md:py-6">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm mb-4 flex-wrap">
+          <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
           <span className="text-muted-foreground">/</span>
-          <Link to="/gemstones" className="text-muted-foreground hover:text-primary transition-colors">
-            Gemstones
-          </Link>
+          <Link to="/gemstones" className="text-muted-foreground hover:text-primary">Gemstones</Link>
           <span className="text-muted-foreground">/</span>
           <span className="text-foreground font-medium">{product.name}</span>
         </nav>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           {/* Left Column - Images */}
           <div className="space-y-4">
-            <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl overflow-hidden">
-              <Badge className="absolute top-4 left-4 bg-accent text-white z-10">
-                Bestseller ⭐
-              </Badge>
-              <Badge className="absolute top-4 right-4 bg-green-600 text-white z-10">
-                Save {product.discount}%
+            <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl overflow-hidden group">
+              {/* Badges */}
+              <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
+                <Badge className="bg-red-500 text-white font-bold animate-pulse">
+                  🔥 BESTSELLER
+                </Badge>
+                <Badge className="bg-green-600 text-white font-bold">
+                  {product.discount}% OFF
+                </Badge>
+              </div>
+              <Badge className="absolute top-3 right-3 z-10 bg-black/70 text-white">
+                <Eye className="w-3 h-3 mr-1" /> {viewingUsers} viewing
               </Badge>
               <img 
                 src={product.images[selectedImage]} 
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
             
-            <div className="grid grid-cols-4 gap-3">
-              {product.images.map((img, idx) => (
+            <div className="grid grid-cols-4 gap-2">
+              {product.images.map((img: string, idx: number) => (
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
                   className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                    selectedImage === idx ? 'border-primary shadow-md scale-105' : 'border-border hover:border-primary/50'
+                    selectedImage === idx ? 'border-primary ring-2 ring-primary/30' : 'border-border hover:border-primary/50'
                   }`}
                 >
                   <img src={img} alt={`View ${idx + 1}`} className="w-full h-full object-cover" />
@@ -342,313 +414,306 @@ const ProductDetailsGemstone = () => {
               ))}
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <div className="flex items-center gap-2 text-xs md:text-sm">
-                <Shield className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
-                <span className="font-medium">Lab Certified</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs md:text-sm">
-                <Truck className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
-                <span className="font-medium">Free Shipping</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs md:text-sm">
-                <Award className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
-                <span className="font-medium">Energized</span>
-              </div>
+            {/* Desktop Trust Badges */}
+            <div className="hidden md:grid grid-cols-4 gap-3 pt-2">
+              {[
+                { icon: BadgeCheck, label: "Certified" },
+                { icon: Truck, label: "Free Ship" },
+                { icon: Sparkles, label: "Energized" },
+                { icon: RefreshCcw, label: "Easy Return" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center gap-1 p-3 bg-muted/50 rounded-lg">
+                  <item.icon className="h-5 w-5 text-primary" />
+                  <span className="text-xs font-medium">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Right Column - Product Info */}
-          <div className="space-y-6">
-            {/* Rating & Social Proof */}
-            <div className="flex items-center gap-3">
+          <div className="space-y-4">
+            {/* Social Proof Header */}
+            <div className="flex items-center gap-2 flex-wrap">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="font-bold text-lg">{product.rating}</span>
+              <span className="font-bold">{product.rating}</span>
               <span className="text-muted-foreground">({product.reviewCount.toLocaleString()} reviews)</span>
-            </div>
-            <p className="text-sm text-primary font-semibold">
-              ⭐ {product.sold} Gemstones Sold - Trusted Worldwide
-            </p>
-
-            {/* Live Activity Badges */}
-            <div className="flex items-center gap-3 flex-wrap">
-              <Badge variant="default" className="bg-green-50 text-green-700 border-green-200 px-4 py-2">
-                <Eye className="w-4 h-4 mr-2" />
-                {viewingUsers} people viewing now
-              </Badge>
-              <Badge variant="default" className="bg-orange-50 text-orange-700 border-orange-200 px-4 py-2">
-                <Clock className="w-4 h-4 mr-2" />
-                Sale ends in 12:45:32
+              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                ✓ {product.sold} Sold
               </Badge>
             </div>
 
-            {/* Title */}
+            {/* Title & Planet */}
             <div>
-              <Badge variant="outline" className="mb-2">
-                {product.hindiName} | {product.planet}
-              </Badge>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
+              <div className="flex items-center gap-2 mb-2">
+                <Badge variant="secondary" className="text-xs">
+                  {product.hindiName}
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  {product.planet}
+                </Badge>
+              </div>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">{product.name}</h1>
             </div>
 
-            {/* Pricing */}
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl font-bold text-primary">₹{product.price.toLocaleString()}</span>
-              <span className="text-2xl text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</span>
-              <Badge className="bg-green-600 text-white px-3 py-1 text-base">Save ₹{(product.originalPrice - product.price).toLocaleString()}</Badge>
+            {/* Pricing - High Impact */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4">
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <span className="text-4xl md:text-5xl font-bold text-green-700">₹{product.price.toLocaleString()}</span>
+                <span className="text-xl text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</span>
+                <Badge className="bg-red-500 text-white text-lg px-3 py-1">
+                  SAVE ₹{(product.originalPrice - product.price).toLocaleString()}
+                </Badge>
+              </div>
+              <p className="text-green-600 text-sm mt-2 font-medium flex items-center gap-1">
+                <Timer className="h-4 w-4" /> Offer valid for limited time only
+              </p>
             </div>
 
-            {/* Key Benefits */}
-            <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-              <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-lg mb-3">Transform Your Life with {product.name}</h3>
-                {product.keyPoints.map((point: string, idx: number) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <Check className="h-5 w-5 text-accent shrink-0" />
-                    <span className="text-sm">{point}</span>
+            {/* Key Benefits - Quick Scan */}
+            <div className="grid grid-cols-2 gap-2">
+              {product.benefits.map((benefit: any, idx: number) => (
+                <div key={idx} className="flex items-center gap-2 p-2.5 bg-muted/50 rounded-lg">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <benefit.icon className="h-4 w-4 text-primary" />
                   </div>
-                ))}
+                  <div>
+                    <p className="font-semibold text-sm">{benefit.title}</p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">{benefit.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Why This Gemstone */}
+            <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
+              <CardContent className="p-4">
+                <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-primary" /> Why Choose This {product.name.split('(')[0].trim()}?
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {product.keyPoints.map((point: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
+                      <span className="text-sm">{point}</span>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
 
-
             {/* Quantity & CTA */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center gap-4">
-                <label className="font-semibold">Quantity:</label>
+                <label className="font-semibold text-sm">Qty:</label>
                 <div className="flex items-center border rounded-lg">
                   <button 
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-2 hover:bg-muted"
+                    className="px-4 py-2 hover:bg-muted font-bold"
                   >
                     -
                   </button>
-                  <span className="px-6 py-2 border-x">{quantity}</span>
+                  <span className="px-5 py-2 border-x font-semibold">{quantity}</span>
                   <button 
                     onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-2 hover:bg-muted"
+                    className="px-4 py-2 hover:bg-muted font-bold"
                   >
                     +
                   </button>
                 </div>
+                <span className="text-sm text-red-600 font-medium">Only {product.stockLeft} left!</span>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <Button size="lg" className="text-lg py-6 bg-accent hover:bg-accent/90">
+              {/* Primary CTAs */}
+              <div className="grid grid-cols-1 gap-2">
+                <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg shadow-orange-500/30 font-bold">
                   <ShoppingCart className="mr-2 h-5 w-5" />
-                  ADD TO CART
+                  ADD TO CART - ₹{(product.price * quantity).toLocaleString()}
                 </Button>
-                <Button size="lg" className="text-lg py-6 bg-primary hover:bg-primary/90">
-                  BUY NOW
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <Button variant="outline" size="lg" className="w-full">
-                  <Heart className="mr-2 h-5 w-5" />
-                  Wishlist
-                </Button>
-                <Button variant="outline" size="lg" className="w-full">
-                  <Share2 className="mr-2 h-5 w-5" />
-                  Share
+                <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/30 font-bold">
+                  <Zap className="mr-2 h-5 w-5" />
+                  BUY NOW - INSTANT CHECKOUT
                 </Button>
               </div>
 
-              {/* Payment & Shipping Info */}
-              <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-                <CardContent className="p-4 space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <div className="flex items-center gap-2 flex-1">
-                      <Truck className="h-4 w-4 text-green-600" />
-                      <span className="font-medium">Free Delivery</span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">All Orders</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <div className="flex items-center gap-2 flex-1">
-                      <Shield className="h-4 w-4 text-green-600" />
-                      <span className="font-medium">COD Available</span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">Pay on Delivery</span>
-                  </div>
-                  <div className="border-t pt-3">
-                    <p className="text-xs font-medium mb-2">We Accept:</p>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span className="font-medium flex items-center gap-1"><CreditCard className="h-3 w-3" /> Cards</span>
-                      <span className="font-medium flex items-center gap-1"><Smartphone className="h-3 w-3" /> UPI</span>
-                      <span className="font-medium flex items-center gap-1"><Building2 className="h-3 w-3" /> Net Banking</span>
-                      <span className="font-medium flex items-center gap-1"><Banknote className="h-3 w-3" /> COD</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Secondary Actions */}
+              <div className="grid grid-cols-2 gap-2">
+                <Button variant="outline" size="sm" className="w-full">
+                  <Heart className="mr-2 h-4 w-4" /> Wishlist
+                </Button>
+                <Button variant="outline" size="sm" className="w-full">
+                  <Share2 className="mr-2 h-4 w-4" /> Share
+                </Button>
+              </div>
             </div>
 
-            {/* Stock & Delivery */}
-            <div className="space-y-3">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <p className="text-green-800 font-medium">
-                  ✓ In Stock - {product.stockLeft} items left at this price
-                </p>
-                <p className="text-green-700 text-sm mt-1">
-                  Order today to receive by {product.deliveryDate}
-                </p>
+            {/* Stock & Delivery Urgency */}
+            <div className="space-y-2">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2">
+                <Flame className="h-5 w-5 text-red-500 shrink-0" />
+                <div>
+                  <p className="text-red-700 font-semibold text-sm">🔥 High Demand - Only {product.stockLeft} left at this price!</p>
+                  <p className="text-red-600 text-xs">23 people added this to cart in last hour</p>
+                </div>
               </div>
-
-              {/* Expert Consultation CTA */}
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white"
-                onClick={() => window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank')}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Talk to Gem Expert - FREE
-              </Button>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <p className="text-green-800 font-medium text-sm flex items-center gap-2">
+                  <Truck className="h-4 w-4" /> Order in next 3 hrs 45 min - Get by {product.deliveryDate}
+                </p>
+                <p className="text-green-700 text-xs mt-1">FREE Express Shipping • Secure Packaging</p>
+              </div>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t">
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium">Certified Authentic</p>
-                  <p className="text-muted-foreground">Lab certificate included</p>
+            {/* Payment Options */}
+            <Card className="bg-muted/30">
+              <CardContent className="p-3 space-y-2">
+                <div className="flex items-center gap-3 flex-wrap text-xs">
+                  <span className="font-medium">Pay with:</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><CreditCard className="h-3 w-3" /> Cards</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Smartphone className="h-3 w-3" /> UPI</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Building2 className="h-3 w-3" /> NetBanking</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Banknote className="h-3 w-3" /> COD</span>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <RefreshCcw className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium">Easy Returns</p>
-                  <p className="text-muted-foreground">30-day money back</p>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Shield className="h-3 w-3" /> 100% Secure Payment • SSL Encrypted
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Truck className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium">Free Shipping</p>
-                  <p className="text-muted-foreground">Secure packaging</p>
+              </CardContent>
+            </Card>
+
+            {/* Expert Help */}
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold"
+              onClick={() => window.open('https://wa.me/1234567890?text=Hi, I need expert consultation about ' + product.name, '_blank')}
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Talk to Gem Expert - FREE Consultation
+            </Button>
+
+            {/* Quick Trust Grid */}
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              {[
+                { icon: BadgeCheck, title: "Lab Certified", desc: "Government approved" },
+                { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked" },
+                { icon: Truck, title: "Free Shipping", desc: "Secure packaging" },
+                { icon: Shield, title: "100% Genuine", desc: "Authentic guarantee" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <item.icon className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <p className="font-semibold">{item.title}</p>
+                    <p className="text-muted-foreground">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <Shield className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium">Secure Payment</p>
-                  <p className="text-muted-foreground">100% safe checkout</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Product Tabs Section */}
-        <div className="mt-16">
-          <Tabs defaultValue="description" className="w-full">
-            <TabsList className="w-full justify-start h-auto p-1 bg-muted/50 rounded-lg overflow-x-auto flex-wrap md:flex-nowrap">
-              <TabsTrigger value="description" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
-                Description
-              </TabsTrigger>
-              <TabsTrigger value="specifications" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
-                Specifications
-              </TabsTrigger>
-              <TabsTrigger value="reviews" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
+        {/* Social Proof Section */}
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { number: "50M+", label: "Happy Customers", icon: Users },
+            { number: "21+", label: "Years Trusted", icon: Award },
+            { number: "4.9★", label: "Avg Rating", icon: Star },
+            { number: "47K+", label: "Consultations", icon: MessageCircle },
+          ].map((stat, idx) => (
+            <Card key={idx} className="text-center p-4">
+              <stat.icon className="h-6 w-6 mx-auto mb-2 text-primary" />
+              <p className="text-2xl font-bold text-primary">{stat.number}</p>
+              <p className="text-xs text-muted-foreground">{stat.label}</p>
+            </Card>
+          ))}
+        </div>
+
+        {/* Benefits Section */}
+        <div className="mt-12 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-6 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Astrological Benefits</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto text-sm">
+            Experience powerful transformation with {product.name}
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {product.benefits.map((benefit: any, idx: number) => (
+              <Card key={idx} className="text-center p-6 hover:shadow-lg transition-shadow">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <benefit.icon className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="font-bold mb-2">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Product Tabs */}
+        <div className="mt-12">
+          <Tabs defaultValue="reviews" className="w-full">
+            <TabsList className="w-full justify-start h-auto p-1 bg-muted/50 rounded-lg overflow-x-auto">
+              <TabsTrigger value="reviews" className="px-4 py-2.5 text-sm whitespace-nowrap">
                 Reviews ({product.reviewCount.toLocaleString()})
               </TabsTrigger>
-              <TabsTrigger value="shipping" className="flex-1 md:flex-none px-6 py-3 text-sm md:text-base whitespace-nowrap">
-                Shipping & Returns
+              <TabsTrigger value="specifications" className="px-4 py-2.5 text-sm whitespace-nowrap">
+                Specifications
+              </TabsTrigger>
+              <TabsTrigger value="description" className="px-4 py-2.5 text-sm whitespace-nowrap">
+                Description
+              </TabsTrigger>
+              <TabsTrigger value="shipping" className="px-4 py-2.5 text-sm whitespace-nowrap">
+                Shipping
               </TabsTrigger>
             </TabsList>
-
-            <TabsContent value="description" className="mt-6">
-              <Card>
-                <CardContent className="p-6 space-y-4">
-                  <h3 className="text-2xl font-bold">About This Blue Sapphire</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-                  <Separator className="my-4" />
-                  <h4 className="text-lg font-bold">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {product.keyPoints.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="specifications" className="mt-6">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold mb-4">Technical Specifications</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {Object.entries(specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
-                        <span className="font-medium">{key}:</span>
-                        <span className="text-muted-foreground">{value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
 
             <TabsContent value="reviews" className="mt-6">
               <Card>
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
                     <div>
-                      <h3 className="text-2xl font-bold">Customer Reviews</h3>
+                      <h3 className="text-xl font-bold">Customer Reviews</h3>
                       <div className="flex items-center gap-2 mt-2">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                            <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                           ))}
                         </div>
-                        <span className="font-bold text-lg">{product.rating}</span>
-                        <span className="text-muted-foreground">({product.reviewCount.toLocaleString()} reviews)</span>
+                        <span className="font-bold">{product.rating}</span>
+                        <span className="text-muted-foreground text-sm">based on {product.reviewCount.toLocaleString()} reviews</span>
                       </div>
                     </div>
-                    <Button variant="outline">Write a Review</Button>
+                    <Button>Write a Review</Button>
                   </div>
-
-                  <Separator className="my-6" />
-
+                  <Separator className="my-4" />
                   <div className="space-y-6">
-                    {product.customerReviews.map((review, idx) => (
+                    {product.customerReviews.map((review: any, idx: number) => (
                       <div key={idx} className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
                               {review.name.charAt(0)}
                             </div>
                             <div>
                               <p className="font-medium">{review.name}</p>
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-2 flex-wrap">
                                 <div className="flex">
                                   {[...Array(review.rating)].map((_, i) => (
-                                    <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                                    <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                                   ))}
                                 </div>
                                 {review.verified && (
-                                  <Badge variant="outline" className="text-xs">
-                                    <CheckCircle2 className="h-3 w-3 mr-1" />
-                                    Verified Purchase
+                                  <Badge variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                                    <CheckCircle2 className="h-3 w-3 mr-1" /> Verified
                                   </Badge>
                                 )}
+                                <span className="text-xs text-muted-foreground">{review.location}</span>
                               </div>
                             </div>
                           </div>
-                          <span className="text-sm text-muted-foreground">{review.date}</span>
+                          <span className="text-xs text-muted-foreground">{review.date}</span>
                         </div>
-                        <p className="text-muted-foreground ml-12">{review.comment}</p>
+                        <p className="text-muted-foreground text-sm ml-13 pl-13">{review.comment}</p>
                         {idx < product.customerReviews.length - 1 && <Separator className="mt-4" />}
                       </div>
                     ))}
@@ -657,61 +722,70 @@ const ProductDetailsGemstone = () => {
               </Card>
             </TabsContent>
 
+            <TabsContent value="specifications" className="mt-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">Technical Specifications</h3>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {Object.entries(specifications).map(([key, value]) => (
+                      <div key={key} className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
+                        <span className="font-medium text-sm">{key}:</span>
+                        <span className="text-muted-foreground text-sm">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="description" className="mt-6">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">About This {product.name.split('(')[0].trim()}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{product.description}</p>
+                  <h4 className="font-bold mb-3">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {product.keyPoints.map((point: string, idx: number) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Check className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
+                        <span className="text-sm">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
             <TabsContent value="shipping" className="mt-6">
               <Card>
                 <CardContent className="p-6 space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-4">Shipping Information</h3>
+                    <h3 className="text-xl font-bold mb-4">Shipping Information</h3>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
-                        <Truck className="h-6 w-6 text-primary shrink-0" />
+                        <Truck className="h-5 w-5 text-primary shrink-0" />
                         <div>
                           <p className="font-medium">Free Express Shipping</p>
-                          <p className="text-muted-foreground">All orders ship within 24 hours. Delivery in 3-5 business days across India.</p>
+                          <p className="text-sm text-muted-foreground">Delivery in 3-5 business days across India.</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <Package className="h-6 w-6 text-primary shrink-0" />
+                        <Package className="h-5 w-5 text-primary shrink-0" />
                         <div>
                           <p className="font-medium">Secure Packaging</p>
-                          <p className="text-muted-foreground">Premium packaging with tamper-proof seals and certificate protection.</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Clock className="h-6 w-6 text-primary shrink-0" />
-                        <div>
-                          <p className="font-medium">Track Your Order</p>
-                          <p className="text-muted-foreground">Real-time tracking details sent to your email and SMS.</p>
+                          <p className="text-sm text-muted-foreground">Premium tamper-proof packaging with certificate.</p>
                         </div>
                       </div>
                     </div>
                   </div>
-
                   <Separator />
-
                   <div>
-                    <h3 className="text-2xl font-bold mb-4">Return & Exchange Policy</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <RefreshCcw className="h-6 w-6 text-primary shrink-0" />
-                        <div>
-                          <p className="font-medium">7 Days Money Back Guarantee</p>
-                          <p className="text-muted-foreground">Not satisfied? Return within 7 days for a full refund. No questions asked.</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
-                        <div>
-                          <p className="font-medium">Easy Return Process</p>
-                          <p className="text-muted-foreground">Contact us for return. We'll arrange free pickup. Refund processed within 5-7 days.</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <AlertCircle className="h-6 w-6 text-primary shrink-0" />
-                        <div>
-                          <p className="font-medium">Return Conditions</p>
-                          <p className="text-muted-foreground">Gemstone must be unworn, in original condition with certificate and packaging intact.</p>
-                        </div>
+                    <h3 className="text-xl font-bold mb-4">Return Policy</h3>
+                    <div className="flex items-start gap-3">
+                      <RefreshCcw className="h-5 w-5 text-primary shrink-0" />
+                      <div>
+                        <p className="font-medium">7 Days Money Back Guarantee</p>
+                        <p className="text-sm text-muted-foreground">Not satisfied? Return within 7 days for full refund. No questions asked.</p>
                       </div>
                     </div>
                   </div>
@@ -721,41 +795,16 @@ const ProductDetailsGemstone = () => {
           </Tabs>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="mt-16 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-center mb-4">Astrological Benefits</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Experience the transformative power of {product.name} in your life
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {product.benefits.map((benefit, idx) => (
-              <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <benefit.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+        {/* FAQs */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
           <Card>
             <CardContent className="p-6">
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, idx) => (
-                  <AccordionItem key={idx} value={`item-${idx}`}>
-                    <AccordionTrigger className="text-left font-medium">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      {faq.answer}
-                    </AccordionContent>
+                  <AccordionItem key={idx} value={`faq-${idx}`}>
+                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
@@ -763,114 +812,45 @@ const ProductDetailsGemstone = () => {
           </Card>
         </div>
 
-        {/* Why Choose Section */}
-        <div className="mt-16 bg-gradient-premium rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-center mb-10">Why Choose AstroSage?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">21 Years of Trust</h3>
-              <p className="text-muted-foreground">No 1 astrology platform since 2004</p>
-            </div>
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">100% Authentic</h3>
-              <p className="text-muted-foreground">Government lab certified gemstones</p>
-            </div>
-            <div className="text-center">
-              <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Expert Energized</h3>
-              <p className="text-muted-foreground">Activated by experienced astrologers</p>
-            </div>
+        {/* Final CTA */}
+        <div className="mt-12 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-6 md:p-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to Transform Your Life?</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            Join {product.sold} happy customers who have experienced positive changes with our certified gemstones.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <Button size="lg" className="flex-1 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 font-bold">
+              <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
+            </Button>
+            <Button size="lg" variant="outline" className="flex-1 border-2 font-bold">
+              <Phone className="mr-2 h-5 w-5" /> Call Expert
+            </Button>
           </div>
         </div>
 
-        {/* Contact Support Section */}
-        <div className="mt-16 border-2 border-primary/20 rounded-xl p-8 bg-gradient-to-br from-primary/5 to-accent/5">
-          <h2 className="text-2xl font-bold text-center mb-6">Need Help? Our Experts Are Here</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                <Phone className="h-8 w-8 text-primary" />
-              </div>
-              <p className="font-medium mb-1">Call Us</p>
-              <p className="text-sm text-muted-foreground">+91-9876543210</p>
-              <p className="text-xs text-muted-foreground mt-1">Mon-Sat, 9 AM - 7 PM</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                <MessageCircle className="h-8 w-8 text-primary" />
-              </div>
-              <p className="font-medium mb-1">WhatsApp</p>
-              <Button 
-                variant="link" 
-                className="text-primary p-0 h-auto"
-                onClick={() => window.open('https://wa.me/1234567890', '_blank')}
-              >
-                Chat with Expert
-              </Button>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                <Mail className="h-8 w-8 text-primary" />
-              </div>
-              <p className="font-medium mb-1">Email Us</p>
-              <p className="text-sm text-muted-foreground">support@astrosage.com</p>
-              <p className="text-xs text-muted-foreground mt-1">24-48 hour response</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Social Proof Bar */}
-        <div className="mt-16 bg-accent/10 border border-accent/20 rounded-xl p-6">
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <Users className="h-8 w-8 text-accent mx-auto mb-2" />
-              <p className="text-2xl font-bold text-accent">5 Lakh+</p>
-              <p className="text-sm text-muted-foreground">Happy Customers</p>
-            </div>
-            <div>
-              <TrendingUp className="h-8 w-8 text-accent mx-auto mb-2" />
-              <p className="text-2xl font-bold text-accent">4.9/5</p>
-              <p className="text-sm text-muted-foreground">Customer Rating</p>
-            </div>
-            <div>
-              <Shield className="h-8 w-8 text-accent mx-auto mb-2" />
-              <p className="text-2xl font-bold text-accent">100%</p>
-              <p className="text-sm text-muted-foreground">Authentic Products</p>
-            </div>
-            <div>
-              <Award className="h-8 w-8 text-accent mx-auto mb-2" />
-              <p className="text-2xl font-bold text-accent">23+ Years</p>
-              <p className="text-sm text-muted-foreground">Industry Experience</p>
-            </div>
+        {/* Contact Support */}
+        <div className="mt-12 text-center pb-24 md:pb-8">
+          <p className="text-sm text-muted-foreground mb-2">Need help? Our experts are available 24/7</p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Button variant="ghost" size="sm">
+              <Phone className="mr-2 h-4 w-4" /> +91 98765 43210
+            </Button>
+            <Button variant="ghost" size="sm">
+              <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Sticky Mobile Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-background border-t-2 border-primary/20 p-4 lg:hidden z-50 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl p-3 md:hidden z-40">
         <div className="flex items-center gap-3">
           <div className="flex-1">
-            <p className="text-xs text-muted-foreground">Total Price</p>
-            <p className="text-xl font-bold text-primary">₹{(product.price * quantity).toLocaleString()}</p>
+            <p className="text-xs text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</p>
+            <p className="text-xl font-bold text-green-700">₹{product.price.toLocaleString()}</p>
           </div>
-          <Button 
-            size="lg" 
-            className="flex-1 bg-accent hover:bg-accent/90"
-            onClick={() => {
-              // Add to cart logic
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <ShoppingCart className="mr-2 h-4 w-4" />
-            Add to Cart
-          </Button>
-          <Button 
-            size="lg" 
-            className="flex-1 bg-primary hover:bg-primary/90"
-          >
-            Buy Now
+          <Button className="flex-1 bg-gradient-to-r from-orange-500 to-red-500 font-bold py-6">
+            <ShoppingCart className="mr-2 h-5 w-5" /> ADD TO CART
           </Button>
         </div>
       </div>
