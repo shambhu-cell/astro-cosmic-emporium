@@ -506,63 +506,6 @@ const GemstoneCollection = () => {
         </div>
       </div>
 
-      {/* Origin Filters */}
-      <div className="bg-muted/30 border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="relative">
-            <button 
-              onClick={() => scrollOrigins('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background rounded-full p-2 shadow-md border hidden md:block"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <div 
-              ref={scrollContainerRef}
-              className="flex items-center gap-3 overflow-x-auto scrollbar-hide px-8 py-2"
-            >
-              <button
-                onClick={() => setSelectedOrigin("all")}
-                className={`flex flex-col items-center gap-2 px-4 py-3 rounded-xl border-2 min-w-[100px] transition-all ${
-                  selectedOrigin === "all" 
-                    ? 'border-primary bg-primary/5' 
-                    : 'border-transparent bg-background hover:border-muted-foreground/20'
-                }`}
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <Gem className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-sm font-medium">All Origins</span>
-              </button>
-              {currentCollection.origins.map((origin: any) => (
-                <button
-                  key={origin.id}
-                  onClick={() => setSelectedOrigin(origin.id)}
-                  className={`flex flex-col items-center gap-2 px-4 py-3 rounded-xl border-2 min-w-[100px] transition-all ${
-                    selectedOrigin === origin.id 
-                      ? 'border-primary bg-primary/5' 
-                      : 'border-transparent bg-background hover:border-muted-foreground/20'
-                  }`}
-                >
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-muted">
-                    <img 
-                      src={currentCollection.products[0].image} 
-                      alt={origin.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-sm font-medium text-center">{origin.shortName}</span>
-                </button>
-              ))}
-            </div>
-            <button 
-              onClick={() => scrollOrigins('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background rounded-full p-2 shadow-md border hidden md:block"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* Filters & Sort */}
       <div className="bg-background border-b sticky top-14 z-30">
