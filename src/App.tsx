@@ -17,6 +17,7 @@ import Pendant from "./pages/Pendant";
 import ProductDetailsPendant from "./pages/ProductDetailsPendant";
 import Gemstones from "./pages/Gemstones";
 import GemstoneCollection from "./pages/GemstoneCollection";
+import YellowSapphireCollection from "./pages/YellowSapphireCollection";
 import Rudraksha from "./pages/Rudraksha";
 import Bracelets from "./pages/Bracelets";
 import Mala from "./pages/Mala";
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/gemstones" element={<Gemstones />} />
           <Route path="/gemstones/:gemstoneType" element={<GemstoneCollection />} />
+          <Route path="/yellow-sapphire" element={<YellowSapphireCollection />} />
           <Route path="/rudraksha" element={<Rudraksha />} />
           <Route path="/bracelets" element={<Bracelets />} />
           <Route path="/mala" element={<Mala />} />
