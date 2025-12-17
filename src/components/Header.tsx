@@ -23,7 +23,7 @@ const Header = () => {
     { name: "Emerald (Panna)", href: "/gemstones/emerald", planet: "Mercury" },
     { name: "Yellow Sapphire (Pukhraj)", href: "/gemstones/yellow-sapphire", planet: "Jupiter" },
     { name: "Diamond (Heera)", href: "/gemstones/diamond", planet: "Venus" },
-    { name: "Blue Sapphire (Neelam)", href: "/gemstones/blue-sapphire", planet: "Saturn" },
+    { name: "Blue Sapphire (Neelam)", href: "/blue-sapphire", planet: "Saturn" },
     { name: "Hessonite (Gomed)", href: "/gemstones/hessonite", planet: "Rahu" },
     { name: "Cat's Eye (Lehsunia)", href: "/gemstones/cats-eye", planet: "Ketu" },
   ];
