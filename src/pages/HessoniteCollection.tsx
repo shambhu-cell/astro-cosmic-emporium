@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Progress } from "@/components/ui/progress";
+import hessoniteImage from "@/assets/gemstones/hessonite.jpg";
 
 const HessoniteCollection = () => {
   const navigate = useNavigate();
@@ -67,14 +68,14 @@ const HessoniteCollection = () => {
   }, [recentBuyers.length]);
 
   const products = [
-    { id: "hs-ceylon-4", name: "Ceylon Hessonite (Gomed)", price: 12999, originalPrice: 19999, image: "/placeholder.svg", rating: 4.9, reviews: 156, weight: "4.25 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS142922", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-premium-5", name: "Premium Hessonite", price: 18999, originalPrice: 28999, image: "/placeholder.svg", rating: 4.9, reviews: 203, weight: "5.12 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS78604", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-ceylon-6", name: "Natural Ceylon Gomed", price: 25999, originalPrice: 39999, image: "/placeholder.svg", rating: 4.9, reviews: 178, weight: "6.35 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS72497", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-african-4", name: "African Hessonite", price: 8999, originalPrice: 13999, image: "/placeholder.svg", rating: 4.8, reviews: 234, weight: "4.85 Carat", origin: "Africa (Tanzania)", certified: true, clarity: "VS", sku: "HS112965", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-premium-7", name: "Collector's Ceylon Gomed", price: 35999, originalPrice: 54999, image: "/placeholder.svg", rating: 4.9, reviews: 89, weight: "7.18 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS234567", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-indian-4", name: "Indian Hessonite", price: 6999, originalPrice: 10999, image: "/placeholder.svg", rating: 4.7, reviews: 312, weight: "4.45 Carat", origin: "India", certified: true, clarity: "VS", sku: "HS345678", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-ceylon-8", name: "Premium Ceylon Hessonite", price: 45999, originalPrice: 68999, image: "/placeholder.svg", rating: 4.9, reviews: 112, weight: "8.25 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS456789", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
-    { id: "hs-collectors-9", name: "Rare Cinnamon Hessonite", price: 65999, originalPrice: 99999, image: "/placeholder.svg", rating: 5.0, reviews: 67, weight: "9.42 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "IF", sku: "HS567890", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-ceylon-4", name: "Ceylon Hessonite (Gomed)", price: 12999, originalPrice: 19999, image: hessoniteImage, rating: 4.9, reviews: 156, weight: "4.25 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS142922", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-premium-5", name: "Premium Hessonite", price: 18999, originalPrice: 28999, image: hessoniteImage, rating: 4.9, reviews: 203, weight: "5.12 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS78604", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-ceylon-6", name: "Natural Ceylon Gomed", price: 25999, originalPrice: 39999, image: hessoniteImage, rating: 4.9, reviews: 178, weight: "6.35 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS72497", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-african-4", name: "African Hessonite", price: 8999, originalPrice: 13999, image: hessoniteImage, rating: 4.8, reviews: 234, weight: "4.85 Carat", origin: "Africa (Tanzania)", certified: true, clarity: "VS", sku: "HS112965", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-premium-7", name: "Collector's Ceylon Gomed", price: 35999, originalPrice: 54999, image: hessoniteImage, rating: 4.9, reviews: 89, weight: "7.18 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS234567", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-indian-4", name: "Indian Hessonite", price: 6999, originalPrice: 10999, image: hessoniteImage, rating: 4.7, reviews: 312, weight: "4.45 Carat", origin: "India", certified: true, clarity: "VS", sku: "HS345678", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-ceylon-8", name: "Premium Ceylon Hessonite", price: 45999, originalPrice: 68999, image: hessoniteImage, rating: 4.9, reviews: 112, weight: "8.25 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "VVS", sku: "HS456789", shape: "Oval", treatment: "Natural Untreated", inStock: 1 },
+    { id: "hs-collectors-9", name: "Rare Cinnamon Hessonite", price: 65999, originalPrice: 99999, image: hessoniteImage, rating: 5.0, reviews: 67, weight: "9.42 Carat", origin: "Sri Lanka (Ceylon)", certified: true, clarity: "IF", sku: "HS567890", shape: "Cushion", treatment: "Natural Untreated", inStock: 1 },
   ];
 
   const testimonials = [
