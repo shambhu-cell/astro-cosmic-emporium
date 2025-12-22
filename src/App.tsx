@@ -21,6 +21,7 @@ import YellowSapphireCollection from "./pages/YellowSapphireCollection";
 import BlueSapphireCollection from "./pages/BlueSapphireCollection";
 import RubyCollection from "./pages/RubyCollection";
 import HessoniteCollection from "./pages/HessoniteCollection";
+import MoongaCollection from "./pages/MoongaCollection";
 import Rudraksha from "./pages/Rudraksha";
 import Bracelets from "./pages/Bracelets";
 import Mala from "./pages/Mala";
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/blue-sapphire" element={<BlueSapphireCollection />} />
           <Route path="/ruby" element={<RubyCollection />} />
           <Route path="/hessonite" element={<HessoniteCollection />} />
+          <Route path="/moonga" element={<MoongaCollection />} />
           <Route path="/rudraksha" element={<Rudraksha />} />
           <Route path="/bracelets" element={<Bracelets />} />
           <Route path="/mala" element={<Mala />} />
