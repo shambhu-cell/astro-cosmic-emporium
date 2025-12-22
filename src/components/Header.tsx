@@ -19,7 +19,7 @@ const Header = () => {
   const navaratna = [
     { name: "Ruby (Manikya)", href: "/ruby", planet: "Sun" },
     { name: "Pearl (Moti)", href: "/gemstones/pearl", planet: "Moon" },
-    { name: "Red Coral (Moonga)", href: "/gemstones/coral", planet: "Mars" },
+    { name: "Red Coral (Moonga)", href: "/moonga", planet: "Mars" },
     { name: "Emerald (Panna)", href: "/gemstones/emerald", planet: "Mercury" },
     { name: "Yellow Sapphire (Pukhraj)", href: "/gemstones/yellow-sapphire", planet: "Jupiter" },
     { name: "Diamond (Heera)", href: "/gemstones/diamond", planet: "Venus" },
