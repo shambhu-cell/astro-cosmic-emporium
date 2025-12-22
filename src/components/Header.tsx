@@ -17,7 +17,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navaratna = [
-    { name: "Ruby (Manikya)", href: "/gemstones/ruby", planet: "Sun" },
+    { name: "Ruby (Manikya)", href: "/ruby", planet: "Sun" },
     { name: "Pearl (Moti)", href: "/gemstones/pearl", planet: "Moon" },
     { name: "Red Coral (Moonga)", href: "/gemstones/coral", planet: "Mars" },
     { name: "Emerald (Panna)", href: "/gemstones/emerald", planet: "Mercury" },
