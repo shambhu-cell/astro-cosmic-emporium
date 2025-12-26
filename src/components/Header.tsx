@@ -17,16 +17,16 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navaratna = [
-    { name: "Ruby (Manikya)", href: "/ruby", planet: "Sun" },
-    { name: "Pearl (Moti)", href: "/pearl", planet: "Moon" },
-    { name: "Red Coral (Moonga)", href: "/moonga", planet: "Mars" },
-    { name: "Emerald (Panna)", href: "/gemstones/emerald", planet: "Mercury" },
-    { name: "Yellow Sapphire (Pukhraj)", href: "/gemstones/yellow-sapphire", planet: "Jupiter" },
-    { name: "Diamond (Heera)", href: "/gemstones/diamond", planet: "Venus" },
-    { name: "Blue Sapphire (Neelam)", href: "/blue-sapphire", planet: "Saturn" },
-    { name: "Hessonite (Gomed)", href: "/hessonite", planet: "Rahu" },
-    { name: "Cat's Eye (Lehsunia)", href: "/cats-eye", planet: "Ketu" },
-    { name: "Lapis Lazuli", href: "/lapis-lazuli", planet: "Saturn/Jupiter" },
+    { name: "Ruby (Manikya)", href: "/ruby-collection", planet: "Sun" },
+    { name: "Pearl (Moti)", href: "/pearl-collection", planet: "Moon" },
+    { name: "Red Coral (Moonga)", href: "/moonga-collection", planet: "Mars" },
+    { name: "Emerald (Panna)", href: "/gemstones", planet: "Mercury" },
+    { name: "Yellow Sapphire (Pukhraj)", href: "/yellow-sapphire-collection", planet: "Jupiter" },
+    { name: "Diamond (Heera)", href: "/gemstones", planet: "Venus" },
+    { name: "Blue Sapphire (Neelam)", href: "/blue-sapphire-collection", planet: "Saturn" },
+    { name: "Hessonite (Gomed)", href: "/hessonite-collection", planet: "Rahu" },
+    { name: "Cat's Eye (Lehsunia)", href: "/cats-eye-collection", planet: "Ketu" },
+    { name: "Lapis Lazuli", href: "/lapis-lazuli-collection", planet: "Saturn/Jupiter" },
   ];
 
   const rudrakshaTypes = [
