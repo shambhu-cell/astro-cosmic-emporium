@@ -537,6 +537,79 @@ const PearlCollection = () => {
         </div>
       </div>
 
+      {/* Moon Benefits & How to Wear - After Product Listing */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Moon Benefits Card */}
+          <Card className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950/50 dark:to-gray-950/50 border-slate-200 dark:border-slate-800">
+            <CardContent className="p-6 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                  <Moon className="w-5 h-5 text-slate-600" />
+                </div>
+                <h3 className="text-xl font-bold">Moon (Chandra) Benefits</h3>
+              </div>
+              <div className="space-y-3">
+                {[
+                  "Controls emotions & mind",
+                  "Enhances intuition & psychic abilities",
+                  "Improves relationships with mother",
+                  "Balances hormones & fertility",
+                  "Reduces stress & anxiety",
+                  "Promotes sound sleep",
+                  "Enhances creativity & imagination",
+                  "Brings mental clarity"
+                ].map((benefit, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <Droplets className="w-4 h-4 text-slate-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* How to Wear Card */}
+          <Card className="border-slate-200 dark:border-slate-800">
+            <CardContent className="p-6 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-slate-600" />
+                </div>
+                <h3 className="text-xl font-bold">How to Wear Pearl</h3>
+              </div>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between py-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-muted-foreground">Metal:</span>
+                  <span className="font-semibold">Silver</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-muted-foreground">Finger:</span>
+                  <span className="font-semibold">Little Finger</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-muted-foreground">Day:</span>
+                  <span className="font-semibold">Monday</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-muted-foreground">Time:</span>
+                  <span className="font-semibold">Morning (6-8 AM)</span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span className="text-muted-foreground">Min. Weight:</span>
+                  <span className="font-semibold">5 Carats</span>
+                </div>
+              </div>
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Mantra:</span> "Om Som Somaya Namah" (108 times)
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
       {/* Testimonials Section */}
       <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-950/50 dark:to-gray-950/50 py-12 border-y">
         <div className="container mx-auto px-4">
