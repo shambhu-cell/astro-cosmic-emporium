@@ -456,7 +456,6 @@ const GemstoneCollection = () => {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-muted-foreground">Starting from</p>
                   <p className="text-2xl font-bold text-primary">{currentCollection.priceRange.split(' - ')[0]}</p>
                 </div>
               </div>
@@ -861,7 +860,6 @@ const GemstoneCollection = () => {
       <div className="fixed bottom-0 left-0 right-0 bg-background border-t p-3 md:hidden z-50">
         <div className="flex items-center gap-3">
           <div className="flex-1">
-            <p className="text-xs text-muted-foreground">Starting from</p>
             <p className="text-lg font-bold text-primary">{currentCollection.priceRange.split(' - ')[0]}</p>
           </div>
           <Button className="flex-1" onClick={() => window.open('https://wa.me/1234567890', '_blank')}>

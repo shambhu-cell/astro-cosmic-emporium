@@ -257,7 +257,6 @@ const RubyCollection = () => {
               {/* Price & CTA Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm text-muted-foreground">Starting from</p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl md:text-4xl font-bold text-foreground">₹10,000</span>
                     <span className="text-lg text-muted-foreground line-through">₹15,000</span>
