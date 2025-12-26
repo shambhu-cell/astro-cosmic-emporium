@@ -315,69 +315,11 @@ const PearlCollection = () => {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            {/* Filters */}
-            <Card>
-              <CardContent className="p-4 space-y-4">
-                <h3 className="font-bold">Filters</h3>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Price Range</label>
-                  <Select value={priceRange} onValueChange={setPriceRange}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="All Prices" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Prices</SelectItem>
-                      <SelectItem value="under-5k">Under ₹5,000</SelectItem>
-                      <SelectItem value="5k-15k">₹5,000 - ₹15,000</SelectItem>
-                      <SelectItem value="15k-30k">₹15,000 - ₹30,000</SelectItem>
-                      <SelectItem value="above-30k">Above ₹30,000</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Weight (Carat)</label>
-                  <Select value={weightRange} onValueChange={setWeightRange}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="All Weights" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Weights</SelectItem>
-                      <SelectItem value="4-5">4 - 5 Carat</SelectItem>
-                      <SelectItem value="5-6">5 - 6 Carat</SelectItem>
-                      <SelectItem value="6-8">6 - 8 Carat</SelectItem>
-                      <SelectItem value="8+">8+ Carat</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Sort By</label>
-                  <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Most Popular" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="popular">Most Popular</SelectItem>
-                      <SelectItem value="price-low">Price: Low to High</SelectItem>
-                      <SelectItem value="price-high">Price: High to Low</SelectItem>
-                      <SelectItem value="rating">Highest Rated</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Products Grid */}
-          <div className="lg:col-span-3">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">Pearl (Moti) Collection</h2>
-              <Badge variant="outline">{sortedProducts.length} Products</Badge>
+        {/* Products Grid */}
+        <div>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold">Pearl (Moti) Collection</h2>
+            <Badge variant="outline">{sortedProducts.length} Products</Badge>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -468,7 +410,6 @@ const PearlCollection = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
           </div>
         </div>
       </div>
