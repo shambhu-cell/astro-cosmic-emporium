@@ -266,7 +266,6 @@ const CatsEyeCollection = () => {
               {/* Price & CTA Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm text-muted-foreground">Starting from</p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl md:text-4xl font-bold text-foreground">₹9,999</span>
                     <span className="text-lg text-muted-foreground line-through">₹15,999</span>
@@ -579,7 +578,6 @@ const CatsEyeCollection = () => {
       <div className="fixed bottom-0 left-0 right-0 bg-background border-t shadow-lg p-4 md:hidden z-50">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs text-muted-foreground">Starting from</p>
             <p className="text-lg font-bold">₹9,999</p>
           </div>
           <div className="flex gap-2">

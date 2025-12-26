@@ -266,7 +266,6 @@ const HessoniteCollection = () => {
               {/* Price & CTA Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm text-muted-foreground">Starting from</p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl md:text-4xl font-bold text-foreground">₹6,999</span>
                     <span className="text-lg text-muted-foreground line-through">₹10,999</span>
