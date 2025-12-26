@@ -25,7 +25,7 @@ const Header = () => {
     { name: "Diamond (Heera)", href: "/gemstones/diamond", planet: "Venus" },
     { name: "Blue Sapphire (Neelam)", href: "/blue-sapphire", planet: "Saturn" },
     { name: "Hessonite (Gomed)", href: "/hessonite", planet: "Rahu" },
-    { name: "Cat's Eye (Lehsunia)", href: "/gemstones/cats-eye", planet: "Ketu" },
+    { name: "Cat's Eye (Lehsunia)", href: "/cats-eye", planet: "Ketu" },
   ];
 
   const rudrakshaTypes = [
