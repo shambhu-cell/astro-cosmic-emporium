@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   Shield, Star, ChevronRight, Sparkles, MessageCircle, Phone,
-  Truck, RefreshCcw, BadgeCheck, Users, Timer, Zap, Eye, CheckCircle
+  Truck, RefreshCcw, BadgeCheck, Users, Eye, CheckCircle, ArrowRight, 
+  Gem, Crown, Heart, Flame
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 
 // Import images
 import blueSapphireImage from "@/assets/gemstones/blue-sapphire.jpg";
@@ -24,18 +24,94 @@ import malaImage from "@/assets/mala/rudraksha-mala.jpg";
 import yantraImage from "@/assets/yantras.jpg";
 import vastuImage from "@/assets/vastu-painting/radha-krishna-1.jpg";
 import consultationImage from "@/assets/consultation.jpg";
-import careerImage from "@/assets/purpose/career.jpg";
-import healthImage from "@/assets/purpose/health.jpg";
-import loveImage from "@/assets/purpose/love.jpg";
-import moneyImage from "@/assets/purpose/money.jpg";
-import giftingImage from "@/assets/purpose/gifting.jpg";
-import evilEyeImage from "@/assets/purpose/evil-eye.jpg";
+
+interface Collection {
+  title: string;
+  subtitle?: string;
+  items: number;
+  image: string;
+  href: string;
+  badge?: string;
+  hot?: boolean;
+  new?: boolean;
+  bestseller?: boolean;
+}
+
+const CollectionCard = ({ collection, index }: { collection: Collection; index: number }) => {
+  const navigate = useNavigate();
+  
+  return (
+    <div 
+      className="group relative cursor-pointer"
+      onClick={() => navigate(collection.href)}
+      style={{ animationDelay: `${index * 50}ms` }}
+    >
+      {/* Card Container */}
+      <div className="relative overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+        
+        {/* Image Container */}
+        <div className="relative aspect-[4/5] overflow-hidden">
+          <img 
+            src={collection.image} 
+            alt={collection.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          
+          {/* Top Badges */}
+          <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
+            {collection.hot && (
+              <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-[11px] font-bold px-2.5 py-1 shadow-lg animate-pulse">
+                <Flame className="w-3 h-3 mr-1" /> HOT
+              </Badge>
+            )}
+            {collection.new && (
+              <Badge className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[11px] font-bold px-2.5 py-1 shadow-lg">
+                <Sparkles className="w-3 h-3 mr-1" /> NEW
+              </Badge>
+            )}
+            {collection.bestseller && (
+              <Badge className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[11px] font-bold px-2.5 py-1 shadow-lg">
+                <Crown className="w-3 h-3 mr-1" /> BESTSELLER
+              </Badge>
+            )}
+            {collection.badge && !collection.hot && !collection.new && !collection.bestseller && (
+              <Badge className="bg-black/60 backdrop-blur-sm text-white/90 text-[10px] px-2 py-1 ml-auto">
+                {collection.badge}
+              </Badge>
+            )}
+          </div>
+          
+          {/* Content Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-0.5 group-hover:text-primary transition-colors">
+              {collection.title}
+            </h3>
+            {collection.subtitle && (
+              <p className="text-white/70 text-sm">{collection.subtitle}</p>
+            )}
+            <div className="flex items-center justify-between mt-3">
+              <span className="text-white/90 text-sm font-medium">
+                {collection.items} Products
+              </span>
+              <span className="flex items-center gap-1 text-primary text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Shop Now <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Collections = () => {
   const navigate = useNavigate();
   const [viewingCount, setViewingCount] = useState(234);
 
-  // Simulate live viewing count
   useEffect(() => {
     const interval = setInterval(() => {
       setViewingCount(prev => Math.max(200, Math.min(300, prev + Math.floor(Math.random() * 11) - 5)));
@@ -43,127 +119,125 @@ const Collections = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const collections = [
-    // Gemstones
+  const gemstones: Collection[] = [
     { title: "Blue Sapphire", subtitle: "Neelam", items: 11, image: blueSapphireImage, href: "/blue-sapphire-collection", badge: "Saturn", hot: true },
-    { title: "Yellow Sapphire", subtitle: "Pukhraj", items: 12, image: yellowSapphireImage, href: "/yellow-sapphire-collection", badge: "Jupiter" },
+    { title: "Yellow Sapphire", subtitle: "Pukhraj", items: 12, image: yellowSapphireImage, href: "/yellow-sapphire-collection", badge: "Jupiter", bestseller: true },
     { title: "Ruby", subtitle: "Manik", items: 9, image: rubyImage, href: "/ruby-collection", badge: "Sun" },
     { title: "Emerald", subtitle: "Panna", items: 53, image: emeraldImage, href: "/gemstones", badge: "Mercury", new: true },
     { title: "Pearl", subtitle: "Moti", items: 8, image: pearlImage, href: "/pearl-collection", badge: "Moon" },
     { title: "Red Coral", subtitle: "Moonga", items: 15, image: redCoralImage, href: "/moonga-collection", badge: "Mars" },
     { title: "Hessonite", subtitle: "Gomed", items: 10, image: hessoniteImage, href: "/hessonite-collection", badge: "Rahu" },
     { title: "Cat's Eye", subtitle: "Lehsunia", items: 8, image: catsEyeImage, href: "/cats-eye-collection", badge: "Ketu" },
-    { title: "Lapis Lazuli", subtitle: "", items: 6, image: lapisLazuliImage, href: "/lapis-lazuli-collection", badge: "" },
-    
-    // Other Collections
-    { title: "Rudraksha", subtitle: "", items: 25, image: rudrakshaImage, href: "/rudraksha", badge: "Shiva", hot: true },
-    { title: "Bracelets", subtitle: "", items: 20, image: braceletImage, href: "/bracelets", badge: "" },
-    { title: "Mala", subtitle: "", items: 12, image: malaImage, href: "/mala", badge: "" },
-    { title: "Yantra", subtitle: "", items: 15, image: yantraImage, href: "/yantra", badge: "" },
-    { title: "Vastu Paintings", subtitle: "", items: 12, image: vastuImage, href: "/vastu-painting", badge: "" },
-    { title: "Consultation", subtitle: "", items: 3, image: consultationImage, href: "/consultation", badge: "Expert" },
-    
-    // Shop by Purpose
-    { title: "Career", subtitle: "Growth & Success", items: 4, image: careerImage, href: "/gemstones?purpose=career", badge: "Purpose" },
-    { title: "Health", subtitle: "Wellness & Healing", items: 5, image: healthImage, href: "/gemstones?purpose=health", badge: "Purpose" },
-    { title: "Love", subtitle: "Relationships", items: 4, image: loveImage, href: "/gemstones?purpose=love", badge: "Purpose" },
-    { title: "Money", subtitle: "Wealth & Prosperity", items: 6, image: moneyImage, href: "/gemstones?purpose=money", badge: "Purpose" },
-    { title: "Gifting", subtitle: "Special Occasions", items: 10, image: giftingImage, href: "/gemstones?purpose=gifting", badge: "Gift" },
-    { title: "Evil Eye", subtitle: "Protection", items: 3, image: evilEyeImage, href: "/gemstones?purpose=protection", badge: "Protection" },
+    { title: "Lapis Lazuli", subtitle: "Spiritual Stone", items: 6, image: lapisLazuliImage, href: "/lapis-lazuli-collection" },
+  ];
+
+  const otherCollections: Collection[] = [
+    { title: "Rudraksha", subtitle: "Sacred Beads", items: 25, image: rudrakshaImage, href: "/rudraksha", hot: true },
+    { title: "Bracelets", subtitle: "Healing Energy", items: 20, image: braceletImage, href: "/bracelets" },
+    { title: "Mala", subtitle: "Prayer Beads", items: 12, image: malaImage, href: "/mala" },
+    { title: "Yantra", subtitle: "Sacred Geometry", items: 15, image: yantraImage, href: "/yantra" },
+    { title: "Vastu Paintings", subtitle: "Home Harmony", items: 12, image: vastuImage, href: "/vastu-painting" },
+    { title: "Consultation", subtitle: "Expert Guidance", items: 3, image: consultationImage, href: "/consultation", badge: "Expert" },
   ];
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Trust Banner */}
-      <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white py-2.5 px-4">
-        <div className="container mx-auto flex items-center justify-center gap-4 text-sm font-medium">
-          <Sparkles className="w-4 h-4 animate-pulse" />
-          <span>✨ Trusted by 50 Million+ Customers Worldwide</span>
-          <Sparkles className="w-4 h-4 animate-pulse" />
+      {/* Animated Trust Banner */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-primary via-amber-500 to-primary text-white py-2.5">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)] animate-[shimmer_2s_infinite]" 
+          style={{ animation: 'shimmer 2s infinite', backgroundSize: '200% 100%' }} />
+        <div className="container mx-auto flex items-center justify-center gap-4 text-sm font-medium relative z-10">
+          <Sparkles className="w-4 h-4" />
+          <span>Trusted by 50 Million+ Customers • 21+ Years of Excellence</span>
+          <Sparkles className="w-4 h-4" />
         </div>
       </div>
 
       {/* Trust Bar */}
-      <div className="bg-green-50 dark:bg-green-950/30 border-b border-green-200 dark:border-green-800 py-2.5">
+      <div className="bg-secondary/50 border-b py-2.5">
         <div className="container mx-auto px-4 flex items-center justify-center gap-4 md:gap-8 text-xs md:text-sm flex-wrap">
-          <span className="flex items-center gap-1.5 text-green-700 dark:text-green-400 font-medium">
-            <BadgeCheck className="h-4 w-4" /> 100% Certified
+          <span className="flex items-center gap-1.5 text-foreground/80 font-medium">
+            <BadgeCheck className="h-4 w-4 text-green-600" /> 100% Certified
           </span>
-          <span className="flex items-center gap-1.5 text-green-700 dark:text-green-400 font-medium">
-            <Truck className="h-4 w-4" /> Free Shipping
+          <span className="flex items-center gap-1.5 text-foreground/80 font-medium">
+            <Truck className="h-4 w-4 text-primary" /> Free Shipping
           </span>
-          <span className="flex items-center gap-1.5 text-green-700 dark:text-green-400 font-medium">
-            <RefreshCcw className="h-4 w-4" /> 7-Day Returns
+          <span className="flex items-center gap-1.5 text-foreground/80 font-medium">
+            <RefreshCcw className="h-4 w-4 text-blue-600" /> 7-Day Returns
           </span>
-          <span className="flex items-center gap-1.5 text-green-700 dark:text-green-400 font-medium">
-            <Users className="h-4 w-4" /> 50M+ Customers
+          <span className="flex items-center gap-1.5 text-foreground/80 font-medium">
+            <Users className="h-4 w-4 text-purple-600" /> 50M+ Customers
           </span>
-        </div>
-      </div>
-
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 border-b">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <button onClick={() => navigate('/')} className="hover:text-foreground transition-colors">Home</button>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-foreground font-medium">All Collections</span>
-          </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-background dark:from-amber-950/20 dark:via-orange-950/10 dark:to-background py-8 md:py-12 border-b">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden border-b">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ 
+            backgroundImage: 'radial-gradient(circle at 25% 25%, hsl(var(--primary)) 2px, transparent 2px)',
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+        
+        <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Live Badge */}
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Badge className="bg-red-500 text-white animate-pulse">
-                <Zap className="w-3 h-3 mr-1" /> LIVE
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Badge className="bg-red-500/10 text-red-600 border border-red-200 px-3 py-1.5">
+                <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse" />
+                LIVE
               </Badge>
-              <Badge variant="outline" className="text-xs border-red-300 text-red-600 dark:border-red-700 dark:text-red-400">
-                <Eye className="w-3 h-3 mr-1" /> {viewingCount} people browsing
+              <Badge variant="outline" className="px-3 py-1.5">
+                <Eye className="w-3.5 h-3.5 mr-1.5" /> {viewingCount} browsing now
               </Badge>
             </div>
             
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent">
-              Explore Our Collections
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+              <span className="bg-gradient-to-r from-primary via-amber-500 to-primary bg-clip-text text-transparent">
+                Our Collections
+              </span>
             </h1>
-            <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
-              Discover authentic gemstones, sacred Rudraksha, spiritual malas, and Vastu remedies. 
-              Each item is certified, energized, and ready to transform your life.
+            <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+              Discover certified gemstones, sacred Rudraksha, and spiritual items. 
+              Each piece energized for your transformation.
             </p>
 
             {/* Stats */}
-            <div className="flex items-center justify-center gap-6 md:gap-10 mb-6">
+            <div className="flex items-center justify-center gap-8 md:gap-14 mb-8">
               {[
-                { value: "21+", label: "Years Trust" },
-                { value: "50M+", label: "Customers" },
-                { value: "4.9★", label: "Rating" },
-                { value: "100K+", label: "Products" },
+                { value: "21+", label: "Years", icon: Crown },
+                { value: "50M+", label: "Customers", icon: Heart },
+                { value: "4.9★", label: "Rating", icon: Star },
+                { value: "100K+", label: "Products", icon: Gem },
               ].map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <p className="text-xl md:text-2xl font-bold text-amber-600">{stat.value}</p>
+                <div key={idx} className="text-center group">
+                  <stat.icon className="w-5 h-5 mx-auto mb-1 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <p className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
                   <p className="text-xs text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            {/* CTA */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800"
+                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-lg shadow-green-600/25 text-base px-8"
                 onClick={() => window.open('https://wa.me/1234567890', '_blank')}
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-5 h-5 mr-2" />
                 Free Expert Consultation
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
+                className="text-base px-8"
                 onClick={() => navigate('/gemstone-calculator')}
               >
+                <Sparkles className="w-5 h-5 mr-2" />
                 Find Your Gemstone
               </Button>
             </div>
@@ -171,135 +245,127 @@ const Collections = () => {
         </div>
       </section>
 
-      {/* Collections Grid */}
-      <section className="container mx-auto px-4 py-10 md:py-14">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {collections.map((collection, idx) => (
-            <Card 
-              key={idx}
-              className="group relative overflow-hidden cursor-pointer border-2 border-dashed border-amber-200/50 dark:border-amber-800/50 hover:border-amber-400 dark:hover:border-amber-600 bg-gradient-to-br from-white to-amber-50/30 dark:from-background dark:to-amber-950/10 transition-all duration-300 hover:shadow-xl hover:shadow-amber-200/30 dark:hover:shadow-amber-900/20"
-              onClick={() => navigate(collection.href)}
-            >
-              <CardContent className="p-0">
-                {/* Image Container */}
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-amber-100/50 to-orange-100/50 dark:from-amber-900/20 dark:to-orange-900/20">
-                  <img 
-                    src={collection.image} 
-                    alt={collection.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Badges */}
-                  {collection.hot && (
-                    <Badge className="absolute top-2 left-2 bg-red-500 text-white text-[10px] px-2 py-0.5 animate-pulse">
-                      🔥 HOT
-                    </Badge>
-                  )}
-                  {collection.new && (
-                    <Badge className="absolute top-2 left-2 bg-green-500 text-white text-[10px] px-2 py-0.5">
-                      ✨ NEW
-                    </Badge>
-                  )}
-                  {collection.badge && !collection.hot && !collection.new && (
-                    <Badge className="absolute top-2 right-2 bg-amber-500/90 text-white text-[10px] px-2 py-0.5">
-                      {collection.badge}
-                    </Badge>
-                  )}
-                </div>
+      {/* Gemstones Section */}
+      <section className="container mx-auto px-4 py-12 md:py-16">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <Badge className="bg-primary/10 text-primary mb-2">Planetary Gemstones</Badge>
+            <h2 className="text-2xl md:text-3xl font-bold">Certified Gemstones</h2>
+            <p className="text-muted-foreground mt-1">Lab-certified gemstones for each planet</p>
+          </div>
+          <Button 
+            variant="ghost" 
+            className="text-primary hidden md:flex"
+            onClick={() => navigate('/gemstones')}
+          >
+            View All <ArrowRight className="w-4 h-4 ml-1" />
+          </Button>
+        </div>
 
-                {/* Content */}
-                <div className="p-4 text-center">
-                  <h3 className="font-bold text-base md:text-lg text-foreground group-hover:text-amber-600 transition-colors">
-                    {collection.title}
-                  </h3>
-                  {collection.subtitle && (
-                    <p className="text-xs text-muted-foreground">{collection.subtitle}</p>
-                  )}
-                  <p className="text-sm text-amber-600 dark:text-amber-400 font-medium mt-1">
-                    {collection.items} items
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          {gemstones.map((collection, idx) => (
+            <CollectionCard key={idx} collection={collection} index={idx} />
           ))}
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/20 py-12 border-y">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 mb-3">
-              <Star className="w-3 h-3 mr-1 fill-amber-500 text-amber-500" />
-              Customer Verified
-            </Badge>
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Why Choose AstroSage?</h2>
-            <p className="text-muted-foreground">Trusted by millions for authentic spiritual products</p>
+      {/* Other Collections Section */}
+      <section className="bg-secondary/30 border-y">
+        <div className="container mx-auto px-4 py-12 md:py-16">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <Badge className="bg-primary/10 text-primary mb-2">Spiritual Items</Badge>
+              <h2 className="text-2xl md:text-3xl font-bold">More Collections</h2>
+              <p className="text-muted-foreground mt-1">Sacred items for spiritual growth</p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { icon: Shield, title: "100% Certified", desc: "Government lab certified gemstones with authenticity guarantee" },
-              { icon: Truck, title: "Free Shipping", desc: "Free express delivery across India on all orders" },
-              { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked return policy with full refund" },
-              { icon: Star, title: "Expert Guidance", desc: "Free consultation with experienced astrologers" },
-            ].map((feature, idx) => (
-              <div key={idx} className="text-center p-6 bg-white/60 dark:bg-background/60 rounded-2xl border border-amber-200/50 dark:border-amber-800/30">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.desc}</p>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
+            {otherCollections.map((collection, idx) => (
+              <CollectionCard key={idx} collection={collection} index={idx} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
-            Not Sure Which Gemstone to Choose?
-          </h2>
-          <p className="text-green-100 mb-6">
-            Get personalized recommendations from our expert astrologers. Free consultation available 24/7.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-white text-green-700 hover:bg-green-50"
-              onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+      {/* Why Choose Us */}
+      <section className="container mx-auto px-4 py-12 md:py-16">
+        <div className="text-center mb-10">
+          <Badge className="bg-primary/10 text-primary mb-3">Why AstroSage?</Badge>
+          <h2 className="text-2xl md:text-3xl font-bold">Trusted by Millions</h2>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {[
+            { icon: Shield, title: "100% Certified", desc: "Government lab certified with authenticity guarantee", color: "text-green-600" },
+            { icon: Truck, title: "Free Shipping", desc: "Free express delivery across India", color: "text-blue-600" },
+            { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked full refund policy", color: "text-purple-600" },
+            { icon: Star, title: "Expert Guidance", desc: "Free consultation with experienced astrologers", color: "text-amber-600" },
+          ].map((feature, idx) => (
+            <div 
+              key={idx} 
+              className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 text-center"
             >
-              <Phone className="w-4 h-4 mr-2" />
-              Talk to Expert Now
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-              onClick={() => navigate('/gemstone-calculator')}
-            >
-              <Sparkles className="w-4 h-4 mr-2" />
-              Use AI Calculator
-            </Button>
-          </div>
-          <p className="text-xs text-green-200 mt-4 flex items-center justify-center gap-2">
-            <CheckCircle className="w-3 h-3" />
-            Trusted by 50M+ customers • 21+ years of expertise
-          </p>
+              <div className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform ${feature.color}`}>
+                <feature.icon className="w-7 h-7" />
+              </div>
+              <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground">{feature.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Floating WhatsApp Button */}
+      {/* Bottom CTA */}
+      <section className="container mx-auto px-4 pb-12">
+        <div className="relative overflow-hidden max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-green-600 via-green-700 to-green-600 p-8 md:p-12 text-white">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{ 
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '30px 30px'
+            }} />
+          </div>
+          
+          <div className="relative z-10 text-center">
+            <Badge className="bg-white/20 text-white mb-4 px-4 py-1.5">Expert Guidance</Badge>
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">
+              Not Sure Which Gemstone to Choose?
+            </h2>
+            <p className="text-green-100 text-lg mb-8 max-w-xl mx-auto">
+              Get personalized recommendations from our expert astrologers. Available 24/7.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button 
+                size="lg" 
+                className="bg-white text-green-700 hover:bg-green-50 shadow-xl text-base px-8"
+                onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Talk to Expert Now
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 text-base px-8"
+                onClick={() => navigate('/gemstone-calculator')}
+              >
+                <Sparkles className="w-5 h-5 mr-2" />
+                Use AI Calculator
+              </Button>
+            </div>
+            <p className="text-sm text-green-200 mt-6 flex items-center justify-center gap-2">
+              <CheckCircle className="w-4 h-4" />
+              Trusted by 50M+ customers • 21+ years of expertise
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Floating WhatsApp */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           size="lg"
-          className="rounded-full w-14 h-14 p-0 bg-green-500 hover:bg-green-600 shadow-xl shadow-green-500/30 animate-bounce"
+          className="rounded-full w-14 h-14 p-0 bg-green-500 hover:bg-green-600 shadow-2xl shadow-green-500/40"
           onClick={() => window.open('https://wa.me/1234567890', '_blank')}
         >
           <MessageCircle className="w-6 h-6" />
