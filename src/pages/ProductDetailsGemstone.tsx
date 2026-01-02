@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, Phone, CheckCircle2, Eye, CreditCard, Smartphone, Building2, Banknote, Flame, Users, Zap, Gift, BadgeCheck, Timer, TrendingUp } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, Phone, CheckCircle2, Eye, CreditCard, Smartphone, Building2, Banknote, Flame, Users, Zap, Gift, BadgeCheck, Timer, TrendingUp, Gem, CircleDot, Hexagon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -213,6 +213,22 @@ const gemstonesData: Record<string, any> = {
   }
 };
 
+// Jewelry type options
+const jewelryTypes = [
+  { id: "loose", name: "Loose Gemstone", icon: Gem, priceModifier: 0 },
+  { id: "ring", name: "Ring", icon: CircleDot, priceModifier: 2500 },
+  { id: "pendant", name: "Pendant", icon: Hexagon, priceModifier: 2000 },
+];
+
+const metalOptions = [
+  { id: "silver", name: "Silver 92.5%", priceModifier: 0 },
+  { id: "gold-18k", name: "18K Gold", priceModifier: 8000 },
+  { id: "gold-22k", name: "22K Gold", priceModifier: 12000 },
+  { id: "panchdhatu", name: "Panchdhatu", priceModifier: 1500 },
+];
+
+const ringSizes = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
+
 const ProductDetailsGemstone = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -220,6 +236,9 @@ const ProductDetailsGemstone = () => {
   const [viewingUsers, setViewingUsers] = useState(47);
   const [recentBuyer, setRecentBuyer] = useState({ name: "Rahul M.", city: "Delhi", time: "2 min ago" });
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 45, seconds: 32 });
+  const [selectedJewelryType, setSelectedJewelryType] = useState("loose");
+  const [selectedMetal, setSelectedMetal] = useState("silver");
+  const [selectedRingSize, setSelectedRingSize] = useState("7");
 
   // Simulate live viewing count
   useEffect(() => {
@@ -459,19 +478,143 @@ const ProductDetailsGemstone = () => {
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">{product.name}</h1>
             </div>
 
-            {/* Pricing - High Impact */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4">
-              <div className="flex items-baseline gap-3 flex-wrap">
-                <span className="text-4xl md:text-5xl font-bold text-green-700">₹{product.price.toLocaleString()}</span>
-                <span className="text-xl text-muted-foreground line-through">₹{product.originalPrice.toLocaleString()}</span>
-                <Badge className="bg-red-500 text-white text-lg px-3 py-1">
-                  SAVE ₹{(product.originalPrice - product.price).toLocaleString()}
-                </Badge>
+            {/* Jewelry Type Selector */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-sm text-foreground">Select Type:</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {jewelryTypes.map((type) => {
+                  const IconComponent = type.icon;
+                  return (
+                    <button
+                      key={type.id}
+                      onClick={() => setSelectedJewelryType(type.id)}
+                      className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all ${
+                        selectedJewelryType === type.id
+                          ? 'border-primary bg-primary/5 shadow-md'
+                          : 'border-border hover:border-primary/50 hover:bg-muted/50'
+                      }`}
+                    >
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                        selectedJewelryType === type.id
+                          ? 'bg-primary/20'
+                          : 'bg-muted'
+                      }`}>
+                        <IconComponent className={`h-6 w-6 ${
+                          selectedJewelryType === type.id
+                            ? 'text-primary'
+                            : 'text-muted-foreground'
+                        }`} />
+                      </div>
+                      <span className={`text-sm font-medium ${
+                        selectedJewelryType === type.id
+                          ? 'text-primary'
+                          : 'text-foreground'
+                      }`}>
+                        {type.name}
+                      </span>
+                      {type.priceModifier > 0 && (
+                        <span className="text-xs text-muted-foreground">
+                          +₹{type.priceModifier.toLocaleString()}
+                        </span>
+                      )}
+                      {selectedJewelryType === type.id && (
+                        <div className="absolute top-2 right-2">
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
-              <p className="text-green-600 text-sm mt-2 font-medium flex items-center gap-1">
-                <Timer className="h-4 w-4" /> Offer valid for limited time only
-              </p>
             </div>
+
+            {/* Metal Options - Only show for Ring or Pendant */}
+            {selectedJewelryType !== "loose" && (
+              <div className="space-y-3">
+                <h3 className="font-semibold text-sm text-foreground">Select Metal:</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {metalOptions.map((metal) => (
+                    <button
+                      key={metal.id}
+                      onClick={() => setSelectedMetal(metal.id)}
+                      className={`flex flex-col items-center gap-1 p-3 rounded-lg border-2 transition-all ${
+                        selectedMetal === metal.id
+                          ? 'border-primary bg-primary/5'
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                    >
+                      <span className={`text-sm font-medium ${
+                        selectedMetal === metal.id ? 'text-primary' : 'text-foreground'
+                      }`}>
+                        {metal.name}
+                      </span>
+                      {metal.priceModifier > 0 && (
+                        <span className="text-xs text-muted-foreground">
+                          +₹{metal.priceModifier.toLocaleString()}
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Ring Size - Only show for Ring */}
+            {selectedJewelryType === "ring" && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold text-sm text-foreground">Ring Size:</h3>
+                  <Link to="/bracelet-calculator" className="text-xs text-primary hover:underline">
+                    Find Your Size →
+                  </Link>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {ringSizes.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedRingSize(size)}
+                      className={`w-10 h-10 rounded-full border-2 font-medium text-sm transition-all ${
+                        selectedRingSize === size
+                          ? 'border-primary bg-primary text-white'
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Pricing - High Impact */}
+            {(() => {
+              const jewelryType = jewelryTypes.find(j => j.id === selectedJewelryType);
+              const metal = metalOptions.find(m => m.id === selectedMetal);
+              const jewelryModifier = jewelryType?.priceModifier || 0;
+              const metalModifier = selectedJewelryType !== "loose" ? (metal?.priceModifier || 0) : 0;
+              const totalPrice = product.price + jewelryModifier + metalModifier;
+              const totalOriginalPrice = product.originalPrice + jewelryModifier + metalModifier;
+              
+              return (
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4">
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="text-4xl md:text-5xl font-bold text-green-700">₹{totalPrice.toLocaleString()}</span>
+                    <span className="text-xl text-muted-foreground line-through">₹{totalOriginalPrice.toLocaleString()}</span>
+                    <Badge className="bg-red-500 text-white text-lg px-3 py-1">
+                      SAVE ₹{(totalOriginalPrice - totalPrice).toLocaleString()}
+                    </Badge>
+                  </div>
+                  {selectedJewelryType !== "loose" && (
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Base: ₹{product.price.toLocaleString()} + {jewelryType?.name}: ₹{jewelryModifier.toLocaleString()} + {metal?.name}: ₹{metalModifier.toLocaleString()}
+                    </p>
+                  )}
+                  <p className="text-green-600 text-sm mt-2 font-medium flex items-center gap-1">
+                    <Timer className="h-4 w-4" /> Offer valid for limited time only
+                  </p>
+                </div>
+              );
+            })()}
 
             {/* Key Benefits - Quick Scan */}
             <div className="grid grid-cols-2 gap-2">
@@ -506,66 +649,87 @@ const ProductDetailsGemstone = () => {
             </Card>
 
             {/* Quantity & CTA */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-4">
-                <label className="font-semibold text-sm">Qty:</label>
-                <div className="flex items-center border rounded-lg">
-                  <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-4 py-2 hover:bg-muted font-bold"
-                  >
-                    -
-                  </button>
-                  <span className="px-5 py-2 border-x font-semibold">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-4 py-2 hover:bg-muted font-bold"
-                  >
-                    +
-                  </button>
+            {(() => {
+              const jewelryType = jewelryTypes.find(j => j.id === selectedJewelryType);
+              const metal = metalOptions.find(m => m.id === selectedMetal);
+              const jewelryModifier = jewelryType?.priceModifier || 0;
+              const metalModifier = selectedJewelryType !== "loose" ? (metal?.priceModifier || 0) : 0;
+              const unitPrice = product.price + jewelryModifier + metalModifier;
+              
+              return (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4">
+                    <label className="font-semibold text-sm">Qty:</label>
+                    <div className="flex items-center border rounded-lg">
+                      <button 
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="px-4 py-2 hover:bg-muted font-bold"
+                      >
+                        -
+                      </button>
+                      <span className="px-5 py-2 border-x font-semibold">{quantity}</span>
+                      <button 
+                        onClick={() => setQuantity(quantity + 1)}
+                        className="px-4 py-2 hover:bg-muted font-bold"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <span className="text-sm text-red-600 font-medium">Only {product.stockLeft} left!</span>
+                  </div>
+
+                  {/* Selection Summary */}
+                  {selectedJewelryType !== "loose" && (
+                    <div className="bg-muted/50 rounded-lg p-3 text-sm">
+                      <p className="font-medium">Your Selection:</p>
+                      <p className="text-muted-foreground">
+                        {product.name} • {jewelryType?.name} • {metal?.name}
+                        {selectedJewelryType === "ring" && ` • Size ${selectedRingSize}`}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Primary CTAs */}
+                  <div className="grid grid-cols-1 gap-2">
+                    <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg shadow-orange-500/30 font-bold">
+                      <ShoppingCart className="mr-2 h-5 w-5" />
+                      ADD TO CART - ₹{(unitPrice * quantity).toLocaleString()}
+                    </Button>
+                    <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/30 font-bold">
+                      <Zap className="mr-2 h-5 w-5" />
+                      BUY NOW - INSTANT CHECKOUT
+                    </Button>
+                  </div>
+
+                  {/* Secondary Actions */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Heart className="mr-2 h-4 w-4" /> Wishlist
+                    </Button>
+                    <Button variant="outline" size="sm" className="w-full">
+                      <Share2 className="mr-2 h-4 w-4" /> Share
+                    </Button>
+                  </div>
+
+                  {/* Stock & Delivery Urgency */}
+                  <div className="space-y-2">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2">
+                      <Flame className="h-5 w-5 text-red-500 shrink-0" />
+                      <div>
+                        <p className="text-red-700 font-semibold text-sm">🔥 High Demand - Only {product.stockLeft} left at this price!</p>
+                        <p className="text-red-600 text-xs">23 people added this to cart in last hour</p>
+                      </div>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                      <p className="text-green-800 font-medium text-sm flex items-center gap-2">
+                        <Truck className="h-4 w-4" /> Order in next 3 hrs 45 min - Get by {product.deliveryDate}
+                      </p>
+                      <p className="text-green-700 text-xs mt-1">FREE Express Shipping • Secure Packaging</p>
+                    </div>
+                  </div>
                 </div>
-                <span className="text-sm text-red-600 font-medium">Only {product.stockLeft} left!</span>
-              </div>
-
-              {/* Primary CTAs */}
-              <div className="grid grid-cols-1 gap-2">
-                <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg shadow-orange-500/30 font-bold">
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  ADD TO CART - ₹{(product.price * quantity).toLocaleString()}
-                </Button>
-                <Button size="lg" className="text-lg py-7 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/30 font-bold">
-                  <Zap className="mr-2 h-5 w-5" />
-                  BUY NOW - INSTANT CHECKOUT
-                </Button>
-              </div>
-
-              {/* Secondary Actions */}
-              <div className="grid grid-cols-2 gap-2">
-                <Button variant="outline" size="sm" className="w-full">
-                  <Heart className="mr-2 h-4 w-4" /> Wishlist
-                </Button>
-                <Button variant="outline" size="sm" className="w-full">
-                  <Share2 className="mr-2 h-4 w-4" /> Share
-                </Button>
-              </div>
-            </div>
-
-            {/* Stock & Delivery Urgency */}
-            <div className="space-y-2">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2">
-                <Flame className="h-5 w-5 text-red-500 shrink-0" />
-                <div>
-                  <p className="text-red-700 font-semibold text-sm">🔥 High Demand - Only {product.stockLeft} left at this price!</p>
-                  <p className="text-red-600 text-xs">23 people added this to cart in last hour</p>
-                </div>
-              </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                <p className="text-green-800 font-medium text-sm flex items-center gap-2">
-                  <Truck className="h-4 w-4" /> Order in next 3 hrs 45 min - Get by {product.deliveryDate}
-                </p>
-                <p className="text-green-700 text-xs mt-1">FREE Express Shipping • Secure Packaging</p>
-              </div>
-            </div>
+              );
+            })()}
 
             {/* Payment Options */}
             <Card className="bg-muted/30">
