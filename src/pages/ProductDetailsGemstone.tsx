@@ -598,6 +598,28 @@ const ProductDetailsGemstone = () => {
                             <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm">1</span>
                             Using String/Paper Strip
                           </h4>
+                          {/* Illustration for Method 1 */}
+                          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-4 flex justify-center">
+                            <svg viewBox="0 0 200 100" className="w-full max-w-[200px] h-auto">
+                              {/* Hand outline */}
+                              <ellipse cx="70" cy="60" rx="15" ry="35" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.6"/>
+                              {/* String wrapped around finger */}
+                              <path d="M55 45 Q50 60 55 75" fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round"/>
+                              <path d="M85 45 Q90 60 85 75" fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round"/>
+                              <path d="M55 45 L55 35 L95 35" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4"/>
+                              <path d="M85 45 L85 35" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4"/>
+                              {/* Measurement arrows */}
+                              <line x1="55" y1="30" x2="85" y2="30" stroke="hsl(var(--primary))" strokeWidth="2"/>
+                              <polygon points="55,30 60,27 60,33" fill="hsl(var(--primary))"/>
+                              <polygon points="85,30 80,27 80,33" fill="hsl(var(--primary))"/>
+                              {/* Ruler */}
+                              <rect x="120" y="20" width="60" height="60" rx="4" fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5"/>
+                              <line x1="120" y1="35" x2="180" y2="35" stroke="hsl(var(--muted-foreground))" strokeWidth="1"/>
+                              <line x1="120" y1="50" x2="180" y2="50" stroke="hsl(var(--muted-foreground))" strokeWidth="1"/>
+                              <line x1="120" y1="65" x2="180" y2="65" stroke="hsl(var(--muted-foreground))" strokeWidth="1"/>
+                              <text x="150" y="52" textAnchor="middle" fontSize="8" fill="hsl(var(--primary))" fontWeight="bold">mm</text>
+                            </svg>
+                          </div>
                           <ol className="text-sm text-muted-foreground space-y-2 ml-8 list-decimal">
                             <li>Wrap a thin strip of paper or string around your ring finger</li>
                             <li>Mark the point where the ends meet</li>
@@ -612,6 +634,32 @@ const ProductDetailsGemstone = () => {
                             <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm">2</span>
                             Using Existing Ring
                           </h4>
+                          {/* Illustration for Method 2 */}
+                          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-4 flex justify-center">
+                            <svg viewBox="0 0 200 100" className="w-full max-w-[200px] h-auto">
+                              {/* Ring */}
+                              <circle cx="60" cy="50" r="25" fill="none" stroke="hsl(var(--primary))" strokeWidth="6"/>
+                              <circle cx="60" cy="50" r="15" fill="none" stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="3"/>
+                              {/* Diameter line */}
+                              <line x1="45" y1="50" x2="75" y2="50" stroke="hsl(var(--foreground))" strokeWidth="2"/>
+                              <circle cx="45" cy="50" r="2" fill="hsl(var(--foreground))"/>
+                              <circle cx="75" cy="50" r="2" fill="hsl(var(--foreground))"/>
+                              {/* Diameter label */}
+                              <text x="60" y="42" textAnchor="middle" fontSize="7" fill="hsl(var(--muted-foreground))">diameter</text>
+                              {/* Arrow pointing to ruler */}
+                              <path d="M95 50 L115 50" stroke="hsl(var(--muted-foreground))" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+                              <polygon points="115,50 110,47 110,53" fill="hsl(var(--muted-foreground))"/>
+                              {/* Ruler */}
+                              <rect x="125" y="30" width="55" height="40" rx="3" fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="1.5"/>
+                              {/* Ruler markings */}
+                              {[0,1,2,3,4,5].map((i) => (
+                                <g key={i}>
+                                  <line x1={130 + i*8} y1="45" x2={130 + i*8} y2={i % 2 === 0 ? "55" : "52"} stroke="hsl(var(--muted-foreground))" strokeWidth="1"/>
+                                </g>
+                              ))}
+                              <text x="152" y="65" textAnchor="middle" fontSize="8" fill="hsl(var(--primary))" fontWeight="bold">mm</text>
+                            </svg>
+                          </div>
                           <ol className="text-sm text-muted-foreground space-y-2 ml-8 list-decimal">
                             <li>Take a ring that fits well on your finger</li>
                             <li>Measure the inner diameter in millimeters</li>
