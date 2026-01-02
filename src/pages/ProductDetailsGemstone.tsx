@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, Phone, CheckCircle2, Eye, CreditCard, Smartphone, Building2, Banknote, Flame, Users, Zap, Gift, BadgeCheck, Timer, TrendingUp, Gem, CircleDot, Hexagon } from "lucide-react";
+import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, Sparkles, Check, MessageCircle, Clock, Package, RefreshCcw, Phone, CheckCircle2, Eye, CreditCard, Smartphone, Building2, Banknote, Flame, Users, Zap, Gift, BadgeCheck, Timer, TrendingUp, Gem, CircleDot, Hexagon, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import blueSapphireImage from "@/assets/gemstones/blue-sapphire.jpg";
 import rubyImage from "@/assets/gemstones/ruby.jpg";
 import emeraldImage from "@/assets/gemstones/emerald.jpg";
@@ -254,6 +255,7 @@ const ProductDetailsGemstone = () => {
   const [selectedMetal, setSelectedMetal] = useState("silver");
   const [selectedSizeSystem, setSelectedSizeSystem] = useState<"indian" | "us" | "uk">("indian");
   const [selectedRingSize, setSelectedRingSize] = useState("");
+  const [showRingSizeGuide, setShowRingSizeGuide] = useState(false);
 
   // Simulate live viewing count
   useEffect(() => {
@@ -579,9 +581,96 @@ const ProductDetailsGemstone = () => {
               <div className="space-y-4 bg-muted/30 rounded-xl p-4 border">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-foreground">Select Ring Size</h3>
-                  <Link to="/bracelet-calculator" className="text-xs text-primary hover:underline flex items-center gap-1">
-                    📏 Find Your Size
-                  </Link>
+                  <Dialog open={showRingSizeGuide} onOpenChange={setShowRingSizeGuide}>
+                    <DialogTrigger asChild>
+                      <button className="text-xs text-primary hover:underline flex items-center gap-1">
+                        <Ruler className="w-3 h-3" /> Find Your Size
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-xl font-bold text-center">Ring Size Guide</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-6 py-4">
+                        {/* Method 1 */}
+                        <div className="space-y-3">
+                          <h4 className="font-semibold text-primary flex items-center gap-2">
+                            <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm">1</span>
+                            Using String/Paper Strip
+                          </h4>
+                          <ol className="text-sm text-muted-foreground space-y-2 ml-8 list-decimal">
+                            <li>Wrap a thin strip of paper or string around your ring finger</li>
+                            <li>Mark the point where the ends meet</li>
+                            <li>Measure the length in millimeters</li>
+                            <li>Use the chart below to find your size</li>
+                          </ol>
+                        </div>
+                        
+                        {/* Method 2 */}
+                        <div className="space-y-3">
+                          <h4 className="font-semibold text-primary flex items-center gap-2">
+                            <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm">2</span>
+                            Using Existing Ring
+                          </h4>
+                          <ol className="text-sm text-muted-foreground space-y-2 ml-8 list-decimal">
+                            <li>Take a ring that fits well on your finger</li>
+                            <li>Measure the inner diameter in millimeters</li>
+                            <li>Match it with the chart below</li>
+                          </ol>
+                        </div>
+
+                        {/* Size Chart */}
+                        <div className="space-y-3">
+                          <h4 className="font-semibold text-foreground">Ring Size Conversion Chart</h4>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-xs border border-border rounded-lg overflow-hidden">
+                              <thead className="bg-primary/10">
+                                <tr>
+                                  <th className="p-2 border-b border-r text-left">Indian</th>
+                                  <th className="p-2 border-b border-r text-left">US/Canada</th>
+                                  <th className="p-2 border-b border-r text-left">UK/AU</th>
+                                  <th className="p-2 border-b text-left">Diameter (mm)</th>
+                                </tr>
+                              </thead>
+                              <tbody className="text-muted-foreground">
+                                <tr><td className="p-2 border-b border-r">6</td><td className="p-2 border-b border-r">4</td><td className="p-2 border-b border-r">H</td><td className="p-2 border-b">14.9</td></tr>
+                                <tr className="bg-muted/30"><td className="p-2 border-b border-r">8</td><td className="p-2 border-b border-r">5</td><td className="p-2 border-b border-r">J</td><td className="p-2 border-b">15.7</td></tr>
+                                <tr><td className="p-2 border-b border-r">10</td><td className="p-2 border-b border-r">6</td><td className="p-2 border-b border-r">L</td><td className="p-2 border-b">16.5</td></tr>
+                                <tr className="bg-muted/30"><td className="p-2 border-b border-r">12</td><td className="p-2 border-b border-r">7</td><td className="p-2 border-b border-r">N</td><td className="p-2 border-b">17.3</td></tr>
+                                <tr><td className="p-2 border-b border-r">14</td><td className="p-2 border-b border-r">8</td><td className="p-2 border-b border-r">P</td><td className="p-2 border-b">18.1</td></tr>
+                                <tr className="bg-muted/30"><td className="p-2 border-b border-r">16</td><td className="p-2 border-b border-r">9</td><td className="p-2 border-b border-r">R</td><td className="p-2 border-b">18.9</td></tr>
+                                <tr><td className="p-2 border-b border-r">18</td><td className="p-2 border-b border-r">10</td><td className="p-2 border-b border-r">T</td><td className="p-2 border-b">19.8</td></tr>
+                                <tr className="bg-muted/30"><td className="p-2 border-b border-r">20</td><td className="p-2 border-b border-r">11</td><td className="p-2 border-b border-r">V</td><td className="p-2 border-b">20.6</td></tr>
+                                <tr><td className="p-2 border-r">22</td><td className="p-2 border-r">12</td><td className="p-2 border-r">X</td><td className="p-2">21.4</td></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        {/* Tips */}
+                        <div className="bg-primary/5 rounded-lg p-4 space-y-2">
+                          <h4 className="font-semibold text-sm text-foreground">💡 Pro Tips</h4>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• Measure at end of day when fingers are slightly larger</li>
+                            <li>• Avoid measuring when hands are cold</li>
+                            <li>• If between sizes, choose the larger one</li>
+                            <li>• Measure 2-3 times for accuracy</li>
+                          </ul>
+                        </div>
+
+                        {/* WhatsApp Help */}
+                        <a 
+                          href="https://wa.me/919876543210?text=Hi, I need help finding my ring size for a gemstone ring"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 w-full p-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors"
+                        >
+                          <MessageCircle className="w-5 h-5" />
+                          Need Help? Chat with Expert
+                        </a>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
                 
                 {/* Size System Dropdown */}
