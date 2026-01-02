@@ -227,7 +227,21 @@ const metalOptions = [
   { id: "panchdhatu", name: "Panchdhatu", priceModifier: 1500 },
 ];
 
-const ringSizes = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
+// Ring size systems with conversion
+const ringSizeSystems = {
+  indian: {
+    name: "Indian",
+    sizes: ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"]
+  },
+  us: {
+    name: "US/Canada",
+    sizes: ["4", "4.5", "5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "12.5", "13"]
+  },
+  uk: {
+    name: "UK/Australia",
+    sizes: ["H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  }
+};
 
 const ProductDetailsGemstone = () => {
   const { id } = useParams();
@@ -238,7 +252,8 @@ const ProductDetailsGemstone = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 45, seconds: 32 });
   const [selectedJewelryType, setSelectedJewelryType] = useState("loose");
   const [selectedMetal, setSelectedMetal] = useState("silver");
-  const [selectedRingSize, setSelectedRingSize] = useState("7");
+  const [selectedSizeSystem, setSelectedSizeSystem] = useState<"indian" | "us" | "uk">("indian");
+  const [selectedRingSize, setSelectedRingSize] = useState("");
 
   // Simulate live viewing count
   useEffect(() => {
@@ -559,30 +574,57 @@ const ProductDetailsGemstone = () => {
               </div>
             )}
 
-            {/* Ring Size - Only show for Ring */}
+            {/* Ring Size System - Only show for Ring */}
             {selectedJewelryType === "ring" && (
-              <div className="space-y-3">
+              <div className="space-y-4 bg-muted/30 rounded-xl p-4 border">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-sm text-foreground">Ring Size:</h3>
-                  <Link to="/bracelet-calculator" className="text-xs text-primary hover:underline">
-                    Find Your Size →
+                  <h3 className="font-semibold text-foreground">Select Ring Size</h3>
+                  <Link to="/bracelet-calculator" className="text-xs text-primary hover:underline flex items-center gap-1">
+                    📏 Find Your Size
                   </Link>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {ringSizes.map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedRingSize(size)}
-                      className={`w-10 h-10 rounded-full border-2 font-medium text-sm transition-all ${
-                        selectedRingSize === size
-                          ? 'border-primary bg-primary text-white'
-                          : 'border-border hover:border-primary/50'
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
+                
+                {/* Size System Dropdown */}
+                <div className="space-y-2">
+                  <label className="text-sm text-muted-foreground">Ring Size System:</label>
+                  <select
+                    value={selectedSizeSystem}
+                    onChange={(e) => {
+                      setSelectedSizeSystem(e.target.value as "indian" | "us" | "uk");
+                      setSelectedRingSize("");
+                    }}
+                    className="w-full h-12 px-4 rounded-lg border-2 border-border bg-background text-foreground font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer"
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+                  >
+                    {Object.entries(ringSizeSystems).map(([key, system]) => (
+                      <option key={key} value={key}>{system.name} Ring Size System</option>
+                    ))}
+                  </select>
                 </div>
+
+                {/* Ring Size Dropdown */}
+                <div className="space-y-2">
+                  <label className="text-sm text-muted-foreground">Select {ringSizeSystems[selectedSizeSystem].name} Ring Size:</label>
+                  <select
+                    value={selectedRingSize}
+                    onChange={(e) => setSelectedRingSize(e.target.value)}
+                    className="w-full h-12 px-4 rounded-lg border-2 border-border bg-background text-foreground font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer"
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+                  >
+                    <option value="">Select {ringSizeSystems[selectedSizeSystem].name} Size</option>
+                    {ringSizeSystems[selectedSizeSystem].sizes.map((size) => (
+                      <option key={size} value={size}>Size {size}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Size Selected Confirmation */}
+                {selectedRingSize && (
+                  <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 rounded-lg p-2">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>Ring Size: <strong>{selectedRingSize}</strong> ({ringSizeSystems[selectedSizeSystem].name} System)</span>
+                  </div>
+                )}
               </div>
             )}
 
@@ -652,7 +694,7 @@ const ProductDetailsGemstone = () => {
                       <p className="font-medium">Your Selection:</p>
                       <p className="text-muted-foreground">
                         {product.name} • {jewelryType?.name} • {metal?.name}
-                        {selectedJewelryType === "ring" && ` • Size ${selectedRingSize}`}
+                        {selectedJewelryType === "ring" && selectedRingSize && ` • Size ${selectedRingSize} (${ringSizeSystems[selectedSizeSystem].name})`}
                       </p>
                     </div>
                   )}
