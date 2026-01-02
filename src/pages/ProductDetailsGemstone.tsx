@@ -628,6 +628,56 @@ const ProductDetailsGemstone = () => {
               </div>
             )}
 
+            {/* Why This Gemstone - Above CTA for better conversion */}
+            <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
+              <CardContent className="p-4">
+                <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-primary" /> Why Choose This {product.name.split('(')[0].trim()}?
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {product.keyPoints.map((point: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
+                      <span className="text-sm">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Key Benefits - Quick Scan */}
+            <div className="grid grid-cols-2 gap-2">
+              {product.benefits.map((benefit: any, idx: number) => (
+                <div key={idx} className="flex items-center gap-2 p-2.5 bg-muted/50 rounded-lg">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <benefit.icon className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{benefit.title}</p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">{benefit.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Trust Grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { icon: BadgeCheck, title: "Lab Certified", desc: "Government approved" },
+                { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked" },
+                { icon: Truck, title: "Free Shipping", desc: "Secure packaging" },
+                { icon: Shield, title: "100% Genuine", desc: "Authentic guarantee" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  <item.icon className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <p className="font-semibold">{item.title}</p>
+                    <p className="text-muted-foreground">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Pricing - High Impact */}
             {(() => {
               const jewelryType = jewelryTypes.find(j => j.id === selectedJewelryType);
@@ -768,55 +818,6 @@ const ProductDetailsGemstone = () => {
               Talk to Gem Expert - FREE Consultation
             </Button>
 
-            {/* Why This Gemstone */}
-            <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
-              <CardContent className="p-4">
-                <h3 className="font-bold text-base mb-3 flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-primary" /> Why Choose This {product.name.split('(')[0].trim()}?
-                </h3>
-                <div className="grid grid-cols-1 gap-2">
-                  {product.keyPoints.map((point: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
-                      <span className="text-sm">{point}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Key Benefits - Quick Scan */}
-            <div className="grid grid-cols-2 gap-2">
-              {product.benefits.map((benefit: any, idx: number) => (
-                <div key={idx} className="flex items-center gap-2 p-2.5 bg-muted/50 rounded-lg">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <benefit.icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">{benefit.title}</p>
-                    <p className="text-xs text-muted-foreground line-clamp-1">{benefit.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Quick Trust Grid */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              {[
-                { icon: BadgeCheck, title: "Lab Certified", desc: "Government approved" },
-                { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked" },
-                { icon: Truck, title: "Free Shipping", desc: "Secure packaging" },
-                { icon: Shield, title: "100% Genuine", desc: "Authentic guarantee" },
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <item.icon className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <p className="font-semibold">{item.title}</p>
-                    <p className="text-muted-foreground">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
