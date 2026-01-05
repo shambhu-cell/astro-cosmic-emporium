@@ -528,6 +528,27 @@ const ProductDetailsGemstone = () => {
                   })}
                 </div>
               </div>
+              
+              {/* Quick Navigation Links */}
+              <div className="flex items-center gap-2 pt-1 overflow-x-auto scrollbar-hide">
+                <span className="text-xs text-muted-foreground whitespace-nowrap">Jump to:</span>
+                <div className="flex items-center gap-1.5">
+                  {[
+                    { id: "specifications", label: "Specs" },
+                    { id: "benefits", label: "Benefits" },
+                    { id: "reviews", label: "Reviews" },
+                    { id: "faqs", label: "FAQs" },
+                  ].map((link) => (
+                    <button
+                      key={link.id}
+                      onClick={() => document.getElementById(link.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                      className="text-xs px-2.5 py-1 rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors whitespace-nowrap"
+                    >
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Metal Options - Only show for Ring or Pendant */}
@@ -960,7 +981,7 @@ const ProductDetailsGemstone = () => {
         </div>
 
         {/* Benefits Section */}
-        <div className="mt-12 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-6 md:p-10">
+        <div id="benefits" className="mt-12 bg-gradient-to-br from-primary/5 via-accent/5 to-background rounded-2xl p-6 md:p-10 scroll-mt-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Astrological Benefits</h2>
           <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto text-sm">
             Experience powerful transformation with {product.name}
@@ -979,8 +1000,8 @@ const ProductDetailsGemstone = () => {
         </div>
 
         {/* Product Tabs */}
-        <div className="mt-12">
-          <Tabs defaultValue="reviews" className="w-full">
+        <div id="specifications" className="mt-12 scroll-mt-4">
+          <Tabs defaultValue="reviews" className="w-full" id="reviews">
             <TabsList className="w-full justify-start h-auto p-1 bg-muted/50 rounded-lg overflow-x-auto">
               <TabsTrigger value="reviews" className="px-4 py-2.5 text-sm whitespace-nowrap">
                 Reviews ({product.reviewCount.toLocaleString()})
@@ -1125,7 +1146,7 @@ const ProductDetailsGemstone = () => {
         </div>
 
         {/* FAQs */}
-        <div className="mt-12">
+        <div id="faqs" className="mt-12 scroll-mt-4">
           <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
           <Card>
             <CardContent className="p-6">
