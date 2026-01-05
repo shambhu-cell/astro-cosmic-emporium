@@ -495,53 +495,38 @@ const ProductDetailsGemstone = () => {
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">{product.name}</h1>
             </div>
 
-            {/* Jewelry Type Selector */}
+            {/* Jewelry Type Navigation */}
             <div className="space-y-3">
-              <h3 className="font-semibold text-sm text-foreground">Select Type:</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {jewelryTypes.map((type) => {
-                  const IconComponent = type.icon;
-                  return (
-                    <button
-                      key={type.id}
-                      onClick={() => setSelectedJewelryType(type.id)}
-                      className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all ${
-                        selectedJewelryType === type.id
-                          ? 'border-primary bg-primary/5 shadow-md'
-                          : 'border-border hover:border-primary/50 hover:bg-muted/50'
-                      }`}
-                    >
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                        selectedJewelryType === type.id
-                          ? 'bg-primary/20'
-                          : 'bg-muted'
-                      }`}>
-                        <IconComponent className={`h-6 w-6 ${
-                          selectedJewelryType === type.id
-                            ? 'text-primary'
-                            : 'text-muted-foreground'
-                        }`} />
-                      </div>
-                      <span className={`text-sm font-medium ${
-                        selectedJewelryType === type.id
-                          ? 'text-primary'
-                          : 'text-foreground'
-                      }`}>
-                        {type.name}
-                      </span>
-                      {type.priceModifier > 0 && (
-                        <span className="text-xs text-muted-foreground">
-                          +₹{type.priceModifier.toLocaleString()}
-                        </span>
-                      )}
-                      {selectedJewelryType === type.id && (
-                        <div className="absolute top-2 right-2">
-                          <CheckCircle2 className="h-4 w-4 text-primary" />
-                        </div>
-                      )}
-                    </button>
-                  );
-                })}
+              <h3 className="font-semibold text-sm text-foreground">Choose Your Style:</h3>
+              <div className="bg-muted/50 p-1.5 rounded-xl">
+                <div className="grid grid-cols-3 gap-1.5">
+                  {jewelryTypes.map((type) => {
+                    const IconComponent = type.icon;
+                    const isActive = selectedJewelryType === type.id;
+                    return (
+                      <button
+                        key={type.id}
+                        onClick={() => setSelectedJewelryType(type.id)}
+                        className={`relative flex items-center justify-center gap-2 py-3 px-2 rounded-lg font-medium transition-all duration-300 ${
+                          isActive
+                            ? 'bg-background text-primary shadow-md border border-primary/20'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-background/50'
+                        }`}
+                      >
+                        <IconComponent className={`h-5 w-5 ${isActive ? 'text-primary' : ''}`} />
+                        <span className="text-sm">{type.name}</span>
+                        {type.priceModifier > 0 && (
+                          <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-4 ml-0.5">
+                            +₹{(type.priceModifier / 1000).toFixed(0)}K
+                          </Badge>
+                        )}
+                        {isActive && (
+                          <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-full" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
