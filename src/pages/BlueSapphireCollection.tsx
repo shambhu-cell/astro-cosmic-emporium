@@ -6,7 +6,7 @@ import {
   ArrowRight, Truck, RefreshCcw, BadgeCheck, MapPin, Scale, Gem, 
   Calendar, Moon, Timer, ShoppingCart, Gift, Flame, Crown, 
   ThumbsUp, Quote, Play, ChevronRight, AlertTriangle, Percent,
-  Lock, CreditCard, Package, Headphones
+  Lock, CreditCard, Package, Headphones, Info, UserCheck, Sparkle, BookOpen, HelpCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -22,6 +22,16 @@ const BlueSapphireCollection = () => {
   const [priceRange, setPriceRange] = useState("all");
   const [weightRange, setWeightRange] = useState("all");
   const [viewingCount, setViewingCount] = useState(156);
+  const [activeTab, setActiveTab] = useState("products");
+
+  const navigationTabs = [
+    { id: "products", label: "Products", icon: Gem },
+    { id: "about", label: "About", icon: Info },
+    { id: "who-should-wear", label: "Who Should Wear", icon: UserCheck },
+    { id: "benefits", label: "Benefits", icon: Sparkle },
+    { id: "how-to-wear", label: "How to Wear", icon: BookOpen },
+    { id: "faqs", label: "FAQs", icon: HelpCircle },
+  ];
   const [recentBuyers, setRecentBuyers] = useState([
     { name: "Vikram S.", location: "Mumbai", time: "3 minutes ago", product: "Ceylon Blue Sapphire 5.12 Ct" },
     { name: "Neha K.", location: "Delhi", time: "7 minutes ago", product: "Kashmir Blue Sapphire 4.85 Ct" },
@@ -339,8 +349,40 @@ const BlueSapphireCollection = () => {
         </div>
       </div>
 
-      {/* Filters & Sort - Sticky */}
+      {/* Section Navigation - Sticky */}
       <div className="bg-background border-b sticky top-0 z-40 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2">
+            {navigationTabs.map((tab) => {
+              const IconComponent = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    const element = document.getElementById(tab.id);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap transition-all duration-300 ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground shadow-md'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }`}
+                >
+                  <IconComponent className="w-4 h-4" />
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Filters & Sort */}
+      <div className="bg-muted/30 border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div className="flex items-center gap-3 overflow-x-auto w-full sm:w-auto">
@@ -390,7 +432,7 @@ const BlueSapphireCollection = () => {
       </div>
 
       {/* Products Section */}
-      <div className="container mx-auto px-4 py-8">
+      <div id="products" className="container mx-auto px-4 py-8 scroll-mt-20">
         <div className="mb-6">
           <h2 className="text-xl font-bold">Premium Blue Sapphire Collection</h2>
           <p className="text-muted-foreground">Hand-picked, certified stones from Kashmir, Ceylon & Burma</p>
@@ -587,11 +629,12 @@ const BlueSapphireCollection = () => {
       </div>
 
       {/* About Blue Sapphire */}
-      <div className="container mx-auto px-4 py-12">
+      <div id="about" className="container mx-auto px-4 py-12 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Everything About Blue Sapphire (Neelam)</h2>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* Who Should Wear */}
+          <div id="who-should-wear" className="grid md:grid-cols-2 gap-6 mb-8 scroll-mt-20">
             <Card className="p-5">
               <h3 className="font-semibold mb-3 flex items-center gap-2">
                 <Moon className="w-5 h-5 text-blue-500" />
@@ -617,7 +660,7 @@ const BlueSapphireCollection = () => {
               </div>
             </Card>
 
-            <Card className="p-5">
+            <Card id="how-to-wear" className="p-5 scroll-mt-20">
               <h3 className="font-semibold mb-3 flex items-center gap-2">
                 <Gem className="w-5 h-5 text-blue-500" />
                 How to Wear
@@ -644,7 +687,7 @@ const BlueSapphireCollection = () => {
           </div>
 
           {/* Benefits */}
-          <Card className="p-6 mb-8">
+          <Card id="benefits" className="p-6 mb-8 scroll-mt-20">
             <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-blue-500" />
               Benefits of Blue Sapphire
@@ -672,7 +715,7 @@ const BlueSapphireCollection = () => {
       </div>
 
       {/* FAQs */}
-      <div className="bg-muted/20 py-12">
+      <div id="faqs" className="bg-muted/20 py-12 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
