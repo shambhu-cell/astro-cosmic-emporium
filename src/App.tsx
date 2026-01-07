@@ -26,6 +26,7 @@ import CatsEyeCollection from "./pages/CatsEyeCollection";
 import LapisLazuliCollection from "./pages/LapisLazuliCollection";
 import PearlCollection from "./pages/PearlCollection";
 import TigersEyeCollection from "./pages/TigersEyeCollection";
+import RoseQuartzCollection from "./pages/RoseQuartzCollection";
 import Rudraksha from "./pages/Rudraksha";
 import Bracelets from "./pages/Bracelets";
 import Mala from "./pages/Mala";
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/lapis-lazuli-collection" element={<LapisLazuliCollection />} />
           <Route path="/pearl-collection" element={<PearlCollection />} />
           <Route path="/tigers-eye-collection" element={<TigersEyeCollection />} />
+          <Route path="/rose-quartz-collection" element={<RoseQuartzCollection />} />
           <Route path="/rudraksha" element={<Rudraksha />} />
           <Route path="/bracelets" element={<Bracelets />} />
           <Route path="/mala" element={<Mala />} />
