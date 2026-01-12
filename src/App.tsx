@@ -56,6 +56,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Consultation from "./pages/Consultation";
 import Collections from "./pages/Collections";
+import GemstonesPendantCollection from "./pages/GemstonesPendantCollection";
 
 const queryClient = new QueryClient();
 
@@ -71,17 +72,28 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/gemstones" element={<Gemstones />} />
+          <Route path="/gemstones-collection" element={<GemstonesPendantCollection />} />
           <Route path="/gemstones/:gemstoneType" element={<GemstoneCollection />} />
           <Route path="/gemstone-collection/:gemstoneType" element={<GemstoneCollection />} />
+          <Route path="/yellow-sapphire" element={<YellowSapphireCollection />} />
           <Route path="/yellow-sapphire-collection" element={<YellowSapphireCollection />} />
+          <Route path="/blue-sapphire" element={<BlueSapphireCollection />} />
           <Route path="/blue-sapphire-collection" element={<BlueSapphireCollection />} />
+          <Route path="/ruby" element={<RubyCollection />} />
           <Route path="/ruby-collection" element={<RubyCollection />} />
+          <Route path="/hessonite" element={<HessoniteCollection />} />
           <Route path="/hessonite-collection" element={<HessoniteCollection />} />
+          <Route path="/moonga" element={<MoongaCollection />} />
           <Route path="/moonga-collection" element={<MoongaCollection />} />
+          <Route path="/cats-eye" element={<CatsEyeCollection />} />
           <Route path="/cats-eye-collection" element={<CatsEyeCollection />} />
+          <Route path="/lapis-lazuli" element={<LapisLazuliCollection />} />
           <Route path="/lapis-lazuli-collection" element={<LapisLazuliCollection />} />
+          <Route path="/pearl" element={<PearlCollection />} />
           <Route path="/pearl-collection" element={<PearlCollection />} />
+          <Route path="/tigers-eye" element={<TigersEyeCollection />} />
           <Route path="/tigers-eye-collection" element={<TigersEyeCollection />} />
+          <Route path="/rose-quartz" element={<RoseQuartzCollection />} />
           <Route path="/rose-quartz-collection" element={<RoseQuartzCollection />} />
           <Route path="/rudraksha" element={<Rudraksha />} />
           <Route path="/bracelets" element={<Bracelets />} />
