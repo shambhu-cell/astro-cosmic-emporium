@@ -167,7 +167,7 @@ const Gemstones = () => {
       reviews: 2134,
       sold: "5K+",
       category: "Semi-Precious",
-      planet: "Rahu",
+      planet: "Saturn",
       benefits: ["Success", "Protection", "Focus"],
       certified: true,
       weight: "5-8 Carat",
@@ -186,7 +186,7 @@ const Gemstones = () => {
       reviews: 1812,
       sold: "4K+",
       category: "Semi-Precious",
-      planet: "Ketu",
+      planet: "Saturn",
       benefits: ["Spiritual Growth", "Protection", "Intuition"],
       certified: true,
       weight: "5-7 Carat",
@@ -205,8 +205,6 @@ const Gemstones = () => {
     { name: "Jupiter", value: "Jupiter", icon: "🟡" },
     { name: "Venus", value: "Venus", icon: "💎" },
     { name: "Saturn", value: "Saturn", icon: "💙" },
-    { name: "Rahu", value: "Rahu", icon: "🟤" },
-    { name: "Ketu", value: "Ketu", icon: "🐱" }
   ];
 
   const filteredGemstones = gemstones.filter(gem => {
