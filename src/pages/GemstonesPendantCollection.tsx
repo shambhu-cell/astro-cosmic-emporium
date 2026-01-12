@@ -173,8 +173,8 @@ const GemstonesPendantCollection = () => {
       id: "hessonite", 
       name: "Hessonite", 
       hindiName: "गोमेद",
-      planet: "Rahu",
-      planetIcon: "☊",
+      planet: "Saturn",
+      planetIcon: "♄",
       image: hessoniteImage, 
       href: "/hessonite",
       category: "semi-precious",
@@ -188,8 +188,8 @@ const GemstonesPendantCollection = () => {
       id: "cats-eye", 
       name: "Cat's Eye", 
       hindiName: "लहसुनिया",
-      planet: "Ketu",
-      planetIcon: "☋",
+      planet: "Saturn",
+      planetIcon: "♄",
       image: catsEyeImage, 
       href: "/cats-eye",
       category: "semi-precious",
@@ -225,8 +225,6 @@ const GemstonesPendantCollection = () => {
     { id: "Sun", label: "Sun", icon: "☉" },
     { id: "Moon", label: "Moon", icon: "☽" },
     { id: "Mercury", label: "Mercury", icon: "☿" },
-    { id: "Rahu", label: "Rahu", icon: "☊" },
-    { id: "Ketu", label: "Ketu", icon: "☋" },
   ];
 
   const filteredCollections = gemstoneCollections.filter(gem => {
