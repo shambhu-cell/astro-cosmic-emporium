@@ -1,70 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* AstroSage Ecommerce Design System - Bright & Conversion-Friendly */
+/* AstroSage Premium D2C Design System - Luxury Gemstone Store */
 
 @layer base {
   :root {
-    /* Base colors - Clean white background for trust & conversions */
-    --background: 0 0% 100%;
-    --foreground: 222 15% 15%;
+    /* Base - Deep sophisticated neutrals */
+    --background: 30 15% 98%;
+    --foreground: 30 10% 12%;
 
-    /* Card colors - Clean white with soft shadows */
-    --card: 0 0% 100%;
-    --card-foreground: 222 15% 15%;
+    /* Card - Warm white with subtle warmth */
+    --card: 30 20% 99%;
+    --card-foreground: 30 10% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 15% 15%;
+    --popover: 30 20% 99%;
+    --popover-foreground: 30 10% 12%;
 
-    /* Primary - AstroSage orange (kept as brand accent) */
-    --primary: 25 95% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Refined burgundy/maroon for luxury */
+    --primary: 350 45% 35%;
+    --primary-foreground: 30 20% 98%;
 
-    /* Secondary - Soft warm background */
-    --secondary: 25 20% 96%;
-    --secondary-foreground: 222 15% 15%;
+    /* Secondary - Warm cream */
+    --secondary: 35 30% 95%;
+    --secondary-foreground: 30 10% 15%;
 
-    /* Muted - Light neutral backgrounds */
-    --muted: 25 10% 95%;
-    --muted-foreground: 222 15% 45%;
+    /* Muted - Soft warm gray */
+    --muted: 30 15% 94%;
+    --muted-foreground: 30 10% 45%;
 
-    /* Accent - Golden highlights for trust & premium feel */
-    --accent: 45 90% 65%;
-    --accent-foreground: 222 15% 15%;
+    /* Accent - Rich gold for premium feel */
+    --accent: 42 75% 55%;
+    --accent-foreground: 30 10% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 15% 90%;
-    --input: 25 15% 92%;
-    --ring: 25 95% 55%;
+    --border: 30 20% 88%;
+    --input: 30 15% 92%;
+    --ring: 42 75% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
     
-    /* Premium ecommerce gradients - soft and trustworthy */
-    --gradient-hero: linear-gradient(135deg, hsl(25 50% 98%), hsl(25 30% 95%));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(25 85% 60%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(25 20% 98%));
-    --gradient-premium: linear-gradient(120deg, hsl(45 90% 95%), hsl(25 30% 92%));
+    /* Premium luxury gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(30 20% 10%), hsl(30 15% 18%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(350 40% 42%));
+    --gradient-card: linear-gradient(145deg, hsl(30 20% 99%), hsl(35 25% 97%));
+    --gradient-premium: linear-gradient(135deg, hsl(42 75% 55%), hsl(38 80% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 80% 55%), hsl(38 70% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(30 15% 8%), hsl(30 10% 15%));
     
-    /* Professional shadows for conversion */
-    --shadow-soft: 0 4px 20px -4px hsl(25 50% 80% / 0.25);
-    --shadow-card: 0 8px 30px -8px hsl(25 30% 70% / 0.15);
-    --shadow-primary: 0 8px 25px -5px hsl(var(--primary) / 0.3);
+    /* Luxury shadows */
+    --shadow-soft: 0 4px 24px -4px hsl(30 30% 20% / 0.08);
+    --shadow-card: 0 12px 40px -12px hsl(30 30% 20% / 0.12);
+    --shadow-primary: 0 8px 30px -6px hsl(var(--primary) / 0.25);
+    --shadow-gold: 0 8px 30px -6px hsl(42 75% 55% / 0.35);
+    --shadow-elevated: 0 24px 48px -12px hsl(30 30% 15% / 0.18);
     
-    /* Smooth transitions for professional feel */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-gentle: all 0.2s ease-out;
+    /* Premium transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.3s ease-out;
+    --transition-luxury: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 15% 15%;
-    --sidebar-primary: 25 95% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 25 10% 95%;
-    --sidebar-accent-foreground: 222 15% 15%;
-    --sidebar-border: 25 15% 90%;
-    --sidebar-ring: 25 95% 55%;
+    --sidebar-background: 30 20% 99%;
+    --sidebar-foreground: 30 10% 12%;
+    --sidebar-primary: 350 45% 35%;
+    --sidebar-primary-foreground: 30 20% 98%;
+    --sidebar-accent: 35 30% 95%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 42 75% 55%;
   }
 }
 
@@ -74,12 +81,21 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    background: hsl(var(--background));
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
     min-height: 100vh;
   }
 
-  /* Professional ecommerce animations */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+
+  .font-elegant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Premium animations */
   @keyframes gentle-bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
@@ -87,12 +103,27 @@
 
   @keyframes soft-pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    50% { opacity: 0.85; }
   }
 
   @keyframes smooth-slide {
     0% { transform: translateX(-10px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(42 75% 55% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(42 75% 55% / 0.5); }
   }
 
   .gentle-bounce {
@@ -107,7 +138,20 @@
     animation: smooth-slide 0.4s ease-out;
   }
 
-  /* Utility classes */
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background-size: 200% 100%;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Luxury utility classes */
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -115,7 +159,6 @@
     overflow: hidden;
   }
 
-  /* Hide scrollbar for horizontal scrolling while keeping functionality */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -123,5 +166,33 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Premium text gradients */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42 80% 55%), hsl(38 70% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-premium {
+    background: linear-gradient(135deg, hsl(42 85% 65%), hsl(35 75% 50%), hsl(42 80% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(30 20% 99% / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: hsl(30 15% 8% / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 }
