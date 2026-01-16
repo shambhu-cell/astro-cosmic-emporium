@@ -27,6 +27,9 @@ import TopSellingGemstones from "@/components/TopSellingGemstones";
 import TopSellingMala from "@/components/TopSellingMala";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
+import GemstoneFinderWidget from "@/components/GemstoneFinderWidget";
+import GemstoneGridBenefits from "@/components/GemstoneGridBenefits";
+import CertificationBadges from "@/components/CertificationBadges";
 
 // Import images
 import blueSapphireImg from "@/assets/gemstones/blue-sapphire.jpg";
@@ -310,62 +313,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Premium Collections Grid */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-background to-secondary/30">
+      {/* Gemstone Finder Widget - Like Gempundit */}
+      <section className="py-12 lg:py-16 bg-gradient-to-b from-secondary/50 to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
-              Premium Collections
-            </Badge>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-              Curated Gemstones for
-              <span className="text-gradient-gold"> Discerning Buyers</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Each gemstone is hand-selected by our experts, certified by international laboratories, 
-              and energized through authentic Vedic rituals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
-            {premiumCollections.map((item, index) => (
-              <Link 
-                key={index} 
-                to={item.link}
-                className="group"
-              >
-                <Card className="overflow-hidden border-2 border-transparent hover:border-accent/50 transition-all duration-500 hover:shadow-gold bg-card">
-                  <div className="relative aspect-square overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <p className="text-xs text-white/70 mb-1">{item.planet}</p>
-                      <h3 className="font-bold text-sm lg:text-base">{item.name}</h3>
-                      <p className="text-accent text-sm font-semibold mt-1">{item.price}</p>
-                    </div>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link to="/gemstones-collection">
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-              >
-                View All Collections
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-          </div>
+          <GemstoneFinderWidget />
         </div>
       </section>
+
+      {/* Gemstone Grid with Benefits - Like Gempundit */}
+      <GemstoneGridBenefits />
+
+      {/* Certification Badges - Like Gempundit */}
+      <CertificationBadges />
 
       {/* Why Choose Us - Premium */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-[hsl(30,15%,8%)] via-[hsl(30,12%,12%)] to-[hsl(30,10%,15%)] text-white">
