@@ -58,6 +58,7 @@ import BlogPost from "./pages/BlogPost";
 import Consultation from "./pages/Consultation";
 import Collections from "./pages/Collections";
 import GemstonesPendantCollection from "./pages/GemstonesPendantCollection";
+import RudrakshaTreeLanding from "./pages/RudrakshaTreeLanding";
 
 const queryClient = new QueryClient();
 
@@ -134,6 +135,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/consultation" element={<Consultation />} />
+          <Route path="/rudraksha-tree" element={<RudrakshaTreeLanding />} />
+          <Route path="/coloured-rudraksha-tree" element={<RudrakshaTreeLanding />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
