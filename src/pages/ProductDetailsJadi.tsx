@@ -284,7 +284,7 @@ const ProductDetailsJadi = () => {
                   <div className="border-t pt-2 md:pt-3">
                     <div className="flex items-center gap-2 md:gap-3 text-xs text-muted-foreground flex-wrap">
                       <span className="font-medium flex items-center gap-1"><Shield className="h-3 w-3 text-green-600" /> 100% Authentic</span>
-                      <span className="font-medium flex items-center gap-1"><Clock className="h-3 w-3 text-blue-600" /> 7-Day Returns</span>
+                      <span className="font-medium flex items-center gap-1"><Truck className="h-3 w-3 text-blue-600" /> Free Shipping</span>
                       <span className="font-medium flex items-center gap-1"><CreditCard className="h-3 w-3" /> Secure Payment</span>
                     </div>
                   </div>
