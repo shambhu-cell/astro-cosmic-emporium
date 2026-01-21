@@ -276,18 +276,16 @@ const ProductDetailsJadi = () => {
                   </div>
                   <div className="flex items-center gap-2 text-xs md:text-sm">
                     <div className="flex items-center gap-2 flex-1">
-                      <Shield className="h-3 w-3 md:h-4 md:w-4 text-green-600 shrink-0" />
-                      <span className="font-medium">COD Available</span>
+                      <Award className="h-3 w-3 md:h-4 md:w-4 text-amber-600 shrink-0" />
+                      <span className="font-medium">Vedic Energized</span>
                     </div>
-                    <span className="text-xs text-muted-foreground">Pay on Delivery</span>
+                    <span className="text-xs text-muted-foreground">By Experts</span>
                   </div>
                   <div className="border-t pt-2 md:pt-3">
-                    <p className="text-xs font-medium mb-2">We Accept:</p>
                     <div className="flex items-center gap-2 md:gap-3 text-xs text-muted-foreground flex-wrap">
-                      <span className="font-medium flex items-center gap-1"><CreditCard className="h-3 w-3" /> Cards</span>
-                      <span className="font-medium flex items-center gap-1"><Smartphone className="h-3 w-3" /> UPI</span>
-                      <span className="font-medium flex items-center gap-1"><Building2 className="h-3 w-3" /> Net Banking</span>
-                      <span className="font-medium flex items-center gap-1"><Banknote className="h-3 w-3" /> COD</span>
+                      <span className="font-medium flex items-center gap-1"><Shield className="h-3 w-3 text-green-600" /> 100% Authentic</span>
+                      <span className="font-medium flex items-center gap-1"><Clock className="h-3 w-3 text-blue-600" /> 7-Day Returns</span>
+                      <span className="font-medium flex items-center gap-1"><CreditCard className="h-3 w-3" /> Secure Payment</span>
                     </div>
                   </div>
                 </CardContent>
