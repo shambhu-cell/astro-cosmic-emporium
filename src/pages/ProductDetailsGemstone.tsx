@@ -938,14 +938,13 @@ const ProductDetailsGemstone = () => {
             <Card className="bg-muted/30">
               <CardContent className="p-3 space-y-2">
                 <div className="flex items-center gap-3 flex-wrap text-xs">
-                  <span className="font-medium">Pay with:</span>
-                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><CreditCard className="h-3 w-3" /> Cards</span>
-                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Smartphone className="h-3 w-3" /> UPI</span>
-                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Building2 className="h-3 w-3" /> NetBanking</span>
-                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Banknote className="h-3 w-3" /> COD</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Shield className="h-3 w-3 text-green-600" /> 100% Authentic</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Award className="h-3 w-3 text-amber-600" /> Lab Certified</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Truck className="h-3 w-3 text-blue-600" /> Free Delivery</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Clock className="h-3 w-3 text-purple-600" /> 7-Day Returns</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Shield className="h-3 w-3" /> 100% Secure Payment • SSL Encrypted
+                  <CreditCard className="h-3 w-3" /> Secure Payment • SSL Encrypted • Cards, UPI, NetBanking
                 </div>
               </CardContent>
             </Card>
