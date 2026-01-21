@@ -30,6 +30,7 @@ import Newsletter from "@/components/Newsletter";
 import GemstoneFinderWidget from "@/components/GemstoneFinderWidget";
 import GemstoneGridBenefits from "@/components/GemstoneGridBenefits";
 import CertificationBadges from "@/components/CertificationBadges";
+import FounderVideoSection from "@/components/FounderVideoSection";
 
 // Import images
 import blueSapphireImg from "@/assets/gemstones/blue-sapphire.jpg";
@@ -445,6 +446,9 @@ const Index = () => {
 
       {/* Shop by Purpose */}
       <ShopByPurpose />
+
+      {/* Founder Video Section */}
+      <FounderVideoSection />
 
       {/* Product Sections */}
       <TopSellingGemstones />
