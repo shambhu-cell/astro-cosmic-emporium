@@ -382,7 +382,7 @@ const ProductDetailsGemstone = () => {
             <Shield className="h-4 w-4" /> Lab Certified
           </span>
           <span className="flex items-center gap-1.5 text-green-700 font-medium">
-            <RefreshCcw className="h-4 w-4" /> 7-Day Returns
+            <Sparkles className="h-4 w-4" /> Vedic Energized
           </span>
           <span className="flex items-center gap-1.5 text-green-700 font-medium">
             <Truck className="h-4 w-4" /> Free Shipping
@@ -807,7 +807,7 @@ const ProductDetailsGemstone = () => {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { icon: BadgeCheck, title: "Lab Certified", desc: "Government approved" },
-                { icon: RefreshCcw, title: "7-Day Returns", desc: "No questions asked" },
+                { icon: Sparkles, title: "Vedic Energized", desc: "Expert astrologers" },
                 { icon: Truck, title: "Free Shipping", desc: "Secure packaging" },
                 { icon: Shield, title: "100% Genuine", desc: "Authentic guarantee" },
               ].map((item, idx) => (
@@ -941,7 +941,7 @@ const ProductDetailsGemstone = () => {
                   <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Shield className="h-3 w-3 text-green-600" /> 100% Authentic</span>
                   <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Award className="h-3 w-3 text-amber-600" /> Lab Certified</span>
                   <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Truck className="h-3 w-3 text-blue-600" /> Free Delivery</span>
-                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Clock className="h-3 w-3 text-purple-600" /> 7-Day Returns</span>
+                  <span className="flex items-center gap-1 bg-white px-2 py-1 rounded"><Sparkles className="h-3 w-3 text-purple-600" /> Vedic Energized</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <CreditCard className="h-3 w-3" /> Secure Payment • SSL Encrypted • Cards, UPI, NetBanking
