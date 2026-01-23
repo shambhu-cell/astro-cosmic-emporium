@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp } from "lucide-react";
+import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp, CheckCircle, Zap, Timer, Flame, Gem, RefreshCcw, Headphones, Info, UserCheck, Sparkle, BookOpen, HelpCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -153,106 +153,141 @@ const TourmalineCollection = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge className="bg-pink-100 text-pink-700">Multi-Color Healing Stone</Badge>
-              <Badge className="bg-green-100 text-green-700">Heart Chakra</Badge>
-              <Badge variant="outline" className="border-purple-300 text-purple-700">All Varieties</Badge>
-            </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Natural Tourmaline Collection
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              Discover the rainbow of healing with our certified Tourmaline collection. Pink, Green, Black, Watermelon - each color with unique metaphysical properties.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Protection & Grounding</span>
+      {/* Hero Section - Single Column like Blue Sapphire */}
+      <div className="bg-gradient-to-br from-pink-50 via-purple-50/50 to-green-50 border-b">
+        <div className="container mx-auto px-4 py-8 md:py-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="space-y-6">
+              {/* Badges */}
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge className="bg-pink-600 text-white border-0">
+                  <Heart className="w-3 h-3 mr-1" />
+                  Multi-Color Healing Stone
+                </Badge>
+                <Badge variant="outline" className="border-green-500 text-green-700">
+                  Heart Chakra
+                </Badge>
+                <Badge className="bg-green-500 text-white border-0">
+                  <Shield className="w-3 h-3 mr-1" />
+                  100% Certified
+                </Badge>
+                <Badge className="bg-purple-500 text-white border-0">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  All Varieties Available
+                </Badge>
               </div>
-              <div className="flex items-center gap-2">
-                <Heart className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Emotional Healing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Chakra Balance</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Lab Certified</span>
-              </div>
-            </div>
 
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+              {/* Title */}
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-foreground">
+                  Natural Tourmaline Collection
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-3xl">
+                  Discover the rainbow of healing with our certified Tourmaline collection. Pink, Green, Black, Watermelon - each color with unique metaphysical properties for protection, love, and prosperity.
+                </p>
+              </div>
+
+              {/* Key Benefits Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {["Protection & Grounding", "Emotional Healing", "Chakra Balance", "Love & Prosperity"].map((benefit, idx) => (
+                  <div key={idx} className="flex items-center gap-2 bg-pink-500/10 rounded-lg px-3 py-2.5 border border-pink-500/20">
+                    <CheckCircle className="w-4 h-4 text-pink-600 flex-shrink-0" />
+                    <span className="text-sm font-medium">{benefit}</span>
+                  </div>
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">4.8/5 from 320+ reviews</span>
-            </div>
 
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700">
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Expert
-              </Button>
-              <Button size="lg" variant="outline" className="border-pink-300 text-pink-700 hover:bg-pink-50">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-pink-100 to-green-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <Sparkles className="w-24 h-24 text-pink-500 mx-auto mb-4" />
-                <p className="text-xl font-semibold text-gray-700">Premium Tourmaline</p>
-                <p className="text-muted-foreground">All Colors Available</p>
+              {/* Social Proof Row */}
+              <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-pink-200">
+                <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {['K', 'D', 'A', 'P', 'S'].map((letter, i) => (
+                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 border-2 border-background flex items-center justify-center text-xs text-white font-bold">
+                          {letter}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-sm text-muted-foreground">
+                      <span className="font-bold text-foreground">5,000+</span> Happy Customers
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-pink-400 text-pink-400" />
+                    ))}
+                    <span className="text-sm font-medium ml-1">4.8/5</span>
+                    <span className="text-sm text-muted-foreground">(320+ reviews)</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 bg-red-500/10 text-red-600 px-4 py-2 rounded-full animate-pulse">
+                  <Eye className="w-4 h-4" />
+                  <span className="font-semibold">{viewingCount} people viewing now</span>
+                </div>
               </div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-pink-600" />
+
+              {/* Price & CTA Row */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold">5,000+ Sold</p>
-                  <p className="text-xs text-muted-foreground">This month</p>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-pink-600">₹4,500</span>
+                    <span className="text-lg text-muted-foreground line-through">₹6,500</span>
+                    <Badge className="bg-green-500 text-white">Save 30%</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Starting price • All colors available</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                  <Button size="lg" className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white" onClick={() => window.open('https://wa.me/919876543210', '_blank')}>
+                    <Phone className="w-4 h-4 mr-2" />
+                    Free Expert Consultation
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-pink-500 text-pink-700 hover:bg-pink-50">
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Trust Bar */}
-      <section className="bg-white border-y py-4">
+      {/* Trust Badges */}
+      <div className="bg-muted/30 border-b py-4">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-8">
-            <div className="flex items-center gap-2">
-              <Award className="w-5 h-5 text-pink-600" />
-              <span className="text-sm font-medium">Lab Certified</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex items-center gap-3 justify-center">
+              <Shield className="w-8 h-8 text-green-600" />
+              <div>
+                <p className="font-semibold text-sm">100% Certified</p>
+                <p className="text-xs text-muted-foreground">Lab Tested Gemstones</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Truck className="w-5 h-5 text-pink-600" />
-              <span className="text-sm font-medium">Free Shipping</span>
+            <div className="flex items-center gap-3 justify-center">
+              <Truck className="w-8 h-8 text-pink-600" />
+              <div>
+                <p className="font-semibold text-sm">Free Shipping</p>
+                <p className="text-xs text-muted-foreground">On All Orders</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-pink-600" />
-              <span className="text-sm font-medium">100% Authentic</span>
+            <div className="flex items-center gap-3 justify-center">
+              <Sparkles className="w-8 h-8 text-purple-600" />
+              <div>
+                <p className="font-semibold text-sm">Vedic Energized</p>
+                <p className="text-xs text-muted-foreground">By Expert Pandits</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-pink-600" />
-              <span className="text-sm font-medium">Vedic Energized</span>
+            <div className="flex items-center gap-3 justify-center">
+              <Headphones className="w-8 h-8 text-pink-600" />
+              <div>
+                <p className="font-semibold text-sm">Expert Support</p>
+                <p className="text-xs text-muted-foreground">21+ Years Experience</p>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
 
       {/* Sticky Navigation */}
       <div className="sticky top-0 z-40 bg-white border-b shadow-sm">
