@@ -137,73 +137,75 @@ const MoonstoneCollection = () => {
         </div>
       </div>
 
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge className="bg-blue-100 text-blue-700">Moon Stone</Badge>
-              <Badge className="bg-purple-100 text-purple-700">Emotional Balance</Badge>
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <Badge className="bg-blue-100 text-blue-700">Moon Stone</Badge>
+            <Badge className="bg-purple-100 text-purple-700">Emotional Balance</Badge>
+            <Badge variant="outline" className="border-blue-300 text-blue-700">Lab Certified</Badge>
+          </div>
+          
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Natural Moonstone Collection
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Premium quality Rainbow, Blue, and White Moonstones with mesmerizing adularescence effect. Associated with Moon for emotional balance and intuition.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2 bg-blue-50 rounded-lg px-3 py-2.5 border border-blue-200">
+              <Moon className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium">Moon Energy</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Natural Moonstone Collection
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              Premium quality Rainbow, Blue, and White Moonstones with mesmerizing adularescence effect. Associated with Moon for emotional balance and intuition.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <Moon className="w-5 h-5 text-blue-600" />
-                <span className="text-sm">Moon Energy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Heart className="w-5 h-5 text-blue-600" />
-                <span className="text-sm">Emotional Healing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-blue-600" />
-                <span className="text-sm">Adularescence</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-blue-600" />
-                <span className="text-sm">Lab Certified</span>
-              </div>
+            <div className="flex items-center justify-center gap-2 bg-blue-50 rounded-lg px-3 py-2.5 border border-blue-200">
+              <Heart className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium">Emotional Healing</span>
             </div>
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">4.8/5 from 280+ reviews</span>
+            <div className="flex items-center justify-center gap-2 bg-blue-50 rounded-lg px-3 py-2.5 border border-blue-200">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium">Adularescence</span>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600">
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Expert
-              </Button>
-              <Button size="lg" variant="outline">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
+            <div className="flex items-center justify-center gap-2 bg-blue-50 rounded-lg px-3 py-2.5 border border-blue-200">
+              <Award className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium">Lab Certified</span>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-              <Moon className="w-24 h-24 text-blue-500" />
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-blue-600" />
-                <div>
-                  <p className="text-sm font-semibold">3,500+ Sold</p>
-                  <p className="text-xs text-muted-foreground">This month</p>
-                </div>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {['M', 'K', 'P', 'R', 'S'].map((letter, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-white flex items-center justify-center text-xs text-white font-bold">
+                    {letter}
+                  </div>
+                ))}
               </div>
+              <span className="text-sm text-muted-foreground">
+                <span className="font-bold text-foreground">3,500+</span> Happy Customers
+              </span>
             </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm font-medium ml-1">4.8/5</span>
+              <span className="text-sm text-muted-foreground">(280+ reviews)</span>
+            </div>
+            <div className="flex items-center gap-2 bg-red-500/10 text-red-600 px-4 py-2 rounded-full animate-pulse">
+              <Eye className="w-4 h-4" />
+              <span className="text-sm font-medium">{viewingCount} viewing now</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Phone className="w-4 h-4 mr-2" />
+              Free Expert Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50">
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </Button>
           </div>
         </div>
       </section>
