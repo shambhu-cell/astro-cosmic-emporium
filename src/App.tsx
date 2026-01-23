@@ -59,6 +59,16 @@ import Consultation from "./pages/Consultation";
 import Collections from "./pages/Collections";
 import GemstonesPendantCollection from "./pages/GemstonesPendantCollection";
 import RudrakshaTreeLanding from "./pages/RudrakshaTreeLanding";
+import MoonstoneCollection from "./pages/MoonstoneCollection";
+import ChalcedonyCollection from "./pages/ChalcedonyCollection";
+import WhiteCoralCollection from "./pages/WhiteCoralCollection";
+import IoliteCollection from "./pages/IoliteCollection";
+import OpalCollection from "./pages/OpalCollection";
+import TourmalineCollection from "./pages/TourmalineCollection";
+import WhiteSapphireCollection from "./pages/WhiteSapphireCollection";
+import TurquoiseCollection from "./pages/TurquoiseCollection";
+import SpinelCollection from "./pages/SpinelCollection";
+import ZirconCollection from "./pages/ZirconCollection";
 
 const queryClient = new QueryClient();
 
