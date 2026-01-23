@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, Sparkles, Users, TrendingUp } from "lucide-react";
+import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp, Gem, Headphones, CheckCircle, UserCheck, BookOpen, Palette, Flame } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,14 @@ const OpalCollection = () => {
   const [priceRange, setPriceRange] = useState("all");
   const [viewingCount, setViewingCount] = useState(42);
   const [countdown, setCountdown] = useState({ hours: 5, minutes: 28, seconds: 55 });
+  const [recentBuyers] = useState([
+    { name: "Divya R.", location: "Mumbai", time: "3 mins ago" },
+    { name: "Arjun K.", location: "Bangalore", time: "8 mins ago" },
+    { name: "Neha S.", location: "Delhi", time: "14 mins ago" }
+  ]);
+  const [showNotification, setShowNotification] = useState(false);
+  const [currentBuyerIndex, setCurrentBuyerIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("products");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,6 +41,15 @@ const OpalCollection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const notificationInterval = setInterval(() => {
+      setShowNotification(true);
+      setCurrentBuyerIndex(prev => (prev + 1) % recentBuyers.length);
+      setTimeout(() => setShowNotification(false), 4000);
+    }, 15000);
+    return () => clearInterval(notificationInterval);
+  }, [recentBuyers.length]);
+
   const products = [
     { id: "opal-1", name: "Australian Fire Opal - 3.25 Carat", price: 18000, originalPrice: 25000, rating: 4.9, reviews: 56, weight: "3.25", origin: "Australia", certified: true, inStock: true, badge: "bestseller" },
     { id: "opal-2", name: "Ethiopian Opal - 4.50 Carat", price: 12000, originalPrice: 16500, rating: 4.8, reviews: 78, weight: "4.50", origin: "Ethiopia", certified: true, inStock: true, badge: "premium" },
@@ -40,9 +57,18 @@ const OpalCollection = () => {
     { id: "opal-4", name: "Black Opal Collector - 2.80 Carat", price: 45000, originalPrice: 65000, rating: 5.0, reviews: 23, weight: "2.80", origin: "Australia", certified: true, inStock: true, badge: "rare" },
   ];
 
+  const testimonials = [
+    { name: "Divya R.", location: "Mumbai", rating: 5, text: "Australian Black Opal is absolutely mesmerizing! The play of colors is magical. Perfect Venus stone.", date: "1 week ago" },
+    { name: "Karan M.", location: "Pune", rating: 5, text: "Ethiopian Opal exceeded my expectations. Excellent value for such stunning play-of-color!", date: "2 weeks ago" },
+    { name: "Priya S.", location: "Chennai", rating: 5, text: "Fire Opal enhanced my creativity tremendously. As an artist, I feel more inspired.", date: "3 weeks ago" }
+  ];
+
   const faqs = [
-    { question: "What are the benefits of Opal?", answer: "Opal is associated with Venus and brings creativity, love, passion, and artistic abilities. It enhances imagination and emotional expression." },
-    { question: "Which type of Opal is best?", answer: "Black Opal from Australia is the most valuable, followed by Fire Opal and White Opal. Ethiopian Opal offers excellent value with beautiful play-of-color." },
+    { question: "What are the benefits of Opal?", answer: "Opal is associated with Venus and brings creativity, love, passion, and artistic abilities. It enhances imagination, emotional expression, and helps attract romantic relationships." },
+    { question: "Which type of Opal is best?", answer: "Black Opal from Australia is the most valuable, followed by Fire Opal and Boulder Opal. Ethiopian Opal offers excellent value with beautiful play-of-color at affordable prices." },
+    { question: "Who should wear Opal?", answer: "Those with Venus in favorable positions, people in creative fields (artists, designers, musicians), and those seeking to enhance love and passion can benefit from Opal." },
+    { question: "How to wear Opal for astrological benefits?", answer: "Wear Opal in silver or platinum on the index finger of the right hand on Friday morning during Shukla Paksha. The stone should touch the skin." },
+    { question: "How to care for Opal?", answer: "Opal contains water and is sensitive to heat and dryness. Store away from direct sunlight, avoid chemicals, and occasionally wipe with a damp cloth to maintain moisture." }
   ];
 
   const filterProducts = () => {
@@ -73,6 +99,24 @@ const OpalCollection = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-orange-50">
+      {/* Recent Buyer Notification */}
+      {showNotification && (
+        <div className="fixed bottom-24 left-4 z-50 animate-in slide-in-from-left duration-300">
+          <Card className="bg-white shadow-lg border-l-4 border-pink-500 p-3 max-w-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                <ShoppingCart className="w-5 h-5 text-pink-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium">{recentBuyers[currentBuyerIndex].name} from {recentBuyers[currentBuyerIndex].location}</p>
+                <p className="text-xs text-muted-foreground">Purchased Opal • {recentBuyers[currentBuyerIndex].time}</p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {/* Urgency Banner */}
       <div className="bg-gradient-to-r from-pink-500 via-orange-500 to-yellow-500 text-white py-2 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-center gap-4 text-sm">
           <span className="flex items-center gap-2">
@@ -90,6 +134,7 @@ const OpalCollection = () => {
         </div>
       </div>
 
+      {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span className="hover:text-primary cursor-pointer" onClick={() => navigate("/")}>Home</span>
@@ -100,6 +145,7 @@ const OpalCollection = () => {
         </div>
       </div>
 
+      {/* Hero Section */}
       <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
@@ -112,7 +158,7 @@ const OpalCollection = () => {
             Natural Opal Collection
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Premium Australian and Ethiopian Opals with mesmerizing play-of-color. Associated with Venus for creativity and love.
+            Premium Australian, Ethiopian, and Fire Opals with mesmerizing play-of-color. Associated with Venus for creativity, love, and artistic expression.
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
@@ -121,11 +167,11 @@ const OpalCollection = () => {
               <span className="text-sm font-medium">Venus Energy</span>
             </div>
             <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
-              <Sparkles className="w-4 h-4 text-pink-600" />
+              <Palette className="w-4 h-4 text-pink-600" />
               <span className="text-sm font-medium">Creativity & Art</span>
             </div>
             <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
-              <Star className="w-4 h-4 text-pink-600" />
+              <Sparkles className="w-4 h-4 text-pink-600" />
               <span className="text-sm font-medium">Play of Color</span>
             </div>
             <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
@@ -173,6 +219,7 @@ const OpalCollection = () => {
         </div>
       </section>
 
+      {/* Trust Bar */}
       <section className="bg-white border-y py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8">
@@ -196,6 +243,26 @@ const OpalCollection = () => {
         </div>
       </section>
 
+      {/* Sticky Navigation */}
+      <div className="sticky top-0 z-40 bg-white border-b shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+            {["products", "about", "types", "benefits", "faqs"].map(tab => (
+              <Button
+                key={tab}
+                variant={activeTab === tab ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setActiveTab(tab)}
+                className={activeTab === tab ? "bg-pink-600 hover:bg-pink-700" : ""}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Filters */}
       <section className="container mx-auto px-4 py-6">
         <div className="flex flex-wrap gap-4 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -224,6 +291,7 @@ const OpalCollection = () => {
         </div>
       </section>
 
+      {/* Products Grid */}
       <section className="container mx-auto px-4 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {sortedProducts.map((product) => {
@@ -266,9 +334,132 @@ const OpalCollection = () => {
         </div>
       </section>
 
+      {/* Expert Consultation CTA */}
+      <section className="py-12 bg-gradient-to-r from-pink-500 to-orange-500 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Unleash Your Creative Potential</h2>
+            <p className="text-pink-100 mb-6">Get personalized guidance on choosing the perfect Opal based on your birth chart and creative goals.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" variant="secondary" className="bg-white text-pink-700 hover:bg-pink-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Free Expert Consultation
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center mb-8">Customer Stories</h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {testimonials.map((t, i) => (
+              <Card key={i} className="p-6">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(t.rating)].map((_, j) => <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+                </div>
+                <p className="text-muted-foreground mb-4">"{t.text}"</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">{t.name}</p>
+                    <p className="text-sm text-muted-foreground">{t.location}</p>
+                  </div>
+                  <Badge variant="outline"><CheckCircle2 className="w-3 h-3 mr-1" />Verified</Badge>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Opal Section */}
       <section className="py-12 bg-pink-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">About Opal</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <Gem className="w-5 h-5 text-pink-600" />
+                  Types of Opal
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Black Opal:</strong> Most valuable, dark body with vivid colors</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Fire Opal:</strong> Transparent orange-red, Mexican origin</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>White Opal:</strong> Light body tone with play-of-color</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Ethiopian Opal:</strong> Excellent value, hydrophane type</span>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-pink-600" />
+                  How to Wear Opal
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Metal:</strong> Silver or Platinum (preferred)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Finger:</strong> Index finger of right hand</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Day & Time:</strong> Friday morning during Shukla Paksha</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Mantra:</strong> "Om Shukraya Namah" (108 times)</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
+
+            {/* Who Should Wear */}
+            <h3 className="text-xl font-bold text-center mb-6">Who Should Wear Opal?</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: Palette, title: "Artists", desc: "Painters, designers, musicians" },
+                { icon: Heart, title: "Lovers", desc: "Seeking romance & passion" },
+                { icon: Sparkles, title: "Creative Pros", desc: "Writers, filmmakers" },
+                { icon: Flame, title: "Venus Weak", desc: "In birth chart" }
+              ].map((item, i) => (
+                <Card key={i} className="p-4 text-center hover:shadow-md transition-shadow">
+                  <item.icon className="w-8 h-8 mx-auto mb-2 text-pink-600" />
+                  <h4 className="font-semibold text-sm">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl font-bold text-center mb-8">FAQs</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible>
             {faqs.map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
@@ -280,10 +471,32 @@ const OpalCollection = () => {
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="py-12 bg-pink-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">Ready to Experience the Magic of Opal?</h2>
+            <p className="text-muted-foreground mb-6">Choose from our certified Opal collection and unleash your creative potential.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600">
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                Shop Opal Collection
+              </Button>
+              <Button size="lg" variant="outline" className="border-pink-300 text-pink-700">
+                <Phone className="w-4 h-4 mr-2" />
+                Talk to Expert
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WhatsApp Float */}
       <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
         <MessageCircle className="w-6 h-6" />
       </a>
 
+      {/* Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 md:hidden z-40">
         <div className="flex items-center justify-between gap-4">
           <div>

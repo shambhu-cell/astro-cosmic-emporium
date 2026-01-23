@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp, Moon } from "lucide-react";
+import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp, Moon, Headphones, CheckCircle, UserCheck, BookOpen, Brain } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ const MoonstoneCollection = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [currentBuyerIndex, setCurrentBuyerIndex] = useState(0);
   const [countdown, setCountdown] = useState({ hours: 5, minutes: 32, seconds: 45 });
+  const [activeTab, setActiveTab] = useState("products");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -57,13 +58,17 @@ const MoonstoneCollection = () => {
   ];
 
   const testimonials = [
-    { name: "Kavitha R.", location: "Chennai", rating: 5, text: "The Rainbow Moonstone is absolutely stunning! The adularescence effect is mesmerizing.", date: "1 week ago" },
-    { name: "Rahul M.", location: "Pune", rating: 5, text: "Moon benefits are noticeable. Great for emotional balance and intuition.", date: "2 weeks ago" },
+    { name: "Kavitha R.", location: "Chennai", rating: 5, text: "The Rainbow Moonstone is absolutely stunning! The adularescence effect is mesmerizing. Perfect for Moon benefits.", date: "1 week ago" },
+    { name: "Rahul M.", location: "Pune", rating: 5, text: "Moon benefits are noticeable. Great for emotional balance and intuition. Highly recommend!", date: "2 weeks ago" },
+    { name: "Sneha D.", location: "Bangalore", rating: 5, text: "Blue Moonstone helped with my anxiety. Feeling calmer and more centered now.", date: "3 weeks ago" }
   ];
 
   const faqs = [
-    { question: "What are the benefits of Moonstone?", answer: "Moonstone is associated with the Moon and brings emotional balance, intuition, and fertility. It's especially beneficial for women and those seeking emotional healing." },
-    { question: "Who should wear Moonstone?", answer: "Those with weak Moon in their horoscope, people in creative fields, and those seeking emotional stability benefit most from Moonstone." },
+    { question: "What are the benefits of Moonstone?", answer: "Moonstone is associated with the Moon and brings emotional balance, intuition, and fertility. It's especially beneficial for women, those seeking emotional healing, and people in creative fields." },
+    { question: "Who should wear Moonstone?", answer: "Those with weak Moon in their horoscope, people in creative fields, women seeking hormonal balance, and those experiencing emotional turbulence benefit most from Moonstone." },
+    { question: "What is Adularescence in Moonstone?", answer: "Adularescence is the unique optical phenomenon in Moonstone that creates a glowing, floating light effect on the surface, resembling moonlight. Higher quality moonstones show stronger adularescence." },
+    { question: "How to wear Moonstone for best results?", answer: "Wear Moonstone in silver on the little finger of the right hand on Monday evening during Shukla Paksha. The stone should touch the skin for maximum benefits." },
+    { question: "Which type of Moonstone is best?", answer: "Rainbow Moonstone with strong blue adularescence from Sri Lanka is considered the finest. Blue Moonstone and Peach Moonstone are also highly valued." }
   ];
 
   const filterProducts = () => {
@@ -94,6 +99,7 @@ const MoonstoneCollection = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-purple-50">
+      {/* Recent Buyer Notification */}
       {showNotification && (
         <div className="fixed bottom-24 left-4 z-50 animate-in slide-in-from-left duration-300">
           <Card className="bg-white shadow-lg border-l-4 border-blue-500 p-3 max-w-xs">
@@ -110,6 +116,7 @@ const MoonstoneCollection = () => {
         </div>
       )}
 
+      {/* Urgency Banner */}
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white py-2 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-center gap-4 text-sm">
           <span className="flex items-center gap-2">
@@ -127,6 +134,7 @@ const MoonstoneCollection = () => {
         </div>
       </div>
 
+      {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span className="hover:text-primary cursor-pointer" onClick={() => navigate("/")}>Home</span>
@@ -137,6 +145,7 @@ const MoonstoneCollection = () => {
         </div>
       </div>
 
+      {/* Hero Section */}
       <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
@@ -149,7 +158,7 @@ const MoonstoneCollection = () => {
             Natural Moonstone Collection
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Premium quality Rainbow, Blue, and White Moonstones with mesmerizing adularescence effect. Associated with Moon for emotional balance and intuition.
+            Premium quality Rainbow, Blue, and White Moonstones with mesmerizing adularescence effect. Associated with Moon for emotional balance, intuition, and feminine energy.
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
@@ -210,6 +219,7 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* Trust Bar */}
       <section className="bg-white border-y py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8">
@@ -233,6 +243,26 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* Sticky Navigation */}
+      <div className="sticky top-0 z-40 bg-white border-b shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+            {["products", "about", "types", "benefits", "faqs"].map(tab => (
+              <Button
+                key={tab}
+                variant={activeTab === tab ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setActiveTab(tab)}
+                className={activeTab === tab ? "bg-blue-600 hover:bg-blue-700" : ""}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Filters */}
       <section className="container mx-auto px-4 py-6">
         <div className="flex flex-wrap gap-4 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -265,6 +295,7 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* Products Grid */}
       <section className="container mx-auto px-4 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {sortedProducts.map((product) => {
@@ -311,10 +342,31 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* Expert Consultation CTA */}
+      <section className="py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Seeking Emotional Balance & Intuition?</h2>
+            <p className="text-blue-100 mb-6">Get personalized guidance on choosing the right Moonstone based on your birth chart and emotional needs.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" variant="secondary" className="bg-white text-blue-700 hover:bg-blue-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Free Expert Consultation
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">Customer Stories</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {testimonials.map((t, i) => (
               <Card key={i} className="p-6">
                 <div className="flex items-center gap-1 mb-3">
@@ -334,9 +386,88 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* About Moonstone Section */}
       <section className="py-12 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">About Moonstone</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <Moon className="w-5 h-5 text-blue-600" />
+                  Astrological Significance
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Planet:</strong> Moon (Chandra)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Zodiac Signs:</strong> Cancer (Karka)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Chakra:</strong> Third Eye & Crown Chakra</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Day to Wear:</strong> Monday</span>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-blue-600" />
+                  How to Wear Moonstone
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Metal:</strong> Silver (preferred)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Finger:</strong> Little finger of right hand</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Day & Time:</strong> Monday evening during Shukla Paksha</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Mantra:</strong> "Om Som Somaya Namah" (108 times)</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
+
+            {/* Who Should Wear */}
+            <h3 className="text-xl font-bold text-center mb-6">Who Should Wear Moonstone?</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: Heart, title: "Women", desc: "Hormonal balance & fertility" },
+                { icon: Brain, title: "Intuitives", desc: "Psychics & healers" },
+                { icon: UserCheck, title: "Cancer Natives", desc: "Moon-ruled zodiac" },
+                { icon: Sparkles, title: "Creative Souls", desc: "Artists & writers" }
+              ].map((item, i) => (
+                <Card key={i} className="p-4 text-center hover:shadow-md transition-shadow">
+                  <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-600" />
+                  <h4 className="font-semibold text-sm">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl font-bold text-center mb-8">FAQs</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible>
             {faqs.map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
@@ -348,10 +479,32 @@ const MoonstoneCollection = () => {
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="py-12 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">Ready to Embrace Lunar Energy?</h2>
+            <p className="text-muted-foreground mb-6">Choose from our certified Moonstone collection and experience emotional harmony.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                Shop Moonstone Collection
+              </Button>
+              <Button size="lg" variant="outline" className="border-blue-300 text-blue-700">
+                <Phone className="w-4 h-4 mr-2" />
+                Talk to Expert
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WhatsApp Float */}
       <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
         <MessageCircle className="w-6 h-6" />
       </a>
 
+      {/* Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 md:hidden z-40">
         <div className="flex items-center justify-between gap-4">
           <div>
