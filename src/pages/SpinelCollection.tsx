@@ -148,78 +148,75 @@ const SpinelCollection = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge className="bg-pink-100 text-pink-700">The Collector's Gem</Badge>
-              <Badge className="bg-red-100 text-red-700">Ruby Alternative</Badge>
-              <Badge variant="outline" className="border-pink-300 text-pink-700">Lab Certified</Badge>
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <Badge className="bg-pink-100 text-pink-700">The Collector's Gem</Badge>
+            <Badge className="bg-red-100 text-red-700">Ruby Alternative</Badge>
+            <Badge variant="outline" className="border-pink-300 text-pink-700">Lab Certified</Badge>
+          </div>
+          
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Natural Spinel Collection
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Discover the "Great Imposter" - Spinel, historically mistaken for Ruby and Sapphire. Premium quality stones from Burma, Sri Lanka, and Vietnam.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
+              <Gem className="w-4 h-4 text-pink-600" />
+              <span className="text-sm font-medium">Collector's Choice</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Natural Spinel Collection
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              Discover the "Great Imposter" - Spinel, historically mistaken for Ruby and Sapphire. Premium quality stones from Burma, Sri Lanka, and Vietnam.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <Gem className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Collector's Choice</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Brilliant Fire</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Hardness 8</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-pink-600" />
-                <span className="text-sm">Lab Certified</span>
-              </div>
+            <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
+              <Sparkles className="w-4 h-4 text-pink-600" />
+              <span className="text-sm font-medium">Brilliant Fire</span>
             </div>
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">4.9/5 from 230+ reviews</span>
+            <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
+              <Shield className="w-4 h-4 text-pink-600" />
+              <span className="text-sm font-medium">Hardness 8</span>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700">
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Expert
-              </Button>
-              <Button size="lg" variant="outline" className="border-pink-300 text-pink-700 hover:bg-pink-50">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
+            <div className="flex items-center justify-center gap-2 bg-pink-50 rounded-lg px-3 py-2.5 border border-pink-200">
+              <Award className="w-4 h-4 text-pink-600" />
+              <span className="text-sm font-medium">Lab Certified</span>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <Gem className="w-24 h-24 text-pink-500 mx-auto mb-4" />
-                <p className="text-xl font-semibold text-gray-700">Premium Spinel</p>
-                <p className="text-muted-foreground">All Colors Available</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {['S', 'P', 'I', 'N', 'L'].map((letter, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-red-600 border-2 border-white flex items-center justify-center text-xs text-white font-bold">
+                    {letter}
+                  </div>
+                ))}
               </div>
+              <span className="text-sm text-muted-foreground">
+                <span className="font-bold text-foreground">1,200+</span> Happy Customers
+              </span>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-pink-600" />
-                <div>
-                  <p className="text-sm font-semibold">1,200+ Sold</p>
-                  <p className="text-xs text-muted-foreground">This month</p>
-                </div>
-              </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm font-medium ml-1">4.9/5</span>
+              <span className="text-sm text-muted-foreground">(230+ reviews)</span>
             </div>
+            <div className="flex items-center gap-2 bg-red-500/10 text-red-600 px-4 py-2 rounded-full animate-pulse">
+              <Eye className="w-4 h-4" />
+              <span className="text-sm font-medium">{viewingCount} viewing now</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button size="lg" className="bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700">
+              <Phone className="w-4 h-4 mr-2" />
+              Free Expert Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="border-pink-300 text-pink-700 hover:bg-pink-50">
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </Button>
           </div>
         </div>
       </section>

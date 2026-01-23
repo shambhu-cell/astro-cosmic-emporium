@@ -152,78 +152,75 @@ const WhiteSapphireCollection = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge className="bg-gray-100 text-gray-700">Diamond Alternative</Badge>
-              <Badge className="bg-blue-100 text-blue-700">Venus Stone</Badge>
-              <Badge variant="outline" className="border-gray-300 text-gray-700">Lab Certified</Badge>
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <Badge className="bg-gray-100 text-gray-700">Diamond Alternative</Badge>
+            <Badge className="bg-blue-100 text-blue-700">Venus Stone</Badge>
+            <Badge variant="outline" className="border-gray-300 text-gray-700">Lab Certified</Badge>
+          </div>
+          
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Natural White Sapphire (Safed Pukhraj)
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Premium quality Ceylon White Sapphire - the perfect diamond alternative. Associated with Venus for creativity, love, and luxury.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200">
+              <Gem className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium">Diamond Alternative</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Natural White Sapphire (Safed Pukhraj)
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              Premium quality Ceylon White Sapphire - the perfect diamond alternative. Associated with Venus for creativity, love, and luxury.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <Gem className="w-5 h-5 text-gray-600" />
-                <span className="text-sm">Diamond Alternative</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Heart className="w-5 h-5 text-gray-600" />
-                <span className="text-sm">Venus (Shukra) Stone</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-gray-600" />
-                <span className="text-sm">Brilliant Sparkle</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-gray-600" />
-                <span className="text-sm">Lab Certified</span>
-              </div>
+            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200">
+              <Heart className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium">Venus Stone</span>
             </div>
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">4.8/5 from 370+ reviews</span>
+            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200">
+              <Sparkles className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium">Brilliant Sparkle</span>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-gray-800 hover:bg-gray-900">
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Expert
-              </Button>
-              <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
+            <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200">
+              <Award className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium">Lab Certified</span>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-blue-50 flex items-center justify-center">
-              <div className="text-center p-8">
-                <Gem className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                <p className="text-xl font-semibold text-gray-700">Ceylon White Sapphire</p>
-                <p className="text-muted-foreground">Premium Quality</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {['W', 'S', 'A', 'P', 'H'].map((letter, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 border-2 border-white flex items-center justify-center text-xs text-white font-bold">
+                    {letter}
+                  </div>
+                ))}
               </div>
+              <span className="text-sm text-muted-foreground">
+                <span className="font-bold text-foreground">4,200+</span> Happy Customers
+              </span>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-gray-600" />
-                <div>
-                  <p className="text-sm font-semibold">4,200+ Sold</p>
-                  <p className="text-xs text-muted-foreground">This month</p>
-                </div>
-              </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm font-medium ml-1">4.8/5</span>
+              <span className="text-sm text-muted-foreground">(370+ reviews)</span>
             </div>
+            <div className="flex items-center gap-2 bg-red-500/10 text-red-600 px-4 py-2 rounded-full animate-pulse">
+              <Eye className="w-4 h-4" />
+              <span className="text-sm font-medium">{viewingCount} viewing now</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button size="lg" className="bg-gray-800 hover:bg-gray-900">
+              <Phone className="w-4 h-4 mr-2" />
+              Free Expert Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </Button>
           </div>
         </div>
       </section>

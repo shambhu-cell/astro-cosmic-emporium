@@ -153,78 +153,75 @@ const TurquoiseCollection = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge className="bg-cyan-100 text-cyan-700">Sky Blue Beauty</Badge>
-              <Badge className="bg-teal-100 text-teal-700">Jupiter Stone</Badge>
-              <Badge variant="outline" className="border-cyan-300 text-cyan-700">Lab Certified</Badge>
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <Badge className="bg-cyan-100 text-cyan-700">Sky Blue Beauty</Badge>
+            <Badge className="bg-teal-100 text-teal-700">Jupiter Stone</Badge>
+            <Badge variant="outline" className="border-cyan-300 text-cyan-700">Lab Certified</Badge>
+          </div>
+          
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Natural Turquoise (Firoza) Collection
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Premium quality Persian and American Turquoise. The sacred stone of wisdom, protection, and good fortune associated with Jupiter.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2 bg-cyan-50 rounded-lg px-3 py-2.5 border border-cyan-200">
+              <Shield className="w-4 h-4 text-cyan-600" />
+              <span className="text-sm font-medium">Protection Stone</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Natural Turquoise (Firoza) Collection
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              Premium quality Persian and American Turquoise. The sacred stone of wisdom, protection, and good fortune associated with Jupiter.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-cyan-600" />
-                <span className="text-sm">Protection Stone</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-cyan-600" />
-                <span className="text-sm">Jupiter (Guru) Energy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-cyan-600" />
-                <span className="text-sm">Success & Wisdom</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-cyan-600" />
-                <span className="text-sm">Lab Certified</span>
-              </div>
+            <div className="flex items-center justify-center gap-2 bg-cyan-50 rounded-lg px-3 py-2.5 border border-cyan-200">
+              <Sparkles className="w-4 h-4 text-cyan-600" />
+              <span className="text-sm font-medium">Jupiter Energy</span>
             </div>
-
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">4.8/5 from 420+ reviews</span>
+            <div className="flex items-center justify-center gap-2 bg-cyan-50 rounded-lg px-3 py-2.5 border border-cyan-200">
+              <TrendingUp className="w-4 h-4 text-cyan-600" />
+              <span className="text-sm font-medium">Success & Wisdom</span>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700">
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Expert
-              </Button>
-              <Button size="lg" variant="outline" className="border-cyan-300 text-cyan-700 hover:bg-cyan-50">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
+            <div className="flex items-center justify-center gap-2 bg-cyan-50 rounded-lg px-3 py-2.5 border border-cyan-200">
+              <Award className="w-4 h-4 text-cyan-600" />
+              <span className="text-sm font-medium">Lab Certified</span>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <Waves className="w-24 h-24 text-cyan-500 mx-auto mb-4" />
-                <p className="text-xl font-semibold text-gray-700">Persian Turquoise</p>
-                <p className="text-muted-foreground">Robin-Egg Blue</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {['T', 'F', 'P', 'R', 'S'].map((letter, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 border-2 border-white flex items-center justify-center text-xs text-white font-bold">
+                    {letter}
+                  </div>
+                ))}
               </div>
+              <span className="text-sm text-muted-foreground">
+                <span className="font-bold text-foreground">3,800+</span> Happy Customers
+              </span>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-cyan-600" />
-                <div>
-                  <p className="text-sm font-semibold">3,800+ Sold</p>
-                  <p className="text-xs text-muted-foreground">This month</p>
-                </div>
-              </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm font-medium ml-1">4.8/5</span>
+              <span className="text-sm text-muted-foreground">(420+ reviews)</span>
             </div>
+            <div className="flex items-center gap-2 bg-red-500/10 text-red-600 px-4 py-2 rounded-full animate-pulse">
+              <Eye className="w-4 h-4" />
+              <span className="text-sm font-medium">{viewingCount} viewing now</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700">
+              <Phone className="w-4 h-4 mr-2" />
+              Free Expert Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="border-cyan-300 text-cyan-700 hover:bg-cyan-50">
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </Button>
           </div>
         </div>
       </section>
