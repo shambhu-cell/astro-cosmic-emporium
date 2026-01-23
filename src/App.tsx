@@ -137,6 +137,20 @@ const App = () => (
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/rudraksha-tree" element={<RudrakshaTreeLanding />} />
           <Route path="/coloured-rudraksha-tree" element={<RudrakshaTreeLanding />} />
+          <Route path="/moonstone" element={<MoonstoneCollection />} />
+          <Route path="/moonstone-collection" element={<MoonstoneCollection />} />
+          <Route path="/chalcedony" element={<ChalcedonyCollection />} />
+          <Route path="/hakik" element={<ChalcedonyCollection />} />
+          <Route path="/white-coral" element={<WhiteCoralCollection />} />
+          <Route path="/iolite" element={<IoliteCollection />} />
+          <Route path="/neeli" element={<IoliteCollection />} />
+          <Route path="/opal" element={<OpalCollection />} />
+          <Route path="/tourmaline" element={<TourmalineCollection />} />
+          <Route path="/white-sapphire" element={<WhiteSapphireCollection />} />
+          <Route path="/turquoise" element={<TurquoiseCollection />} />
+          <Route path="/firoza" element={<TurquoiseCollection />} />
+          <Route path="/spinel" element={<SpinelCollection />} />
+          <Route path="/zircon" element={<ZirconCollection />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
