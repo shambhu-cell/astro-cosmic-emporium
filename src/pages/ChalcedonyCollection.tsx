@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp } from "lucide-react";
+import { Star, Shield, Truck, Award, Clock, ChevronRight, Eye, ShoppingCart, Heart, Filter, Phone, MessageCircle, CheckCircle2, Sparkles, Users, TrendingUp, Gem, Headphones, CheckCircle, UserCheck, BookOpen, Brain } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,14 @@ const ChalcedonyCollection = () => {
   const [priceRange, setPriceRange] = useState("all");
   const [viewingCount, setViewingCount] = useState(38);
   const [countdown, setCountdown] = useState({ hours: 4, minutes: 22, seconds: 18 });
+  const [recentBuyers] = useState([
+    { name: "Farhan A.", location: "Lucknow", time: "3 mins ago" },
+    { name: "Zoya K.", location: "Mumbai", time: "7 mins ago" },
+    { name: "Imran S.", location: "Hyderabad", time: "12 mins ago" }
+  ]);
+  const [showNotification, setShowNotification] = useState(false);
+  const [currentBuyerIndex, setCurrentBuyerIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("products");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,6 +41,15 @@ const ChalcedonyCollection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const notificationInterval = setInterval(() => {
+      setShowNotification(true);
+      setCurrentBuyerIndex(prev => (prev + 1) % recentBuyers.length);
+      setTimeout(() => setShowNotification(false), 4000);
+    }, 15000);
+    return () => clearInterval(notificationInterval);
+  }, [recentBuyers.length]);
+
   const products = [
     { id: "chalcedony-1", name: "Natural Hakik - 8.25 Carat", price: 2500, originalPrice: 3800, rating: 4.8, reviews: 124, weight: "8.25", origin: "India", certified: true, inStock: true, badge: "bestseller" },
     { id: "chalcedony-2", name: "Blue Chalcedony - 6.50 Carat", price: 3200, originalPrice: 4500, rating: 4.9, reviews: 87, weight: "6.50", origin: "Turkey", certified: true, inStock: true, badge: "premium" },
@@ -40,9 +57,18 @@ const ChalcedonyCollection = () => {
     { id: "chalcedony-4", name: "Sulemani Hakik - 7.50 Carat", price: 4500, originalPrice: 6200, rating: 5.0, reviews: 68, weight: "7.50", origin: "Yemen", certified: true, inStock: true, badge: "rare" },
   ];
 
+  const testimonials = [
+    { name: "Farhan A.", location: "Lucknow", rating: 5, text: "Sulemani Hakik quality is exceptional! Protection from evil eye is noticeable.", date: "1 week ago" },
+    { name: "Meera D.", location: "Jaipur", rating: 5, text: "Natural Hakik ring looks beautiful. Very grounding and calming effect.", date: "2 weeks ago" },
+    { name: "Kabir S.", location: "Delhi", rating: 5, text: "Blue Chalcedony pendant is stunning. Helps with communication and expression.", date: "3 weeks ago" }
+  ];
+
   const faqs = [
-    { question: "What is Chalcedony (Hakik)?", answer: "Chalcedony, known as Hakik in Hindi, is a microcrystalline variety of quartz. It's valued for protection and grounding properties." },
-    { question: "What are the benefits of Hakik?", answer: "Hakik is believed to provide protection from evil eye, promote emotional balance, and bring stability and grounding energy." },
+    { question: "What is Chalcedony (Hakik)?", answer: "Chalcedony, known as Hakik in Hindi and Urdu, is a microcrystalline variety of quartz. It's valued for protection from evil eye, emotional balance, and grounding properties." },
+    { question: "What are the benefits of Hakik?", answer: "Hakik is believed to provide protection from evil eye (Nazar), promote emotional balance, bring stability and grounding energy, and enhance communication skills." },
+    { question: "What is Sulemani Hakik?", answer: "Sulemani Hakik is a rare variety of black and white banded agate from Yemen. It's highly valued for its powerful protective properties and is mentioned in Islamic traditions." },
+    { question: "How to wear Hakik for best results?", answer: "Hakik can be worn in any metal as a ring, pendant, or bracelet. There's no specific day or ritual required, making it accessible to everyone." },
+    { question: "Who should wear Hakik?", answer: "Anyone seeking protection from negative energies, emotional balance, or grounding can benefit from Hakik. It's especially recommended for those experiencing anxiety or stress." }
   ];
 
   const filterProducts = () => {
@@ -73,6 +99,24 @@ const ChalcedonyCollection = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-slate-50">
+      {/* Recent Buyer Notification */}
+      {showNotification && (
+        <div className="fixed bottom-24 left-4 z-50 animate-in slide-in-from-left duration-300">
+          <Card className="bg-white shadow-lg border-l-4 border-slate-500 p-3 max-w-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center">
+                <ShoppingCart className="w-5 h-5 text-slate-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium">{recentBuyers[currentBuyerIndex].name} from {recentBuyers[currentBuyerIndex].location}</p>
+                <p className="text-xs text-muted-foreground">Purchased Hakik • {recentBuyers[currentBuyerIndex].time}</p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {/* Urgency Banner */}
       <div className="bg-gradient-to-r from-slate-700 via-gray-600 to-slate-700 text-white py-2 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-center gap-4 text-sm">
           <span className="flex items-center gap-2">
@@ -90,6 +134,7 @@ const ChalcedonyCollection = () => {
         </div>
       </div>
 
+      {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span className="hover:text-primary cursor-pointer" onClick={() => navigate("/")}>Home</span>
@@ -100,6 +145,7 @@ const ChalcedonyCollection = () => {
         </div>
       </div>
 
+      {/* Hero Section */}
       <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
@@ -112,7 +158,7 @@ const ChalcedonyCollection = () => {
             Natural Chalcedony (Hakik) Collection
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Premium Sulemani and Natural Hakik for protection, grounding, and emotional balance. Certified stones from Yemen and India.
+            Premium Sulemani and Natural Hakik for protection from evil eye, grounding, and emotional balance. Certified stones from Yemen and India.
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
@@ -173,6 +219,7 @@ const ChalcedonyCollection = () => {
         </div>
       </section>
 
+      {/* Trust Bar */}
       <section className="bg-white border-y py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8">
@@ -196,6 +243,26 @@ const ChalcedonyCollection = () => {
         </div>
       </section>
 
+      {/* Sticky Navigation */}
+      <div className="sticky top-0 z-40 bg-white border-b shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+            {["products", "about", "types", "benefits", "faqs"].map(tab => (
+              <Button
+                key={tab}
+                variant={activeTab === tab ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setActiveTab(tab)}
+                className={activeTab === tab ? "bg-slate-700 hover:bg-slate-800" : ""}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Filters */}
       <section className="container mx-auto px-4 py-6">
         <div className="flex flex-wrap gap-4 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -224,6 +291,7 @@ const ChalcedonyCollection = () => {
         </div>
       </section>
 
+      {/* Products Grid */}
       <section className="container mx-auto px-4 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {sortedProducts.map((product) => {
@@ -266,9 +334,132 @@ const ChalcedonyCollection = () => {
         </div>
       </section>
 
+      {/* Expert Consultation CTA */}
+      <section className="py-12 bg-gradient-to-r from-slate-700 to-gray-800 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Help Choosing the Right Hakik?</h2>
+            <p className="text-slate-200 mb-6">Our experts can guide you to the perfect Hakik based on your needs - protection, grounding, or emotional healing.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" variant="secondary" className="bg-white text-slate-700 hover:bg-slate-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Free Expert Consultation
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center mb-8">Customer Stories</h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {testimonials.map((t, i) => (
+              <Card key={i} className="p-6">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(t.rating)].map((_, j) => <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+                </div>
+                <p className="text-muted-foreground mb-4">"{t.text}"</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">{t.name}</p>
+                    <p className="text-sm text-muted-foreground">{t.location}</p>
+                  </div>
+                  <Badge variant="outline"><CheckCircle2 className="w-3 h-3 mr-1" />Verified</Badge>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Hakik Section */}
       <section className="py-12 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">About Chalcedony (Hakik)</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <Gem className="w-5 h-5 text-slate-600" />
+                  Types of Hakik
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Sulemani Hakik:</strong> Black & white banded, strongest protection</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Blue Chalcedony:</strong> Communication, throat chakra</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Grey Hakik:</strong> Grounding, emotional balance</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>White Hakik:</strong> Purity, clarity of mind</span>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-slate-600" />
+                  How to Wear Hakik
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Metal:</strong> Any metal (Silver, Gold, or even thread)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Finger:</strong> Any finger or as pendant/bracelet</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Day & Time:</strong> No specific day required</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <span><strong>Ritual:</strong> Simple cleaning in water is sufficient</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
+
+            {/* Who Should Wear */}
+            <h3 className="text-xl font-bold text-center mb-6">Who Should Wear Hakik?</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: Shield, title: "Protection Seekers", desc: "From evil eye & negativity" },
+                { icon: Brain, title: "Anxiety Sufferers", desc: "For calming energy" },
+                { icon: UserCheck, title: "Business People", desc: "For stability & success" },
+                { icon: Heart, title: "Everyone", desc: "Universal protection stone" }
+              ].map((item, i) => (
+                <Card key={i} className="p-4 text-center hover:shadow-md transition-shadow">
+                  <item.icon className="w-8 h-8 mx-auto mb-2 text-slate-600" />
+                  <h4 className="font-semibold text-sm">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-2xl font-bold text-center mb-8">FAQs</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible>
             {faqs.map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
@@ -280,10 +471,32 @@ const ChalcedonyCollection = () => {
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="py-12 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">Ready to Experience Protection & Grounding?</h2>
+            <p className="text-muted-foreground mb-6">Choose from our certified Hakik collection and experience powerful protection energy.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="bg-slate-700 hover:bg-slate-800">
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                Shop Hakik Collection
+              </Button>
+              <Button size="lg" variant="outline" className="border-slate-300 text-slate-700">
+                <Phone className="w-4 h-4 mr-2" />
+                Talk to Expert
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WhatsApp Float */}
       <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
         <MessageCircle className="w-6 h-6" />
       </a>
 
+      {/* Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 md:hidden z-40">
         <div className="flex items-center justify-between gap-4">
           <div>
