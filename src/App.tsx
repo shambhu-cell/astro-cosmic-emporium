@@ -69,6 +69,7 @@ import WhiteSapphireCollection from "./pages/WhiteSapphireCollection";
 import TurquoiseCollection from "./pages/TurquoiseCollection";
 import SpinelCollection from "./pages/SpinelCollection";
 import ZirconCollection from "./pages/ZirconCollection";
+import YellowSapphireProduct from "./pages/YellowSapphireProduct";
 
 const queryClient = new QueryClient();
 
@@ -89,6 +90,8 @@ const App = () => (
           <Route path="/gemstone-collection/:gemstoneType" element={<GemstoneCollection />} />
           <Route path="/yellow-sapphire" element={<YellowSapphireCollection />} />
           <Route path="/yellow-sapphire-collection" element={<YellowSapphireCollection />} />
+          <Route path="/yellow-sapphire-product" element={<YellowSapphireProduct />} />
+          <Route path="/yellow-sapphire-product/:id" element={<YellowSapphireProduct />} />
           <Route path="/blue-sapphire" element={<BlueSapphireCollection />} />
           <Route path="/blue-sapphire-collection" element={<BlueSapphireCollection />} />
           <Route path="/ruby" element={<RubyCollection />} />
