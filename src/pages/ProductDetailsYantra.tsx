@@ -4,6 +4,7 @@ import { Star, ShoppingCart, Heart, Share2, Award, Shield, Truck, ArrowLeft, Spa
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import WhoBuysThis from "@/components/WhoBuysThis";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const ProductDetailsYantra = () => {
@@ -119,6 +120,8 @@ const ProductDetailsYantra = () => {
                 </button>
               ))}
             </div>
+
+            <WhoBuysThis />
 
             <div className="flex flex-wrap gap-2 sm:gap-3 pt-2">
               <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">

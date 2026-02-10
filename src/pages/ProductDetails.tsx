@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import gemstones from "@/assets/gemstones.jpg";
 import consultation from "@/assets/consultation.jpg";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 // Mock product data - in real app, this would come from API
 const getProductData = (id: string) => ({
@@ -134,6 +135,7 @@ const ProductDetails = () => {
                 </button>
               ))}
             </div>
+            <WhoBuysThis />
           </div>
 
           {/* Product Info */}

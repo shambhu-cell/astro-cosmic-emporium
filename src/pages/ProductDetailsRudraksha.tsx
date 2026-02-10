@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { rudrakshaProductsData } from "@/data/rudrakshaProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsRudraksha = () => {
   const { id } = useParams();
@@ -198,6 +199,8 @@ const ProductDetailsRudraksha = () => {
                 </button>
               ))}
             </div>
+
+            <WhoBuysThis />
 
             {/* Trust Badges */}
             <div className="grid grid-cols-2 gap-3">

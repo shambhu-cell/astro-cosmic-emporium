@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { jadiProducts } from "@/data/jadiProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsJadi = () => {
   const { id } = useParams();
@@ -134,6 +135,8 @@ const ProductDetailsJadi = () => {
                 </button>
               ))}
             </div>
+
+            <WhoBuysThis />
 
             <div className="flex flex-wrap gap-3 pt-2">
               <div className="flex items-center gap-2 text-xs sm:text-sm">

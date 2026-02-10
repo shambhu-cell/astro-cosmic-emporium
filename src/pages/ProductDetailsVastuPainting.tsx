@@ -24,6 +24,7 @@ import {
   Paintbrush,
 } from "lucide-react";
 import { vastuPaintingProducts } from "@/data/vastuPaintingProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsVastuPainting = () => {
   const { id } = useParams();
@@ -105,6 +106,7 @@ const ProductDetailsVastuPainting = () => {
                 </button>
               ))}
             </div>
+            <WhoBuysThis />
           </div>
 
           {/* Product Info */}

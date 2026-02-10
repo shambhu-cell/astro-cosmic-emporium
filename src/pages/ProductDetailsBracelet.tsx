@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { braceletProductsData } from "@/data/braceletProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsBracelet = () => {
   const { id } = useParams();
@@ -132,6 +133,8 @@ const ProductDetailsBracelet = () => {
                 </button>
               ))}
             </div>
+
+            <WhoBuysThis />
 
             <div className="flex gap-3 pt-2">
               <div className="flex items-center gap-2 text-sm">
