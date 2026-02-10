@@ -16,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import yellowSapphireImage from "@/assets/gemstones/yellow-sapphire.jpg";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 // Product data for Yellow Sapphire variants
 const yellowSapphireProducts = [
@@ -256,6 +257,8 @@ const YellowSapphireProduct = () => {
                 <Play className="w-6 h-6 text-muted-foreground" />
               </button>
             </div>
+
+            <WhoBuysThis />
 
             {/* Trust Indicators - Desktop */}
             <div className="hidden lg:grid grid-cols-3 gap-3 pt-4">

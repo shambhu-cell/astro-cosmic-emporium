@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import WhoBuysThis from "@/components/WhoBuysThis";
 import blueSapphireImage from "@/assets/gemstones/blue-sapphire.jpg";
 import rubyImage from "@/assets/gemstones/ruby.jpg";
 import emeraldImage from "@/assets/gemstones/emerald.jpg";
@@ -449,6 +450,8 @@ const ProductDetailsGemstone = () => {
                 </button>
               ))}
             </div>
+
+            <WhoBuysThis />
 
             {/* Desktop Trust Badges */}
             <div className="hidden md:grid grid-cols-4 gap-3 pt-2">

@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { malaProducts, type MalaProduct } from "@/data/malaProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsMala = () => {
   const { id } = useParams();
@@ -97,6 +98,7 @@ const ProductDetailsMala = () => {
                 </button>
               ))}
             </div>
+            <WhoBuysThis />
           </div>
 
           {/* Product Info */}

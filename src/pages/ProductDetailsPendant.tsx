@@ -17,6 +17,7 @@ import {
   Award
 } from "lucide-react";
 import { pendantProducts } from "@/data/pendantProducts";
+import WhoBuysThis from "@/components/WhoBuysThis";
 
 const ProductDetailsPendant = () => {
   const { id } = useParams();
@@ -86,6 +87,7 @@ const ProductDetailsPendant = () => {
                 </button>
               ))}
             </div>
+            <WhoBuysThis />
           </div>
 
           {/* Product Info */}
