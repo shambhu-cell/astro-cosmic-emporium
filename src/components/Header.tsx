@@ -27,6 +27,7 @@ const Header = () => {
     { name: "Hessonite (Gomed)", href: "/hessonite-collection", planet: "Rahu" },
     { name: "Cat's Eye (Lehsunia)", href: "/cats-eye-collection", planet: "Ketu" },
     { name: "Lapis Lazuli", href: "/lapis-lazuli-collection", planet: "Saturn/Jupiter" },
+    { name: "Citrine (Sunela)", href: "/citrine", planet: "Jupiter" },
   ];
 
   const rudrakshaTypes = [

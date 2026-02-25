@@ -70,6 +70,7 @@ import TurquoiseCollection from "./pages/TurquoiseCollection";
 import SpinelCollection from "./pages/SpinelCollection";
 import ZirconCollection from "./pages/ZirconCollection";
 import YellowSapphireProduct from "./pages/YellowSapphireProduct";
+import CitrineCollection from "./pages/CitrineCollection";
 
 const queryClient = new QueryClient();
 
@@ -164,6 +165,9 @@ const App = () => (
           <Route path="/firoza" element={<TurquoiseCollection />} />
           <Route path="/spinel" element={<SpinelCollection />} />
           <Route path="/zircon" element={<ZirconCollection />} />
+          <Route path="/citrine" element={<CitrineCollection />} />
+          <Route path="/citrine-collection" element={<CitrineCollection />} />
+          <Route path="/sunela" element={<CitrineCollection />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
