@@ -6,7 +6,7 @@ const ShippingPolicy = () => {
     <>
       <Helmet>
         <title>Shipping Policy | AstroSage Shop - Free Shipping on Gemstones & Rudraksha</title>
-        <meta name="description" content="AstroSage Shop shipping policy. Free shipping across India on orders above ₹999. Secure packaging for gemstones, rudraksha & spiritual products. Delivery in 3-7 business days." />
+        <meta name="description" content="AstroSage Shop shipping policy. Free shipping across India on all orders. Secure packaging for gemstones, rudraksha & spiritual products. Delivery in 3-7 business days." />
         <link rel="canonical" href="https://astrosage.shop/shipping-policy" />
       </Helmet>
 
@@ -26,7 +26,7 @@ const ShippingPolicy = () => {
           {/* Quick Info Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {[
-              { icon: Truck, title: "Free Shipping", desc: "On orders above ₹999" },
+              { icon: Truck, title: "Free Shipping", desc: "On all orders" },
               { icon: Clock, title: "3-7 Business Days", desc: "Domestic delivery" },
               { icon: Shield, title: "Insured Shipping", desc: "All orders are insured" },
               { icon: Package, title: "Secure Packaging", desc: "Tamper-proof packing" },
@@ -57,25 +57,20 @@ const ShippingPolicy = () => {
                   </thead>
                   <tbody className="divide-y divide-border">
                     <tr>
-                      <td className="p-4 text-foreground">Above ₹999</td>
+                      <td className="p-4 text-foreground">All Orders</td>
                       <td className="p-4 text-primary font-semibold">FREE</td>
                       <td className="p-4 text-muted-foreground">3-7 Business Days</td>
                     </tr>
                     <tr>
-                      <td className="p-4 text-foreground">Below ₹999</td>
-                      <td className="p-4 text-muted-foreground">₹99</td>
-                      <td className="p-4 text-muted-foreground">3-7 Business Days</td>
-                    </tr>
-                    <tr>
                       <td className="p-4 text-foreground">Express Delivery</td>
-                      <td className="p-4 text-muted-foreground">₹199</td>
+                      <td className="p-4 text-primary font-semibold">FREE</td>
                       <td className="p-4 text-muted-foreground">1-3 Business Days</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p className="text-sm text-muted-foreground mt-3">
-                * Metro cities (Delhi NCR, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata) typically receive orders within 3-4 business days. Remote areas may take up to 7-10 business days.
+                * Free shipping on all orders — no minimum order value required. Metro cities (Delhi NCR, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata) typically receive orders within 3-4 business days. Remote areas may take up to 7-10 business days.
               </p>
             </section>
 
@@ -168,7 +163,7 @@ const ShippingPolicy = () => {
               <div className="bg-card border border-border rounded-xl p-6 space-y-3">
                 {[
                   "Delivery dates are estimates and may vary due to unforeseen circumstances like weather, strikes, or courier delays.",
-                  "For Cash on Delivery (COD) orders, an additional ₹49 COD handling fee applies.",
+                  "Cash on Delivery (COD) is available on all orders with free shipping.",
                   "P.O. Box addresses are not accepted for shipping. Please provide a complete physical address.",
                   "If no one is available to receive the order, the courier will attempt delivery up to 3 times before returning the package.",
                   "For high-value orders (above ₹25,000), signature confirmation is required at the time of delivery.",
