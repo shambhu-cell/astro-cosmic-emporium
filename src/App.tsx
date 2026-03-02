@@ -71,6 +71,7 @@ import SpinelCollection from "./pages/SpinelCollection";
 import ZirconCollection from "./pages/ZirconCollection";
 import YellowSapphireProduct from "./pages/YellowSapphireProduct";
 import CitrineCollection from "./pages/CitrineCollection";
+import ShippingPolicy from "./pages/ShippingPolicy";
 
 const queryClient = new QueryClient();
 
@@ -132,6 +133,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/shipping-policy" element={<ShippingPolicy />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/gemstone/:id" element={<ProductDetailsGemstone />} />
           <Route path="/bracelet/:id" element={<ProductDetailsBracelet />} />

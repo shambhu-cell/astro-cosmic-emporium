@@ -95,6 +95,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</a></li>
                 <li><a href="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Returns & Refunds</a></li>
+                <li><a href="/shipping-policy" className="text-muted-foreground hover:text-primary transition-colors">Shipping Policy</a></li>
                 <li><a href="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
                 <li><a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
               </ul>
@@ -191,6 +192,7 @@ const Footer = () => {
             <div className="flex flex-wrap items-center space-x-6 text-sm">
               <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
               <a href="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+              <a href="/shipping-policy" className="text-muted-foreground hover:text-primary transition-colors">Shipping Policy</a>
               <a href="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</a>
               <a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
             </div>
