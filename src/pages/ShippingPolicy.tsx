@@ -92,17 +92,17 @@ const ShippingPolicy = () => {
                   <tbody className="divide-y divide-border">
                     <tr>
                       <td className="p-4 text-foreground">USA, UK, Canada, Australia</td>
-                      <td className="p-4 text-muted-foreground">₹499 – ₹999</td>
+                      <td className="p-4 text-muted-foreground">₹6,500</td>
                       <td className="p-4 text-muted-foreground">7-14 Business Days</td>
                     </tr>
                     <tr>
                       <td className="p-4 text-foreground">Middle East (UAE, Saudi Arabia)</td>
-                      <td className="p-4 text-muted-foreground">₹399 – ₹799</td>
+                      <td className="p-4 text-muted-foreground">₹6,500</td>
                       <td className="p-4 text-muted-foreground">5-10 Business Days</td>
                     </tr>
                     <tr>
                       <td className="p-4 text-foreground">Rest of World</td>
-                      <td className="p-4 text-muted-foreground">₹699 – ₹1,499</td>
+                      <td className="p-4 text-muted-foreground">₹6,500</td>
                       <td className="p-4 text-muted-foreground">10-21 Business Days</td>
                     </tr>
                   </tbody>
